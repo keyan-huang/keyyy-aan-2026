@@ -1,20 +1,31 @@
 .performance-case-study {
-    --study-ink: #17231f;
-    --study-ink-soft: #263630;
-    --study-coral: #e85d3f;
-    --study-coral-soft: #fff0eb;
-    --study-mint: #b8dfcf;
-    --study-mint-soft: #edf7f2;
-    --study-paper: #f7f8f5;
-    --study-line: #d9dfda;
-    --study-muted: #5d6a65;
+    --study-ink: #12141a;
+    --study-ink-soft: #1c1f26;
+    --study-coral: #5a4fcf;
+    --study-coral-soft: #eeebfb;
+    --study-mint: #9d90ff;
+    --study-mint-soft: #eef0fb;
+    --study-paper: #f4f3ef;
+    --study-line: #dcdde2;
+    --study-muted: #5a6270;
     --study-white: #ffffff;
+    --font-display: 'Fraunces', serif;
     background: var(--study-white);
     color: var(--study-ink);
 }
 
 .performance-case-study .navbar.scrolled {
-    background-color: rgba(255, 255, 255, 0.96);
+    background-color: rgba(13, 14, 18, 0.94);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.performance-case-study .navbar .logo,
+.performance-case-study .navbar .nav-links a {
+    color: var(--study-paper);
+}
+
+.performance-case-study .nav-links.active a {
+    color: var(--study-ink);
 }
 
 .performance-case-study .logo span,
@@ -271,12 +282,12 @@
 }
 
 .signal-high {
-    color: #a63824;
+    color: var(--study-coral);
     background: var(--study-coral-soft);
 }
 
 .signal-medium {
-    color: #2d6b55;
+    color: var(--study-muted);
     background: var(--study-mint-soft);
 }
 
@@ -598,8 +609,8 @@
     grid-template-columns: 1fr 1fr;
     gap: 1px;
     margin-top: 64px;
-    background: rgba(232, 93, 63, 0.26);
-    border: 1px solid rgba(232, 93, 63, 0.26);
+    background: rgba(90, 79, 207, 0.26);
+    border: 1px solid rgba(90, 79, 207, 0.26);
 }
 
 .jobs-grid article {

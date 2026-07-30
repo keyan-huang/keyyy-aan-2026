@@ -80,3 +80,24 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--terra);outline-offs
 .back-to-top{transition:color .25s ease}
 
 @media(prefers-reduced-motion:reduce){.case-study-feature,.case-visual,.pencil-mark,.case-action span,.note,.path-item,.sketch-card,.portrait-frame img,.text-link,.contact-link span,.logo,.nav-toggle{transition:none!important}}
+
+/* Bold navy + indigo palette */
+:root{--ink:#12141a;--soft:#565f6e;--paper:#f4f3ef;--white:#ffffff;--sage:#e7e4f6;--mint:#eceaf5;--forest:#14161c;--leaf:#6e925f;--sun:#e6b94f;--terra:#5a4fcf;--sky:#0d0e12;--line:rgba(18,20,26,.12);--dark-accent:#9d90ff}
+body{background-color:var(--paper)}
+.garden-hero{background-color:#0d0e12;background-image:linear-gradient(180deg,rgba(13,14,18,.5),rgba(13,14,18,.78)),url("../images/garden-hero.jpg")}
+.hero-copy{background:rgba(13,14,18,.82);border-color:rgba(255,255,255,.14);box-shadow:0 24px 60px rgba(0,0,0,.35)}
+.hero-copy h1{color:var(--white)}.hero-intro{color:rgba(244,243,239,.82)}.hero-copy .text-link{color:var(--dark-accent)}
+.navbar{background:rgba(13,14,18,.35)}
+.navbar.scrolled{background:rgba(13,14,18,.92);border-bottom:1px solid rgba(255,255,255,.1)}
+.navbar .logo,.navbar .nav-links a{color:var(--paper);text-shadow:none}
+.navbar .nav-toggle span{background:var(--paper);box-shadow:none}
+.navbar .nav-links.active a{color:var(--ink)}
+.about-section{background:var(--paper)}.portrait-frame::before{background:var(--terra)}.note{background:rgba(18,20,26,.03)}.note-sketch{background:var(--sage)}
+.work-section{background:var(--white)}.case-study-feature{background:var(--white);border-color:var(--line);box-shadow:0 18px 50px rgba(18,20,26,.06)}.case-study-sage .case-visual{background:#14161c}.case-study-sun .case-visual{background:#14161c}
+.case-study-sage .case-visual .pencil-mark,.case-study-sun .case-visual .mini-nav i{color:var(--dark-accent)}
+.case-study-sun .case-visual .mini-nav i{background:var(--dark-accent)}
+.side-paths{background:var(--forest)}.side-paths .chapter-number,.side-paths .path-item span{color:var(--dark-accent)}
+.playground-section{background:var(--mint)}.contact-section{background:var(--sky);color:var(--white)}
+.contact-section .garden-exit h2{color:var(--white)}.contact-section .chapter-number{color:var(--dark-accent)}.contact-section p:not(.chapter-number){color:rgba(244,243,239,.78)}
+.chapter-heading h2,.case-copy h3{color:var(--ink)}.side-paths .chapter-heading h2{color:var(--white)}
+.navbar .logo span{color:var(--dark-accent)}
