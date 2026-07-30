@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A product design case study about helping managers turn performance discussion records into timely actions and historical insight.">
+    <title>Performance Discussions Case Study | Alex Rivera</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/performance-case-study.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="performance-case-study">
+    <nav class="navbar scrolled" aria-label="Primary navigation">
+        <div class="nav-container">
+            <a href="index.html" class="logo" aria-label="Alex Rivera home">AR<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#work">Work</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <header class="study-hero">
+            <div class="container">
+                <a href="index.html#work" class="study-back-link">
+                    <span aria-hidden="true">&larr;</span>
+                    All projects
+                </a>
+                <div class="study-hero-grid">
+                    <div class="study-hero-copy">
+                        <p class="study-eyebrow">Enterprise product design</p>
+                        <h1>Turning performance records into decisions</h1>
+                        <p class="study-lede">I redesigned a text-heavy management module to help leaders identify work that needed attention and understand patterns without relying on manual spreadsheet analysis.</p>
+                        <dl class="study-facts">
+                            <div>
+                                <dt>Role</dt>
+                                <dd>Product Designer</dd>
+                            </div>
+                            <div>
+                                <dt>Focus</dt>
+                                <dd>Research, prototyping, validation</dd>
+                            </div>
+                            <div>
+                                <dt>Users</dt>
+                                <dd>Frontline to regional managers</dd>
+                            </div>
+                        </dl>
+                    </div>
+
+                    <figure class="decision-model" aria-labelledby="decision-model-caption">
+                        <div class="model-toolbar">
+                            <span class="model-product">Performance discussions</span>
+                            <span class="model-period">Last 90 days</span>
+                        </div>
+                        <div class="model-body">
+                            <div class="model-priority">
+                                <p class="model-label">Needs attention</p>
+                                <div class="model-count">08</div>
+                                <p class="model-note">Records surfaced for review</p>
+                            </div>
+                            <div class="model-trend">
+                                <div class="model-chart-header">
+                                    <p class="model-label">Discussion patterns</p>
+                                    <span>By department</span>
+                                </div>
+                                <div class="model-bars" aria-hidden="true">
+                                    <span style="--bar-size: 48%"></span>
+                                    <span style="--bar-size: 76%"></span>
+                                    <span style="--bar-size: 58%"></span>
+                                    <span style="--bar-size: 90%"></span>
+                                    <span style="--bar-size: 68%"></span>
+                                    <span style="--bar-size: 82%"></span>
+                                </div>
+                            </div>
+                            <div class="model-queue">
+                                <div class="model-row model-row-head">
+                                    <span>Discussion</span>
+                                    <span>Signal</span>
+                                    <span>Status</span>
+                                </div>
+                                <div class="model-row">
+                                    <span>Follow-up review</span>
+                                    <span class="signal signal-high">High</span>
+                                    <span>Open</span>
+                                </div>
+                                <div class="model-row">
+                                    <span>Attendance pattern</span>
+                                    <span class="signal signal-medium">Medium</span>
+                                    <span>Review</span>
+                                </div>
+                            </div>
+                        </div>
+                        <figcaption id="decision-model-caption">A conceptual model of the two needs uncovered in research: immediate action and historical understanding.</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </header>
+
+        <section class="study-section study-intro" aria-labelledby="overview-title">
+            <div class="container study-two-column">
+                <div>
+                    <p class="study-kicker">Overview</p>
+                    <h2 id="overview-title">A useful record system that demanded too much interpretation</h2>
+                </div>
+                <div class="study-prose">
+                    <p>The Performance Discussion Form module gave managers access to important employee records, but its dense, text-based table made priority work difficult to recognize at a glance. The information was there; finding and interpreting it required time and concentration.</p>
+                    <p>Historical analysis created a second burden. Managers exported records to Excel, maintained separate spreadsheets, and manually compared patterns across departments and time periods.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="study-section study-section-ink" aria-labelledby="challenge-title">
+            <div class="container">
+                <p class="study-kicker">The challenge</p>
+                <h2 id="challenge-title">Support the decision, not just the record</h2>
+                <p class="challenge-statement">How might we reduce the effort required to find important discussions while helping leaders understand broader performance patterns inside the product?</p>
+                <div class="problem-grid">
+                    <article>
+                        <span class="problem-index">01</span>
+                        <h3>Priority was buried in prose</h3>
+                        <p>Managers needed to read and interpret individual entries before they could judge urgency or severity.</p>
+                    </article>
+                    <article>
+                        <span class="problem-index">02</span>
+                        <h3>Scale increased the burden</h3>
+                        <p>Leaders responsible for larger organizations had more records to scan before locating work that needed attention.</p>
+                    </article>
+                    <article>
+                        <span class="problem-index">03</span>
+                        <h3>Trends lived elsewhere</h3>
+                        <p>Cross-department and historical comparisons required exports, separate spreadsheets, and manual tracking.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="study-section" aria-labelledby="users-title">
+            <div class="container">
+                <div class="study-heading-row">
+                    <div>
+                        <p class="study-kicker">The users</p>
+                        <h2 id="users-title">One system, different levels of responsibility</h2>
+                    </div>
+                    <p>Research included managers across the organization, from people closest to individual discussions to leaders looking across departments.</p>
+                </div>
+                <div class="role-map">
+                    <article class="role-card role-card-primary">
+                        <span class="role-scope">Direct scope</span>
+                        <h3>Frontline team managers</h3>
+                        <p>Managed individual contributors and worked closest to specific employee discussions and follow-up actions.</p>
+                    </article>
+                    <div class="role-connector" aria-hidden="true"></div>
+                    <article class="role-card">
+                        <span class="role-scope">Team oversight</span>
+                        <h3>Second-level managers</h3>
+                        <p>Managed other managers and needed visibility across multiple teams and discussion records.</p>
+                    </article>
+                    <div class="role-connector" aria-hidden="true"></div>
+                    <article class="role-card">
+                        <span class="role-scope">50&ndash;80 people</span>
+                        <h3>Regional managers</h3>
+                        <p>Looked across a region or department to understand priorities and broader organizational patterns.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="study-section study-section-mist" aria-labelledby="research-title">
+            <div class="container">
+                <div class="study-heading-row">
+                    <div>
+                        <p class="study-kicker">Research approach</p>
+                        <h2 id="research-title">Observe, prototype, validate</h2>
+                    </div>
+                    <p>We spoke with managers before and after prototyping so the design could respond to real work patterns rather than assumptions.</p>
+                </div>
+                <ol class="research-timeline">
+                    <li>
+                        <span class="timeline-number">01</span>
+                        <div>
+                            <p class="timeline-phase">Discover</p>
+                            <h3>Contextual interviews</h3>
+                            <p>Managers described the role of performance discussions in their day, the volume they handled, the actions they took, and the metrics they tracked.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="timeline-number">02</span>
+                        <div>
+                            <p class="timeline-phase">Observe</p>
+                            <h3>Current-state walkthroughs</h3>
+                            <p>Participants demonstrated the existing table and the external tools they used, revealing delays, workarounds, and missing analytical support.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="timeline-number">03</span>
+                        <div>
+                            <p class="timeline-phase">Test</p>
+                            <h3>Clickable prototype</h3>
+                            <p>Managers walked through the proposed experience while we observed navigation obstacles and opportunities to improve the interaction.</p>
+                        </div>
+                    </li>
+                    <li>
+                        <span class="timeline-number">04</span>
+                        <div>
+                            <p class="timeline-phase">Refine</p>
+                            <h3>Follow-up validation</h3>
+                            <p>After revising the prototype, we returned to participants for a focused check that the identified usability issues had been addressed.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="study-section" aria-labelledby="evidence-title">
+            <div class="container">
+                <p class="study-kicker">What we observed</p>
+                <h2 id="evidence-title">The product worked, but the workflow did not scale gracefully</h2>
+                <div class="evidence-layout">
+                    <div class="evidence-scene" aria-label="Simplified current workflow">
+                        <div class="scene-step">
+                            <span>1</span>
+                            <p>Scan a text-heavy list</p>
+                        </div>
+                        <div class="scene-arrow" aria-hidden="true">&rarr;</div>
+                        <div class="scene-step">
+                            <span>2</span>
+                            <p>Open and interpret records</p>
+                        </div>
+                        <div class="scene-arrow" aria-hidden="true">&rarr;</div>
+                        <div class="scene-step">
+                            <span>3</span>
+                            <p>Decide what needs action</p>
+                        </div>
+                        <div class="scene-branch">
+                            <span>For trends</span>
+                            <strong>Export to Excel &rarr; map &rarr; compare &rarr; track</strong>
+                        </div>
+                    </div>
+                    <div class="evidence-notes">
+                        <article>
+                            <p class="evidence-label">Observed</p>
+                            <p>Participants paused and scanned multiple entries when asked to find something requiring immediate attention.</p>
+                        </article>
+                        <article>
+                            <p class="evidence-label">Reported</p>
+                            <p>Managers described the module as difficult to navigate and less capable than newer areas of the product.</p>
+                        </article>
+                        <article>
+                            <p class="evidence-label">Workaround</p>
+                            <p>Managers maintained spreadsheets to compare patterns such as lateness discussions, PIP usage, and behavior-related discussions across departments.</p>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="study-section study-section-coral" aria-labelledby="reframe-title">
+            <div class="container">
+                <p class="study-kicker">Design direction</p>
+                <h2 id="reframe-title">Two jobs emerged from one table</h2>
+                <div class="jobs-grid">
+                    <article>
+                        <p class="job-label">Operational</p>
+                        <h3>What needs my attention now?</h3>
+                        <p>Reduce the reading and interpretation required to locate important records, then make focused review easier.</p>
+                        <ul>
+                            <li>Surface meaningful signals</li>
+                            <li>Support focused filtering</li>
+                            <li>Preserve access to record detail</li>
+                        </ul>
+                    </article>
+                    <article>
+                        <p class="job-label">Analytical</p>
+                        <h3>What patterns should I understand?</h3>
+                        <p>Bring common historical and departmental comparisons closer to the source data, reducing repetitive export work.</p>
+                        <ul>
+                            <li>Compare departments</li>
+                            <li>Review patterns over time</li>
+                            <li>Adapt detail to management scope</li>
+                        </ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="study-section" aria-labelledby="principles-title">
+            <div class="container study-two-column">
+                <div>
+                    <p class="study-kicker">Design principles</p>
+                    <h2 id="principles-title">Make complexity easier to act on, not invisible</h2>
+                </div>
+                <div class="principles-list">
+                    <article>
+                        <span>01</span>
+                        <div>
+                            <h3>Lead with significance</h3>
+                            <p>Help managers recognize which records deserve attention before asking them to parse the full narrative.</p>
+                        </div>
+                    </article>
+                    <article>
+                        <span>02</span>
+                        <div>
+                            <h3>Design for organizational scope</h3>
+                            <p>Keep individual record detail useful for frontline managers while supporting broader views for senior leaders.</p>
+                        </div>
+                    </article>
+                    <article>
+                        <span>03</span>
+                        <div>
+                            <h3>Connect action with context</h3>
+                            <p>Pair immediate work with historical patterns so managers can move between a specific discussion and the larger picture.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="study-section study-section-ink" aria-labelledby="validation-title">
+            <div class="container validation-layout">
+                <div>
+                    <p class="study-kicker">Validation</p>
+                    <h2 id="validation-title">Testing the workflow with the people who manage it</h2>
+                    <p class="validation-copy">The final clickable prototype was tested with managers through guided walkthroughs. We observed where participants encountered obstacles, revised the experience, and returned for a focused follow-up review.</p>
+                </div>
+                <div class="validation-loop" aria-label="Prototype validation cycle">
+                    <div>
+                        <span>1</span>
+                        <strong>Walk through</strong>
+                    </div>
+                    <div>
+                        <span>2</span>
+                        <strong>Observe</strong>
+                    </div>
+                    <div>
+                        <span>3</span>
+                        <strong>Revise</strong>
+                    </div>
+                    <div>
+                        <span>4</span>
+                        <strong>Recheck</strong>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="study-section" aria-labelledby="reflection-title">
+            <div class="container reflection-layout">
+                <div>
+                    <p class="study-kicker">Reflection</p>
+                    <h2 id="reflection-title">The opportunity was not a prettier table</h2>
+                </div>
+                <blockquote>
+                    <p>The research reframed this project from modernizing an outdated interface to supporting two kinds of management work: acting on individual discussions and learning from patterns across many of them.</p>
+                </blockquote>
+                <div class="reflection-note">
+                    <h3>What I would measure next</h3>
+                    <p>Time to identify a priority record, reliance on spreadsheet exports, and whether managers at different levels can find the right depth of information without losing context.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="study-next">
+            <div class="container">
+                <p>Selected work</p>
+                <h2>Explore another project</h2>
+                <a href="index.html#work" class="study-button">View all projects <span aria-hidden="true">&rarr;</span></a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <a href="index.html" class="logo">AR<span>.</span></a>
+                <p>&copy; 2026 Alex Rivera. All rights reserved.</p>
+                <a href="#" class="back-to-top">Back to top</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
