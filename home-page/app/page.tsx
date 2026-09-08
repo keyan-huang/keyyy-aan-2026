@@ -12,7 +12,7 @@ const Art = ({name, className = ''}: {name: string; className?: string}) => <img
 
 function ContactMenu() {
   return <DropdownMenu>
-    <DropdownMenuTrigger className="nav-contact">Connect</DropdownMenuTrigger>
+    <DropdownMenuTrigger className="nav-contact">Contact</DropdownMenuTrigger>
     <DropdownMenuContent align="end" sideOffset={14} className="contact-menu">
       <DropdownMenuItem className="contact-menu-item" render={<a href="mailto:keyanhuang3@gmail.com" />}>
         <span className="contact-color contact-color-email" aria-hidden="true">E</span>
@@ -33,7 +33,7 @@ function ContactMenu() {
 export default function Home() {
   return <>
     <a className="skip-link" href="#work">Skip to selected projects</a>
-    <header className="navigation"><nav aria-label="Main navigation"><a href="#work">Work</a><a href="#fun">Fun</a><a href="#me">Me</a><ContactMenu /></nav><a href="#top" aria-label="Back to top"><Art name="imgImage81" className="logo" /></a></header>
+    <header className="navigation"><a href="#top" aria-label="Back to top"><Art name="imgImage81" className="logo" /></a><nav aria-label="Main navigation"><a href="#work">Work</a><a href="#fun">Experiments</a><a href="#me">About</a><ContactMenu /></nav></header>
     <main id="top">
       <section className="intro" aria-label="Introduction">
         <div className="hero"><div><h1>Keyan is<br/>a curious designer</h1><p className="availability">Open to opportunity</p></div><Art name="imgBinoculars1" className="binoculars" /></div>
