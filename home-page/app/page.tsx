@@ -12,7 +12,7 @@ const Art = ({name, className = ''}: {name: string; className?: string}) => <img
 
 function ContactMenu() {
   return <DropdownMenu>
-    <DropdownMenuTrigger className="nav-contact">Connect <span aria-hidden="true" className="contact-chevron">⌄</span></DropdownMenuTrigger>
+    <DropdownMenuTrigger className="nav-contact">Connect</DropdownMenuTrigger>
     <DropdownMenuContent align="end" sideOffset={14} className="contact-menu">
       <DropdownMenuItem className="contact-menu-item" render={<a href="mailto:keyanhuang3@gmail.com" />}>
         <span className="contact-color contact-color-email" aria-hidden="true">E</span>
