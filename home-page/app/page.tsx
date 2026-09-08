@@ -1,9 +1,39 @@
+"use client";
+
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
+
 const asset = (name: string) => `/images/${name}.png`;
 const Art = ({name, className = ''}: {name: string; className?: string}) => <img className={`art ${className}`} src={asset(name)} alt="" />;
+
+function ContactMenu() {
+  return <DropdownMenu>
+    <DropdownMenuTrigger className="nav-contact">Connect <span aria-hidden="true" className="contact-chevron">⌄</span></DropdownMenuTrigger>
+    <DropdownMenuContent align="end" sideOffset={14} className="contact-menu">
+      <DropdownMenuItem className="contact-menu-item" render={<a href="mailto:keyanhuang3@gmail.com" />}>
+        <span className="contact-color contact-color-email" aria-hidden="true">E</span>
+        <span><strong>Email me</strong><small>keyanhuang3@gmail.com</small></span>
+      </DropdownMenuItem>
+      <DropdownMenuItem className="contact-menu-item" render={<a href="https://www.linkedin.com/in/keyan-huang-4895971b4/" target="_blank" rel="noopener noreferrer" />}>
+        <span className="contact-color contact-color-linkedin" aria-hidden="true">in</span>
+        <span><strong>LinkedIn</strong><small>Connect professionally</small></span>
+      </DropdownMenuItem>
+      <DropdownMenuItem className="contact-menu-item contact-menu-item-disabled" disabled>
+        <span className="contact-color contact-color-resume" aria-hidden="true">R</span>
+        <span><strong>Résumé</strong><small>Coming soon</small></span>
+      </DropdownMenuItem>
+    </DropdownMenuContent>
+  </DropdownMenu>;
+}
+
 export default function Home() {
   return <>
     <a className="skip-link" href="#work">Skip to selected projects</a>
-    <header className="navigation"><nav aria-label="Main navigation"><a href="#work">Work</a><a href="#fun">Fun</a><a href="#me">Me</a><a href="#connect">Connect</a></nav><a href="#top" aria-label="Back to top"><Art name="imgImage81" className="logo" /></a></header>
+    <header className="navigation"><nav aria-label="Main navigation"><a href="#work">Work</a><a href="#fun">Fun</a><a href="#me">Me</a><ContactMenu /></nav><a href="#top" aria-label="Back to top"><Art name="imgImage81" className="logo" /></a></header>
     <main id="top">
       <section className="intro" aria-label="Introduction">
         <div className="hero"><div><h1>Keyan is<br/>a curious designer</h1><p className="availability">Open to opportunity</p></div><Art name="imgBinoculars1" className="binoculars" /></div>
