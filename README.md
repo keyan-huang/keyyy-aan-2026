@@ -17,4 +17,4 @@ The separate Figma interactive prototype remains in Figma; this export contains 
 
 ## Separate portfolio website
 
-The standalone 2026 portfolio website is in `portfolio-site/`. Its source, configuration, and images are contained within that folder so they remain separate from this Performance Discussion Form case study.
+The standalone 2026 portfolio website is in `home-page/`. Its source, configuration, and images are contained within that folder so they remain separate from this Performance Discussion Form case study.
