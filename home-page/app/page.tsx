@@ -60,6 +60,6 @@ export default function Home() {
       </div></section>
       <div className="hobbies" aria-label="Cooking, painting, crafting, and sewing">{['imgPot2','imgBrushes2','imgSpoon1','imgSewingmachine1'].map(name=><div className="hobby-card" key={name}><Art name={name}/></div>)}</div>
     </main>
-    <footer id="connect"><div className="footer-inner"><Art name="imgBallon2" className="footer-balloon"/><div className="contact-content"><h2>This curious designer wants to connect with you!</h2><div className="contact-links"><a className="contact email" href="mailto:keyanhuang3@gmail.com">Email</a><a className="contact linkedin" href="https://www.linkedin.com/in/keyan-huang-4895971b4/" target="_blank" rel="noopener noreferrer">LinkedIn</a><span className="contact resume" aria-label="Résumé coming soon">Résumé <span className="soon">Coming soon</span></span></div></div></div></footer>
+    <footer id="connect"><div className="footer-inner"><Art name="imgBallon2" className="footer-balloon"/><div className="contact-content"><h2>This curious designer wants to connect with you!</h2><div className="contact-links"><a className="contact email" href="mailto:keyanhuang3@gmail.com">Email</a><a className="contact linkedin" href="https://www.linkedin.com/in/keyan-huang-4895971b4/" target="_blank" rel="noopener noreferrer">LinkedIn</a><span className="contact resume" aria-label="Résumé coming soon">Résumé</span></div></div></div></footer>
   </>;
 }
