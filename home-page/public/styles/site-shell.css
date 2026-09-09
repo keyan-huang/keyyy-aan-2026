@@ -136,7 +136,7 @@ button:focus-visible {
   margin: 26px 0 0;
   color: var(--color-text-muted);
   font-family: var(--font-body);
-  font-size: 18px;
+  font-size: 20px;
   line-height: 1.55;
 }
 
@@ -147,18 +147,18 @@ button:focus-visible {
   margin: 22px 0 0;
   color: var(--color-accent-green);
   font-family: var(--font-detail);
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 18px;
+  font-weight: 600;
   line-height: 1.4;
 }
 
 .footer-status-dot {
-  width: 9px;
-  height: 9px;
+  width: 11px;
+  height: 11px;
   flex: 0 0 auto;
   border-radius: 50%;
   background: var(--color-accent-green);
-  box-shadow: 0 0 0 4px rgb(85 119 56 / 14%);
+  box-shadow: 0 0 0 5px rgb(85 119 56 / 14%);
   animation: footer-status-pulse 1.6s ease-in-out infinite;
 }
 
@@ -357,7 +357,7 @@ button:focus-visible {
   }
 
   .footer-description {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .contact-links {
