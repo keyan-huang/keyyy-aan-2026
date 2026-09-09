@@ -53,6 +53,8 @@ export const homeContent = {
       'Problem Solving',
       'Vibe Coding',
     ],
+    strengths: ['Deliberative', 'Restorative', 'Harmony', 'Achiever', 'Discipline'],
+    strengthsUrl: 'https://www.gallup.com/cliftonstrengths/en/253715/34-cliftonstrengths-themes.aspx',
     tools: [
       { image: '/images/imgFigma1.png', label: 'Figma' },
       { image: '/images/imgAdobe1.png', label: 'Adobe' },

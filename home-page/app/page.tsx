@@ -88,32 +88,30 @@ export default function Home() {
               />
             </div>
             <div className="about-details">
-              <div className="about-summary-row">
-                <div className="panel education">
-                  <h3>Education</h3>
-                  <div className="education-item">
-                    <Image
-                      src={homeContent.about.education.image}
-                      alt=""
-                      width={52}
-                      height={52}
-                      loading="lazy"
-                      unoptimized
-                    />
-                    <div>
-                      <h4>{homeContent.about.education.school}</h4>
-                      <p>{homeContent.about.education.degree}</p>
-                    </div>
+              <div className="panel education">
+                <h3>Education</h3>
+                <div className="education-item">
+                  <Image
+                    src={homeContent.about.education.image}
+                    alt=""
+                    width={52}
+                    height={52}
+                    loading="lazy"
+                    unoptimized
+                  />
+                  <div>
+                    <h4>{homeContent.about.education.school}</h4>
+                    <p>{homeContent.about.education.degree}</p>
                   </div>
                 </div>
-                <div className="panel skills">
-                  <h3>Skills</h3>
-                  <ul className="skill-tags">
-                    {homeContent.about.skills.map((skill) => (
-                      <li key={skill}>{skill}</li>
-                    ))}
-                  </ul>
-                </div>
+              </div>
+              <div className="panel skills">
+                <h3>Skills</h3>
+                <ul className="skill-tags">
+                  {homeContent.about.skills.map((skill) => (
+                    <li key={skill}>{skill}</li>
+                  ))}
+                </ul>
               </div>
               <div className="panel tools">
                 <h3>Tools</h3>
@@ -131,6 +129,19 @@ export default function Home() {
                     />
                   ))}
                 </div>
+              </div>
+              <div className="panel strengths">
+                <h3>Strengths</h3>
+                <ul className="skill-tags strength-tags">
+                  {homeContent.about.strengths.map((strength) => (
+                    <li className={strength === 'Harmony' ? 'strength-tag--harmony' : undefined} key={strength}>
+                      {strength}
+                    </li>
+                  ))}
+                </ul>
+                <a className="strengths-link" href={homeContent.about.strengthsUrl} target="_blank" rel="noreferrer">
+                  Explore CliftonStrengths
+                </a>
               </div>
             </div>
             <div className="panel experience">

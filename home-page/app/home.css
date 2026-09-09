@@ -297,16 +297,13 @@ h2 {
   object-fit: cover;
 }
 .about-details {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-.about-summary-row {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
   gap: 24px;
 }
-.about-summary-row > .skills {
+.skills,
+.strengths {
   min-height: 0;
 }
 .panel {
@@ -361,21 +358,43 @@ h2 {
   background: #d9d9d9;
   border-radius: 50px;
 }
-.tools {
-  flex: none;
+.strengths {
+  display: flex;
+  flex-direction: column;
+}
+.strength-tags li {
+  color: #fff;
+  background: #6d2c91;
+}
+.strength-tags .strength-tag--harmony {
+  background: #087cad;
+}
+.strengths-link {
+  align-self: flex-start;
+  margin-top: auto;
+  padding-top: 16px;
+  color: var(--color-text);
+  font-family: var(--font-detail);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 .tool-icons {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px 16px;
   margin-top: 16px;
   align-items: center;
+  justify-items: center;
 }
 .tool-icons img {
   display: block;
-  width: 76px;
+  width: 56px;
   max-width: 100%;
-  height: 76px;
+  height: auto;
+  aspect-ratio: 1;
   object-fit: contain;
 }
 .experience {
@@ -636,10 +655,9 @@ h2 {
     margin: auto;
   }
   .about-details {
-    gap: 24px;
-  }
-  .about-summary-row {
     grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 24px;
   }
   .skill-tags {
     margin-top: 18px;
