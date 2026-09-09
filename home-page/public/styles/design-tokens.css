@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  color-scheme: light;
+  --color-background: #fff;
+  --color-text: #111827;
+  --color-text-case-study: #20232a;
+  --color-text-muted: #555b66;
+  --color-border: #e3e6ec;
+  --color-panel: #f7f8fc;
+  --color-footer: #f2f2f2;
+  --color-primary: #0c6cd1;
+  --color-primary-hover: #095caf;
+  --color-accent: #5543ad;
+  --color-accent-green: #557738;
+  --color-linkedin: #f67024;
+  --color-resume: #f74c7d;
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-detail: 'Inter', sans-serif;
+  --radius-small: 8px;
+  --radius-medium: 16px;
+  --radius-large: 24px;
+
+  /* Backward-compatible aliases used by existing project styles. */
+  --background: var(--color-background);
+  --foreground: var(--color-text);
+  --primary: var(--color-primary);
+  --ink: var(--color-text-case-study);
+  --muted: var(--color-text-muted);
+  --line: var(--color-border);
+  --accent: var(--color-accent);
+  --panel: var(--color-panel);
+  --font-sans: var(--font-body);
+  --radius: var(--radius-large);
+}

@@ -1,8 +1,34 @@
 # Keyan Huang Portfolio Website
 
-This folder contains Keyan Huang's 2026 portfolio website. The Performance
-Discussion Form case study is served from `public/performance-discussion-form/`
-so its navigation and homepage links share one site origin.
+This folder is the source of truth for Keyan Huang's portfolio. The code is
+organized so global changes, homepage content changes, and project changes have
+separate owners.
+
+## Where to edit
+
+| Change                                        | File or folder                        |
+| --------------------------------------------- | ------------------------------------- |
+| Navigation, contact details, footer copy      | `public/content/site.json`            |
+| Colors, fonts, spacing, radii                 | `public/styles/design-tokens.css`     |
+| Shared navigation and footer styles           | `public/styles/site-shell.css`        |
+| Shared React navigation and footer            | `components/shared/`                  |
+| Homepage copy, skills, tools, experience      | `content/home.ts`                     |
+| Project card title, summary, thumbnail, link  | `content/projects/<project>.ts`       |
+| Project card component and styles             | `components/home/`                    |
+| Global style imports                          | `app/globals.css`                     |
+| Homepage-only layout styles                   | `app/home.css`                        |
+| Performance Discussion Form content and media | `public/performance-discussion-form/` |
+
+Each new project should receive one metadata file in `content/projects/` and a
+self-contained folder in `public/<project-slug>/`. Add the metadata export to
+`content/projects/index.ts`; the homepage project list will render it.
+
+The static Performance Discussion Form case study loads the same site settings
+and shell styles as the React homepage through `public/scripts/site-shell.js`.
+Its `case-study.css` therefore contains only case-study-specific presentation.
+
+Use `status: 'draft'` for a project without a published case study and
+`status: 'published'` with an `href` when its page is ready.
 
 ## Local preview
 
@@ -19,14 +45,12 @@ Local development uses `vite.local.config.ts` and does not require the hosted
 environment's `.openai/hosting.json`. Run `pnpm build:local` to verify this setup.
 The Connect dropdown uses the shared Base UI component in `components/ui/`.
 
-The three project images (`imgImage164.png`, `imgImage168.png`, `imgImage167.png`)
-and portrait (`imgImg28071.png`) are empty in the repository and require original
-image files before they can display.
-
 ## Production build
 
 ```bash
 pnpm build
 ```
 
-The portfolio source lives in `app/`, and its images live in `public/images/`.
+The app entry points live in `app/`; editable content and reusable components
+live outside them. Shared images live in `public/images/`, while project media
+stays inside its project folder.

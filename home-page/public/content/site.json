@@ -1,0 +1,18 @@
+{
+  "name": "Keyan Huang",
+  "title": "Keyan - A curious designer",
+  "description": "A curious product designer turning complex problems into clear, human experiences.",
+  "logo": "images/imgImage81.png",
+  "navigation": [
+    { "label": "Work", "section": "work" },
+    { "label": "Experiments", "section": "fun" },
+    { "label": "About", "section": "me" }
+  ],
+  "contact": {
+    "email": "keyanhuang3@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/keyan-huang-4895971b4/",
+    "resumeAvailable": false
+  },
+  "footerMessage": "This curious designer wants to connect with you!",
+  "footerImage": "images/imgBallon2.png"
+}

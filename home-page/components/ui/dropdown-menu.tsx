@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { Menu } from '@base-ui/react/menu';
 import type { ComponentProps } from 'react';
@@ -17,7 +17,11 @@ export function DropdownMenuContent({
 }: DropdownMenuContentProps) {
   return (
     <Menu.Portal>
-      <Menu.Positioner align={align} sideOffset={sideOffset} style={{ zIndex: 50 }}>
+      <Menu.Positioner
+        align={align}
+        sideOffset={sideOffset}
+        style={{ zIndex: 50 }}
+      >
         <Menu.Popup {...props} />
       </Menu.Positioner>
     </Menu.Portal>

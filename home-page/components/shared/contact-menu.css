@@ -1,0 +1,83 @@
+.contact-menu {
+  width: min(390px, calc(100vw - 32px));
+  padding: 12px !important;
+  border: 1px solid #e8e8e8;
+  border-radius: var(--radius-large) !important;
+  background: var(--color-background) !important;
+  box-shadow: 0 18px 55px rgb(17 24 39 / 16%) !important;
+}
+
+.contact-menu-item {
+  display: grid !important;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 18px !important;
+  min-height: 82px;
+  padding: 10px !important;
+  border-radius: var(--radius-medium) !important;
+  color: var(--color-text) !important;
+  cursor: pointer !important;
+}
+
+.contact-menu-item + .contact-menu-item {
+  border-top: 1px solid #ededed;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.contact-menu-item:focus {
+  background: #f5f5f5 !important;
+}
+
+.contact-menu-item-disabled {
+  cursor: default !important;
+  opacity: 1 !important;
+}
+
+.contact-color {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  color: var(--color-background);
+  font-family: var(--font-detail);
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.contact-color-email {
+  background: var(--color-primary);
+}
+
+.contact-color-linkedin {
+  background: var(--color-linkedin);
+}
+
+.contact-color-resume {
+  background: var(--color-resume);
+}
+
+.contact-menu-item > span:last-child {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.contact-menu-item strong {
+  font-family: var(--font-detail);
+  font-size: 20px;
+  line-height: 1.25;
+}
+
+.contact-menu-item small {
+  display: block;
+  overflow: hidden;
+  margin-top: 5px;
+  color: #747474;
+  font-size: 15px;
+  font-weight: 300;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

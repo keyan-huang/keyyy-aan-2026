@@ -1,82 +1,150 @@
-"use client";
+import './home.css';
 
-import './project-thumbnails.css';
-
-import {ArrowRight} from 'lucide-react';
-
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-
-const asset = (name: string) => `/images/${name}.png`;
-const Art = ({name, className = ''}: {name: string; className?: string}) => <img className={`art ${className}`} src={asset(name)} alt="" />;
-
-function ProjectAction({href}: {href?: string}) {
-  const content = <><span>View details</span><ArrowRight aria-hidden="true" size={22} strokeWidth={2} /></>;
-
-  return href
-    ? <a className="project-action" href={href}>{content}</a>
-    : <button className="project-action" type="button">{content}</button>;
-}
-
-function ContactMenu() {
-  return <DropdownMenu>
-    <DropdownMenuTrigger className="nav-contact">Contact</DropdownMenuTrigger>
-    <DropdownMenuContent align="end" sideOffset={14} className="contact-menu">
-      <DropdownMenuItem className="contact-menu-item" render={<a href="mailto:keyanhuang3@gmail.com" />}>
-        <span className="contact-color contact-color-email" aria-hidden="true">E</span>
-        <span><strong>Email me</strong><small>keyanhuang3@gmail.com</small></span>
-      </DropdownMenuItem>
-      <DropdownMenuItem className="contact-menu-item" render={<a href="https://www.linkedin.com/in/keyan-huang-4895971b4/" target="_blank" rel="noopener noreferrer" />}>
-        <span className="contact-color contact-color-linkedin" aria-hidden="true">in</span>
-        <span><strong>LinkedIn</strong><small>Connect professionally</small></span>
-      </DropdownMenuItem>
-      <DropdownMenuItem className="contact-menu-item contact-menu-item-disabled" disabled>
-        <span className="contact-color contact-color-resume" aria-hidden="true">R</span>
-        <span><strong>Résumé</strong><small>Coming soon</small></span>
-      </DropdownMenuItem>
-    </DropdownMenuContent>
-  </DropdownMenu>;
-}
+import Image from 'next/image';
+import { ProjectCard } from '@/components/home/project-card';
+import { Artwork } from '@/components/shared/artwork';
+import { SiteFooter } from '@/components/shared/site-footer';
+import { SiteHeader } from '@/components/shared/site-header';
+import { homeContent } from '@/content/home';
+import { projects } from '@/content/projects';
 
 export default function Home() {
-  return <>
-    <a className="skip-link" href="#work">Skip to selected projects</a>
-    <header className="navigation"><a href="#top" aria-label="Back to top"><Art name="imgImage81" className="logo" /></a><nav aria-label="Main navigation"><a href="#work">Work</a><a href="#fun">Experiments</a><a href="#me">About</a><ContactMenu /></nav></header>
-    <main id="top">
-      <section className="intro" aria-label="Introduction">
-        <div className="hero"><div><h1>Keyan is<br/>a curious designer</h1><p className="availability">Open to opportunity</p></div><Art name="imgBinoculars1" className="binoculars" /></div>
-        <div className="art-row first-row">{['imgCursor1','imgBallon2','imgSunflower1','imgGeoshape2'].map(name=><Art key={name} name={name}/>)}</div>
-        <div className="art-row second-row">{['imgApron1','imgBike1','imgWaterpot2','imgShovel1'].map(name=><Art key={name} name={name}/>)}</div>
-        <p className="intro-copy">I’m a curious product designer who loves diving into messy, complicated problems and figuring out what’s really going on. I’m not afraid of complexity—I like pulling things apart, connecting the dots, and turning all that chaos into something that feels clear, and human.</p>
-      </section>
-      <section id="work" className="projects section-wide">
-        <h2>Selected Projects</h2>
-        <div className="project-list">{[
-          {name: 'paf-hero', title: 'PAF Redesign', description: `${Array(14).fill('I am cool').join(', ')},`},
-          {name: 'pdf-hero', title: 'Performance Discussion Form', description: 'Transforming a legacy data table into a dashboard that brings analytics and actionable work together.', href: '/performance-discussion-form/index.html'},
-        ].map(project=><article className="project" key={project.name}>
-          <div className="project-description"><h3>{project.title}</h3><p>{project.description}</p></div>
-          <div className={`project-thumbnail project-thumbnail-${project.name}`}>
-            <img className="project-image" src={asset(project.name)} alt={`${project.title} interface preview`} loading="lazy" />
+  return (
+    <>
+      <SiteHeader />
+      <main id="top">
+        <section className="intro" aria-label="Introduction">
+          <div className="hero">
+            <div>
+              <h1>
+                {homeContent.introduction.heading.split('\n').map((line) => (
+                  <span key={line}>
+                    {line}
+                    <br />
+                  </span>
+                ))}
+              </h1>
+              <p className="availability">
+                {homeContent.introduction.availability}
+              </p>
+            </div>
+            <Artwork
+              src={homeContent.introduction.illustration}
+              className="binoculars"
+            />
           </div>
-          <ProjectAction href={project.href} />
-        </article>)}</div>
-      </section>
-      <section id="fun" className="experiments section-narrow"><h2>Design Experiments</h2><div className="experiment-grid" aria-label="Six design experiment placeholders">{[0,1,2,3,4,5].map(n=><div key={n} className="experiment-tile" role="img" aria-label={`Design experiment ${n+1}: coming soon`}/>)}</div></section>
-      <section id="me" className="about section-wide"><h2>About Keyan</h2><div className="about-grid">
-        <div className="portrait-frame"><img src={asset('imgImg28071')} alt="Keyan outdoors by a pond" loading="lazy" /></div>
-        <div className="about-details"><div className="panel skills"><h3>Skills</h3><ul className="skill-tags">{['User Interviews','Competitive Research','User Testing','Problem Solving','Vibe Coding'].map(skill=><li key={skill}>{skill}</li>)}</ul></div>
-        <div className="panel tools"><h3>Tools</h3><div className="tool-icons">{[['imgFigma1','Figma'],['imgAdobe1','Adobe'],['imgClaude1','Claude'],['imgCodex1','Codex'],['imgJira1','Jira'],['imgUsertesting1','UserTesting']].map(([name,label])=><img key={name} src={asset(name)} alt={label} title={label} loading="lazy"/>)}</div></div></div>
-        <div className="panel experience"><h3>Experiences</h3><div className="experience-list">{[
-          ['imgPaycom1','Paycom','Product Designer','Product Intern'],['imgIbm1','IBM','Student Designer'],['imgImage165','AIGA UTD Student Chapter','Project Coordinator'],['imgEco1','Environmental Conservation Organization','Marketing VP']
-        ].map(([name,company,...roles])=><div className="experience-item" key={name}><img src={asset(name)} alt="" loading="lazy"/><div><h4>{company}</h4>{roles.map(role=><p key={role}>{role}</p>)}</div></div>)}</div></div>
-      </div></section>
-      <div className="hobbies" aria-label="Cooking, painting, crafting, and sewing">{['imgPot2','imgBrushes2','imgSpoon1','imgSewingmachine1'].map(name=><div className="hobby-card" key={name}><Art name={name}/></div>)}</div>
-    </main>
-    <footer id="connect"><div className="footer-inner"><Art name="imgBallon2" className="footer-balloon"/><div className="contact-content"><h2>This curious designer wants to connect with you!</h2><div className="contact-links"><a className="contact email" href="mailto:keyanhuang3@gmail.com">Email</a><a className="contact linkedin" href="https://www.linkedin.com/in/keyan-huang-4895971b4/" target="_blank" rel="noopener noreferrer">LinkedIn</a><span className="contact resume" aria-label="Résumé coming soon">Résumé</span></div></div></div></footer>
-  </>;
+          <div className="art-row first-row">
+            {homeContent.introduction.firstArtRow.map((src) => (
+              <Artwork key={src} src={src} />
+            ))}
+          </div>
+          <div className="art-row second-row">
+            {homeContent.introduction.secondArtRow.map((src) => (
+              <Artwork key={src} src={src} />
+            ))}
+          </div>
+          <p className="intro-copy">{homeContent.introduction.summary}</p>
+        </section>
+        <section id="work" className="projects section-wide">
+          <h2>Selected Projects</h2>
+          <div className="project-list">
+            {projects.map((project) => (
+              <ProjectCard project={project} key={project.slug} />
+            ))}
+          </div>
+        </section>
+        <section id="fun" className="experiments section-narrow">
+          <h2>Design Experiments</h2>
+          <div
+            className="experiment-grid"
+            aria-label="Six design experiment placeholders"
+          >
+            {homeContent.experiments.map((experiment) => (
+              <div
+                key={experiment.label}
+                className="experiment-tile"
+                aria-hidden="true"
+              />
+            ))}
+          </div>
+        </section>
+        <section id="me" className="about section-wide">
+          <h2>About Keyan</h2>
+          <div className="about-grid">
+            <div className="portrait-frame">
+              <Image
+                src={homeContent.about.portrait}
+                alt={homeContent.about.portraitAlt}
+                width={1000}
+                height={1000}
+                loading="lazy"
+                unoptimized
+              />
+            </div>
+            <div className="about-details">
+              <div className="panel skills">
+                <h3>Skills</h3>
+                <ul className="skill-tags">
+                  {homeContent.about.skills.map((skill) => (
+                    <li key={skill}>{skill}</li>
+                  ))}
+                </ul>
+              </div>
+              <div className="panel tools">
+                <h3>Tools</h3>
+                <div className="tool-icons">
+                  {homeContent.about.tools.map((tool) => (
+                    <Image
+                      key={tool.image}
+                      src={tool.image}
+                      alt={tool.label}
+                      title={tool.label}
+                      width={76}
+                      height={76}
+                      loading="lazy"
+                      unoptimized
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div className="panel experience">
+              <h3>Experiences</h3>
+              <div className="experience-list">
+                {[...homeContent.about.experience].map((experience) => (
+                  <div className="experience-item" key={experience.company}>
+                    <Image
+                      src={experience.image}
+                      alt=""
+                      width={48}
+                      height={48}
+                      loading="lazy"
+                      unoptimized
+                    />
+                    <div>
+                      <h4>{experience.company}</h4>
+                      {experience.roles.map((role) => (
+                        <p key={role}>{role}</p>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+        <div
+          className="hobbies"
+          aria-label="Cooking, painting, crafting, and sewing"
+        >
+          {homeContent.hobbies.map((src) => (
+            <div className="hobby-card" key={src}>
+              <Artwork src={src} />
+            </div>
+          ))}
+        </div>
+      </main>
+      <SiteFooter />
+    </>
+  );
 }

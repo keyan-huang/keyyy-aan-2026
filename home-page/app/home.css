@@ -1,9 +1,7 @@
-@import url('/styles/design-tokens.css');
-@import url('/styles/site-shell.css');
-@import 'tailwindcss';
-@import url('/styles/design-tokens.css');
-@import url('/styles/site-shell.css');
-@import 'tailwindcss';
+body {
+  overflow-x: clip;
+}
+
 h1,
 h2,
 h3,
