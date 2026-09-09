@@ -348,15 +348,15 @@ h2 {
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px 10px;
-  margin: 24px 0 0;
+  gap: 8px;
+  margin: 18px 0 0;
   padding: 0;
   list-style: none;
 }
 .skill-tags li {
-  font-size: 14px;
+  font-size: 13px;
   line-height: 1.5;
-  padding: 5px 10px;
+  padding: 4px 8px;
   background: #d9d9d9;
   border-radius: 50px;
 }
@@ -641,8 +641,8 @@ h2 {
     grid-template-columns: 1fr;
   }
   .skill-tags {
-    margin-top: 24px;
-    gap: 18px 12px;
+    margin-top: 18px;
+    gap: 8px;
   }
   .tool-icons {
     gap: 10px;
