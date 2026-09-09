@@ -14,6 +14,14 @@ import {
 const asset = (name: string) => `/images/${name}.png`;
 const Art = ({name, className = ''}: {name: string; className?: string}) => <img className={`art ${className}`} src={asset(name)} alt="" />;
 
+function ProjectAction({href}: {href?: string}) {
+  const content = <><span>View details</span><ArrowRight aria-hidden="true" size={22} strokeWidth={2} /></>;
+
+  return href
+    ? <a className="project-action" href={href}>{content}</a>
+    : <button className="project-action" type="button">{content}</button>;
+}
+
 function ContactMenu() {
   return <DropdownMenu>
     <DropdownMenuTrigger className="nav-contact">Contact</DropdownMenuTrigger>
@@ -49,16 +57,13 @@ export default function Home() {
         <h2>Selected Projects</h2>
         <div className="project-list">{[
           {name: 'paf-hero', title: 'PAF Redesign', description: `${Array(14).fill('I am cool').join(', ')},`},
-          {name: 'pdf-hero', title: 'Performance Discussion Form', description: 'Transforming a legacy data table into a dashboard that brings analytics and actionable work together.'},
+          {name: 'pdf-hero', title: 'Performance Discussion Form', description: 'Transforming a legacy data table into a dashboard that brings analytics and actionable work together.', href: 'https://keyan-huang.github.io/portfolio_website_2026/Performance%20Discussion%20Form/'},
         ].map(project=><article className="project" key={project.name}>
           <div className="project-description"><h3>{project.title}</h3><p>{project.description}</p></div>
           <div className={`project-thumbnail project-thumbnail-${project.name}`}>
             <img className="project-image" src={asset(project.name)} alt={`${project.title} interface preview`} loading="lazy" />
           </div>
-          <button className="project-action" type="button">
-            <span>View details</span>
-            <ArrowRight aria-hidden="true" size={22} strokeWidth={2} />
-          </button>
+          <ProjectAction href={project.href} />
         </article>)}</div>
       </section>
       <section id="fun" className="experiments section-narrow"><h2>Design Experiments</h2><div className="experiment-grid" aria-label="Six design experiment placeholders">{[0,1,2,3,4,5].map(n=><div key={n} className="experiment-tile" role="img" aria-label={`Design experiment ${n+1}: coming soon`}/>)}</div></section>
