@@ -88,6 +88,23 @@ export default function Home() {
               />
             </div>
             <div className="about-details">
+              <div className="panel education">
+                <h3>Education</h3>
+                <div className="education-item">
+                  <Image
+                    src={homeContent.about.education.image}
+                    alt=""
+                    width={52}
+                    height={52}
+                    loading="lazy"
+                    unoptimized
+                  />
+                  <div>
+                    <h4>{homeContent.about.education.school}</h4>
+                    <p>{homeContent.about.education.degree}</p>
+                  </div>
+                </div>
+              </div>
               <div className="panel skills">
                 <h3>Skills</h3>
                 <ul className="skill-tags">
