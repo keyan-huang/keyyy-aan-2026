@@ -45,6 +45,7 @@ export const homeContent = {
       image: '/images/ut-austin.png',
       school: 'The University of Texas at Austin',
       degree: 'BFA in Design',
+      gpa: 'GPA: 4.0',
     },
     skills: [
       'User Interviews',

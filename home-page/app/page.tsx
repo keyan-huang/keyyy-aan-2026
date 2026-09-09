@@ -102,6 +102,7 @@ export default function Home() {
                   <div>
                     <h4>{homeContent.about.education.school}</h4>
                     <p>{homeContent.about.education.degree}</p>
+                      <p>{homeContent.about.education.gpa}</p>
                   </div>
                 </div>
               </div>
