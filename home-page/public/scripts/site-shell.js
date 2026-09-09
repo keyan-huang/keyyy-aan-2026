@@ -49,8 +49,8 @@
       <div class="contact-content">
         <h2>${site.footerMessage}</h2>
         <div class="contact-links">
-          <a class="contact email" href="mailto:${site.contact.email}">Email</a>
           <a class="contact linkedin" href="${site.contact.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <a class="contact email" href="mailto:${site.contact.email}">Email</a>
           <span class="contact resume" aria-label="Resume coming soon">Resume</span>
         </div>
       </div>

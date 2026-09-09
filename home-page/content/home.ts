@@ -18,12 +18,47 @@ export const homeContent = {
     summary:
       'I’m a curious product designer who loves diving into messy, complicated problems and figuring out what’s really going on. I’m not afraid of complexity—I like pulling things apart, connecting the dots, and turning all that chaos into something that feels clear, and human.',
   },
-  experiments: Array.from({ length: 6 }, (_, index) => ({
-    label: `Design experiment ${index + 1}: coming soon`,
-  })),
+  experiments: [
+    {
+      title: 'Prompt Garden',
+      description: 'A playful prompt builder that grows rough ideas into structured creative directions.',
+      image: '/images/experiment-prompt-garden.png',
+      imageAlt: 'A friendly AI robot surrounded by colorful petal-shaped circuits',
+    },
+    {
+      title: 'Moodboard Copilot',
+      description: 'An AI companion that clusters references and turns visual patterns into editable moodboards.',
+      image: '/images/experiment-moodboard-copilot.png',
+      imageAlt: 'A small AI assistant organizing four colorful moodboard cards',
+    },
+    {
+      title: 'Research Agent',
+      description: 'A tiny synthesis agent that surfaces themes, tensions, and follow-up questions from raw notes.',
+      image: '/images/experiment-research-agent.png',
+      imageAlt: 'A magnifying glass inspecting an AI agent inside a connected research network',
+    },
+    {
+      title: 'Voice Notes Lab',
+      description: 'A voice-first experiment that transforms scattered thoughts into clear product stories.',
+      image: '/images/experiment-voice-lab.png',
+      imageAlt: 'Colorful voice waves moving between two speech bubbles',
+    },
+    {
+      title: 'Color Companion',
+      description: 'A generative palette tool that balances mood, accessibility, and brand personality.',
+      image: '/images/experiment-color-companion.png',
+      imageAlt: 'An AI color tool displaying five bright connected color swatches',
+    },
+    {
+      title: 'Interface Dreamer',
+      description: 'An exploratory UI generator for testing layouts before moving into high fidelity design.',
+      image: '/images/experiment-interface-dreamer.png',
+      imageAlt: 'A colorful generated interface layout with a large cursor',
+    },
+  ],
   about: {
-    portrait: '/images/imgImg28071.png',
-    portraitAlt: 'Keyan outdoors by a pond',
+    portrait: '/images/about-keyan.png',
+    portraitAlt: 'Keyan standing on a tree-lined street in a blue jacket',
     skills: [
       'User Interviews',
       'Competitive Research',
@@ -43,29 +78,57 @@ export const homeContent = {
       {
         image: '/images/imgPaycom1.png',
         company: 'Paycom',
-        roles: ['Product Designer', 'Product Intern'],
+        roles: [
+          {
+            title: 'Product Designer',
+            description: 'Designed thoughtful workflows for complex HR products in partnership with research, product, and engineering.',
+          },
+          {
+            title: 'Product Intern',
+            description: 'Explored early concepts and translated employee needs into clear, testable product improvements.',
+          },
+        ],
       },
       {
         image: '/images/imgIbm1.png',
         company: 'IBM',
-        roles: ['Student Designer'],
+        roles: [
+          {
+            title: 'Student Designer',
+            description: 'Shaped research findings and emerging technology concepts into an approachable experience.',
+          },
+        ],
       },
       {
         image: '/images/imgImage165.png',
         company: 'AIGA UTD Student Chapter',
-        roles: ['Project Coordinator'],
+        roles: [
+          {
+            title: 'Project Coordinator',
+            description: 'Organized creative programs and helped student designers turn shared ideas into welcoming events.',
+          },
+        ],
       },
       {
         image: '/images/imgEco1.png',
         company: 'Environmental Conservation Organization',
-        roles: ['Marketing VP'],
+        roles: [
+          {
+            title: 'Marketing VP',
+            description: 'Led campaign design and storytelling that made local conservation efforts easier to discover and support.',
+          },
+        ],
       },
     ],
   },
   hobbies: [
-    '/images/imgPot2.png',
-    '/images/imgBrushes2.png',
-    '/images/imgSpoon1.png',
-    '/images/imgSewingmachine1.png',
+    { src: '/images/imgPot2.png', label: 'Cooking' },
+    { src: '/images/imgBrushes2.png', label: 'Painting' },
+    { src: '/images/imgSpoon1.png', label: 'Trying new recipes' },
+    { src: '/images/imgSewingmachine1.png', label: 'Sewing' },
+    { src: '/images/imgWaterpot2.png', label: 'Gardening' },
+    { src: '/images/imgBike1.png', label: 'Cycling' },
+    { src: '/images/imgSunflower1.png', label: 'Growing flowers' },
+    { src: '/images/imgApron1.png', label: 'Making things by hand' },
   ],
 } as const;

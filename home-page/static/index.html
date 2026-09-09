@@ -11,6 +11,16 @@
     <link rel="stylesheet" href="/styles/site-shell.css" />
     <link rel="stylesheet" href="/home.css" />
     <link rel="stylesheet" href="/project-card.css" />
+    <script type="module">
+      import { mountArtRow } from '/scripts/art-interactions.js';
+      import { mountHobbyScroll } from '/scripts/hobby-scroll.js';
+      for (const [selector, kind] of [['.first-row', 'navigation'], ['.second-row', 'quotes']]) {
+        const container = document.querySelector(selector);
+        container.replaceChildren();
+        mountArtRow(container, kind);
+      }
+      mountHobbyScroll(document.querySelector('.hobby-scroll'));
+    </script>
   </head>
   <body>
     <a class="skip-link" href="#work">Skip to selected projects</a>
@@ -24,7 +34,7 @@
     <main id="top">
       <section class="intro" aria-label="Introduction">
         <div class="hero">
-          <div><h1>Keyan is<br />a curious designer<br /></h1><p class="availability">Open to opportunity</p></div>
+          <div><h1>Keyan is<br />a curious designer<br /></h1><p class="availability"><span class="availability-dot" aria-hidden="true"></span>Open to opportunity</p></div>
           <img class="art binoculars" src="/images/imgBinoculars1.png" alt="" />
         </div>
         <div class="art-row first-row">
@@ -54,15 +64,19 @@
       </section>
       <section id="fun" class="experiments section-narrow">
         <h2>Design Experiments</h2>
-        <div class="experiment-grid" aria-label="Six design experiment placeholders">
-          <div class="experiment-tile" aria-hidden="true"></div><div class="experiment-tile" aria-hidden="true"></div><div class="experiment-tile" aria-hidden="true"></div>
-          <div class="experiment-tile" aria-hidden="true"></div><div class="experiment-tile" aria-hidden="true"></div><div class="experiment-tile" aria-hidden="true"></div>
+        <div class="experiment-grid" aria-label="Six design experiment concepts">
+          <article class="experiment-card"><div class="experiment-thumbnail"><img src="/images/experiment-prompt-garden.png" alt="A friendly AI robot surrounded by colorful petal-shaped circuits" width="800" height="600" loading="lazy" /></div><div class="experiment-copy"><h3>Prompt Garden</h3><p>A playful prompt builder that grows rough ideas into structured creative directions.</p></div></article>
+          <article class="experiment-card"><div class="experiment-thumbnail"><img src="/images/experiment-moodboard-copilot.png" alt="A small AI assistant organizing four colorful moodboard cards" width="800" height="600" loading="lazy" /></div><div class="experiment-copy"><h3>Moodboard Copilot</h3><p>An AI companion that clusters references and turns visual patterns into editable moodboards.</p></div></article>
+          <article class="experiment-card"><div class="experiment-thumbnail"><img src="/images/experiment-research-agent.png" alt="A magnifying glass inspecting an AI agent inside a connected research network" width="800" height="600" loading="lazy" /></div><div class="experiment-copy"><h3>Research Agent</h3><p>A tiny synthesis agent that surfaces themes, tensions, and follow-up questions from raw notes.</p></div></article>
+          <article class="experiment-card"><div class="experiment-thumbnail"><img src="/images/experiment-voice-lab.png" alt="Colorful voice waves moving between two speech bubbles" width="800" height="600" loading="lazy" /></div><div class="experiment-copy"><h3>Voice Notes Lab</h3><p>A voice-first experiment that transforms scattered thoughts into clear product stories.</p></div></article>
+          <article class="experiment-card"><div class="experiment-thumbnail"><img src="/images/experiment-color-companion.png" alt="An AI color tool displaying five bright connected color swatches" width="800" height="600" loading="lazy" /></div><div class="experiment-copy"><h3>Color Companion</h3><p>A generative palette tool that balances mood, accessibility, and brand personality.</p></div></article>
+          <article class="experiment-card"><div class="experiment-thumbnail"><img src="/images/experiment-interface-dreamer.png" alt="A colorful generated interface layout with a large cursor" width="800" height="600" loading="lazy" /></div><div class="experiment-copy"><h3>Interface Dreamer</h3><p>An exploratory UI generator for testing layouts before moving into high fidelity design.</p></div></article>
         </div>
       </section>
       <section id="me" class="about section-wide">
         <h2>About Keyan</h2>
         <div class="about-grid">
-          <div class="portrait-frame"><img src="/images/imgImg28071.png" alt="Keyan outdoors by a pond" /></div>
+          <div class="portrait-frame"><img src="/images/about-keyan.png" alt="Keyan standing on a tree-lined street in a blue jacket" width="756" height="1124" /></div>
           <div class="about-details">
             <div class="panel skills"><h3>Skills</h3><ul class="skill-tags"><li>User Interviews</li><li>Competitive Research</li><li>User Testing</li><li>Problem Solving</li><li>Vibe Coding</li></ul></div>
             <div class="panel tools"><h3>Tools</h3><div class="tool-icons">
@@ -71,22 +85,32 @@
             </div></div>
           </div>
           <div class="panel experience"><h3>Experiences</h3><div class="experience-list">
-            <div class="experience-item"><img src="/images/imgPaycom1.png" alt="" /><div><h4>Paycom</h4><p>Product Designer</p><p>Product Intern</p></div></div>
-            <div class="experience-item"><img src="/images/imgIbm1.png" alt="" /><div><h4>IBM</h4><p>Student Designer</p></div></div>
-            <div class="experience-item"><img src="/images/imgImage165.png" alt="" /><div><h4>AIGA UTD Student Chapter</h4><p>Project Coordinator</p></div></div>
-            <div class="experience-item"><img src="/images/imgEco1.png" alt="" /><div><h4>Environmental Conservation Organization</h4><p>Marketing VP</p></div></div>
+            <div class="experience-item"><img src="/images/imgPaycom1.png" alt="" /><div><h4>Paycom</h4><div class="experience-role"><h5>Product Designer</h5><p>Designed thoughtful workflows for complex HR products in partnership with research, product, and engineering.</p></div><div class="experience-role"><h5>Product Intern</h5><p>Explored early concepts and translated employee needs into clear, testable product improvements.</p></div></div></div>
+            <div class="experience-item"><img src="/images/imgIbm1.png" alt="" /><div><h4>IBM</h4><div class="experience-role"><h5>Student Designer</h5><p>Shaped research findings and emerging technology concepts into an approachable experience.</p></div></div></div>
+            <div class="experience-item"><img src="/images/imgImage165.png" alt="" /><div><h4>AIGA UTD Student Chapter</h4><div class="experience-role"><h5>Project Coordinator</h5><p>Organized creative programs and helped student designers turn shared ideas into welcoming events.</p></div></div></div>
+            <div class="experience-item"><img src="/images/imgEco1.png" alt="" /><div><h4>Environmental Conservation Organization</h4><div class="experience-role"><h5>Marketing VP</h5><p>Led campaign design and storytelling that made local conservation efforts easier to discover and support.</p></div></div></div>
           </div></div>
         </div>
       </section>
-      <div class="hobbies" aria-label="Cooking, painting, crafting, and sewing">
-        <div class="hobby-card"><img class="art" src="/images/imgPot2.png" alt="" /></div><div class="hobby-card"><img class="art" src="/images/imgBrushes2.png" alt="" /></div>
-        <div class="hobby-card"><img class="art" src="/images/imgSpoon1.png" alt="" /></div><div class="hobby-card"><img class="art" src="/images/imgSewingmachine1.png" alt="" /></div>
-      </div>
+      <section class="hobby-scroll" aria-label="Keyan's creative interests">
+        <section class="hobby-viewport" aria-label="Hobby gallery" aria-keyshortcuts="ArrowLeft ArrowRight Home End">
+          <div class="hobbies">
+            <div class="hobby-card"><img class="art" src="/images/imgPot2.png" alt="Cooking" width="1000" height="1000" loading="lazy" /></div>
+            <div class="hobby-card"><img class="art" src="/images/imgBrushes2.png" alt="Painting" width="1000" height="1000" loading="lazy" /></div>
+            <div class="hobby-card"><img class="art" src="/images/imgSpoon1.png" alt="Trying new recipes" width="1000" height="1000" loading="lazy" /></div>
+            <div class="hobby-card"><img class="art" src="/images/imgSewingmachine1.png" alt="Sewing" width="1000" height="1000" loading="lazy" /></div>
+            <div class="hobby-card"><img class="art" src="/images/imgWaterpot2.png" alt="Gardening" width="1000" height="1000" loading="lazy" /></div>
+            <div class="hobby-card"><img class="art" src="/images/imgBike1.png" alt="Cycling" width="1000" height="1000" loading="lazy" /></div>
+            <div class="hobby-card"><img class="art" src="/images/imgSunflower1.png" alt="Growing flowers" width="1000" height="1000" loading="lazy" /></div>
+            <div class="hobby-card"><img class="art" src="/images/imgApron1.png" alt="Making things by hand" width="1000" height="1000" loading="lazy" /></div>
+          </div>
+        </section>
+      </section>
     </main>
     <footer class="site-footer home-footer" id="connect"><div class="footer-inner">
       <img class="art footer-balloon" src="/images/imgBallon2.png" alt="" />
       <div class="contact-content"><h2>This curious designer wants to connect with you!</h2><div class="contact-links">
-        <a class="contact email" href="mailto:keyanhuang3@gmail.com">Email</a><a class="contact linkedin" href="https://www.linkedin.com/in/keyan-huang-4895971b4/" target="_blank" rel="noopener noreferrer">LinkedIn</a><span class="contact resume" aria-label="Resume coming soon">Resume</span>
+            <a class="contact linkedin" href="https://www.linkedin.com/in/keyan-huang-4895971b4/" target="_blank" rel="noopener noreferrer">LinkedIn</a><a class="contact email" href="mailto:keyanhuang3@gmail.com">Email</a><span class="contact resume" aria-label="Resume coming soon">Resume</span>
       </div></div>
     </div></footer>
     <script type="module">

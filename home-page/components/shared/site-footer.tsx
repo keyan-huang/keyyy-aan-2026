@@ -9,9 +9,6 @@ export function SiteFooter() {
         <div className="contact-content">
           <h2>{site.footerMessage}</h2>
           <div className="contact-links">
-            <a className="contact email" href={`mailto:${site.contact.email}`}>
-              Email
-            </a>
             <a
               className="contact linkedin"
               href={site.contact.linkedin}
@@ -19,6 +16,9 @@ export function SiteFooter() {
               rel="noopener noreferrer"
             >
               LinkedIn
+            </a>
+            <a className="contact email" href={`mailto:${site.contact.email}`}>
+              Email
             </a>
             <span className="contact resume" aria-label="Resume coming soon">
               Resume

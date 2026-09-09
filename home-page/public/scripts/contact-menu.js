@@ -16,18 +16,18 @@ export function mountContactMenu(container, site) {
 
   const entries = [
     {
-      kind: 'email',
-      symbol: 'E',
-      label: 'Email me',
-      detail: site.contact.email,
-      href: `mailto:${site.contact.email}`,
-    },
-    {
       kind: 'linkedin',
       symbol: 'in',
       label: 'LinkedIn',
       detail: 'Connect professionally',
       href: site.contact.linkedin,
+    },
+    {
+      kind: 'email',
+      symbol: 'E',
+      label: 'Email me',
+      detail: site.contact.email,
+      href: `mailto:${site.contact.email}`,
     },
     { kind: 'resume', symbol: 'R', label: 'Resume', detail: 'Coming soon' },
   ];

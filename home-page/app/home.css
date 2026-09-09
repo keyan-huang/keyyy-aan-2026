@@ -40,11 +40,28 @@ p {
   letter-spacing: -1.5px;
 }
 .availability {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
   font-size: 32px;
   font-weight: 300;
   color: #7aa150;
   margin-top: 24px;
   line-height: 1.1;
+}
+.availability-dot {
+  width: 10px;
+  height: 10px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #557738;
+  box-shadow: 0 0 0 4px rgb(85 119 56 / 14%);
+  animation: availability-blink 1.6s ease-in-out infinite;
+}
+@keyframes availability-blink {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.28; transform: scale(0.78); }
 }
 .binoculars {
   width: 344px;
@@ -72,6 +89,78 @@ p {
 .second-row .art {
   max-height: 244px;
 }
+.art-trigger {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+.art-trigger .art {
+  transition: transform 220ms ease, filter 220ms ease;
+}
+.art-trigger.art-active .art {
+  transform: translateY(-7px) rotate(-3deg) scale(1.04);
+  filter: drop-shadow(0 8px 5px rgb(17 24 39 / 12%));
+}
+.art-bubble {
+  --bubble-color: #0c6cd1;
+  position: fixed;
+  z-index: 55;
+  width: max-content;
+  max-width: min(340px, calc(100vw - 32px));
+  padding: 16px 22px;
+  border: 3px solid color-mix(in srgb, var(--bubble-color), #000 20%);
+  border-radius: 8px 36px 36px 36px;
+  background: var(--bubble-color);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.45;
+  letter-spacing: 0;
+  box-shadow: 0 7px 16px rgb(17 24 39 / 18%);
+}
+.art-bubble::after {
+  content: '';
+  position: absolute;
+  left: var(--pointer-left, 24px);
+  width: 17px;
+  height: 17px;
+  background: var(--bubble-color);
+  border-right: 3px solid color-mix(in srgb, var(--bubble-color), #000 20%);
+  border-bottom: 3px solid color-mix(in srgb, var(--bubble-color), #000 20%);
+  bottom: -12px;
+  transform: rotate(45deg);
+}
+.art-bubble[data-side='below']::after {
+  top: -12px;
+  bottom: auto;
+  transform: rotate(225deg);
+}
+.art-bubble p { margin: 0; }
+.art-bubble small {
+  display: block;
+  margin-top: 12px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.art-bubble-orange { --bubble-color: #b74708; }
+.art-bubble-green { --bubble-color: #23764c; }
+.art-bubble-pink { --bubble-color: #be285c; }
+.art-bubble-purple { --bubble-color: #7737ca; }
+@media (prefers-reduced-motion: reduce) {
+  .art-trigger .art { transition: none; }
+  .art-trigger.art-active .art { transform: none; }
+  .experiment-thumbnail { transition: none; }
+  .experiment-card:hover .experiment-thumbnail { transform: none; }
+  .availability-dot { animation: none; }
+  html { scroll-behavior: auto; }
+}
 .intro-copy {
   font-size: 32px;
   line-height: 1.5;
@@ -89,7 +178,7 @@ h2 {
 .section-wide {
   width: calc(100% - 152px);
   max-width: 1289px;
-  margin: 379px auto 0;
+  margin: 144px auto 0;
 }
 .projects h2 {
   margin-bottom: 67px;
@@ -137,19 +226,47 @@ h2 {
 .section-narrow {
   max-width: 1050px;
   width: calc(100% - 152px);
-  margin: 379px auto 0;
+  margin: 144px auto 0;
 }
 .experiment-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 250px));
-  justify-content: space-between;
-  gap: 100px 60px;
-  margin-top: 130px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px 36px;
+  margin-top: 56px;
 }
-.experiment-tile {
-  aspect-ratio: 1;
-  background: #d9d9d9;
-  border-radius: 24px;
+.experiment-thumbnail {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border: 1px solid rgb(17 24 39 / 18%);
+  border-radius: 8px;
+  box-shadow: 0 16px 30px rgb(17 24 39 / 12%);
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.experiment-thumbnail img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.experiment-card:hover .experiment-thumbnail {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 38px rgb(17 24 39 / 16%);
+}
+.experiment-copy {
+  margin-top: 20px;
+}
+.experiment-copy h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+.experiment-copy p {
+  margin-top: 10px;
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.55;
 }
 .about {
   max-width: 1221px;
@@ -171,12 +288,12 @@ h2 {
 }
 .portrait-frame img {
   position: absolute;
-  width: 140.09%;
+  width: 100%;
   max-width: none;
-  height: 125.52%;
-  top: -25.49%;
-  left: -14.47%;
-  object-fit: fill;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: cover;
 }
 .about-details {
   display: flex;
@@ -235,43 +352,83 @@ h2 {
   padding: 28px 20px 60px;
 }
 .experience-list {
-  display: flex;
-  flex-direction: column;
-  gap: 48px;
-  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 48px 72px;
+  margin-top: 36px;
 }
 .experience-item {
   display: flex;
-  gap: 12px;
+  gap: 16px;
   align-items: flex-start;
-  max-width: 400px;
 }
 .experience-item > img {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
+  flex: 0 0 auto;
   object-fit: contain;
 }
-.experience-item h4,
-.experience-item p {
+.experience-item h4 {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+.experience-role {
+  margin-top: 18px;
+}
+.experience-role h5 {
+  margin: 0;
+  font-family: var(--font-detail);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.experience-role p {
+  max-width: 420px;
+  margin: 6px 0 0;
+  color: var(--color-text-muted);
+  font-family: var(--font-body);
   font-size: 14px;
-  font-weight: 500;
-  line-height: 1.5;
-  margin: 0 0 8px;
+  font-weight: 400;
+  line-height: 1.55;
+}
+.hobby-scroll {
+  margin: 144px 0 0;
+}
+.hobby-viewport {
+  height: min(680px, calc(100svh - 90px));
+  min-height: 240px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+}
+.scroll-driven .hobby-viewport {
+  position: sticky;
+  top: 90px;
+  overflow-x: hidden;
+}
+.hobby-viewport:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: -4px;
 }
 .hobbies {
-  max-width: 1370px;
-  margin: 379px auto 0;
+  width: max-content;
+  max-width: none;
+  margin: 0;
+  height: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
-  padding: 25px 40px;
-  gap: 70px;
+  padding: 48px 76px;
+  gap: 128px;
 }
 .hobby-card {
   position: relative;
-  width: 240px;
+  width: min(380px, 70vw, calc(100svh - 220px));
   aspect-ratio: 1;
-  flex-shrink: 1;
+  flex: 0 0 auto;
 }
 .hobby-card:before {
   content: '';
@@ -287,10 +444,11 @@ h2 {
 .hobby-card .art {
   position: relative;
   padding: 12px;
+  filter: drop-shadow(0 18px 18px rgb(17 24 39 / 22%));
 }
 .home-footer {
-  --footer-spacing: 379px;
-  --footer-spacing-mobile: 140px;
+  --footer-spacing: 96px;
+  --footer-spacing-mobile: 64px;
 }
 @media (min-width: 1600px) {
   .hero {
@@ -335,7 +493,7 @@ h2 {
     gap: 24px;
   }
   .hobbies {
-    gap: 60px;
+    gap: 96px;
   }
 }
 @media (max-width: 700px) {
@@ -381,7 +539,7 @@ h2 {
   .section-wide,
   .section-narrow {
     width: calc(100% - 48px);
-    margin-top: 140px;
+    margin-top: 88px;
   }
   .projects h2 {
     margin-bottom: 48px;
@@ -413,10 +571,16 @@ h2 {
   .experiment-grid {
     margin-top: 48px;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
+    gap: 36px 18px;
   }
-  .experiment-tile {
-    border-radius: 20px;
+  .experiment-copy {
+    margin-top: 14px;
+  }
+  .experiment-copy h3 {
+    font-size: 18px;
+  }
+  .experiment-copy p {
+    font-size: 14px;
   }
   .about > h2 {
     margin-bottom: 40px;
@@ -452,17 +616,21 @@ h2 {
     padding-bottom: 32px;
   }
   .experience-list {
+    grid-template-columns: 1fr;
     gap: 32px;
   }
-  .hobbies {
-    margin-top: 140px;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 45px;
-    padding: 20px 40px;
+  .hobby-scroll {
+    margin-top: 88px;
   }
-  .hobby-card {
-    width: 100%;
+  .hobby-viewport {
+    height: min(460px, calc(100svh - 80px));
+  }
+  .scroll-driven .hobby-viewport {
+    top: 80px;
+  }
+  .hobbies {
+    gap: 80px;
+    padding: 40px 48px;
   }
   .hobby-card:before {
     border-radius: 20px;

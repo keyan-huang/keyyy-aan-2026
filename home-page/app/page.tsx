@@ -2,6 +2,8 @@ import './home.css';
 
 import Image from 'next/image';
 import { ProjectCard } from '@/components/home/project-card';
+import { InteractiveArtRow } from '@/components/home/interactive-art-row';
+import { HobbyGallery } from '@/components/home/hobby-gallery';
 import { Artwork } from '@/components/shared/artwork';
 import { SiteFooter } from '@/components/shared/site-footer';
 import { SiteHeader } from '@/components/shared/site-header';
@@ -25,6 +27,7 @@ export default function Home() {
                 ))}
               </h1>
               <p className="availability">
+                <span className="availability-dot" aria-hidden="true" />
                 {homeContent.introduction.availability}
               </p>
             </div>
@@ -33,16 +36,8 @@ export default function Home() {
               className="binoculars"
             />
           </div>
-          <div className="art-row first-row">
-            {homeContent.introduction.firstArtRow.map((src) => (
-              <Artwork key={src} src={src} />
-            ))}
-          </div>
-          <div className="art-row second-row">
-            {homeContent.introduction.secondArtRow.map((src) => (
-              <Artwork key={src} src={src} />
-            ))}
-          </div>
+          <InteractiveArtRow kind="navigation" />
+          <InteractiveArtRow kind="quotes" />
           <p className="intro-copy">{homeContent.introduction.summary}</p>
         </section>
         <section id="work" className="projects section-wide">
@@ -57,14 +52,25 @@ export default function Home() {
           <h2>Design Experiments</h2>
           <div
             className="experiment-grid"
-            aria-label="Six design experiment placeholders"
+            aria-label="Six design experiment concepts"
           >
             {homeContent.experiments.map((experiment) => (
-              <div
-                key={experiment.label}
-                className="experiment-tile"
-                aria-hidden="true"
-              />
+              <article key={experiment.title} className="experiment-card">
+                <div className="experiment-thumbnail">
+                  <Image
+                    src={experiment.image}
+                    alt={experiment.imageAlt}
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                    unoptimized
+                  />
+                </div>
+                <div className="experiment-copy">
+                  <h3>{experiment.title}</h3>
+                  <p>{experiment.description}</p>
+                </div>
+              </article>
             ))}
           </div>
         </section>
@@ -75,8 +81,8 @@ export default function Home() {
               <Image
                 src={homeContent.about.portrait}
                 alt={homeContent.about.portraitAlt}
-                width={1000}
-                height={1000}
+                width={756}
+                height={1124}
                 loading="lazy"
                 unoptimized
               />
@@ -124,7 +130,10 @@ export default function Home() {
                     <div>
                       <h4>{experience.company}</h4>
                       {experience.roles.map((role) => (
-                        <p key={role}>{role}</p>
+                        <div className="experience-role" key={role.title}>
+                          <h5>{role.title}</h5>
+                          <p>{role.description}</p>
+                        </div>
                       ))}
                     </div>
                   </div>
@@ -133,16 +142,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <div
-          className="hobbies"
-          aria-label="Cooking, painting, crafting, and sewing"
-        >
-          {homeContent.hobbies.map((src) => (
-            <div className="hobby-card" key={src}>
-              <Artwork src={src} />
-            </div>
-          ))}
-        </div>
+        <HobbyGallery images={homeContent.hobbies} />
       </main>
       <SiteFooter />
     </>

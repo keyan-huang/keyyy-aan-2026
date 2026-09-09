@@ -53,10 +53,10 @@
   font: 700 22px/1 var(--font-detail);
 }
 .contact-menu .contact-color-email {
-  background: var(--color-primary);
+  background: var(--color-linkedin);
 }
 .contact-menu .contact-color-linkedin {
-  background: var(--color-linkedin);
+  background: var(--color-primary);
 }
 .contact-menu .contact-color-resume {
   background: var(--color-resume);

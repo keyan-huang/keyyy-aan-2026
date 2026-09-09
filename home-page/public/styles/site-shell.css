@@ -90,7 +90,7 @@ button:focus-visible {
 
 .navigation nav > a:hover,
 .nav-contact:hover {
-  color: var(--color-accent-green);
+  color: var(--color-primary);
 }
 
 .nav-contact {
@@ -103,7 +103,7 @@ button:focus-visible {
 
 .site-footer {
   margin-top: var(--footer-spacing, 160px);
-  padding: 60px 76px 44px;
+  padding: 144px 76px 128px;
   background: var(--color-footer);
   color: var(--color-text);
 }
@@ -150,6 +150,11 @@ button:focus-visible {
   align-items: center;
   justify-content: center;
   border-radius: 30px;
+  gap: 10px;
+  padding: 0 18px;
+  border: 2px solid var(--contact-color);
+  background: #fff;
+  color: #000;
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
@@ -161,21 +166,34 @@ button:focus-visible {
 }
 
 .email {
-  background: var(--color-primary);
-  color: var(--color-background);
+  --contact-color: var(--color-linkedin);
+  --contact-icon: url('../images/contact-mail.svg');
 }
 
 .linkedin {
-  background: #d44200;
-  color: #fff;
+  --contact-color: var(--color-primary);
+  --contact-icon: url('../images/contact-linkedin.svg');
 }
 
 .resume {
-  background: #cf2859;
-  color: #fff;
+  --contact-color: var(--color-resume);
+  --contact-icon: url('../images/contact-file.svg');
+}
+
+.contact::before {
+  content: '';
+  width: 20px;
+  height: 20px;
+  flex: 0 0 20px;
+  background: var(--contact-color);
+  mask: var(--contact-icon) center / contain no-repeat;
 }
 
 @media (max-width: 1199px) {
+  .site-footer {
+    padding: 135px 76px 119px;
+  }
+
   .navigation {
     width: calc(100% - 48px);
     padding-left: 24px;
@@ -235,7 +253,7 @@ button:focus-visible {
 
   .site-footer {
     margin-top: var(--footer-spacing-mobile, 96px);
-    padding: 40px 24px;
+    padding: 130px 24px;
   }
 
   .footer-inner {
