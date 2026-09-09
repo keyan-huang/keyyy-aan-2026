@@ -52,7 +52,7 @@ export default function Home() {
           <h2>Design Experiments</h2>
           <div
             className="experiment-grid"
-            aria-label="Six design experiment concepts"
+            aria-label="Three design experiment concepts"
           >
             {homeContent.experiments.map((experiment) => (
               <article key={experiment.title} className="experiment-card">
@@ -132,6 +132,7 @@ export default function Home() {
                       {experience.roles.map((role) => (
                         <div className="experience-role" key={role.title}>
                           <h5>{role.title}</h5>
+                          <div className="experience-date">{role.date}</div>
                           <p>{role.description}</p>
                         </div>
                       ))}

@@ -21,6 +21,9 @@
   --radius-small: 8px;
   --radius-medium: 16px;
   --radius-large: 24px;
+  --radius-interactive: var(--radius-medium);
+  --shadow-interactive: 0 12px 28px rgb(17 24 39 / 12%);
+  --shadow-interactive-hover: 0 18px 36px rgb(17 24 39 / 18%);
 
   /* Backward-compatible aliases used by existing project styles. */
   --background: var(--color-background);

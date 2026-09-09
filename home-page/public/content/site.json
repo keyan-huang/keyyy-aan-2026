@@ -13,6 +13,21 @@
     "linkedin": "https://www.linkedin.com/in/keyan-huang-4895971b4/",
     "resumeAvailable": false
   },
-  "footerMessage": "This curious designer wants to connect with you!",
-  "footerImage": "images/imgBallon2.png"
+  "footerMessage": "Have a curious problem worth exploring?",
+  "footerDescription": "I’m always up for thoughtful products, ambitious ideas, and a good conversation.",
+  "footerArt": [
+    "images/imgCursor1.png",
+    "images/imgBallon2.png",
+    "images/imgSunflower1.png",
+    "images/imgGeoshape2.png",
+    "images/imgApron1.png",
+    "images/imgBike1.png",
+    "images/imgWaterpot2.png",
+    "images/imgShovel1.png",
+    "images/imgPot2.png",
+    "images/imgBrushes2.png",
+    "images/imgSpoon1.png",
+    "images/imgSewingmachine1.png",
+    "images/imgBinoculars1.png"
+  ]
 }

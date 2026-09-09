@@ -12,7 +12,7 @@ export function mountContactMenu(container, site) {
   menu.setAttribute('role', 'menu');
   menu.setAttribute('aria-label', 'Contact Keyan');
   trigger.setAttribute('aria-controls', menu.id);
-  trigger.popoverTargetElement = menu;
+  let dismissTimer;
 
   const entries = [
     {
@@ -72,6 +72,21 @@ export function mountContactMenu(container, site) {
     menu.style.left = `${Math.max(16, Math.min(anchor.right - bounds.width, innerWidth - bounds.width - 16))}px`;
     menu.style.top = `${Math.max(16, Math.min(anchor.bottom + 14, innerHeight - bounds.height - 16))}px`;
   };
+  const open = () => {
+    clearTimeout(dismissTimer);
+    if (!menu.matches(':popover-open')) menu.showPopover();
+    position();
+  };
+  const close = () => {
+    clearTimeout(dismissTimer);
+    if (menu.matches(':popover-open')) menu.hidePopover();
+  };
+  const scheduleClose = () => {
+    clearTimeout(dismissTimer);
+    dismissTimer = setTimeout(() => {
+      if (!trigger.matches(':hover') && !menu.matches(':hover') && !menu.contains(document.activeElement)) close();
+    }, 180);
+  };
   menu.addEventListener('toggle', () => {
     const open = menu.matches(':popover-open');
     trigger.setAttribute('aria-expanded', String(open));
@@ -80,11 +95,20 @@ export function mountContactMenu(container, site) {
       if (document.activeElement === trigger) items[0].focus();
     }
   });
+  trigger.addEventListener('pointerenter', (event) => {
+    if (event.pointerType !== 'touch') open();
+  });
+  trigger.addEventListener('pointerleave', scheduleClose);
+  trigger.addEventListener('click', () => {
+    if (menu.matches(':popover-open')) close();
+    else open();
+  });
+  menu.addEventListener('pointerenter', () => clearTimeout(dismissTimer));
+  menu.addEventListener('pointerleave', scheduleClose);
   trigger.addEventListener('keydown', (event) => {
     if (!['ArrowDown', 'ArrowUp'].includes(event.key)) return;
     event.preventDefault();
-    menu.showPopover();
-    position();
+    open();
     items[event.key === 'ArrowDown' ? 0 : items.length - 1].focus();
   });
   menu.addEventListener('keydown', (event) => {
@@ -110,6 +134,7 @@ export function mountContactMenu(container, site) {
   window.addEventListener('resize', position);
   window.addEventListener('scroll', position, true);
   return () => {
+    clearTimeout(dismissTimer);
     window.removeEventListener('resize', position);
     window.removeEventListener('scroll', position, true);
     trigger.remove();

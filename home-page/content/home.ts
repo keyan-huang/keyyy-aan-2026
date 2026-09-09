@@ -37,24 +37,6 @@ export const homeContent = {
       image: '/images/experiment-research-agent.png',
       imageAlt: 'A magnifying glass inspecting an AI agent inside a connected research network',
     },
-    {
-      title: 'Voice Notes Lab',
-      description: 'A voice-first experiment that transforms scattered thoughts into clear product stories.',
-      image: '/images/experiment-voice-lab.png',
-      imageAlt: 'Colorful voice waves moving between two speech bubbles',
-    },
-    {
-      title: 'Color Companion',
-      description: 'A generative palette tool that balances mood, accessibility, and brand personality.',
-      image: '/images/experiment-color-companion.png',
-      imageAlt: 'An AI color tool displaying five bright connected color swatches',
-    },
-    {
-      title: 'Interface Dreamer',
-      description: 'An exploratory UI generator for testing layouts before moving into high fidelity design.',
-      image: '/images/experiment-interface-dreamer.png',
-      imageAlt: 'A colorful generated interface layout with a large cursor',
-    },
   ],
   about: {
     portrait: '/images/about-keyan.png',
@@ -81,10 +63,12 @@ export const homeContent = {
         roles: [
           {
             title: 'Product Designer',
+            date: '2025–Present',
             description: 'Designed thoughtful workflows for complex HR products in partnership with research, product, and engineering.',
           },
           {
             title: 'Product Intern',
+            date: '2024–2025',
             description: 'Explored early concepts and translated employee needs into clear, testable product improvements.',
           },
         ],
@@ -95,6 +79,7 @@ export const homeContent = {
         roles: [
           {
             title: 'Student Designer',
+            date: '2023–2024',
             description: 'Shaped research findings and emerging technology concepts into an approachable experience.',
           },
         ],
@@ -105,6 +90,7 @@ export const homeContent = {
         roles: [
           {
             title: 'Project Coordinator',
+            date: '2022–2023',
             description: 'Organized creative programs and helped student designers turn shared ideas into welcoming events.',
           },
         ],
@@ -115,6 +101,7 @@ export const homeContent = {
         roles: [
           {
             title: 'Marketing VP',
+            date: '2021–2022',
             description: 'Led campaign design and storytelling that made local conservation efforts easier to discover and support.',
           },
         ],

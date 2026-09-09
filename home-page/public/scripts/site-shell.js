@@ -13,49 +13,64 @@
   const root = document.body.dataset.siteRoot || '/';
   const fromRoot = (path) => `${root}${path}`;
 
-  const header = document.createElement('header');
-  header.className = 'navigation';
+  const headerMount = document.querySelector('[data-site-header]');
+  if (headerMount) {
+    const header = document.createElement('header');
+    header.className = 'navigation';
 
-  const logoLink = document.createElement('a');
-  logoLink.href = root;
-  logoLink.setAttribute('aria-label', `${site.name} homepage`);
-  const logo = document.createElement('img');
-  logo.className = 'logo';
-  logo.src = fromRoot(site.logo);
-  logo.alt = '';
-  logoLink.append(logo);
+    const logoLink = document.createElement('a');
+    logoLink.href = root;
+    logoLink.setAttribute('aria-label', `${site.name} homepage`);
+    const logo = document.createElement('img');
+    logo.className = 'logo';
+    logo.src = fromRoot(site.logo);
+    logo.alt = '';
+    logoLink.append(logo);
 
-  const navigation = document.createElement('nav');
-  navigation.setAttribute('aria-label', 'Main navigation');
-  for (const item of site.navigation) {
-    const link = document.createElement('a');
-    link.href = `${root}#${item.section}`;
-    link.textContent = item.label;
-    navigation.append(link);
+    const navigation = document.createElement('nav');
+    navigation.setAttribute('aria-label', 'Main navigation');
+    for (const item of site.navigation) {
+      const link = document.createElement('a');
+      link.href = `${root}#${item.section}`;
+      link.textContent = item.label;
+      navigation.append(link);
+    }
+    const { mountContactMenu } = await import(
+      new URL('./contact-menu.js', script.src).href
+    );
+    mountContactMenu(navigation, site);
+    header.append(logoLink, navigation);
+    headerMount.replaceWith(header);
   }
-  const { mountContactMenu } = await import(
-    new URL('./contact-menu.js', script.src).href
-  );
-  mountContactMenu(navigation, site);
-  header.append(logoLink, navigation);
-  document.querySelector('[data-site-header]')?.replaceWith(header);
 
-  const footer = document.createElement('footer');
-  footer.className = 'site-footer';
-  footer.id = 'contact';
-  footer.innerHTML = `
-    <div class="footer-inner">
-      <img class="footer-balloon" src="${fromRoot(site.footerImage)}" alt="">
-      <div class="contact-content">
-        <h2>${site.footerMessage}</h2>
-        <div class="contact-links">
-          <a class="contact linkedin" href="${site.contact.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <a class="contact email" href="mailto:${site.contact.email}">Email</a>
-          <span class="contact resume" aria-label="Resume coming soon">Resume</span>
+  const footerMount = document.querySelector('[data-site-footer]');
+  if (footerMount) {
+    const art = site.footerArt
+      .map(
+        (src, index) =>
+          `<img class="footer-swap-image" style="--footer-art-index:${index}" src="${fromRoot(src)}" alt="">`,
+      )
+      .join('');
+    const footer = document.createElement('footer');
+    footer.className = 'site-footer home-footer';
+    footer.id = 'connect';
+    footer.innerHTML = `
+      <div class="footer-inner">
+        <div class="contact-content">
+          <h2>${site.footerMessage}</h2>
+          <p class="footer-description">${site.footerDescription}</p>
+          <p class="footer-availability"><span class="footer-status-dot" aria-hidden="true"></span>Open to opportunity</p>
+          <div class="contact-links">
+            <a class="contact linkedin" href="${site.contact.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a class="contact email" href="mailto:${site.contact.email}">Email</a>
+            <span class="contact resume" aria-label="Resume coming soon">Resume</span>
+          </div>
         </div>
+        <div class="footer-art-stage" aria-hidden="true">${art}</div>
       </div>
-    </div>`;
-  document.querySelector('[data-site-footer]')?.replaceWith(footer);
+      <div class="footer-bottom"><p class="footer-copyright">© 2026 Keyan Huang. All rights reserved. Designed with love and passion by a curious mind.</p></div>`;
+    footerMount.replaceWith(footer);
+  }
 })().catch((error) => {
   console.error('Unable to render the shared site shell.', error);
 });

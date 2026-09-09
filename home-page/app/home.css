@@ -106,7 +106,7 @@ p {
 }
 .art-trigger.art-active .art {
   transform: translateY(-7px) rotate(-3deg) scale(1.04);
-  filter: drop-shadow(0 8px 5px rgb(17 24 39 / 12%));
+  filter: drop-shadow(0 12px 14px rgb(17 24 39 / 18%));
 }
 .art-bubble {
   --bubble-color: #0c6cd1;
@@ -116,14 +116,14 @@ p {
   max-width: min(340px, calc(100vw - 32px));
   padding: 16px 22px;
   border: 3px solid color-mix(in srgb, var(--bubble-color), #000 20%);
-  border-radius: 8px 36px 36px 36px;
+  border-radius: var(--radius-interactive);
   background: var(--bubble-color);
   color: #fff;
   font-family: var(--font-body);
   font-size: 18px;
   line-height: 1.45;
   letter-spacing: 0;
-  box-shadow: 0 7px 16px rgb(17 24 39 / 18%);
+  box-shadow: var(--shadow-interactive-hover);
 }
 .art-bubble::after {
   content: '';
@@ -238,8 +238,8 @@ h2 {
   aspect-ratio: 4 / 3;
   overflow: hidden;
   border: 1px solid rgb(17 24 39 / 18%);
-  border-radius: 8px;
-  box-shadow: 0 16px 30px rgb(17 24 39 / 12%);
+  border-radius: var(--radius-interactive);
+  box-shadow: var(--shadow-interactive);
   transition: transform 220ms ease, box-shadow 220ms ease;
 }
 .experiment-thumbnail img {
@@ -250,7 +250,7 @@ h2 {
 }
 .experiment-card:hover .experiment-thumbnail {
   transform: translateY(-5px);
-  box-shadow: 0 22px 38px rgb(17 24 39 / 16%);
+  box-shadow: var(--shadow-interactive-hover);
 }
 .experiment-copy {
   margin-top: 20px;
@@ -306,8 +306,9 @@ h2 {
   padding: 20px;
 }
 .panel h3 {
+  font-family: var(--font-display);
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1.5;
 }
 .skills {
@@ -383,6 +384,14 @@ h2 {
   font-family: var(--font-detail);
   font-size: 15px;
   font-weight: 600;
+  line-height: 1.4;
+}
+.experience-date {
+  margin: 3px 0 0;
+  color: var(--color-text-muted);
+  font-family: var(--font-detail);
+  font-size: 13px;
+  font-weight: 400;
   line-height: 1.4;
 }
 .experience-role p {
