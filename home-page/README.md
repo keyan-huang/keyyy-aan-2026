@@ -24,6 +24,10 @@ Each new project should receive one metadata file in `content/projects/` and a
 self-contained folder in `public/<project-slug>/`. Add the metadata export to
 `content/projects/index.ts`; the homepage project list will render it.
 
+The React homepage lives in `app/page.tsx`; GitHub Pages publishes
+`static/index.html`. Keep their markup and content synchronized. Both use the
+same homepage, component, and shared-shell styles.
+
 The static Performance Discussion Form case study loads the same site settings
 and shell styles as the React homepage through `public/scripts/site-shell.js`.
 Its `case-study.css` therefore contains only case-study-specific presentation.

@@ -53,16 +53,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Prepare static website
-        run: |
-          mkdir -p home-page/github-pages
-          cp -R home-page/public/. home-page/github-pages/
-          cp home-page/static/index.html home-page/github-pages/index.html
-          cp home-page/app/home.css home-page/github-pages/home.css
-          cp home-page/components/home/project-card.css home-page/github-pages/project-card.css
-          find home-page/github-pages -type f -name '*.html' -exec sed -i \
-            -e "s|site-shell.css\"|site-shell.css?v=${GITHUB_SHA}\"|g" \
-            -e "s|site-shell.js\"|site-shell.js?v=${GITHUB_SHA}\"|g" {} +
-          touch home-page/github-pages/.nojekyll
+        run: node home-page/scripts/prepare-static.mjs home-page/github-pages
 
       - name: Audit static website
         run: node home-page/scripts/audit-static.mjs home-page/github-pages
