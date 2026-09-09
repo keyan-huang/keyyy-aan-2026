@@ -1,0 +1,47 @@
+name: Deploy portfolio to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Prepare static website
+        run: |
+          mkdir -p home-page/github-pages
+          cp -R home-page/public/. home-page/github-pages/
+          cp home-page/static/index.html home-page/github-pages/index.html
+          cp home-page/app/home.css home-page/github-pages/home.css
+          cp home-page/components/home/project-card.css home-page/github-pages/project-card.css
+          touch home-page/github-pages/.nojekyll
+
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: home-page/github-pages
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
