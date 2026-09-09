@@ -448,33 +448,40 @@ h2 {
   line-height: 1.55;
 }
 .hobby-scroll {
-  width: min(1100px, calc(100% - 80px));
-  margin: 120px auto 0;
+  width: 100%;
+  margin: 120px 0 0;
 }
 .hobby-viewport {
-  height: auto;
-  min-height: 0;
-  overflow: visible;
+  height: min(680px, calc(100svh - 90px));
+  min-height: 420px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+}
+.scroll-driven .hobby-viewport {
+  position: sticky;
+  top: 90px;
+  overflow-x: hidden;
 }
 .hobby-viewport:focus-visible {
   outline: 3px solid var(--color-primary);
   outline-offset: -4px;
 }
 .hobbies {
-  width: 100%;
-  max-width: 1100px;
+  width: max-content;
+  max-width: none;
   margin: 0;
-  height: auto;
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  align-items: start;
-  padding: 0;
-  gap: 34px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 48px 76px;
+  gap: 28px;
 }
 .hobby-card {
   position: relative;
-  width: 100%;
+  width: min(520px, 40vw);
   aspect-ratio: 4 / 3;
+  flex: 0 0 auto;
   margin: 0;
 }
 .hobby-card:before {
@@ -493,10 +500,11 @@ h2 {
   transform: none;
 }
 .photo-card.portrait {
-  width: 100%;
-  aspect-ratio: 3 / 4;
+  width: min(520px, 40vw);
+  aspect-ratio: 4 / 3;
 }
 .photo-card img {
+  display: block;
   position: relative;
   z-index: 1;
   width: 100%;
@@ -514,14 +522,9 @@ h2 {
 .photo-card:nth-child(5) img {
   object-position: 66% center;
 }
-.photo-card:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
-  width: calc(50% - 17px);
-  justify-self: center;
-}
 .home-footer {
-  --footer-spacing: 96px;
-  --footer-spacing-mobile: 64px;
+  --footer-spacing: max(0px, calc(100svh - 770px));
+  --footer-spacing-mobile: max(0px, calc(100svh - 580px));
 }
 @media (min-width: 1600px) {
   .hero {
@@ -564,9 +567,6 @@ h2 {
   .about-grid {
     grid-template-columns: 32% 1fr;
     gap: 24px;
-  }
-  .hobbies {
-    gap: 96px;
   }
 }
 @media (max-width: 700px) {
@@ -683,20 +683,23 @@ h2 {
     gap: 32px;
   }
   .hobby-scroll {
-    width: calc(100% - 36px);
+    width: 100%;
     margin-top: 88px;
   }
   .hobby-viewport {
-    height: auto;
+    height: min(500px, calc(100svh - 80px));
+    min-height: 320px;
+  }
+  .scroll-driven .hobby-viewport {
+    top: 80px;
   }
   .hobbies {
-    grid-template-columns: 1fr;
-    gap: 22px;
-    padding: 0;
+    gap: 18px;
+    padding: 28px 18px;
   }
-  .photo-card:last-child:nth-child(odd) {
-    grid-column: auto;
-    width: 100%;
+  .hobby-card,
+  .photo-card.portrait {
+    width: min(82vw, 420px);
   }
 }
 

@@ -91,7 +91,7 @@
         </div>
       </section>
       <section class="hobby-scroll" aria-label="Life beyond the screen">
-        <section class="hobby-viewport" aria-label="A gallery of Keyan's life and creative interests">
+        <section class="hobby-viewport" aria-label="A gallery of Keyan's life and creative interests" aria-keyshortcuts="ArrowLeft ArrowRight Home End" tabindex="0">
           <div class="hobbies">
             <figure class="hobby-card photo-card landscape"><img src="/images/life-gallery/keyan-glacier.jpg" alt="Keyan visiting a glacier in a yellow jacket" width="1800" height="1350" loading="lazy" /></figure>
             <figure class="hobby-card photo-card portrait"><img src="/images/life-gallery/keyan-design-studio.jpg" alt="Keyan at the Austin Design Studio" width="1350" height="1800" loading="lazy" /></figure>
@@ -108,8 +108,10 @@
     <div data-site-footer></div>
     <script type="module">
       import { mountContactMenu } from '/scripts/contact-menu.js';
+      import { mountHobbyScroll } from '/scripts/hobby-scroll.js';
       const site = await fetch('/content/site.json').then((response) => response.json());
       mountContactMenu(document.querySelector('.contact-menu-mount'), site);
+      mountHobbyScroll(document.querySelector('.hobby-scroll'));
     </script>
   </body>
 </html>

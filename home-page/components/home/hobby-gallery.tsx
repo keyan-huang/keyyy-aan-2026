@@ -10,13 +10,13 @@ export function HobbyGallery({ images }: { images: readonly { src: string; label
     if (section.current) return mountHobbyScroll(section.current);
   }, []);
   return (
-    <section className="hobby-scroll" ref={section} aria-label="Keyan's creative interests">
-      <section className="hobby-viewport" aria-label="Hobby gallery" aria-keyshortcuts="ArrowLeft ArrowRight Home End">
+    <section className="hobby-scroll" ref={section} aria-label="Life beyond the screen">
+      <section className="hobby-viewport" aria-label="A gallery of Keyan's life and creative interests" aria-keyshortcuts="ArrowLeft ArrowRight Home End" tabIndex={0}>
         <div className="hobbies">
           {images.map(({ src, label }) => (
-            <div className="hobby-card" key={src}>
-              <Image className="art" src={src} alt={label} width={1000} height={1000} loading="lazy" unoptimized />
-            </div>
+            <figure className="hobby-card photo-card" key={src}>
+              <Image src={src} alt={label} width={1800} height={1350} loading="lazy" unoptimized />
+            </figure>
           ))}
         </div>
       </section>
