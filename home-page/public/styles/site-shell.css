@@ -166,13 +166,13 @@ button:focus-visible {
 }
 
 .linkedin {
-  background: var(--color-linkedin);
-  color: #172033;
+  background: #be500d;
+  color: #fff;
 }
 
 .resume {
-  background: var(--color-resume);
-  color: #172033;
+  background: #cf2859;
+  color: #fff;
 }
 
 @media (max-width: 1199px) {

@@ -97,10 +97,6 @@ h2 {
 .center {
   justify-content: center;
 }
-.row.final-outcome-demo {
-  width: 100vw;
-  align-self: center;
-}
 .two-columns {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
