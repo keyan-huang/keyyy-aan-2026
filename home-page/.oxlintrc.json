@@ -44,6 +44,13 @@
     "react/react-compiler": "error",
     "react/require-render-return": "error",
     "react/rules-of-hooks": "error",
+    "jsx-a11y/no-noninteractive-tabindex": [
+      "error",
+      {
+        "roles": ["tabpanel"],
+        "tags": ["section"]
+      }
+    ],
     "typescript/ban-ts-comment": "error",
     "typescript/no-deprecated": "error",
     "typescript/no-empty-object-type": "error",

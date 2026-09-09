@@ -30,8 +30,8 @@ export const homeContent = {
     },
   ],
   about: {
-    portrait: '/images/about-keyan.png',
-    portraitAlt: 'Keyan standing on a tree-lined street in a blue jacket',
+    portrait: '/images/about-keyan-portrait.png',
+    portraitAlt: 'Keyan standing on an autumn tree-lined street in a blue jacket',
     education: {
       image: '/images/ut-austin.png',
       school: 'The University of Texas at Austin',

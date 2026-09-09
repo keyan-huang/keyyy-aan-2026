@@ -18,6 +18,7 @@ separate owners.
 | Global style imports                          | `app/globals.css`                     |
 | Homepage-only layout styles                   | `app/home.css`                        |
 | Performance Discussion Form content and media | `public/performance-discussion-form/` |
+| Inactive concepts and source material          | `design-options/assets/`              |
 
 Each new project should receive one metadata file in `content/projects/` and a
 self-contained folder in `public/<project-slug>/`. Add the metadata export to
@@ -43,6 +44,8 @@ Then open the local address shown in the terminal.
 
 Local development uses `vite.local.config.ts` and does not require the hosted
 environment's `.openai/hosting.json`. Run `pnpm build:local` to verify this setup.
+Before publishing, run `pnpm lint`, `pnpm build:local`, and `pnpm audit:static`.
+GitHub Pages enforces the same checks before deployment.
 Every header uses the Contact dropdown in `public/scripts/contact-menu.js`,
 styled by `public/styles/contact-menu.css`. The React `ContactMenu` component
 and the static shell both mount this same implementation using `site.json`.
@@ -57,4 +60,5 @@ pnpm build
 
 The app entry points live in `app/`; editable content and reusable components
 live outside them. Shared images live in `public/images/`, while project media
-stays inside its project folder.
+stays inside its project folder. Only files used by the deployed site belong in
+`public/`; preserve inactive visual explorations in `design-options/assets/`.

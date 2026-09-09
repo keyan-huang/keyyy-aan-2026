@@ -366,7 +366,8 @@ main.case-study {
 }
 
 .label {
-  width: max-content;
+  width: fit-content;
+  max-width: 100%;
   margin-bottom: 10px;
   padding: 0;
   border: 0;
@@ -377,6 +378,7 @@ main.case-study {
   font-size: 1.15rem;
   font-weight: 600;
   letter-spacing: 0;
+  overflow-wrap: anywhere;
   text-transform: none;
 }
 
