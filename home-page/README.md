@@ -1,8 +1,8 @@
 # Keyan Huang Portfolio Website
 
-This folder contains the standalone source for Keyan Huang's 2026 portfolio website.
-
-It is intentionally separated from the Performance Discussion Form case study stored at the repository root.
+This folder contains Keyan Huang's 2026 portfolio website. The Performance
+Discussion Form case study is served from `public/performance-discussion-form/`
+so its navigation and homepage links share one site origin.
 
 ## Local preview
 

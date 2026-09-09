@@ -1,8 +1,8 @@
 # Portfolio Website 2026
 
-This repository contains two separate website projects:
+This repository contains one portfolio site:
 
 - `home-page/`: the main 2026 portfolio homepage
-- `Performance Discussion Form/`: the Performance Discussion Form case study
+- `home-page/public/performance-discussion-form/`: the Performance Discussion Form case study, served from the homepage origin
 
-Each folder contains its own source files, images, and setup instructions.
+Run and deploy the project from `home-page/`.

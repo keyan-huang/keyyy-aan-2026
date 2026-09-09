@@ -57,7 +57,7 @@ export default function Home() {
         <h2>Selected Projects</h2>
         <div className="project-list">{[
           {name: 'paf-hero', title: 'PAF Redesign', description: `${Array(14).fill('I am cool').join(', ')},`},
-          {name: 'pdf-hero', title: 'Performance Discussion Form', description: 'Transforming a legacy data table into a dashboard that brings analytics and actionable work together.', href: 'https://keyan-huang.github.io/portfolio_website_2026/Performance%20Discussion%20Form/'},
+          {name: 'pdf-hero', title: 'Performance Discussion Form', description: 'Transforming a legacy data table into a dashboard that brings analytics and actionable work together.', href: '/performance-discussion-form/index.html'},
         ].map(project=><article className="project" key={project.name}>
           <div className="project-description"><h3>{project.title}</h3><p>{project.description}</p></div>
           <div className={`project-thumbnail project-thumbnail-${project.name}`}>
