@@ -1,5 +1,9 @@
 "use client";
 
+import './project-thumbnails.css';
+
+import {ArrowRight} from 'lucide-react';
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -43,10 +47,18 @@ export default function Home() {
       </section>
       <section id="work" className="projects section-wide">
         <h2>Selected Projects</h2>
-        <div className="project-list">{['imgImage164','imgImage168','imgImage167'].map((name,i)=><article className="project" key={name}>
-          <div className="project-description"><h3>Performance Discussion Form</h3><p>{Array(14).fill('I am cool').join(', ')},</p></div>
-          <img className="project-image" src={asset(name)} alt={['Performance discussion interface on a purple background','Mobile design screens on a pink background','Colorful character design explorations on a blue background'][i]} loading="lazy" />
-          <div className="project-notes">{[0,1,2,3].map(n=><p key={n}>Performance Discussion Form</p>)}</div>
+        <div className="project-list">{[
+          {name: 'paf-hero', title: 'PAF Redesign', description: `${Array(14).fill('I am cool').join(', ')},`},
+          {name: 'pdf-hero', title: 'Performance Discussion Form', description: 'Transforming a legacy data table into a dashboard that brings analytics and actionable work together.'},
+        ].map(project=><article className="project" key={project.name}>
+          <div className="project-description"><h3>{project.title}</h3><p>{project.description}</p></div>
+          <div className={`project-thumbnail project-thumbnail-${project.name}`}>
+            <img className="project-image" src={asset(project.name)} alt={`${project.title} interface preview`} loading="lazy" />
+          </div>
+          <button className="project-action" type="button">
+            <span>View details</span>
+            <ArrowRight aria-hidden="true" size={22} strokeWidth={2} />
+          </button>
         </article>)}</div>
       </section>
       <section id="fun" className="experiments section-narrow"><h2>Design Experiments</h2><div className="experiment-grid" aria-label="Six design experiment placeholders">{[0,1,2,3,4,5].map(n=><div key={n} className="experiment-tile" role="img" aria-label={`Design experiment ${n+1}: coming soon`}/>)}</div></section>

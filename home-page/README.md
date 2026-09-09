@@ -15,6 +15,14 @@ pnpm dev
 
 Then open the local address shown in the terminal.
 
+Local development uses `vite.local.config.ts` and does not require the hosted
+environment's `.openai/hosting.json`. Run `pnpm build:local` to verify this setup.
+The Connect dropdown uses the shared Base UI component in `components/ui/`.
+
+The three project images (`imgImage164.png`, `imgImage168.png`, `imgImage167.png`)
+and portrait (`imgImg28071.png`) are empty in the repository and require original
+image files before they can display.
+
 ## Production build
 
 ```bash
