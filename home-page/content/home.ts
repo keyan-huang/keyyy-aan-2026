@@ -21,21 +21,12 @@ export const homeContent = {
   experiments: [
     {
       title: 'Prompt Garden',
-      description: 'A playful prompt builder that grows rough ideas into structured creative directions.',
-      image: '/images/experiment-prompt-garden.png',
-      imageAlt: 'A friendly AI robot surrounded by colorful petal-shaped circuits',
     },
     {
       title: 'Moodboard Copilot',
-      description: 'An AI companion that clusters references and turns visual patterns into editable moodboards.',
-      image: '/images/experiment-moodboard-copilot.png',
-      imageAlt: 'A small AI assistant organizing four colorful moodboard cards',
     },
     {
       title: 'Research Agent',
-      description: 'A tiny synthesis agent that surfaces themes, tensions, and follow-up questions from raw notes.',
-      image: '/images/experiment-research-agent.png',
-      imageAlt: 'A magnifying glass inspecting an AI agent inside a connected research network',
     },
   ],
   about: {

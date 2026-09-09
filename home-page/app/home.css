@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: auto;
+}
+
 body {
   overflow-x: clip;
 }
@@ -235,38 +239,27 @@ h2 {
   margin-top: 56px;
 }
 .experiment-thumbnail {
+  display: grid;
   aspect-ratio: 4 / 3;
   overflow: hidden;
+  place-items: center;
   border: 1px solid rgb(17 24 39 / 18%);
   border-radius: var(--radius-interactive);
+  background: linear-gradient(135deg, #d9e7df 0%, #dfe4ee 48%, #eee3e8 100%);
   box-shadow: var(--shadow-interactive);
-  transition: transform 220ms ease, box-shadow 220ms ease;
 }
-.experiment-thumbnail img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.experiment-card:nth-child(2) .experiment-thumbnail {
+  background: linear-gradient(135deg, #e8e0d3 0%, #dce8eb 50%, #dddce8 100%);
 }
-.experiment-card:hover .experiment-thumbnail {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-interactive-hover);
+.experiment-card:nth-child(3) .experiment-thumbnail {
+  background: linear-gradient(135deg, #dce7ed 0%, #e9e1dc 52%, #dce6d8 100%);
 }
-.experiment-copy {
-  margin-top: 20px;
-}
-.experiment-copy h3 {
-  font-family: var(--font-display);
-  font-size: 22px;
-  font-weight: 600;
-  line-height: 1.2;
-}
-.experiment-copy p {
-  margin-top: 10px;
-  color: var(--color-text-muted);
-  font-family: var(--font-body);
+.experiment-thumbnail span {
+  color: #41474d;
+  font-family: var(--font-detail);
   font-size: 15px;
-  line-height: 1.55;
+  font-weight: 600;
+  line-height: 1.4;
 }
 .about {
   max-width: 1221px;
@@ -363,11 +356,12 @@ h2 {
   flex-direction: column;
 }
 .strength-tags li {
-  color: #fff;
-  background: #6d2c91;
+  color: #57246f;
+  background: #eadcf3;
 }
 .strength-tags .strength-tag--harmony {
-  background: #087cad;
+  color: #075a7a;
+  background: #d7edf7;
 }
 .strengths-link {
   align-self: flex-start;
@@ -649,17 +643,8 @@ h2 {
   }
   .experiment-grid {
     margin-top: 48px;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: 1fr;
     gap: 36px 18px;
-  }
-  .experiment-copy {
-    margin-top: 14px;
-  }
-  .experiment-copy h3 {
-    font-size: 18px;
-  }
-  .experiment-copy p {
-    font-size: 14px;
   }
   .about > h2 {
     margin-bottom: 40px;

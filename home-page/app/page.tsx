@@ -48,27 +48,16 @@ export default function Home() {
             ))}
           </div>
         </section>
-        <section id="fun" className="experiments section-narrow">
+        <section id="fun" className="experiments section-wide">
           <h2>Design Experiments</h2>
           <div
             className="experiment-grid"
-            aria-label="Three design experiment concepts"
+            aria-label="Three upcoming design experiments"
           >
             {homeContent.experiments.map((experiment) => (
               <article key={experiment.title} className="experiment-card">
                 <div className="experiment-thumbnail">
-                  <Image
-                    src={experiment.image}
-                    alt={experiment.imageAlt}
-                    width={800}
-                    height={600}
-                    loading="lazy"
-                    unoptimized
-                  />
-                </div>
-                <div className="experiment-copy">
-                  <h3>{experiment.title}</h3>
-                  <p>{experiment.description}</p>
+                  <span>Coming soon</span>
                 </div>
               </article>
             ))}
