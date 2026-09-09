@@ -454,56 +454,76 @@ h2 {
   line-height: 1.55;
 }
 .hobby-scroll {
-  margin: 144px 0 0;
+  width: min(1100px, calc(100% - 80px));
+  margin: 120px auto 0;
 }
 .hobby-viewport {
-  height: min(680px, calc(100svh - 90px));
-  min-height: 240px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  scrollbar-width: thin;
-}
-.scroll-driven .hobby-viewport {
-  position: sticky;
-  top: 90px;
-  overflow-x: hidden;
+  height: auto;
+  min-height: 0;
+  overflow: visible;
 }
 .hobby-viewport:focus-visible {
   outline: 3px solid var(--color-primary);
   outline-offset: -4px;
 }
 .hobbies {
-  width: max-content;
-  max-width: none;
+  width: 100%;
+  max-width: 1100px;
   margin: 0;
-  height: 100%;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 48px 76px;
-  gap: 128px;
+  height: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  padding: 0;
+  gap: 34px;
 }
 .hobby-card {
   position: relative;
-  width: min(380px, 70vw, calc(100svh - 220px));
-  aspect-ratio: 1;
-  flex: 0 0 auto;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  margin: 0;
 }
 .hobby-card:before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: #d9d9d9;
-  border-radius: 28.8px;
-  transform: rotate(-14.46deg);
-}
-.hobby-card:nth-child(even):before {
-  transform: rotate(3.62deg);
+  content: none;
 }
 .hobby-card .art {
   position: relative;
   padding: 12px;
   filter: drop-shadow(0 18px 18px rgb(17 24 39 / 22%));
+}
+.photo-card {
+  padding: 0;
+  border-radius: 20px;
+  background: transparent;
+  box-shadow: 0 10px 26px rgb(23 32 48 / 11%);
+  transform: none;
+}
+.photo-card.portrait {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+}
+.photo-card img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+  filter: saturate(.94) contrast(1.02);
+}
+.photo-card:first-child img {
+  object-position: 68% center;
+}
+.photo-card:nth-child(3) img {
+  object-position: center 55%;
+}
+.photo-card:nth-child(5) img {
+  object-position: 66% center;
+}
+.photo-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  width: calc(50% - 17px);
+  justify-self: center;
 }
 .home-footer {
   --footer-spacing: 96px;
@@ -678,20 +698,20 @@ h2 {
     gap: 32px;
   }
   .hobby-scroll {
+    width: calc(100% - 36px);
     margin-top: 88px;
   }
   .hobby-viewport {
-    height: min(460px, calc(100svh - 80px));
-  }
-  .scroll-driven .hobby-viewport {
-    top: 80px;
+    height: auto;
   }
   .hobbies {
-    gap: 80px;
-    padding: 40px 48px;
+    grid-template-columns: 1fr;
+    gap: 22px;
+    padding: 0;
   }
-  .hobby-card:before {
-    border-radius: 20px;
+  .photo-card:last-child:nth-child(odd) {
+    grid-column: auto;
+    width: 100%;
   }
 }
 

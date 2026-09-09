@@ -14,13 +14,11 @@
     <script src="/scripts/site-shell.js" defer></script>
     <script type="module">
       import { mountArtRow } from '/scripts/art-interactions.js';
-      import { mountHobbyScroll } from '/scripts/hobby-scroll.js';
       for (const [selector, kind] of [['.first-row', 'navigation'], ['.second-row', 'quotes']]) {
         const container = document.querySelector(selector);
         container.replaceChildren();
         mountArtRow(container, kind);
       }
-      mountHobbyScroll(document.querySelector('.hobby-scroll'));
     </script>
   </head>
   <body>
@@ -74,7 +72,7 @@
       <section id="me" class="about section-wide">
         <h2>About Keyan</h2>
         <div class="about-grid">
-          <div class="portrait-frame"><img src="/images/about-keyan.png" alt="Keyan standing on a tree-lined street in a blue jacket" width="756" height="1124" /></div>
+          <div class="portrait-frame"><img src="/images/about-keyan-portrait.png" alt="Keyan standing on an autumn tree-lined street in a blue jacket" width="1086" height="1448" /></div>
           <div class="about-details">
             <div class="panel education"><h3>Education</h3><div class="education-item"><img src="/images/ut-austin.png" alt="" width="52" height="52" loading="lazy" /><div><h4>The University of Texas at Austin</h4><p>BFA in Design</p><p>GPA: 4.0</p></div></div></div>
             <div class="panel skills"><h3>Skills</h3><ul class="skill-tags"><li>User Interviews</li><li>Competitive Research</li><li>User Testing</li><li>Problem Solving</li><li>Vibe Coding</li></ul></div>
@@ -92,17 +90,17 @@
           </div></div>
         </div>
       </section>
-      <section class="hobby-scroll" aria-label="Keyan's creative interests">
-        <section class="hobby-viewport" aria-label="Hobby gallery" aria-keyshortcuts="ArrowLeft ArrowRight Home End">
+      <section class="hobby-scroll" aria-label="Life beyond the screen">
+        <section class="hobby-viewport" aria-label="A gallery of Keyan's life and creative interests">
           <div class="hobbies">
-            <div class="hobby-card"><img class="art" src="/images/imgPot2.png" alt="Cooking" width="1000" height="1000" loading="lazy" /></div>
-            <div class="hobby-card"><img class="art" src="/images/imgBrushes2.png" alt="Painting" width="1000" height="1000" loading="lazy" /></div>
-            <div class="hobby-card"><img class="art" src="/images/imgSpoon1.png" alt="Trying new recipes" width="1000" height="1000" loading="lazy" /></div>
-            <div class="hobby-card"><img class="art" src="/images/imgSewingmachine1.png" alt="Sewing" width="1000" height="1000" loading="lazy" /></div>
-            <div class="hobby-card"><img class="art" src="/images/imgWaterpot2.png" alt="Gardening" width="1000" height="1000" loading="lazy" /></div>
-            <div class="hobby-card"><img class="art" src="/images/imgBike1.png" alt="Cycling" width="1000" height="1000" loading="lazy" /></div>
-            <div class="hobby-card"><img class="art" src="/images/imgSunflower1.png" alt="Growing flowers" width="1000" height="1000" loading="lazy" /></div>
-            <div class="hobby-card"><img class="art" src="/images/imgApron1.png" alt="Making things by hand" width="1000" height="1000" loading="lazy" /></div>
+            <figure class="hobby-card photo-card landscape"><img src="/images/life-gallery/keyan-glacier.jpg" alt="Keyan visiting a glacier in a yellow jacket" width="1800" height="1350" loading="lazy" /></figure>
+            <figure class="hobby-card photo-card portrait"><img src="/images/life-gallery/keyan-design-studio.jpg" alt="Keyan at the Austin Design Studio" width="1350" height="1800" loading="lazy" /></figure>
+            <figure class="hobby-card photo-card landscape"><img src="/images/life-gallery/plastic-universe-team.jpg" alt="Keyan and collaborators with the Plastic Universe installation" width="1800" height="1200" loading="lazy" /></figure>
+            <figure class="hobby-card photo-card landscape"><img src="/images/life-gallery/wildflower-garden.jpg" alt="A garden filled with orange and purple wildflowers" width="1800" height="1350" loading="lazy" /></figure>
+            <figure class="hobby-card photo-card landscape"><img src="/images/life-gallery/keyan-yellowstone.jpg" alt="Keyan visiting Yellowstone in a blue jacket" width="1800" height="1200" loading="lazy" /></figure>
+            <figure class="hobby-card photo-card portrait"><img src="/images/life-gallery/paycom-team-event.png" alt="Keyan and colleagues at a Paycom team event" width="1500" height="2000" loading="lazy" /></figure>
+            <figure class="hobby-card photo-card landscape"><img src="/images/life-gallery/creative-wall.jpg" alt="Keyan's colorful art and inspiration wall" width="1800" height="1350" loading="lazy" /></figure>
+            <figure class="hobby-card photo-card landscape"><img src="/images/life-gallery/homemade-sushi.jpg" alt="Homemade sushi and sashimi" width="1800" height="1350" loading="lazy" /></figure>
           </div>
         </section>
       </section>
