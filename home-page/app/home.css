@@ -276,12 +276,13 @@ h2 {
 }
 .about-grid {
   display: grid;
-  grid-template-columns: minmax(0, 378px) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 456px) minmax(0, 1fr);
   gap: 24px 44px;
   font-family: Inter, sans-serif;
 }
 .portrait-frame {
-  height: 562px;
+  height: auto;
+  min-height: 454px;
   position: relative;
   overflow: hidden;
   border-radius: 24px;
