@@ -300,6 +300,14 @@ h2 {
   flex-direction: column;
   gap: 24px;
 }
+.about-summary-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+.about-summary-row > .skills {
+  min-height: 0;
+}
 .panel {
   border: 1px solid #898686;
   border-radius: 24px;
@@ -326,7 +334,7 @@ h2 {
 .education-item h4 {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   line-height: 1.25;
 }
@@ -337,15 +345,11 @@ h2 {
   font-size: 15px;
   line-height: 1.4;
 }
-.skills {
-  min-height: 230px;
-}
 .skill-tags {
   display: flex;
   flex-wrap: wrap;
-  gap: 29px 15px;
-  max-width: 360px;
-  margin: 46px 0 0;
+  gap: 14px 10px;
+  margin: 24px 0 0;
   padding: 0;
   list-style: none;
 }
@@ -357,7 +361,7 @@ h2 {
   border-radius: 50px;
 }
 .tools {
-  flex: 1;
+  flex: none;
 }
 .tool-icons {
   display: grid;
@@ -633,11 +637,11 @@ h2 {
   .about-details {
     gap: 24px;
   }
-  .skills {
-    min-height: 250px;
+  .about-summary-row {
+    grid-template-columns: 1fr;
   }
   .skill-tags {
-    margin-top: 50px;
+    margin-top: 24px;
     gap: 18px 12px;
   }
   .tool-icons {
