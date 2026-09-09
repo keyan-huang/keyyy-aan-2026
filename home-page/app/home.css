@@ -475,11 +475,11 @@ h2 {
   display: flex;
   align-items: center;
   padding: 48px 76px;
-  gap: 28px;
+  gap: 48px;
 }
 .hobby-card {
   position: relative;
-  width: min(520px, 40vw);
+  width: min(572px, 44vw);
   aspect-ratio: 4 / 3;
   flex: 0 0 auto;
   margin: 0;
@@ -499,8 +499,20 @@ h2 {
   box-shadow: 0 10px 26px rgb(23 32 48 / 11%);
   transform: none;
 }
+.photo-card:nth-child(2) {
+  transform: rotate(2.2deg);
+}
+.photo-card:nth-child(4) {
+  transform: rotate(-2.6deg);
+}
+.photo-card:nth-child(6) {
+  transform: rotate(1.8deg);
+}
+.photo-card:nth-child(8) {
+  transform: rotate(-2.2deg);
+}
 .photo-card.portrait {
-  width: min(520px, 40vw);
+  width: min(572px, 44vw);
   aspect-ratio: 4 / 3;
 }
 .photo-card img {
@@ -694,12 +706,12 @@ h2 {
     top: 80px;
   }
   .hobbies {
-    gap: 18px;
+    gap: 32px;
     padding: 28px 18px;
   }
   .hobby-card,
   .photo-card.portrait {
-    width: min(82vw, 420px);
+    width: min(90.2vw, 462px);
   }
 }
 
