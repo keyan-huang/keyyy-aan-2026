@@ -33,10 +33,10 @@
     link.textContent = item.label;
     navigation.append(link);
   }
-  const contactLink = document.createElement('a');
-  contactLink.href = `${root}#connect`;
-  contactLink.textContent = 'Contact';
-  navigation.append(contactLink);
+  const { mountContactMenu } = await import(
+    new URL('./contact-menu.js', script.src).href
+  );
+  mountContactMenu(navigation, site);
   header.append(logoLink, navigation);
   document.querySelector('[data-site-header]')?.replaceWith(header);
 

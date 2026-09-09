@@ -1,3 +1,5 @@
+@import url('./contact-menu.css');
+
 * {
   box-sizing: border-box;
 }
@@ -114,7 +116,7 @@ button:focus-visible {
   margin: auto;
 }
 
-.footer-balloon {
+.site-footer .footer-balloon {
   display: block;
   width: 180px;
   height: 232px;
@@ -196,7 +198,7 @@ button:focus-visible {
     font-size: 32px;
   }
 
-  .footer-balloon {
+  .site-footer .footer-balloon {
     width: 140px;
     height: auto;
   }
@@ -241,7 +243,7 @@ button:focus-visible {
     gap: 14px;
   }
 
-  .footer-balloon {
+  .site-footer .footer-balloon {
     width: 70px;
     height: 100px;
   }

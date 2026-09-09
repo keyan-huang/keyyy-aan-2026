@@ -43,7 +43,11 @@ Then open the local address shown in the terminal.
 
 Local development uses `vite.local.config.ts` and does not require the hosted
 environment's `.openai/hosting.json`. Run `pnpm build:local` to verify this setup.
-The Connect dropdown uses the shared Base UI component in `components/ui/`.
+Every header uses the Contact dropdown in `public/scripts/contact-menu.js`,
+styled by `public/styles/contact-menu.css`. The React `ContactMenu` component
+and the static shell both mount this same implementation using `site.json`.
+It uses the native Popover API (Safari 17+, Chrome 114+, Firefox 125+) for
+top-layer rendering, click toggling, and outside-click dismissal.
 
 ## Production build
 

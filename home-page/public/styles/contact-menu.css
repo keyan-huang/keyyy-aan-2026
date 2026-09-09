@@ -1,0 +1,84 @@
+.contact-menu {
+  position: fixed;
+  inset: auto;
+  margin: 0;
+  width: min(390px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+  padding: 12px;
+  border: 1px solid #e8e8e8;
+  border-radius: var(--radius-large);
+  background: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  box-shadow: 0 18px 55px rgb(17 24 39 / 16%);
+}
+.contact-menu .contact-menu-item {
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+  min-height: 82px;
+  padding: 10px;
+  border: 0;
+  border-radius: var(--radius-medium);
+  background: transparent;
+  color: var(--color-text);
+  text-align: left;
+  text-decoration: none;
+  font: inherit;
+  cursor: pointer;
+}
+.contact-menu .contact-menu-item + .contact-menu-item {
+  border-top: 1px solid #ededed;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.contact-menu .contact-menu-item:hover,
+.contact-menu .contact-menu-item:focus-visible {
+  background: #f5f5f5;
+}
+.contact-menu .contact-menu-item[aria-disabled='true'] {
+  cursor: default;
+}
+.contact-menu .contact-color {
+  display: flex;
+  width: 60px;
+  height: 60px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  color: var(--color-background);
+  font: 700 22px/1 var(--font-detail);
+}
+.contact-menu .contact-color-email {
+  background: var(--color-primary);
+}
+.contact-menu .contact-color-linkedin {
+  background: var(--color-linkedin);
+}
+.contact-menu .contact-color-resume {
+  background: var(--color-resume);
+}
+.contact-menu-item > span:last-child {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+}
+.contact-menu-item strong {
+  font: 700 20px/1.25 var(--font-detail);
+}
+.contact-menu-item small {
+  display: block;
+  overflow: hidden;
+  margin-top: 5px;
+  color: #747474;
+  font: 300 15px/1.5 var(--font-body);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.contact-menu-mount {
+  display: contents;
+}
