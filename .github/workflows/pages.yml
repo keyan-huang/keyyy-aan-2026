@@ -28,6 +28,9 @@ jobs:
           cp home-page/static/index.html home-page/github-pages/index.html
           cp home-page/app/home.css home-page/github-pages/home.css
           cp home-page/components/home/project-card.css home-page/github-pages/project-card.css
+          find home-page/github-pages -type f -name '*.html' -exec sed -i \
+            -e "s|site-shell.css\"|site-shell.css?v=${GITHUB_SHA}\"|g" \
+            -e "s|site-shell.js\"|site-shell.js?v=${GITHUB_SHA}\"|g" {} +
           touch home-page/github-pages/.nojekyll
 
       - name: Upload website
