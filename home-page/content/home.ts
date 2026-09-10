@@ -108,13 +108,13 @@ export const homeContent = {
     ],
   },
   hobbies: [
-    { src: '/images/life-gallery/keyan-glacier.jpg', label: 'Keyan visiting a glacier in a yellow jacket' },
+    { src: '/images/life-gallery/creative-wall.jpg', label: "Keyan's colorful art and inspiration wall" },
+    { src: '/images/life-gallery/homemade-sushi.jpg', label: 'Homemade sushi and sashimi' },
     { src: '/images/life-gallery/keyan-design-studio.jpg', label: 'Keyan at the Austin Design Studio' },
     { src: '/images/life-gallery/plastic-universe-team.jpg', label: 'Keyan and collaborators with the Plastic Universe installation' },
     { src: '/images/life-gallery/wildflower-garden.jpg', label: 'A garden filled with orange and purple wildflowers' },
-    { src: '/images/life-gallery/keyan-yellowstone.jpg', label: 'Keyan visiting Yellowstone in a blue jacket' },
     { src: '/images/life-gallery/paycom-team-event.png', label: 'Keyan and colleagues at a Paycom team event' },
-    { src: '/images/life-gallery/creative-wall.jpg', label: "Keyan's colorful art and inspiration wall" },
-    { src: '/images/life-gallery/homemade-sushi.jpg', label: 'Homemade sushi and sashimi' },
+    { src: '/images/life-gallery/keyan-yellowstone.jpg', label: 'Keyan visiting Yellowstone in a blue jacket' },
+    { src: '/images/life-gallery/keyan-glacier.jpg', label: 'Keyan visiting a glacier in a yellow jacket' },
   ],
 } as const;
