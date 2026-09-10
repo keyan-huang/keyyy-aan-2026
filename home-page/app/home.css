@@ -25,7 +25,7 @@ p {
 }
 .intro {
   max-width: 1034px;
-  margin: 133px auto 0;
+  margin: 113px auto 0;
 }
 .hero {
   display: grid;
@@ -584,7 +584,7 @@ h2 {
 @media (max-width: 700px) {
   .intro {
     width: calc(100% - 48px);
-    margin-top: 85px;
+    margin-top: 65px;
   }
   .hero {
     grid-template-columns: minmax(0, 1fr) 27%;
