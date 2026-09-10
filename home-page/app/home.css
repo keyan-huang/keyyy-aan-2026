@@ -493,23 +493,35 @@ h2 {
   filter: drop-shadow(0 18px 18px rgb(17 24 39 / 22%));
 }
 .photo-card {
+  --card-rotation: 0deg;
+  --tilt-x: 0deg;
+  --tilt-y: 0deg;
+  --tilt-lift: 0px;
   padding: 0;
   border-radius: 20px;
   background: transparent;
   box-shadow: 0 10px 26px rgb(23 32 48 / 11%);
-  transform: none;
+  transform: perspective(950px) rotateZ(var(--card-rotation)) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) translateZ(var(--tilt-lift));
+  transform-style: preserve-3d;
+  transition: transform 420ms cubic-bezier(.2,.8,.2,1), box-shadow 420ms ease;
+  will-change: transform;
+}
+.photo-card.is-tilting {
+  --tilt-lift: 8px;
+  box-shadow: 0 16px 32px rgb(23 32 48 / 14%);
+  transition-duration: 90ms;
 }
 .photo-card:nth-child(2) {
-  transform: rotate(2.2deg);
+  --card-rotation: 2.2deg;
 }
 .photo-card:nth-child(4) {
-  transform: rotate(-2.6deg);
+  --card-rotation: -2.6deg;
 }
 .photo-card:nth-child(6) {
-  transform: rotate(1.8deg);
+  --card-rotation: 1.8deg;
 }
 .photo-card:nth-child(8) {
-  transform: rotate(-2.2deg);
+  --card-rotation: -2.2deg;
 }
 .photo-card.portrait {
   width: min(572px, 44vw);
@@ -533,6 +545,14 @@ h2 {
 }
 .photo-card:nth-child(5) img {
   object-position: 66% center;
+}
+@media (prefers-reduced-motion: reduce), (hover: none), (pointer: coarse) {
+  .photo-card {
+    --tilt-x: 0deg !important;
+    --tilt-y: 0deg !important;
+    --tilt-lift: 0px !important;
+    transition: none;
+  }
 }
 .home-footer {
   --footer-spacing: max(0px, calc(100svh - 770px));
