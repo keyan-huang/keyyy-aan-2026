@@ -13,6 +13,32 @@
   const root = document.body.dataset.siteRoot || '/';
   const fromRoot = (path) => `${root}${path}`;
 
+  if (document.querySelector('.case-study')) {
+    const backToTop = document.createElement('button');
+    backToTop.className = 'case-study-back-to-top';
+    backToTop.type = 'button';
+    backToTop.setAttribute('aria-label', 'Back to top');
+    backToTop.innerHTML = `
+      <svg aria-hidden="true" viewBox="0 0 24 24">
+        <path d="M12 19V5M6 11l6-6 6 6" />
+      </svg>`;
+
+    const updateBackToTop = () => {
+      backToTop.classList.toggle('is-visible', window.scrollY > 320);
+    };
+
+    backToTop.addEventListener('click', () => {
+      const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        ? 'auto'
+        : 'smooth';
+      window.scrollTo({ top: 0, behavior });
+    });
+    window.addEventListener('scroll', updateBackToTop, { passive: true });
+    window.addEventListener('pageshow', updateBackToTop);
+    document.body.append(backToTop);
+    updateBackToTop();
+  }
+
   const headerMount = document.querySelector('[data-site-header]');
   if (headerMount) {
     const header = document.createElement('header');

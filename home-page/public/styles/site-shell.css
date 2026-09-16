@@ -101,6 +101,56 @@ button:focus-visible {
   font: inherit;
 }
 
+.case-study-back-to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 45;
+  display: grid;
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 100% 0 14px;
+  background: #4F77FA;
+  box-shadow: 0 10px 28px rgb(79 119 250 / 28%);
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    visibility 0s linear 180ms;
+  visibility: hidden;
+}
+
+.case-study-back-to-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+  transition-delay: 0s;
+  visibility: visible;
+}
+
+.case-study-back-to-top svg {
+  width: 26px;
+  height: 26px;
+  margin: 8px 0 0 8px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 3.25;
+}
+
+.case-study-back-to-top:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgb(79 119 250 / 38%);
+}
+
 .site-footer {
   margin-top: var(--footer-spacing, 160px);
   padding: 104px 60px 40px;
@@ -318,6 +368,19 @@ button:focus-visible {
     scroll-padding-top: 88px;
   }
 
+  .case-study-back-to-top {
+    right: 16px;
+    bottom: 16px;
+    width: 54px;
+    height: 54px;
+  }
+
+  .case-study-back-to-top svg {
+    width: 23px;
+    height: 23px;
+    margin: 7px 0 0 7px;
+  }
+
   .navigation {
     top: 8px;
     width: calc(100% - 24px);
@@ -389,6 +452,10 @@ button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .case-study-back-to-top {
+    transition: none;
   }
 
   .contact {
