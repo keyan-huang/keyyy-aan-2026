@@ -63,7 +63,7 @@
           <div class="contact-links">
             <a class="contact linkedin" href="${site.contact.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a class="contact email" href="mailto:${site.contact.email}">Email</a>
-            <span class="contact resume" aria-label="Resume coming soon">Resume</span>
+            <a class="contact resume" href="${site.contact.resumeUrl}" target="_blank" rel="noopener noreferrer" aria-label="View resume (PDF, opens in a new tab)">Resume</a>
           </div>
         </div>
         <div class="footer-art-stage" aria-hidden="true">${art}</div>
