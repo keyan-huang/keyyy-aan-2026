@@ -16,7 +16,7 @@ export const homeContent = {
       '/images/imgShovel1.png',
     ],
     summary:
-      'I’m a curious product designer who loves diving into messy, complicated problems and figuring out what’s really going on. I’m not afraid of complexity—I like pulling things apart, connecting the dots, and turning all that chaos into something that feels clear, and human.',
+      'I’m a curious product designer who loves untangling messy, ambiguous problems and uncovering what’s really happening beneath the surface. I pull things apart, connect the dots, and turn complexity into experiences that feel intuitive, fun, and deeply human.',
   },
   experiments: [
     {
