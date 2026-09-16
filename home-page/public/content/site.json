@@ -11,7 +11,8 @@
   "contact": {
     "email": "keyanhuang3@gmail.com",
     "linkedin": "https://www.linkedin.com/in/keyan-huang-4895971b4/",
-    "resumeAvailable": false
+    "resumeAvailable": true,
+    "resumeUrl": "/keyan-resume.pdf"
   },
   "footerMessage": "Have a curious problem worth exploring?",
   "footerDescription": "I’m always up for thoughtful products, ambitious ideas, and a good conversation.",
