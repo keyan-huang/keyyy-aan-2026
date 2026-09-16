@@ -29,7 +29,13 @@ export function mountContactMenu(container, site) {
       detail: site.contact.email,
       href: `mailto:${site.contact.email}`,
     },
-    { kind: 'resume', symbol: 'R', label: 'Resume', detail: 'Coming soon' },
+    {
+      kind: 'resume',
+      symbol: 'R',
+      label: 'Resume',
+      detail: site.contact.resumeAvailable ? 'View resume' : 'Coming soon',
+      href: site.contact.resumeAvailable ? site.contact.resumeUrl : undefined,
+    },
   ];
   const items = entries.map((entry) => {
     const item = document.createElement(entry.href ? 'a' : 'button');
@@ -38,7 +44,7 @@ export function mountContactMenu(container, site) {
     item.tabIndex = -1;
     if (entry.href) {
       item.setAttribute('href', entry.href);
-      if (entry.kind === 'linkedin') {
+      if (entry.kind === 'linkedin' || entry.kind === 'resume') {
         item.setAttribute('target', '_blank');
         item.setAttribute('rel', 'noopener noreferrer');
       }
