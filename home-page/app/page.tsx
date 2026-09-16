@@ -19,10 +19,20 @@ export default function Home() {
           <div className="hero">
             <div>
               <h1>
-                {homeContent.introduction.heading.split('\n').map((line) => (
-                  <span key={line}>
+                {homeContent.introduction.heading.split('\n').map((line, index, lines) => (
+                  <span
+                    className={index === lines.length - 1 ? 'hero-line hero-line--idea' : 'hero-line'}
+                    key={line}
+                  >
                     {line}
-                    <br />
+                    {index === lines.length - 1 && (
+                      <span className="idea-strokes idea-strokes--right" aria-hidden="true">
+                        <i />
+                        <i />
+                        <i />
+                      </span>
+                    )}
+                    {index < lines.length - 1 && <br />}
                   </span>
                 ))}
               </h1>
@@ -153,7 +163,9 @@ export default function Home() {
                         <div className="experience-role" key={role.title}>
                           <h5>{role.title}</h5>
                           <div className="experience-date">{role.date}</div>
-                          <p>{role.description}</p>
+                          {role.descriptions.map((description) => (
+                            <p key={description}>{description}</p>
+                          ))}
                         </div>
                       ))}
                     </div>

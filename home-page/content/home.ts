@@ -1,6 +1,6 @@
 export const homeContent = {
   introduction: {
-    heading: 'Keyan is\na curious designer',
+    heading: 'keyan turns\nbig questions into\nbright ideas',
     availability: 'Open to opportunity',
     illustration: '/images/imgBinoculars1.png',
     firstArtRow: [
@@ -62,13 +62,19 @@ export const homeContent = {
         roles: [
           {
             title: 'Product Designer',
-            date: '2025–Present',
-            description: 'Designed thoughtful workflows for complex HR products in partnership with research, product, and engineering.',
+            date: '2024–2026',
+            descriptions: [
+              'Managed 3 concurrent projects across 5 PMs and 3 engineering teams as the sole designer on 20+ initiatives, and mentored 2 design interns through biweekly critique and project guidance.',
+              'Owned the end-to-end redesign of the Personnel Action Form, a workflow used by 350K+ managers, cutting employee-transfer process time by 50% through a rearchitected approval flow.',
+              'Reframed the Performance Discussion Form around real-time performance insights, driving a 25% increase in adoption and surfacing 60% more priority actions and data trends.',
+            ],
           },
           {
             title: 'Product Intern',
-            date: '2024–2025',
-            description: 'Explored early concepts and translated employee needs into clear, testable product improvements.',
+            date: '2023 Summer',
+            descriptions: [
+              'Designed a CRM architecture and led 16 interviews to streamline sales workflows and inform data visualization recommendations.',
+            ],
           },
         ],
       },
@@ -78,30 +84,36 @@ export const homeContent = {
         roles: [
           {
             title: 'Student Designer',
-            date: '2023–2024',
-            description: 'Shaped research findings and emerging technology concepts into an approachable experience.',
+            date: '2024 Spring',
+            descriptions: [
+              "Designed for urbanization issues and interviewed local business owners to preserve Austin's culture.",
+            ],
+          },
+        ],
+      },
+      {
+        image: '/images/imgDfa1.svg?v=no-black-border',
+        company: 'Design for America UT',
+        roles: [
+          {
+            title: 'Project Manager',
+            date: '2022–2024',
+            descriptions: [
+              'Led monthly workshops on design research methods and delivered projects addressing issues across university services.',
+            ],
           },
         ],
       },
       {
         image: '/images/imgImage165.png',
-        company: 'AIGA UTD Student Chapter',
+        company: 'AIGA Student Chapter',
         roles: [
           {
-            title: 'Project Coordinator',
-            date: '2022–2023',
-            description: 'Organized creative programs and helped student designers turn shared ideas into welcoming events.',
-          },
-        ],
-      },
-      {
-        image: '/images/imgEco1.png',
-        company: 'Environmental Conservation Organization',
-        roles: [
-          {
-            title: 'Marketing VP',
+            title: 'Program Director',
             date: '2021–2022',
-            description: 'Led campaign design and storytelling that made local conservation efforts easier to discover and support.',
+            descriptions: [
+              'Organized design workshops and coordinated 5 professional development events with industry leaders.',
+            ],
           },
         ],
       },
