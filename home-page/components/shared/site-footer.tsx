@@ -25,9 +25,15 @@ export function SiteFooter() {
             <a className="contact email" href={`mailto:${site.contact.email}`}>
               Email
             </a>
-            <span className="contact resume" aria-label="Resume coming soon">
+            <a
+              className="contact resume"
+              href={site.contact.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View resume (PDF, opens in a new tab)"
+            >
               Resume
-            </span>
+            </a>
           </div>
         </div>
         <div className="footer-art-stage" aria-hidden="true">
