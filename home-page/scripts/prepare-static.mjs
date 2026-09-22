@@ -26,9 +26,10 @@ if (version) {
         if (entry.isDirectory()) return stampHtml(target);
         if (path.extname(target) !== '.html') return;
         const source = await readFile(target, 'utf8');
-        const stamped = source
-          .replaceAll('site-shell.css"', `site-shell.css?v=${version}"`)
-          .replaceAll('site-shell.js"', `site-shell.js?v=${version}"`);
+        const stamped = source.replace(
+          /((?:href|src)=["'])(?!https?:\/\/|\/\/|data:)([^"'?#]+\.(?:css|js))(?:\?[^"']*)?(["'])/g,
+          `$1$2?v=${version}$3`,
+        );
         await writeFile(target, stamped);
       }),
     );
