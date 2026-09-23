@@ -20,7 +20,7 @@ body { margin: 0; background: var(--background); color: var(--ink); font-family:
 .comparison-grid article > p { min-height: 3.3em; color: var(--muted); font-size: 16px; }
 .case-study .case-media { position: relative; margin: 0; min-width: 0; }
 .case-media img { display: block; width: 100%; height: auto; border-radius: 8px; }
-.case-study .hero-media { max-width: 900px; margin: 38px auto; }
+.case-study .hero-media { width: 50%; max-width: 450px; margin: 38px auto; }
 .board { padding: 12px; background: #f7f6fa; border-radius: 12px; }
 .image-link { display: inline-block; margin-top: 10px; font-size: 13px; }
 .rationale { max-width: 760px; margin-top: 36px; }
