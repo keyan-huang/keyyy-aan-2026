@@ -58,7 +58,7 @@ export default function Home() {
             ))}
           </div>
         </section>
-        <section id="fun" className="experiments section-wide">
+        <section id="fun" className="experiments section-wide" hidden>
           <h2>Design Experiments</h2>
           <div
             className="experiment-grid"

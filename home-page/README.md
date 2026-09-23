@@ -28,6 +28,12 @@ The React homepage lives in `app/page.tsx`; GitHub Pages publishes
 `static/index.html`. Keep their markup and content synchronized. Both use the
 same homepage, component, and shared-shell styles.
 
+Design Experiments is temporarily hidden in both `app/page.tsx` and
+`static/index.html`; its content and styles are retained. To restore it, remove
+`hidden` from both `#fun` sections and restore the Experiments navigation entry
+in `public/content/site.json` and the static homepage header. The balloon stays
+decorative while its destination is hidden and becomes a link again when restored.
+
 The static Performance Discussion Form case study loads the same site settings
 and shell styles as the React homepage through `public/scripts/site-shell.js`.
 Its `case-study.css` therefore contains only case-study-specific presentation.

@@ -2,6 +2,10 @@ html {
   scroll-behavior: auto;
 }
 
+.experiments[hidden] {
+  display: none;
+}
+
 body {
   overflow-x: clip;
 }

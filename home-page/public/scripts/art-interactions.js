@@ -80,6 +80,10 @@ export function mountArtRow(container, kind) {
     image.width = 1000;
     image.height = 1000;
     image.decoding = 'async';
+    if (entry.href && document.querySelector(entry.href)?.hidden) {
+      container.append(image);
+      continue;
+    }
     trigger.append(image);
     trigger.addEventListener('pointerenter', event => {
       if (event.pointerType !== 'touch') show(trigger, entry);

@@ -5,7 +5,6 @@
   "logo": "images/imgImage81.png",
   "navigation": [
     { "label": "Work", "section": "work" },
-    { "label": "Experiments", "section": "fun" },
     { "label": "About", "section": "me" }
   ],
   "contact": {
