@@ -34,7 +34,15 @@ export function ProjectCard({ project }: { project: ProjectSummary }) {
   return (
     <article className="project">
       <div className="project-description">
-        <h3>{project.title}</h3>
+        <h3>
+          {project.titleLines ? (
+            <>
+              {project.titleLines[0]}
+              <br />
+              {project.titleLines[1]}
+            </>
+          ) : project.title}
+        </h3>
         <p>{project.description}</p>
       </div>
       <div className={`project-thumbnail project-thumbnail-${project.slug}`}>

@@ -50,9 +50,9 @@
   grid-row: 1;
   margin: 0;
   font-family: var(--font-display);
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 600;
-  line-height: 46px;
+  line-height: 42px;
   letter-spacing: 0;
 }
 
@@ -128,8 +128,8 @@
   }
 
   .project-description h3 {
-    font-size: 30px;
-    line-height: 36px;
+    font-size: 26px;
+    line-height: 32px;
   }
 
   .project-description p {

@@ -27,6 +27,9 @@ self-contained folder in `public/<project-slug>/`. Add the metadata export to
 All project cards use a full-width title above their content and a bottom-right
 action with equal edge insets. Their shared layout lives in
 `components/home/project-card.css`; titles wrap naturally on small screens.
+Optional `titleLines` sets an intentional two-line homepage title without changing
+image sizing. Mirror these line breaks in `static/index.html` and the case studies'
+"More projects" cards.
 
 The React homepage lives in `app/page.tsx`; GitHub Pages publishes
 `static/index.html`. Keep their markup and content synchronized. Both use the
@@ -50,6 +53,14 @@ Keep its source discrepancy notes with the report
 until the original counts are reconciled. Prototype access credentials must not
 be added to the page or its images. Original Figma exports are archived outside
 the website; only display assets belong in its `images/` folder.
+
+Each case study ends with a separate "More projects" section linking to the other
+two studies, using only their titles and existing hero images. Keep these links
+in sync when projects change. Presentation is shared in
+`public/styles/related-projects.css`. These cards sit outside `.case-study` so
+their images navigate to projects rather than opening the case-study lightbox.
+The section shares the footer background and removes the gap before the adjacent
+footer; this treatment does not affect the homepage footer.
 
 Use `status: 'draft'` for a project without a published case study and
 `status: 'published'` with an `href` when its page is ready.

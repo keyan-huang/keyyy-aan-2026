@@ -68,7 +68,6 @@ body { margin: 0; background: var(--background); color: var(--ink); font-family:
 .dashboard-comparison figcaption { padding-top: 12px; color: var(--muted); font-size: 14px; text-align: center; }
 .dashboard-comparison .case-media { display: grid; place-items: center; aspect-ratio: 1540 / 1038; }
 .case-media figcaption { padding-top: 12px; }
-.back-link { display: inline-flex; align-items: center; gap: 14px; margin-top: 60px; }
 @media (max-width: 720px) {
   .case-study { width: calc(100% - 40px); padding-top: 40px; padding-bottom: 64px; }
   .hero-summary { font-size: 18px; }
