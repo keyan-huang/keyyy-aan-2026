@@ -17,7 +17,8 @@
   <link rel="icon" href="../images/imgImage81.png">
   <link rel="stylesheet" href="../styles/design-tokens.css">
   <link rel="stylesheet" href="../styles/site-shell.css?v=lightbox-4">
-  <link rel="stylesheet" href="case-study.css">
+  <link rel="stylesheet" href="case-study.css?v=architecture-flow-1">
+  <link rel="stylesheet" href="architecture-flow.css?v=structure-layout-3">
   <script src="../scripts/site-shell.js?v=lightbox-3" defer></script>
 </head>
 <body data-site-root="../">
@@ -64,13 +65,12 @@
 
     <section class="case-section">
       <div class="section-heading"><span>01</span><h2>What was asked</h2></div>
-      <div class="two-columns brief-grid">
+      <div class="brief-grid">
         <div>
-          <p class="pull-quote">Modernize the UI of the existing Personnel Action Form, from creation to resolution.</p>
-          <p><strong>From Product Management</strong><br>“modernize the UI, align the module with the rest of the product, and improve the overall user experience.”</p>
+          <p class="pull-quote">“Modernize the UI of the existing Personnel Action Form, from creation to resolution.”</p>
           <p class="scope-note">The redesign did not cover the full module.</p>
         </div>
-        <figure class="case-media tall"><img src="images/paf-homepage.png" alt="Legacy Personnel Action Form homepage"></figure>
+        <img class="brief-image" src="images/paf-homepage.png?v=20260923" alt="Legacy Personnel Action Form homepage" width="1514" height="768">
       </div>
       <p>I could modernize the interface, but as the module’s lead designer, I knew a visual refresh alone would not resolve the deeper frustrations. Users needed more than updated aesthetics.</p>
     </section>
@@ -86,13 +86,9 @@
         <article><h3>Sales Representatives</h3><p>A customer-facing perspective on recurring pain points and product gaps</p></article>
       </div>
       <p>We combined these interviews with an evaluation of the existing experience from both design and product perspectives. Together, we examined the experience through three lenses: user, design, and business.</p>
-      <div class="research-map" role="img" aria-label="Interview findings organized into an affinity map">
-        <span class="research-coral"></span><span class="research-coral"></span><span class="research-coral"></span><span class="research-coral"></span>
-        <span class="research-green"></span><span class="research-green"></span><span class="research-green"></span>
-        <span class="research-teal"></span><span class="research-teal"></span><span class="research-teal"></span><span class="research-teal"></span>
-        <span class="research-purple"></span><span class="research-purple"></span><span class="research-purple"></span>
-        <span class="research-gold"></span><span class="research-gold"></span>
-      </div>
+      <figure class="case-media">
+        <img src="images/paf-affinity-map.png" alt="Affinity map organizing Personnel Action Form interview findings" width="4096" height="2579">
+      </figure>
       <h3 class="subhead">What We Heard</h3>
       <div class="finding-grid">
         <article><h3>Approval Flow &amp; Visibility</h3><ul><li>Unclear status and approval progress</li><li>Approvers had to leave the flow to make changes</li><li>Users didn’t always know what happened after submitting</li></ul></article>
@@ -122,29 +118,85 @@
       <p class="eyebrow">Challenge 1: Information Architecture</p>
       <h2>Bring Order to Complexity</h2>
       <p class="question">How might we organize PAF around the decisions managers need to make, so they can find the right information at the right moment without getting lost in the complexity of the form?</p>
-      <h3 class="subhead">Stepper or One-Page?</h3>
-      <p>The current PAF flow had an awkward split: employee selection happened first, then users landed on one long creation page. The selection step worked, but it felt disconnected. Once inside the form, everything was packed into the same page with limited hierarchy.</p>
-      <div class="comparison">
-        <article><b>CURRENT</b><h3>One long creation experience</h3><div class="mini-flow"><span>Select Employees</span><span>Create PAF</span></div><p>Employee selection feels disconnected. Most work happens on one long page.</p></article>
-        <article class="chosen"><b>NEW</b><h3>A clearer three-step flow</h3><div class="mini-flow"><span>1 Employee Selection</span><span>2 Create PAF</span><span>3 Review &amp; Submit</span></div><p>The biggest change wasn’t adding more pages. It was creating a clearer beginning, middle, and end.</p></article>
+      <div class="architecture-block">
+        <h3>Essential Form Components</h3>
+        <div class="architecture-flow">
+          <ul class="flow-steps flow-six" aria-label="Essential form components">
+            <li class="flow-employee">Employee Selection</li>
+            <li class="flow-setup">Setup</li>
+            <li class="flow-fields">Fields</li>
+            <li class="flow-questions">Questions</li>
+            <li class="flow-actions">One-time Actions</li>
+            <li class="flow-documents">Docs and Comments</li>
+          </ul>
+        </div>
       </div>
-      <h3 class="subhead">Why not add more steps?</h3>
-      <p>At one point, we considered putting PAF setup—type, template, reason, effective date, and workflow—in its own step, then showing the generated form fields in the next one.</p>
-      <p>On paper, that structure made sense. In practice, it didn’t match how users worked.</p>
-      <div class="decision-strip"><b>CHOSEN</b><span>Employee Selection</span><span>Create PAF — setup + dynamic content</span><span>Review &amp; Submit</span></div>
-      <p>So setup and dynamic content stayed together.</p>
-      <h3 class="subhead">One page, with clearer structure</h3>
-      <p>Create PAF still contains most of the transaction, but it no longer reads as one continuous form. Related information is grouped into clear sections so users can scan the page and understand where different types of work belong.</p>
-      <div class="media-grid structure-grid">
-        <figure class="case-media"><img src="images/structure-01.png" alt="Redesigned PAF employee selection step"></figure>
-        <figure class="case-media"><img src="images/structure-02.png" alt="Redesigned PAF form with clearly grouped sections"></figure>
-        <figure class="case-media"><img src="images/structure-03.png" alt="Redesigned PAF review and submit step"></figure>
+      <div class="architecture-block">
+        <h3>Stepper or One-Page?</h3>
+        <p>The current PAF flow had an awkward split: employee selection happened first, then users landed on one long creation page. The selection step worked, but it felt disconnected. Once inside the form, everything was packed into the same page with limited hierarchy.</p>
+        <article class="current-flow">
+          <p class="eyebrow">Current</p>
+          <h4>One long creation experience</h4>
+          <ol class="flow-steps flow-two" aria-label="Current PAF flow">
+            <li class="flow-employee">Select Employees</li>
+            <li class="flow-create">Create PAF</li>
+          </ol>
+          <p>Employee selection feels disconnected. Most work happens on one long page without a dedicated review step.</p>
+        </article>
+      </div>
+      <div class="architecture-block">
+        <h3>Why a stepper?</h3>
+        <div class="architecture-flow labeled-flow">
+          <b>Seven Steps</b>
+          <ol class="flow-steps flow-seven" aria-label="Seven-step exploration">
+            <li class="flow-employee">Employee Selection</li>
+            <li class="flow-setup">Setup</li>
+            <li class="flow-fields">Fields</li>
+            <li class="flow-questions">Questions</li>
+            <li class="flow-actions">One-time Actions</li>
+            <li class="flow-documents">Docs and Comments</li>
+            <li class="flow-review">Review &amp; Submit</li>
+          </ol>
+        </div>
+        <p>I wanted creation to feel like a complete process, with a dedicated review-and-submit step so users could finish with confidence. My first exploration gave each major content block its own step. But the form is generated from a selected template: some steps might contain only one field, while others might not be needed at all. Interviews also showed that users prefer to see all the fields together.</p>
+        <div class="architecture-flow labeled-flow">
+          <b>Four Steps</b>
+          <ol class="flow-steps flow-four" aria-label="Four-step exploration">
+            <li class="flow-employee">Employee Selection</li>
+            <li class="flow-setup">Setup</li>
+            <li class="flow-fields">Dynamic Content</li>
+            <li class="flow-review">Review &amp; Submit</li>
+          </ol>
+        </div>
+        <p>I then brought the content blocks together on one page, keeping PAF setup—type, template, reason, effective date, and workflow—in a separate step. On paper, that structure made sense. In practice, users relied on the generated fields to confirm they had selected the right template. Separating setup from its content would force them to move back and forth, adding uncertainty instead of reducing it.</p>
+      </div>
+      <div class="architecture-block">
+        <h3>Not Everything Needed to Change</h3>
+        <div class="architecture-flow labeled-flow">
+          <b>Three Steps</b>
+          <ol class="flow-steps flow-three" aria-label="Chosen three-step flow">
+            <li class="flow-employee">Employee Selection</li>
+            <li class="flow-create"><span>Create PAF<br>Setup + Dynamic Content</span></li>
+            <li class="flow-review">Review &amp; Submit</li>
+          </ol>
+        </div>
+        <p>Users were already accustomed to seeing fields update immediately after choosing a template, and that relationship helped them confirm they were setting up the right PAF. So setup and dynamic content stayed together. The chosen three-step flow preserves that familiar behavior while creating a clearer beginning, middle, and end.</p>
+      </div>
+      <div class="structure-layout">
+        <div class="structure-copy">
+          <h3>One page, with clearer structure</h3>
+          <p>Create PAF still contains most of the transaction, but it no longer reads as one continuous form. Related information is grouped into clear sections so users can scan the page and understand where different types of work belong.</p>
+        </div>
+        <div class="media-grid structure-grid">
+          <figure class="case-media"><img src="images/structure-01.png" alt="Redesigned PAF employee selection step"><figcaption>01 — Employee Selection</figcaption></figure>
+          <figure class="case-media"><img src="images/structure-02.png" alt="Redesigned PAF form with clearly grouped sections"><figcaption>02 — Create PAF</figcaption></figure>
+          <figure class="case-media"><img src="images/structure-03.png" alt="Redesigned PAF review and submit step"><figcaption>03 — Review &amp; Submit</figcaption></figure>
+        </div>
       </div>
       <h3 class="subhead">What if the page is still long?</h3>
       <p>Some PAFs are naturally more complex. Instead of adding more steps, collapsible field groups let users control how much information is visible without breaking the connection between setup and the fields it generates.</p>
       <figure class="case-media"><img src="media/expand-collapse.gif" alt="Animated form fields expanding and collapsing"></figure>
       <blockquote><b>More steps weren’t the answer. Better structure was.</b><br>The goal wasn’t to break the form into as many steps as possible. It was to add structure without getting in the way of how users already work.</blockquote>
-      <aside class="inset"><h3>Not Everything Needed to Change</h3><p>Research also showed us what not to redesign. Users were already accustomed to seeing fields update immediately after choosing a template. That relationship helped them confirm they were setting up the right PAF. Instead of replacing a familiar behavior, the redesign preserved it and improved the structure around it.</p><div class="media-placeholder compact"><span>Template selection ↓ generates PAF fields</span><small>Preserved: immediate feedback between configuration and content</small></div></aside>
     </section>
 
     <section class="case-section challenge-section">
@@ -161,12 +213,15 @@
         <figure class="case-media"><img src="images/warning-highlight.png" alt="Persistent warning panel highlighted in the redesigned PAF"></figure>
       </div>
       <h3 class="subhead">Feedback Beyond Errors</h3>
-      <p>Feedback isn’t only about errors. Users also need confidence that the system captured what they changed.</p>
-      <figure class="case-media indicators-overview"><img src="images/indicators.png" alt="Change indicator states for edited PAF fields"></figure>
+      <div class="two-columns feedback-intro">
+        <p>Feedback isn’t only about errors. Users also need confidence that the system captured what they changed.</p>
+        <figure class="case-media indicators-overview"><img src="images/indicators.png" alt="Change indicator states for edited PAF fields"></figure>
+      </div>
       <h3 class="subhead">Make Changes Easy to Scan</h3>
       <p>Users often update only a few fields in a PAF. I introduced change indicators at the section level so they can quickly see what changed without reopening or rereading every field.</p>
-      <h3 class="media-label">Current PAF fields</h3>
+      <h4 class="media-label">Current PAF fields</h4>
       <figure class="case-media"><img src="images/old-fields.png" alt="Current PAF fields before change indicators were introduced"></figure>
+      <h4 class="media-label">Redesigned collapsible fields with change indicators</h4>
       <div class="media-grid indicator-grid">
         <figure class="case-media"><img src="images/indicator-01.png" alt="Redesigned PAF with one section-level change indicator"><figcaption>One edited section</figcaption></figure>
         <figure class="case-media"><img src="images/indicator-02.png" alt="Redesigned PAF with two section-level change indicators"><figcaption>Two edited sections</figcaption></figure>
