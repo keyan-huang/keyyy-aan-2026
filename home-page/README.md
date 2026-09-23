@@ -45,10 +45,12 @@ The static Performance Discussion Form case study loads the same site settings
 and shell styles as the React homepage through `public/scripts/site-shell.js`.
 Its `case-study.css` therefore contains only case-study-specific presentation.
 
-The Dashboard Customization Study case study also uses the shared shell.
+The Dashboard Customization Testing Study case study also uses the shared shell.
 Its report and test script are HTML in `public/dashboard-customization-user-testing/index.html`;
 long-form material uses native expandable sections, with the complete testing
 report expanded by default. The hero reuses the inline-drawer prototype image.
+Only its homepage thumbnail is inset to 90% of the image area; the study hero
+and related-project previews retain their own sizing.
 Keep its source discrepancy notes with the report
 until the original counts are reconciled. Prototype access credentials must not
 be added to the page or its images. Original Figma exports are archived outside
