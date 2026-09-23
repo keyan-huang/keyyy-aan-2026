@@ -18,11 +18,15 @@ separate owners.
 | Global style imports                          | `app/globals.css`                     |
 | Homepage-only layout styles                   | `app/home.css`                        |
 | Performance Discussion Form content and media | `public/performance-discussion-form/` |
+| Dashboard customization research and media    | `public/dashboard-customization-user-testing/` |
 | Inactive concepts and source material          | `design-options/assets/`              |
 
 Each new project should receive one metadata file in `content/projects/` and a
 self-contained folder in `public/<project-slug>/`. Add the metadata export to
 `content/projects/index.ts`; the homepage project list will render it.
+All project cards use a full-width title above their content and a bottom-right
+action with equal edge insets. Their shared layout lives in
+`components/home/project-card.css`; titles wrap naturally on small screens.
 
 The React homepage lives in `app/page.tsx`; GitHub Pages publishes
 `static/index.html`. Keep their markup and content synchronized. Both use the
@@ -37,6 +41,15 @@ decorative while its destination is hidden and becomes a link again when restore
 The static Performance Discussion Form case study loads the same site settings
 and shell styles as the React homepage through `public/scripts/site-shell.js`.
 Its `case-study.css` therefore contains only case-study-specific presentation.
+
+The Dashboard Customization Study case study also uses the shared shell.
+Its report and test script are HTML in `public/dashboard-customization-user-testing/index.html`;
+long-form material uses native expandable sections, with the complete testing
+report expanded by default. The hero reuses the inline-drawer prototype image.
+Keep its source discrepancy notes with the report
+until the original counts are reconciled. Prototype access credentials must not
+be added to the page or its images. Original Figma exports are archived outside
+the website; only display assets belong in its `images/` folder.
 
 Use `status: 'draft'` for a project without a published case study and
 `status: 'published'` with an `href` when its page is ready.
