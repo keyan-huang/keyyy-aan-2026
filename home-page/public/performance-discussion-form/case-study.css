@@ -186,7 +186,7 @@ li {
   scroll-margin-top: 40px;
 }
 #n646-510858 {
-  border-radius: 20px;
+  border-radius: 8px;
   box-shadow: 0 16px 50px #3226480b;
 }
 #n535-489235 {
@@ -312,7 +312,7 @@ main.case-study {
   width: 100%;
   margin: 24px 0 8px;
   border: 0;
-  border-radius: 20px;
+  border-radius: 8px;
   background: #fff;
   box-shadow: 0 18px 52px rgb(40 32 51 / 9%);
 }
@@ -831,7 +831,7 @@ main.case-study {
 }
 
 .image-frame {
-  border-radius: 18px;
+  border-radius: 8px;
   background: #fff;
   box-shadow: 0 14px 38px rgb(40 32 51 / 8%);
 }
@@ -912,6 +912,24 @@ main.case-study {
   background: #fff;
 }
 
+.final-solution-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(260px, .85fr);
+  gap: 48px;
+  align-items: center;
+}
+
+.final-solution-layout > div {
+  min-width: 0;
+}
+
+.final-solution-layout .image-frame {
+  width: 100%;
+  max-width: 400px;
+  margin: 0;
+  justify-self: end;
+}
+
 #n640-510851 {
   border: 1px solid #e5e1e7;
   border-radius: 16px;
@@ -919,13 +937,30 @@ main.case-study {
 }
 
 .status-demos {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, .95fr);
+  gap: 48px;
+  align-items: center;
   padding: 26px;
   border-radius: 20px;
   background: #fff;
 }
 
+.status-demos > div {
+  min-width: 0;
+}
+
+.status-demos > img,
+.status-demos > .case-study-lightbox-host {
+  width: 100%;
+  max-width: 430px;
+  justify-self: end;
+}
+
 .status-demos img {
-  border-radius: 14px;
+  width: 100%;
+  max-width: 430px;
+  border-radius: 8px;
   box-shadow: 0 12px 34px rgb(40 32 51 / 10%);
 }
 
@@ -949,7 +984,7 @@ main.case-study {
 
   #n646-510858 {
     margin-top: 12px;
-    border-radius: 14px;
+    border-radius: 8px;
   }
 
   .case-section,
@@ -993,6 +1028,26 @@ main.case-study {
   .iteration,
   .widget-block {
     grid-template-columns: 1fr;
+  }
+
+  .final-solution-layout {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .final-solution-layout .image-frame {
+    max-width: 456px;
+    justify-self: center;
+  }
+
+  .status-demos {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .status-demos > img,
+  .status-demos > .case-study-lightbox-host {
+    justify-self: center;
   }
 
 }
