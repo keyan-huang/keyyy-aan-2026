@@ -1,7 +1,7 @@
 export const homeContent = {
   introduction: {
     heading: 'keyan turns\nbig questions into\nbright ideas',
-    availability: 'Open to opportunity',
+    availability: 'Open to opportunities',
     illustration: '/images/imgBinoculars1.png',
     firstArtRow: [
       '/images/imgCursor1.png',
@@ -16,7 +16,7 @@ export const homeContent = {
       '/images/imgShovel1.png',
     ],
     summary:
-      'I’m a curious product designer who loves untangling messy, ambiguous problems and uncovering what’s really happening beneath the surface. I pull things apart, connect the dots, and turn complexity into experiences that feel intuitive, fun, and deeply human.',
+      'I’m a curious product designer who untangles messy, ambiguous problems to uncover what’s really happening beneath the surface. I connect the dots and turn complexity into intuitive, engaging experiences that feel deeply human.',
   },
   experiments: [
     {
@@ -64,14 +64,14 @@ export const homeContent = {
             title: 'Product Designer',
             date: '2024–2026',
             descriptions: [
-              'Managed 3 concurrent projects across 5 PMs and 3 engineering teams as the sole designer on 20+ initiatives, and mentored 2 design interns through biweekly critique and project guidance.',
+              'Served as the sole designer across 20+ initiatives, managing three concurrent projects with five PMs and three engineering teams while mentoring two design interns through biweekly critiques and project guidance.',
               'Owned the end-to-end redesign of the Personnel Action Form, a workflow used by 350K+ managers, cutting employee-transfer process time by 50% through a rearchitected approval flow.',
               'Reframed the Performance Discussion Form around real-time performance insights, driving a 25% increase in adoption and surfacing 60% more priority actions and data trends.',
             ],
           },
           {
             title: 'Product Intern',
-            date: '2023 Summer',
+            date: 'Summer 2023',
             descriptions: [
               'Designed a CRM architecture and led 16 interviews to streamline sales workflows and inform data visualization recommendations.',
             ],
@@ -84,9 +84,9 @@ export const homeContent = {
         roles: [
           {
             title: 'Student Designer',
-            date: '2024 Spring',
+            date: 'Spring 2024',
             descriptions: [
-              "Designed for urbanization issues and interviewed local business owners to preserve Austin's culture.",
+              'Designed solutions to urbanization challenges and interviewed local business owners to help preserve Austin’s culture.',
             ],
           },
         ],

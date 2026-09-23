@@ -14,6 +14,73 @@
   const fromRoot = (path) => `${root}${path}`;
 
   if (document.querySelector('.case-study')) {
+    const lightbox = document.createElement('dialog');
+    lightbox.className = 'case-study-lightbox';
+    lightbox.setAttribute('aria-label', 'Expanded case study image');
+    lightbox.innerHTML = `
+      <button class="case-study-lightbox-close" type="button" aria-label="Close expanded image">
+        <svg aria-hidden="true" viewBox="0 0 24 24">
+          <path d="M6 6l12 12M18 6 6 18" />
+        </svg>
+      </button>
+      <div class="case-study-lightbox-content">
+        <img class="case-study-lightbox-image" alt="">
+        <p class="case-study-lightbox-caption"></p>
+      </div>`;
+
+    const lightboxImage = lightbox.querySelector('.case-study-lightbox-image');
+    const lightboxCaption = lightbox.querySelector('.case-study-lightbox-caption');
+    const closeLightbox = () => lightbox.close();
+    lightbox.querySelector('.case-study-lightbox-close').addEventListener(
+      'click',
+      closeLightbox,
+    );
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) closeLightbox();
+    });
+    lightbox.addEventListener('keydown', (event) => {
+      if (event.key !== 'Escape') return;
+      event.preventDefault();
+      closeLightbox();
+    });
+    lightbox.addEventListener('close', () => {
+      document.body.classList.remove('has-open-lightbox');
+    });
+    document.body.append(lightbox);
+
+    document.querySelectorAll('.case-study img').forEach((image) => {
+      const imageFrame = image.closest('.image-frame');
+      const isHeroImage =
+        image.closest('.hero') ||
+        imageFrame?.parentElement?.matches('.case-study');
+      if (isHeroImage) return;
+
+      let host = image.closest('.image-frame, .case-media');
+      if (!host) {
+        host = document.createElement('span');
+        host.className = 'case-study-lightbox-host';
+        image.before(host);
+        host.append(image);
+      } else {
+        host.classList.add('case-study-lightbox-host');
+      }
+
+      const trigger = document.createElement('button');
+      const description = image.alt || 'case study image';
+      trigger.className = 'case-study-lightbox-trigger';
+      trigger.type = 'button';
+      trigger.setAttribute('aria-label', `View ${description} full screen`);
+      trigger.addEventListener('click', () => {
+        lightboxImage.src = image.currentSrc || image.src;
+        lightboxImage.alt = image.alt;
+        lightboxCaption.textContent = image.alt;
+        lightboxCaption.hidden = !image.alt;
+        document.body.classList.add('has-open-lightbox');
+        lightbox.showModal();
+      });
+      host.append(trigger);
+    });
+
     const backToTop = document.createElement('button');
     backToTop.className = 'case-study-back-to-top';
     backToTop.type = 'button';
@@ -85,7 +152,7 @@
         <div class="contact-content">
           <h2>${site.footerMessage}</h2>
           <p class="footer-description">${site.footerDescription}</p>
-          <p class="footer-availability"><span class="footer-status-dot" aria-hidden="true"></span>Open to opportunity</p>
+          <p class="footer-availability"><span class="footer-status-dot" aria-hidden="true"></span>Open to opportunities</p>
           <div class="contact-links">
             <a class="contact linkedin" href="${site.contact.linkedin}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
             <a class="contact email" href="mailto:${site.contact.email}">Email</a>

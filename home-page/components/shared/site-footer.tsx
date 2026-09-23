@@ -11,7 +11,7 @@ export function SiteFooter() {
           <p className="footer-description">{site.footerDescription}</p>
           <p className="footer-availability">
             <span className="footer-status-dot" aria-hidden="true" />
-            Open to opportunity
+            Open to opportunities
           </p>
           <div className="contact-links">
             <a

@@ -151,6 +151,123 @@ button:focus-visible {
   box-shadow: 0 14px 34px rgb(79 119 250 / 38%);
 }
 
+.case-study-lightbox-host {
+  position: relative;
+}
+
+span.case-study-lightbox-host {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+}
+
+.case-study-lightbox-trigger {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: inherit;
+  background: rgb(18 16 24 / 0%);
+  cursor: zoom-in !important;
+  font: inherit;
+  opacity: 0;
+  transition:
+    background-color 180ms ease,
+    opacity 180ms ease;
+}
+
+.case-study-lightbox-trigger:hover,
+.case-study-lightbox-trigger:focus-visible {
+  background: rgb(18 16 24 / 10%);
+  opacity: 1;
+}
+
+.case-study-lightbox {
+  width: 100vw;
+  max-width: none;
+  height: 100vh;
+  max-height: none;
+  margin: 0;
+  padding: 24px;
+  border: 0;
+  background: rgb(15 13 20 / 94%);
+  color: #fff;
+}
+
+.case-study-lightbox::backdrop {
+  background: rgb(15 13 20 / 94%);
+}
+
+.case-study-lightbox[open] {
+  display: grid;
+  place-items: center;
+}
+
+.case-study-lightbox-content {
+  display: grid;
+  max-width: 100%;
+  max-height: 100%;
+  place-items: center;
+  gap: 14px;
+}
+
+.case-study-lightbox-image {
+  display: block;
+  max-width: calc(100vw - 48px);
+  max-height: calc(100vh - 104px);
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 18px 64px rgb(0 0 0 / 48%);
+}
+
+.case-study-lightbox-caption {
+  max-width: min(800px, calc(100vw - 120px));
+  margin: 0;
+  color: rgb(255 255 255 / 82%);
+  font-size: 14px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.case-study-lightbox-close {
+  position: fixed;
+  z-index: 2;
+  top: 20px;
+  right: 20px;
+  display: grid;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  background: rgb(20 18 26 / 78%);
+  color: #fff;
+  cursor: pointer;
+}
+
+.case-study-lightbox-close:hover {
+  background: rgb(255 255 255 / 16%);
+}
+
+.case-study-lightbox-close svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-width: 2;
+}
+
+body.has-open-lightbox {
+  overflow: hidden;
+}
+
 .site-footer {
   margin-top: var(--footer-spacing, 160px);
   padding: 104px 60px 40px;
@@ -455,6 +572,10 @@ button:focus-visible {
   }
 
   .case-study-back-to-top {
+    transition: none;
+  }
+
+  .case-study-lightbox-trigger {
     transition: none;
   }
 

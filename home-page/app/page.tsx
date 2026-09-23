@@ -145,7 +145,7 @@ export default function Home() {
               </div>
             </div>
             <div className="panel experience">
-              <h3>Experiences</h3>
+              <h3>Experience</h3>
               <div className="experience-list">
                 {[...homeContent.about.experience].map((experience) => (
                   <div className="experience-item" key={experience.company}>
