@@ -30,6 +30,8 @@ action with equal edge insets. Their shared layout lives in
 Optional `titleLines` sets an intentional two-line homepage title without changing
 image sizing. Mirror these line breaks in `static/index.html` and the case studies'
 "More projects" cards.
+The PAF project is titled "Re-architecting the End-to-End Personal Action Workflow",
+with a break before "Personal Action Workflow" in cards and its case-study heading.
 
 The React homepage lives in `app/page.tsx`; GitHub Pages publishes
 `static/index.html`. Keep their markup and content synchronized. Both use the

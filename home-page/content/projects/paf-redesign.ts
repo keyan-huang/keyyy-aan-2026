@@ -2,8 +2,8 @@ import type { ProjectSummary } from './types';
 
 export const pafRedesign = {
   slug: 'paf-redesign',
-  title: 'Designing Confidence into Personal Actions',
-  titleLines: ['Designing Confidence', 'into Personal Actions'],
+  title: 'Re-architecting the End-to-End Personal Action Workflow',
+  titleLines: ['Re-architecting the End-to-End', 'Personal Action Workflow'],
   description:
     'Rebuilt the system behind hundreds of thousands of decisions that shape employees’ careers.',
   thumbnail: '/paf-redesign/thumbnail.png',
