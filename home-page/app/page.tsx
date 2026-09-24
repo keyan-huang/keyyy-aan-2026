@@ -1,6 +1,7 @@
 import './home.css';
 
-import Image from 'next/image';
+import { ResponsiveImage } from '@/components/shared/responsive-image';
+import { imageSizes } from '@/public/scripts/responsive-images.js';
 import { ProjectCard } from '@/components/home/project-card';
 import { InteractiveArtRow } from '@/components/home/interactive-art-row';
 import { HobbyGallery } from '@/components/home/hobby-gallery';
@@ -19,22 +20,41 @@ export default function Home() {
           <div className="hero">
             <div>
               <h1>
-                {homeContent.introduction.heading.split('\n').map((line, index, lines) => (
-                  <span
-                    className={index === lines.length - 1 ? 'hero-line hero-line--idea' : 'hero-line'}
-                    key={line}
-                  >
-                    {line}
-                    {index === lines.length - 1 && (
-                      <span className="idea-strokes idea-strokes--right" aria-hidden="true">
-                        <i />
-                        <i />
-                        <i />
-                      </span>
-                    )}
-                    {index < lines.length - 1 && <br />}
-                  </span>
-                ))}
+                {homeContent.introduction.heading
+                  .split('\n')
+                  .map((line, index, lines) => (
+                    <span
+                      className={
+                        index === lines.length - 1
+                          ? 'hero-line hero-line--idea'
+                          : 'hero-line'
+                      }
+                      key={line}
+                    >
+                      {line.split(/(\s+)/).map((part, partIndex) =>
+                        homeContent.introduction.headingEmphasis.some(
+                          (word) => word === part,
+                        ) ? (
+                          <span className="hero-emphasis" key={partIndex}>
+                            {part}
+                          </span>
+                        ) : (
+                          part
+                        ),
+                      )}
+                      {index === lines.length - 1 && (
+                        <span
+                          className="idea-strokes idea-strokes--right"
+                          aria-hidden="true"
+                        >
+                          <i />
+                          <i />
+                          <i />
+                        </span>
+                      )}
+                      {index < lines.length - 1 && <br />}
+                    </span>
+                  ))}
               </h1>
               <p className="availability">
                 <span className="availability-dot" aria-hidden="true" />
@@ -77,31 +97,31 @@ export default function Home() {
           <h2>About Keyan</h2>
           <div className="about-grid">
             <div className="portrait-frame">
-              <Image
+              <ResponsiveImage
                 src={homeContent.about.portrait}
                 alt={homeContent.about.portraitAlt}
                 width={756}
                 height={1124}
                 loading="lazy"
-                unoptimized
+                sizes={imageSizes.portrait}
               />
             </div>
             <div className="about-details">
               <div className="panel education">
                 <h3>Education</h3>
                 <div className="education-item">
-                  <Image
+                  <ResponsiveImage
                     src={homeContent.about.education.image}
                     alt=""
                     width={52}
                     height={52}
                     loading="lazy"
-                    unoptimized
+                    sizes="52px"
                   />
                   <div>
                     <h4>{homeContent.about.education.school}</h4>
                     <p>{homeContent.about.education.degree}</p>
-                      <p>{homeContent.about.education.gpa}</p>
+                    <p>{homeContent.about.education.gpa}</p>
                   </div>
                 </div>
               </div>
@@ -117,7 +137,7 @@ export default function Home() {
                 <h3>Tools</h3>
                 <div className="tool-icons">
                   {homeContent.about.tools.map((tool) => (
-                    <Image
+                    <ResponsiveImage
                       key={tool.image}
                       src={tool.image}
                       alt={tool.label}
@@ -125,7 +145,7 @@ export default function Home() {
                       width={76}
                       height={76}
                       loading="lazy"
-                      unoptimized
+                      sizes="76px"
                     />
                   ))}
                 </div>
@@ -134,12 +154,24 @@ export default function Home() {
                 <h3>Strengths</h3>
                 <ul className="skill-tags strength-tags">
                   {homeContent.about.strengths.map((strength) => (
-                    <li className={strength === 'Harmony' ? 'strength-tag--harmony' : undefined} key={strength}>
+                    <li
+                      className={
+                        strength === 'Harmony'
+                          ? 'strength-tag--harmony'
+                          : undefined
+                      }
+                      key={strength}
+                    >
                       {strength}
                     </li>
                   ))}
                 </ul>
-                <a className="strengths-link" href={homeContent.about.strengthsUrl} target="_blank" rel="noreferrer">
+                <a
+                  className="strengths-link"
+                  href={homeContent.about.strengthsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Explore CliftonStrengths
                 </a>
               </div>
@@ -149,13 +181,13 @@ export default function Home() {
               <div className="experience-list">
                 {[...homeContent.about.experience].map((experience) => (
                   <div className="experience-item" key={experience.company}>
-                    <Image
+                    <ResponsiveImage
                       src={experience.image}
                       alt=""
                       width={48}
                       height={48}
                       loading="lazy"
-                      unoptimized
+                      sizes="48px"
                     />
                     <div>
                       <h4>{experience.company}</h4>

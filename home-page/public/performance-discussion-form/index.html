@@ -1,504 +1,1146 @@
-<!doctype html><html lang="en"><head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8SJG8KV4NR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag("js", new Date());
-  gtag("config", "G-8SJG8KV4NR");
-</script><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Designing a Dashboard for Action and Analysis</title><meta name="description" content="Redesigned a legacy data table into a dashboard that connects actionable work with meaningful analytics."><link rel="icon" href="../images/imgImage81.png"><link rel="stylesheet" href="../styles/design-tokens.css"><link rel="stylesheet" href="../styles/site-shell.css?v=lightbox-4"><link rel="stylesheet" href="case-study.css?v=dashboard-feedback-4"><link rel="stylesheet" href="../styles/related-projects.css"><script src="../scripts/site-shell.js?v=lightbox-3" defer></script></head><body data-site-root="../"><a class="skip-link" href="#case-study">Skip to case study</a><div data-site-header></div><main class="case-study" data-node-id="535:489228" id="case-study">
-<h1 class="" data-node-id="535:489229" id="n535-489229">
-          Designing a Dashboard for Action and Analysis
-        </h1>
-<p class="subtitle" data-node-id="535:489230" id="n535-489230">
-          Redesigned a legacy data table into a dashboard that connects actionable work with meaningful analytics.
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-8SJG8KV4NR"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-8SJG8KV4NR');
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Designing a Dashboard for Action and Analysis</title>
+    <meta
+      name="description"
+      content="Redesigned a legacy data table into a dashboard that connects actionable work with meaningful analytics."
+    />
+    <link rel="icon" href="../images/imgImage81.png" />
+    <link rel="stylesheet" href="../styles/design-tokens.css" />
+    <link rel="stylesheet" href="../styles/site-shell.css?v=lightbox-4" />
+    <link rel="stylesheet" href="case-study.css?v=dashboard-feedback-4" />
+    <link rel="stylesheet" href="../styles/related-projects.css" />
+    <script src="../scripts/site-shell.js?v=lightbox-3" defer></script>
+  </head>
+  <body data-site-root="../">
+    <a class="skip-link" href="#case-study">Skip to case study</a>
+    <div data-site-header></div>
+    <main class="case-study" data-node-id="535:489228" id="case-study">
+      <h1 class="" data-node-id="535:489229" id="n535-489229">
+        Designing a Dashboard for Action and Analysis
+      </h1>
+      <p class="subtitle" data-node-id="535:489230" id="n535-489230">
+        Redesigned a legacy data table into a dashboard that connects actionable
+        work with meaningful analytics.
+      </p>
+      <div
+        class="image-frame"
+        data-name="image 142"
+        data-node-id="646:510858"
+        id="n646-510858"
+        style="aspect-ratio: 1000/827"
+      >
+        <div class="">
+          <img
+            alt="Performance Discussion Form image 142"
+            class="asset"
+            decoding="async"
+            loading="eager"
+            src="images/pdf-dashboard-hero.png"
+            style="object-fit: contain"
+          />
+        </div>
+      </div>
+      <section class="case-section" data-node-id="535:489232" id="n535-489232">
+        <h2 class="section-title" data-node-id="535:489233" id="n535-489233">
+          00. Intro
+        </h2>
+        <p class="" data-node-id="535:489234" id="n535-489234">
+          The Performance Discussion Form helps managers document recognition,
+          coaching, warnings, and improvement plans. Its legacy landing page
+          treated active work and historical records as one flat table, making
+          urgent items difficult to distinguish from long-term patterns.
         </p>
-<div class="image-frame" data-name="image 142" data-node-id="646:510858" id="n646-510858" style="aspect-ratio:1000/827">
-<div class="">
-<img alt="Performance Discussion Form image 142" class="asset" decoding="async" loading="eager" src="images/pdf-dashboard-hero.png" style="object-fit:contain"/>
-</div>
-</div>
-<section class="case-section" data-node-id="535:489232" id="n535-489232">
-<h2 class="section-title" data-node-id="535:489233" id="n535-489233">
-            00. Intro
+        <div
+          class="two-columns"
+          data-name="Intro"
+          data-node-id="535:489235"
+          id="n535-489235"
+        >
+          <div
+            class="stack"
+            data-name="Role"
+            data-node-id="535:489236"
+            id="n535-489236"
+          >
+            <p class="label" data-node-id="535:489237" id="n535-489237">
+              Challenge
+            </p>
+            <p class="" data-node-id="535:489238" id="n535-489238">
+              The PDF module was built on a framework nearly two decades old.
+              Its landing page was essentially a flat, text-heavy table. There
+              was little hierarchy, limited status logic, and no clear
+              distinction between records that required attention and records
+              that were simply part of the historical record.
+            </p>
+          </div>
+          <div class="stack" data-node-id="535:489239" id="n535-489239">
+            <div
+              class="stack"
+              data-name="Role"
+              data-node-id="535:489240"
+              id="n535-489240"
+            >
+              <p class="label" data-node-id="535:489241" id="n535-489241">
+                Outcome
+              </p>
+              <p class="" data-node-id="535:489242" id="n535-489242">
+                Redesign the landing page into a clearer, more structured
+                dashboard that separates actionable work from historical
+                insights, strengthens status visibility, and helps users quickly
+                understand what matters now versus what matters over time.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="two-columns"
+          data-name="Intro"
+          data-node-id="535:489357"
+          id="n535-489357"
+        >
+          <div
+            class="stack"
+            data-name="Role"
+            data-node-id="535:489358"
+            id="n535-489358"
+          >
+            <p class="label" data-node-id="535:489359" id="n535-489359">
+              My Role
+            </p>
+            <p class="" data-node-id="535:489360" id="n535-489360">
+              I was the sole designer on this project, partnering closely with
+              the PM on scope, priorities, and product requirements. I led the
+              research synthesis, information architecture, interaction model,
+              data visualization, and visual design.
+            </p>
+          </div>
+          <div class="stack" data-node-id="535:489361" id="n535-489361">
+            <div
+              class="stack"
+              data-name="Role"
+              data-node-id="535:489362"
+              id="n535-489362"
+            >
+              <p class="label" data-node-id="535:489363" id="n535-489363">
+                Timeline
+              </p>
+              <div class="small" data-node-id="535:489364" id="n535-489364">
+                <p class="">Q4 2024 Phase 1</p>
+                <p class="">Q2 2025 Phase 2</p>
+              </div>
+            </div>
+            <div
+              class="stack"
+              data-name="Role"
+              data-node-id="535:489365"
+              id="n535-489365"
+            >
+              <p class="label" data-node-id="535:489366" id="n535-489366">
+                Team
+              </p>
+              <p class="small" data-node-id="535:489367" id="n535-489367">
+                Lead designer and product manager
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="case-section" data-node-id="535:489246" id="n535-489246">
+        <div
+          class="stack"
+          data-name="Section header"
+          data-node-id="535:489247"
+          id="n535-489247"
+        >
+          <h2
+            class="section-title"
+            data-node-id="I535:489247;404:8582"
+            id="nI535-489247-404-8582"
+          >
+            01 · Redesigning the Redesign
           </h2>
-<p class="" data-node-id="535:489234" id="n535-489234">The Performance Discussion Form helps managers document recognition, coaching, warnings, and improvement plans. Its legacy landing page treated active work and historical records as one flat table, making urgent items difficult to distinguish from long-term patterns.</p>
-<div class="two-columns" data-name="Intro" data-node-id="535:489235" id="n535-489235">
-<div class="stack" data-name="Role" data-node-id="535:489236" id="n535-489236">
-<p class="label" data-node-id="535:489237" id="n535-489237">
-                Challenge
-              </p>
-<p class="" data-node-id="535:489238" id="n535-489238">
-                The PDF module was built on a framework nearly two decades old. Its landing page was essentially a flat, text-heavy table. There was little hierarchy, limited status logic, and no clear distinction between records that required attention and records that were simply part of the historical record.
-              </p>
-</div>
-<div class="stack" data-node-id="535:489239" id="n535-489239">
-<div class="stack" data-name="Role" data-node-id="535:489240" id="n535-489240">
-<p class="label" data-node-id="535:489241" id="n535-489241">
-                  Outcome
-                </p>
-<p class="" data-node-id="535:489242" id="n535-489242">
-                  Redesign the landing page into a clearer, more structured dashboard that separates actionable work from historical insights, strengthens status visibility, and helps users quickly understand what matters now versus what matters over time.
-                </p>
-</div>
-</div>
-</div>
-<div class="two-columns" data-name="Intro" data-node-id="535:489357" id="n535-489357">
-<div class="stack" data-name="Role" data-node-id="535:489358" id="n535-489358">
-<p class="label" data-node-id="535:489359" id="n535-489359">
-                My Role
-              </p>
-<p class="" data-node-id="535:489360" id="n535-489360">I was the sole designer on this project, partnering closely with the PM on scope, priorities, and product requirements. I led the research synthesis, information architecture, interaction model, data visualization, and visual design.  </p>
-</div>
-<div class="stack" data-node-id="535:489361" id="n535-489361">
-<div class="stack" data-name="Role" data-node-id="535:489362" id="n535-489362">
-<p class="label" data-node-id="535:489363" id="n535-489363">
-                  Timeline
-                </p>
-<div class="small" data-node-id="535:489364" id="n535-489364">
-<p class="">Q4 2024 Phase 1</p>
-<p class="">Q2 2025 Phase 2</p>
-</div>
-</div>
-<div class="stack" data-name="Role" data-node-id="535:489365" id="n535-489365">
-<p class="label" data-node-id="535:489366" id="n535-489366">
-                  Team
-                </p>
-<p class="small" data-node-id="535:489367" id="n535-489367">
-                  Lead designer and product manager
-                </p>
-</div>
-</div>
-</div>
-</section>
-<section class="case-section" data-node-id="535:489246" id="n535-489246">
-<div class="stack" data-name="Section header" data-node-id="535:489247" id="n535-489247">
-<h2 class="section-title" data-node-id="I535:489247;404:8582" id="nI535-489247-404-8582">
-              01 · Redesigning the Redesign
-            </h2>
-<p class="subtitle" data-node-id="I535:489247;404:9475" id="nI535-489247-404-9475">
-              Phase One
-            </p>
-</div>
-<div class="" data-node-id="535:489248" id="n535-489248">
-<p class="">Phase One started with a focused brief: design four dashboard widgets above the existing PDF data table. To meet the timeline, I designed the experience within the legacy framework and handed it off for development. As the work progressed, I identified opportunities to take a deeper look at the data and user needs. I documented those findings, along with a potential React migration, to help guide the next iteration.</p>
-</div>
-<div class="image-frame" data-name="image 128" data-node-id="544:490016" id="n544-490016" style="aspect-ratio:6180/2814">
-<img alt="Phase-one dashboard widgets connected to the discussion data table" class="asset" decoding="async" loading="lazy" src="images/pdf-phase-one-widgets-and-data-table.png" width="6180" height="2814" style="object-fit:contain"/>
-</div>
-<div class="" data-node-id="535:489250" id="n535-489250">
-<p class="label">Key risks</p>
-<p class="paragraph-break">​</p>
-<p class="">
-<span class="">1. </span>
-<span class="bold">
-                Disconnected experience:
-              </span>
-<span class=""> The dashboard analytics and underlying records did not yet feel like parts of the same workflow.</span>
-</p>
-<p class="paragraph-break">​</p>
-<p class="">
-<span class="">2. </span>
-<span class="bold">
-                Overlapping widget purposes:
-              </span>
-<span class=""> Some widgets presented similar information without offering a clearly distinct purpose.</span>
-</p>
-<p class="paragraph-break">​</p>
-<p class="">
-<span class="">3. </span>
-<span class="bold">
-                Unclear status model:
-              </span>
-<span class=""> Status labels combined lifecycle progress, required actions, and workflow issues, making them difficult to interpret.</span>
-</p>
-</div>
-</section>
-<section class="case-section" data-node-id="535:489253" id="n535-489253">
-<div class="stack" data-name="Section header" data-node-id="535:489254" id="n535-489254">
-<h2 class="section-title" data-node-id="I535:489254;404:8582" id="nI535-489254-404-8582">
-              02 · Research
-            </h2>
-<p class="subtitle" data-node-id="I535:489254;404:9475" id="nI535-489254-404-9475">
-              Phase Two: Same data. Different jobs.
-            </p>
-</div>
-<div class="" data-node-id="535:489255" id="n535-489255">
-<p class="">
-<span class="">The project returned to design as part of a system-wide front-end framework update. The new ticket added only one line to the original request: </span>
-<span class="bold">
-                “Update design to React.”
-              </span>
-<span class=""> I saw this as an opportunity to revisit some of the risks we had identified in Phase One and take a more thoughtful approach to the redesign.</span>
-</p>
-<p class="paragraph-break">​</p>
-<p class="">I proposed a structured project plan and a more thorough design timeline. But before redesigning anything, we started by validating what we had learned from Phase One.</p>
-</div>
-<div class="interview-intro">
-<p class="label" data-node-id="599:490087" id="n599-490087">
+          <p
+            class="subtitle"
+            data-node-id="I535:489247;404:9475"
+            id="nI535-489247-404-9475"
+          >
+            Phase One
+          </p>
+        </div>
+        <div class="" data-node-id="535:489248" id="n535-489248">
+          <p class="">
+            Phase One started with a focused brief: design four dashboard
+            widgets above the existing PDF data table. To meet the timeline, I
+            designed the experience within the legacy framework and handed it
+            off for development. As the work progressed, I identified
+            opportunities to take a deeper look at the data and user needs. I
+            documented those findings, along with a potential React migration,
+            to help guide the next iteration.
+          </p>
+        </div>
+        <div
+          class="image-frame"
+          data-name="image 128"
+          data-node-id="544:490016"
+          id="n544-490016"
+          style="aspect-ratio: 6180/2814"
+        >
+          <img
+            alt="Phase-one dashboard widgets connected to the discussion data table"
+            class="asset"
+            decoding="async"
+            loading="lazy"
+            src="images/pdf-phase-one-widgets-and-data-table.png"
+            width="6180"
+            height="2814"
+            style="object-fit: contain"
+          />
+        </div>
+        <div class="" data-node-id="535:489250" id="n535-489250">
+          <p class="label">Key risks</p>
+          <p class="paragraph-break">​</p>
+          <p class="">
+            <span class="">1. </span>
+            <span class="bold"> Disconnected experience: </span>
+            <span class="">
+              The dashboard analytics and underlying records did not yet feel
+              like parts of the same workflow.</span
+            >
+          </p>
+          <p class="paragraph-break">​</p>
+          <p class="">
+            <span class="">2. </span>
+            <span class="bold"> Overlapping widget purposes: </span>
+            <span class="">
+              Some widgets presented similar information without offering a
+              clearly distinct purpose.</span
+            >
+          </p>
+          <p class="paragraph-break">​</p>
+          <p class="">
+            <span class="">3. </span>
+            <span class="bold"> Unclear status model: </span>
+            <span class="">
+              Status labels combined lifecycle progress, required actions, and
+              workflow issues, making them difficult to interpret.</span
+            >
+          </p>
+        </div>
+      </section>
+      <section class="case-section" data-node-id="535:489253" id="n535-489253">
+        <div
+          class="stack"
+          data-name="Section header"
+          data-node-id="535:489254"
+          id="n535-489254"
+        >
+          <h2
+            class="section-title"
+            data-node-id="I535:489254;404:8582"
+            id="nI535-489254-404-8582"
+          >
+            02 · Research
+          </h2>
+          <p
+            class="subtitle"
+            data-node-id="I535:489254;404:9475"
+            id="nI535-489254-404-9475"
+          >
+            Phase Two: Same data. Different jobs.
+          </p>
+        </div>
+        <div class="" data-node-id="535:489255" id="n535-489255">
+          <p class="">
+            <span class=""
+              >The project returned to design as part of a system-wide front-end
+              framework update. The new ticket added only one line to the
+              original request:
+            </span>
+            <span class="bold"> “Update design to React.” </span>
+            <span class="">
+              I saw this as an opportunity to revisit some of the risks we had
+              identified in Phase One and take a more thoughtful approach to the
+              redesign.</span
+            >
+          </p>
+          <p class="paragraph-break">​</p>
+          <p class="">
+            I proposed a structured project plan and a more thorough design
+            timeline. But before redesigning anything, we started by validating
+            what we had learned from Phase One.
+          </p>
+        </div>
+        <div class="interview-intro">
+          <p class="label" data-node-id="599:490087" id="n599-490087">
             User Interviews
           </p>
-<p class="" data-node-id="535:489256" id="n535-489256">
-<span class="">With the resources available, I conducted interviews and walked participants through the Phase One dashboard to gather feedback and understand how users actually use the Performance Discussion Form.</span>
-</p>
-</div>
-<section class="dashboard-feedback" aria-label="Dashboard feedback">
-<div class="dashboard-feedback-cards">
-<details class="feedback-card feedback-positive">
-<summary>
-<strong>Positive Feedback</strong>
-<span class="feedback-expand-label" aria-hidden="true"></span>
-</summary>
-<ul>
-<li>“Waiting on Me” immediately made sense as an actionable area.</li>
-<li>High-level PDF counts and trends were useful as a starting point.</li>
-<li>Breaking PDFs down by type/reason was valuable.</li>
-<li>Filtering by manager, supervisor, employee, location, date, etc. was important.</li>
-<li>Users responded positively to the overall modernization and visual direction.</li>
-<li>Exporting the dashboard/table was considered valuable.</li>
-</ul>
-</details>
-<details class="feedback-card feedback-negative">
-<summary>
-<strong>Negative Feedback</strong>
-<span class="feedback-expand-label" aria-hidden="true"></span>
-</summary>
-<ul>
-<li>High-level numbers weren’t enough on their own; users immediately wanted the underlying details.</li>
-<li>Draft counts had limited value for a senior leader unless they were personally responsible for them.</li>
-<li>Revoked PDFs were not particularly useful to the Supervisor.</li>
-<li>Status does not necessarily equal progress because PDF workflows can have different numbers and orders of steps.</li>
-<li>Users wanted stronger comparison between managers, teams, locations, and employees.</li>
-<li>Filters should persist rather than reset.</li>
-<li>Too many analytics widgets could push the actionable table too far down the page.</li>
-<li>Users wanted more flexibility in deciding which analytics were visible.</li>
-</ul>
-</details>
-</div>
-</section>
-<p class="label" data-node-id="535:489258" id="n535-489258">
-            Recurring Topics
+          <p class="" data-node-id="535:489256" id="n535-489256">
+            <span class=""
+              >With the resources available, I conducted interviews and walked
+              participants through the Phase One dashboard to gather feedback
+              and understand how users actually use the Performance Discussion
+              Form.</span
+            >
           </p>
-<div class="row" data-node-id="607:490236" id="n607-490236">
-<div class="image-frame" data-name="image 130" data-node-id="609:490238" id="n609-490238" style="--image-width:801px;aspect-ratio:1602/1624">
-<img alt="Performance Discussion Form image 130" class="asset" decoding="async" loading="lazy" src="images/pdf-user-interview-affinity-map.png"/>
-</div>
-<div class="" data-node-id="607:490235" id="n607-490235"></div>
-</div>
-<div class="" data-node-id="535:489267" id="n535-489267">
-<p class="">Participants welcomed the visual modernization, but the widgets did not consistently support their work. I initially assumed roles differed mainly by how much data they needed. Research showed the more important distinction was what they were trying to accomplish with it.</p>
-</div>
-<div class="two-columns" data-node-id="535:489268" id="n535-489268">
-<div class="stack persona" data-name="Card" data-node-id="535:489269" id="n535-489269">
-<div class="persona-header" data-name="Container" data-node-id="535:489270" id="n535-489270">
-<h3 class="persona-role" data-node-id="535:489271" id="n535-489271">Frontline Manager</h3>
-<p class="persona-job">Job: <strong>Act</strong></p>
-</div>
-<blockquote class="persona-question">“What needs my immediate attention?”</blockquote>
-<ul class="persona-tasks" data-name="Paragraph" data-node-id="535:489272" id="n535-489272">
-<li>Monitor individual PDFs</li>
-<li>Resolve pending work</li>
-</ul>
-<p class="persona-behavior" data-node-id="535:489273" id="n535-489273"><span>Current behavior</span>Searches records</p>
-</div>
-<div class="stack persona" data-name="Card" data-node-id="535:489274" id="n535-489274">
-<div class="persona-header" data-name="Container" data-node-id="535:489275" id="n535-489275">
-<h3 class="persona-role" data-node-id="535:489276" id="n535-489276">Supervisor Leader</h3>
-<p class="persona-job">Job: <strong>Understand</strong></p>
-</div>
-<blockquote class="persona-question">“What patterns should I investigate?”</blockquote>
-<ul class="persona-tasks" data-name="Paragraph" data-node-id="535:489277" id="n535-489277">
-<li>Compare teams &amp; managers</li>
-<li>Identify trends &amp; gaps</li>
-</ul>
-<p class="persona-behavior" data-node-id="535:489278" id="n535-489278"><span>Current behavior</span>Exports &amp; analyzes</p>
-</div>
-</div>
-</section>
-<section class="case-section" data-node-id="535:489280" id="n535-489280">
-<h2 class="section-title" data-node-id="535:489281" id="n535-489281">
-            03 · Separate Action From Analysis
-          </h2>
-<div class="" data-node-id="535:489282" id="n535-489282">
-<p class="">Once I understood the two roles, another problem became clear:</p>
-<p class="">Live workflow data and historical analytics were competing for the same space.</p>
-</div>
-<div class="solution-heading">
-<h3>Phase One Solution</h3>
-</div>
-<div class="image-frame" data-name="image 143" data-node-id="667:526284" id="n667-526284" style="aspect-ratio:2208/1526">
-<img alt="Dashboard annotations showing competing controls, weak connection, and different urgency" class="asset" decoding="async" loading="lazy" src="images/pdf-dashboard-competing-data-and-controls.png" width="2208" height="1526" style="object-fit:contain"/>
-</div>
-<p class="" data-node-id="535:489284" id="n535-489284">
-            Instead of continuing to add more widgets into the same container, I reorganized the page around intent.
+        </div>
+        <section class="dashboard-feedback" aria-label="Dashboard feedback">
+          <div class="dashboard-feedback-cards">
+            <details class="feedback-card feedback-positive">
+              <summary>
+                <strong>Positive Feedback</strong>
+                <span class="feedback-expand-label" aria-hidden="true"></span>
+              </summary>
+              <ul>
+                <li>
+                  “Waiting on Me” immediately made sense as an actionable area.
+                </li>
+                <li>
+                  High-level PDF counts and trends were useful as a starting
+                  point.
+                </li>
+                <li>Breaking PDFs down by type/reason was valuable.</li>
+                <li>
+                  Filtering by manager, supervisor, employee, location, date,
+                  etc. was important.
+                </li>
+                <li>
+                  Users responded positively to the overall modernization and
+                  visual direction.
+                </li>
+                <li>Exporting the dashboard/table was considered valuable.</li>
+              </ul>
+            </details>
+            <details class="feedback-card feedback-negative">
+              <summary>
+                <strong>Negative Feedback</strong>
+                <span class="feedback-expand-label" aria-hidden="true"></span>
+              </summary>
+              <ul>
+                <li>
+                  High-level numbers weren’t enough on their own; users
+                  immediately wanted the underlying details.
+                </li>
+                <li>
+                  Draft counts had limited value for a senior leader unless they
+                  were personally responsible for them.
+                </li>
+                <li>
+                  Revoked PDFs were not particularly useful to the Supervisor.
+                </li>
+                <li>
+                  Status does not necessarily equal progress because PDF
+                  workflows can have different numbers and orders of steps.
+                </li>
+                <li>
+                  Users wanted stronger comparison between managers, teams,
+                  locations, and employees.
+                </li>
+                <li>Filters should persist rather than reset.</li>
+                <li>
+                  Too many analytics widgets could push the actionable table too
+                  far down the page.
+                </li>
+                <li>
+                  Users wanted more flexibility in deciding which analytics were
+                  visible.
+                </li>
+              </ul>
+            </details>
+          </div>
+        </section>
+        <p class="label" data-node-id="535:489258" id="n535-489258">
+          Recurring Topics
+        </p>
+        <div class="row" data-node-id="607:490236" id="n607-490236">
+          <div
+            class="image-frame"
+            data-name="image 130"
+            data-node-id="609:490238"
+            id="n609-490238"
+            style="--image-width: 801px; aspect-ratio: 1602/1624"
+          >
+            <img
+              alt="Performance Discussion Form image 130"
+              class="asset"
+              decoding="async"
+              loading="lazy"
+              src="images/pdf-user-interview-affinity-map.png"
+            />
+          </div>
+          <div class="" data-node-id="607:490235" id="n607-490235"></div>
+        </div>
+        <div class="" data-node-id="535:489267" id="n535-489267">
+          <p class="">
+            Participants welcomed the visual modernization, but the widgets did
+            not consistently support their work. I initially assumed roles
+            differed mainly by how much data they needed. Research showed the
+            more important distinction was what they were trying to accomplish
+            with it.
           </p>
-<div class="" data-node-id="609:490316" id="n609-490316">
-<p class="label">
-              Actionable Information
+        </div>
+        <div class="two-columns" data-node-id="535:489268" id="n535-489268">
+          <div
+            class="stack persona"
+            data-name="Card"
+            data-node-id="535:489269"
+            id="n535-489269"
+          >
+            <div
+              class="persona-header"
+              data-name="Container"
+              data-node-id="535:489270"
+              id="n535-489270"
+            >
+              <h3
+                class="persona-role"
+                data-node-id="535:489271"
+                id="n535-489271"
+              >
+                Frontline Manager
+              </h3>
+              <p class="persona-job">Job: <strong>Act</strong></p>
+            </div>
+            <blockquote class="persona-question">
+              “What needs my immediate attention?”
+            </blockquote>
+            <ul
+              class="persona-tasks"
+              data-name="Paragraph"
+              data-node-id="535:489272"
+              id="n535-489272"
+            >
+              <li>Monitor individual PDFs</li>
+              <li>Resolve pending work</li>
+            </ul>
+            <p
+              class="persona-behavior"
+              data-node-id="535:489273"
+              id="n535-489273"
+            >
+              <span>Current behavior</span>Searches records
             </p>
-<p class="">Current discussions stay directly connected to the status table and answer questions about what needs attention now.</p>
-<p class="">Selecting a summary value filters the records below, allowing users to move directly from signal → action.</p>
-<p class="paragraph-break">​</p>
-<p class="label">
-              Historical Analytics
+          </div>
+          <div
+            class="stack persona"
+            data-name="Card"
+            data-node-id="535:489274"
+            id="n535-489274"
+          >
+            <div
+              class="persona-header"
+              data-name="Container"
+              data-node-id="535:489275"
+              id="n535-489275"
+            >
+              <h3
+                class="persona-role"
+                data-node-id="535:489276"
+                id="n535-489276"
+              >
+                Supervisor Leader
+              </h3>
+              <p class="persona-job">Job: <strong>Understand</strong></p>
+            </div>
+            <blockquote class="persona-question">
+              “What patterns should I investigate?”
+            </blockquote>
+            <ul
+              class="persona-tasks"
+              data-name="Paragraph"
+              data-node-id="535:489277"
+              id="n535-489277"
+            >
+              <li>Compare teams &amp; managers</li>
+              <li>Identify trends &amp; gaps</li>
+            </ul>
+            <p
+              class="persona-behavior"
+              data-node-id="535:489278"
+              id="n535-489278"
+            >
+              <span>Current behavior</span>Exports &amp; analyzes
             </p>
-<p class="">Trend-based reporting lives in a separate analytics card with one shared time range.</p>
-<p class="">Because this information is valuable but less urgent, the card can collapse so current work remains visible by default.</p>
-</div>
-<div class="stack" data-node-id="609:495090" id="n609-495090">
-<div class="iteration" data-name="iteration 1" data-node-id="609:495093" id="n609-495093">
-<div class="image-frame" data-name="image 139" data-node-id="617:496426" id="n617-496426" style="--image-width:598px;aspect-ratio:598/492">
-<img alt="Performance Discussion Form image 139" class="asset" decoding="async" loading="lazy" src="images/pdf-iteration-one-sidebar-navigation.png"/>
-</div>
-<div class="" data-node-id="609:495091" id="n609-495091">
-<p class="label">Iteration 1</p>
-<p class="small">
-                  This draft separated the analytics dashboard from the data table through a side navigation entry point, giving each more space and independence. Users could land directly on the dashboard, then access actionable items and the data table through the status widget when needed.
-                </p>
-<p class="paragraph-break">​</p>
-<p class="label">Feedback</p>
-<p class="small">
-                  Stakeholders liked the new widget arrangement, but the sidebar navigation didn’t align with the overall product direction.
-                </p>
-</div>
-</div>
-<div class="iteration" data-node-id="609:495096" id="n609-495096">
-<div class="image-frame" data-name="image 138" data-node-id="609:495088" id="n609-495088" style="--image-width:600px;aspect-ratio:600/550.928">
-<img alt="Performance Discussion Form image 138" class="asset" decoding="async" loading="lazy" src="images/pdf-iteration-two-analytics-button-entry.png"/>
-</div>
-<div class="" data-node-id="609:495094" id="n609-495094">
-<p class="label">Iteration 2</p>
-<p class="small">
-                  I moved the entry point for the full analytics view to a button on the landing page. The landing page itself provided a quick view of both analytics and actionable widgets.
-                </p>
-<p class="paragraph-break">​</p>
-<p class="label">Feedback</p>
-<p class="small">
-                  Stakeholders liked having a direct entry point to analytics on the screen, but the module wasn’t ready to support the development of an additional page. The two types of data also still felt like they were competing for attention when placed in the same space.
-                </p>
-</div>
-</div>
-</div>
-<div class="final-solution-layout" data-node-id="535:489285" id="n535-489285">
-<div data-node-id="617:496428" id="n617-496428">
-<p class="label">
-              Final Solution
+          </div>
+        </div>
+      </section>
+      <section class="case-section" data-node-id="535:489280" id="n535-489280">
+        <h2 class="section-title" data-node-id="535:489281" id="n535-489281">
+          03 · Separate Action From Analysis
+        </h2>
+        <div class="" data-node-id="535:489282" id="n535-489282">
+          <p class="">
+            Once I understood the two roles, another problem became clear:
+          </p>
+          <p class="">
+            Live workflow data and historical analytics were competing for the
+            same space.
+          </p>
+        </div>
+        <div class="solution-heading">
+          <h3>Phase One Solution</h3>
+        </div>
+        <div
+          class="image-frame"
+          data-name="image 143"
+          data-node-id="667:526284"
+          id="n667-526284"
+          style="aspect-ratio: 2208/1526"
+        >
+          <img
+            alt="Dashboard annotations showing competing controls, weak connection, and different urgency"
+            class="asset"
+            decoding="async"
+            loading="lazy"
+            src="images/pdf-dashboard-competing-data-and-controls.png"
+            width="2208"
+            height="1526"
+            style="object-fit: contain"
+          />
+        </div>
+        <p class="" data-node-id="535:489284" id="n535-489284">
+          Instead of continuing to add more widgets into the same container, I
+          reorganized the page around intent.
+        </p>
+        <div class="" data-node-id="609:490316" id="n609-490316">
+          <p class="label">Actionable Information</p>
+          <p class="">
+            Current discussions stay directly connected to the status table and
+            answer questions about what needs attention now.
+          </p>
+          <p class="">
+            Selecting a summary value filters the records below, allowing users
+            to move directly from signal → action.
+          </p>
+          <p class="paragraph-break">​</p>
+          <p class="label">Historical Analytics</p>
+          <p class="">
+            Trend-based reporting lives in a separate analytics card with one
+            shared time range.
+          </p>
+          <p class="">
+            Because this information is valuable but less urgent, the card can
+            collapse so current work remains visible by default.
+          </p>
+        </div>
+        <div class="stack" data-node-id="609:495090" id="n609-495090">
+          <div
+            class="iteration"
+            data-name="iteration 1"
+            data-node-id="609:495093"
+            id="n609-495093"
+          >
+            <div
+              class="image-frame"
+              data-name="image 139"
+              data-node-id="617:496426"
+              id="n617-496426"
+              style="--image-width: 598px; aspect-ratio: 598/492"
+            >
+              <img
+                alt="Performance Discussion Form image 139"
+                class="asset"
+                decoding="async"
+                loading="lazy"
+                src="images/pdf-iteration-one-sidebar-navigation.png"
+              />
+            </div>
+            <div class="" data-node-id="609:495091" id="n609-495091">
+              <p class="label">Iteration 1</p>
+              <p class="small">
+                This draft separated the analytics dashboard from the data table
+                through a side navigation entry point, giving each more space
+                and independence. Users could land directly on the dashboard,
+                then access actionable items and the data table through the
+                status widget when needed.
+              </p>
+              <p class="paragraph-break">​</p>
+              <p class="label">Feedback</p>
+              <p class="small">
+                Stakeholders liked the new widget arrangement, but the sidebar
+                navigation didn’t align with the overall product direction.
+              </p>
+            </div>
+          </div>
+          <div class="iteration" data-node-id="609:495096" id="n609-495096">
+            <div
+              class="image-frame"
+              data-name="image 138"
+              data-node-id="609:495088"
+              id="n609-495088"
+              style="--image-width: 600px; aspect-ratio: 600/550.928"
+            >
+              <img
+                alt="Performance Discussion Form image 138"
+                class="asset"
+                decoding="async"
+                loading="lazy"
+                src="images/pdf-iteration-two-analytics-button-entry.png"
+              />
+            </div>
+            <div class="" data-node-id="609:495094" id="n609-495094">
+              <p class="label">Iteration 2</p>
+              <p class="small">
+                I moved the entry point for the full analytics view to a button
+                on the landing page. The landing page itself provided a quick
+                view of both analytics and actionable widgets.
+              </p>
+              <p class="paragraph-break">​</p>
+              <p class="label">Feedback</p>
+              <p class="small">
+                Stakeholders liked having a direct entry point to analytics on
+                the screen, but the module wasn’t ready to support the
+                development of an additional page. The two types of data also
+                still felt like they were competing for attention when placed in
+                the same space.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="final-solution-layout"
+          data-node-id="535:489285"
+          id="n535-489285"
+        >
+          <div data-node-id="617:496428" id="n617-496428">
+            <p class="label">Final Solution</p>
+            <p class="">
+              The final direction keeps all widgets on one page while allowing
+              users to expand or collapse information based on their immediate
+              needs. The dashboard can adapt to different priorities without
+              fragmenting the experience across multiple pages.
             </p>
-<p class="">The final direction keeps all widgets on one page while allowing users to expand or collapse information based on their immediate needs. The dashboard can adapt to different priorities without fragmenting the experience across multiple pages.</p>
-<p class="">It draws a clearer line between actionable and analytical data, making both easier to understand.</p>
-<p class="">The status widget connects directly to the data table, so users can filter actionable items and move from a summary signal to the records behind it.</p>
-</div>
-<div class="image-frame" data-name="new dashboard placement" data-node-id="535:489286" id="n535-489286" style="--image-width:456px;aspect-ratio:456/713">
-<div class="">
-<img alt="Performance Discussion Form new dashboard placement" class="asset" decoding="async" loading="lazy" src="images/pdf-final-action-and-analytics-separation.png" style="width:100.12%;height:110.83%;left:-0.06%;top:0.02%"/>
-</div>
-</div>
-</div>
-</section>
-<section class="case-section" data-node-id="535:489288" id="n535-489288">
-<h2 class="section-title" data-node-id="535:489289" id="n535-489289">
-            04 · Turn Counts Into Signals
-          </h2>
-<div class="" data-node-id="535:489290" id="n535-489290">
-<p class="">One of the biggest challenges in this project was deciding what story the data should tell.</p>
-<p class="">Through interviews with different types of users and conversations with stakeholders, I found that the first design contained redundant information. Several widgets were essentially answering the same question in different ways.</p>
-<p class="paragraph-break">​</p>
-<p class="">For the new direction, I wanted each widget to have a clear purpose and support a specific user need. I reviewed every widget from the original dashboard and refined the titles and settings of the remaining widgets to make their purpose clearer.</p>
-</div>
-<div class="widget-block stack" data-name="trend-wdiget-block" data-node-id="635:510838" id="n635-510838">
-<div class="" data-node-id="535:489296" id="n535-489296">
-<p class="">01 — TRENDS OVER TOTALS</p>
-<p class="">Instead of only looking at PDF types as totals, this widget shows how the number of forms changes over time. This helps users spot trends and understand how timing or seasonality may relate to the types of PDFs being created or resolved.</p>
-</div>
-<div class="image-frame" data-name="image 126" data-node-id="535:489297" id="n535-489297" style="--image-width:640px;aspect-ratio:1280/1320">
-<img alt="Discussion Activity filtering by Final Warning and updating the results" class="asset" decoding="async" loading="lazy" src="media/discussion-activity/enhanced-half-speed/discussion-activity-filter.gif"/>
-</div>
-</div>
-<div class="widget-block stack" data-name="Outlier-wdget Block" data-node-id="635:510839" id="n635-510839">
-<div class="" data-node-id="535:489292" id="n535-489292">
-<p class="">02 — OUTLIER DETECTION</p>
-<p class="">This widget surfaces outliers based on a threshold set by the user, helping leaders quickly identify employees with an unusually high number of forms and spot unusual activity without manually combing through records.</p>
-</div>
-<div class="image-frame" data-name="image 127" data-node-id="535:489293" id="n535-489293" style="--image-width:594px;aspect-ratio:1188/1320">
-<img alt="Outlier settings excluding New Check In discussions and updating employee counts" class="asset" decoding="async" loading="lazy" src="media/outliers/enhanced-half-speed/outliers-exclude-type.gif"/>
-</div>
-</div>
-<div class="widget-block stack" data-name="Total by allocation- widget- block" data-node-id="635:510840" id="n635-510840">
-<div class="" data-node-id="535:489294" id="n535-489294">
-<p class="">03 — ORGANIZATIONAL VIEWS</p>
-<p class="">Multiple supervisor-level users identified this view as essential for understanding the relationship between Performance Discussion Forms and allocation. The drill-down lets users explore the data in more detail and compare allocation combinations.</p>
-</div>
-<div class="image-frame" data-name="image 125" data-node-id="535:489295" id="n535-489295" style="--image-width:632px;aspect-ratio:1264/1320">
-<img alt="Discussion counts by department with an HR hover tooltip and drill-down" class="asset" decoding="async" loading="lazy" src="media/department-hr/enhanced-half-speed/department-hr-drilldown.gif"/>
-</div>
-</div>
-<div class="widget-block stack" data-name="time to resolve- widget- block" data-node-id="635:510841" id="n635-510841">
-<div class="" data-node-id="635:510842" id="n635-510842">
-<p class="">04 — TIME TO RESOLVE</p>
-<p class="">This widget evolved from the Time to Resolve widget in Phase One. In the redesign, it tells a clearer story of how long it takes a form to move from creation to completion.</p>
-<p class="">Users can see processing-time trends across form types, locations, and reasons. I also simplified the filters and settings to make the widget easier to understand and use.</p>
-</div>
-<div class="image-frame" data-name="image 125" data-node-id="635:510843" id="n635-510843" style="--image-width:594px;aspect-ratio:1188/1320">
-<img alt="Average Days to Resolve with hover tooltips for each discussion type" class="asset" decoding="async" loading="lazy" src="media/average-days/enhanced-half-speed/average-days-tooltip.gif"/>
-</div>
-</div>
-<div class="widget-block stack" data-name="Top ised- widget- block" data-node-id="640:510845" id="n640-510845">
-<div class="" data-node-id="640:510846" id="n640-510846">
-<p class="">05 — MOST USED</p>
-<p class="">The original Top Five widget caused confusion and raised questions about scalability. In the redesign, I renamed it Most Used and added filters for type, reason, and other key form properties, giving senior leaders more control over the high-level view.</p>
-</div>
-<div class="image-frame" data-name="image 125" data-node-id="640:510847" id="n640-510847" style="--image-width:622px;aspect-ratio:1244/1320">
-<img alt="Most Used widget switching the dropdown to Reason" class="asset" decoding="async" loading="lazy" src="media/most-used/enhanced-half-speed/most-used-dropdown.gif"/>
-</div>
-</div>
-</section>
-<section class="case-section" data-node-id="535:489299" id="n535-489299">
-<h2 class="section-title" data-node-id="535:489300" id="n535-489300">
-            05 · Make Status Mean One Thing
-          </h2>
-<p class="" data-node-id="535:489301" id="n535-489301">
-            The legacy system had another structural problem. Its status field tried to communicate too much. Lifecycle stages, overdue items, workflow problems, and action requirements all appeared as versions of “status.”
+            <p class="">
+              It draws a clearer line between actionable and analytical data,
+              making both easier to understand.
+            </p>
+            <p class="">
+              The status widget connects directly to the data table, so users
+              can filter actionable items and move from a summary signal to the
+              records behind it.
+            </p>
+          </div>
+          <div
+            class="image-frame"
+            data-name="new dashboard placement"
+            data-node-id="535:489286"
+            id="n535-489286"
+            style="--image-width: 456px; aspect-ratio: 456/713"
+          >
+            <div class="">
+              <img
+                alt="Performance Discussion Form new dashboard placement"
+                class="asset"
+                decoding="async"
+                loading="lazy"
+                src="images/pdf-final-action-and-analytics-separation.png"
+                style="
+                  width: 100.12%;
+                  height: 110.83%;
+                  left: -0.06%;
+                  top: 0.02%;
+                "
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="case-section" data-node-id="535:489288" id="n535-489288">
+        <h2 class="section-title" data-node-id="535:489289" id="n535-489289">
+          04 · Turn Counts Into Signals
+        </h2>
+        <div class="" data-node-id="535:489290" id="n535-489290">
+          <p class="">
+            One of the biggest challenges in this project was deciding what
+            story the data should tell.
           </p>
-<details class="diagram-disclosure">
-<summary>
-<strong>View Diagram</strong>
-<span class="diagram-disclosure-icon" aria-hidden="true"></span>
-</summary>
-<div class="image-frame" data-name="image 141" data-node-id="617:510835" id="n617-510835" style="aspect-ratio:4731/2964">
-<img alt="Workflow steps mapped to form states, showing that multiple steps can share the same state" class="asset" decoding="async" loading="lazy" src="images/pdf-legacy-status-analysis.png" width="4731" height="2964"/>
-</div>
-</details>
-<div class="status-concepts" data-node-id="535:489303" id="n535-489303">
-<p class="status-concepts-intro">On closer review, those were actually two different concepts. So I separated them.</p>
-<div class="status-concept-grid">
-<article class="status-concept status-concept-lifecycle">
-<p class="status-concept-label">Status</p>
-<h3>Where is this discussion in its lifecycle?</h3>
-<div class="status-concept-detail">
-<p class="status-detail-label">The lifecycle</p>
-<ol class="lifecycle-flow" aria-label="Discussion lifecycle">
-<li>Draft</li>
-<li>Employee Approval</li>
-<li>Manager Approval</li>
-<li>In Monitoring</li>
-</ol>
-</div>
-</article>
-<article class="status-concept status-concept-attention">
-<p class="status-concept-label">Action Warning</p>
-<h3>Is something happening that requires attention?</h3>
-<div class="status-concept-detail">
-<p class="status-detail-label">Items requiring attention</p>
-<ul class="attention-items">
-<li>Waiting on Me</li>
-<li>Monitoring Overdue</li>
-<li>Invalid workflow</li>
-</ul>
-<p class="status-concept-note">These items are surfaced separately rather than treated as lifecycle states.</p>
-</div>
-</article>
-</div>
-</div>
-<p class="" data-node-id="535:489305" id="n535-489305">
-            This approach reduces status complexity and shortens labels by unifying them under clearer definitions while separately calling out items that need immediate attention.
+          <p class="">
+            Through interviews with different types of users and conversations
+            with stakeholders, I found that the first design contained redundant
+            information. Several widgets were essentially answering the same
+            question in different ways.
           </p>
-<p class="" data-node-id="640:510849" id="n640-510849">
-            The same logic carries into the data table, drawing attention to rows with specific warnings or errors and giving users more confidence when managing a large volume of forms.
+          <p class="paragraph-break">​</p>
+          <p class="">
+            For the new direction, I wanted each widget to have a clear purpose
+            and support a specific user need. I reviewed every widget from the
+            original dashboard and refined the titles and settings of the
+            remaining widgets to make their purpose clearer.
           </p>
-<div class="image-frame" data-name="status-explain" data-node-id="535:489306" id="n535-489306" style="aspect-ratio:3600/2481">
-<img alt="Current discussion status redesigned into separate lifecycle states, actions, and in-table warning indicators" class="asset" decoding="async" loading="lazy" src="images/pdf-status-explain.png" width="3600" height="2481" style="object-fit:contain"/>
-</div>
-<div class="status-demos" id="n535-489309">
-<div data-node-id="535:489308" id="n535-489308">
-<p class="">Because approval order can vary depending on configuration, the label alone still cannot communicate progress reliably. So I paired each approval state with a step counter:</p>
-<p class="status-step-example">Manager Approval · Step 2 of 4</p>
-</div>
-<img alt="Open and close James Sarah's approval workflow drawer" src="media/status-workflow/half-speed-original-colors/status-workflow-drawer.gif" width="1136" height="1320" loading="lazy" decoding="async"/>
-</div>
-</section>
-<section class="case-section" data-node-id="535:489314" id="n535-489314">
-<h2 class="section-title" data-node-id="535:489315" id="n535-489315">
-            Final Outcome
-          </h2>
-<p class="" data-node-id="535:489316" id="n535-489316">
-            A dashboard organized around role, urgency, and meaning.
+        </div>
+        <div
+          class="widget-block stack"
+          data-name="trend-wdiget-block"
+          data-node-id="635:510838"
+          id="n635-510838"
+        >
+          <div class="" data-node-id="535:489296" id="n535-489296">
+            <p class="">01 — TRENDS OVER TOTALS</p>
+            <p class="">
+              Instead of only looking at PDF types as totals, this widget shows
+              how the number of forms changes over time. This helps users spot
+              trends and understand how timing or seasonality may relate to the
+              types of PDFs being created or resolved.
+            </p>
+          </div>
+          <div
+            class="image-frame"
+            data-name="image 126"
+            data-node-id="535:489297"
+            id="n535-489297"
+            style="--image-width: 640px; aspect-ratio: 1280/1320"
+          >
+            <img
+              alt="Discussion Activity filtering by Final Warning and updating the results"
+              class="asset"
+              decoding="async"
+              loading="lazy"
+              src="media/discussion-activity/enhanced-half-speed/discussion-activity-filter.gif"
+            />
+          </div>
+        </div>
+        <div
+          class="widget-block stack"
+          data-name="Outlier-wdget Block"
+          data-node-id="635:510839"
+          id="n635-510839"
+        >
+          <div class="" data-node-id="535:489292" id="n535-489292">
+            <p class="">02 — OUTLIER DETECTION</p>
+            <p class="">
+              This widget surfaces outliers based on a threshold set by the
+              user, helping leaders quickly identify employees with an unusually
+              high number of forms and spot unusual activity without manually
+              combing through records.
+            </p>
+          </div>
+          <div
+            class="image-frame"
+            data-name="image 127"
+            data-node-id="535:489293"
+            id="n535-489293"
+            style="--image-width: 594px; aspect-ratio: 1188/1320"
+          >
+            <img
+              alt="Outlier settings excluding New Check In discussions and updating employee counts"
+              class="asset"
+              decoding="async"
+              loading="lazy"
+              src="media/outliers/enhanced-half-speed/outliers-exclude-type.gif"
+            />
+          </div>
+        </div>
+        <div
+          class="widget-block stack"
+          data-name="Total by allocation- widget- block"
+          data-node-id="635:510840"
+          id="n635-510840"
+        >
+          <div class="" data-node-id="535:489294" id="n535-489294">
+            <p class="">03 — ORGANIZATIONAL VIEWS</p>
+            <p class="">
+              Multiple supervisor-level users identified this view as essential
+              for understanding the relationship between Performance Discussion
+              Forms and allocation. The drill-down lets users explore the data
+              in more detail and compare allocation combinations.
+            </p>
+          </div>
+          <div
+            class="image-frame"
+            data-name="image 125"
+            data-node-id="535:489295"
+            id="n535-489295"
+            style="--image-width: 632px; aspect-ratio: 1264/1320"
+          >
+            <img
+              alt="Discussion counts by department with an HR hover tooltip and drill-down"
+              class="asset"
+              decoding="async"
+              loading="lazy"
+              src="media/department-hr/enhanced-half-speed/department-hr-drilldown.gif"
+            />
+          </div>
+        </div>
+        <div
+          class="widget-block stack"
+          data-name="time to resolve- widget- block"
+          data-node-id="635:510841"
+          id="n635-510841"
+        >
+          <div class="" data-node-id="635:510842" id="n635-510842">
+            <p class="">04 — TIME TO RESOLVE</p>
+            <p class="">
+              This widget evolved from the Time to Resolve widget in Phase One.
+              In the redesign, it tells a clearer story of how long it takes a
+              form to move from creation to completion.
+            </p>
+            <p class="">
+              Users can see processing-time trends across form types, locations,
+              and reasons. I also simplified the filters and settings to make
+              the widget easier to understand and use.
+            </p>
+          </div>
+          <div
+            class="image-frame"
+            data-name="image 125"
+            data-node-id="635:510843"
+            id="n635-510843"
+            style="--image-width: 594px; aspect-ratio: 1188/1320"
+          >
+            <img
+              alt="Average Days to Resolve with hover tooltips for each discussion type"
+              class="asset"
+              decoding="async"
+              loading="lazy"
+              src="media/average-days/enhanced-half-speed/average-days-tooltip.gif"
+            />
+          </div>
+        </div>
+        <div
+          class="widget-block stack"
+          data-name="Top ised- widget- block"
+          data-node-id="640:510845"
+          id="n640-510845"
+        >
+          <div class="" data-node-id="640:510846" id="n640-510846">
+            <p class="">05 — MOST USED</p>
+            <p class="">
+              The original Top Five widget caused confusion and raised questions
+              about scalability. In the redesign, I renamed it Most Used and
+              added filters for type, reason, and other key form properties,
+              giving senior leaders more control over the high-level view.
+            </p>
+          </div>
+          <div
+            class="image-frame"
+            data-name="image 125"
+            data-node-id="640:510847"
+            id="n640-510847"
+            style="--image-width: 622px; aspect-ratio: 1244/1320"
+          >
+            <img
+              alt="Most Used widget switching the dropdown to Reason"
+              class="asset"
+              decoding="async"
+              loading="lazy"
+              src="media/most-used/enhanced-half-speed/most-used-dropdown.gif"
+            />
+          </div>
+        </div>
+      </section>
+      <section class="case-section" data-node-id="535:489299" id="n535-489299">
+        <h2 class="section-title" data-node-id="535:489300" id="n535-489300">
+          05 · Make Status Mean One Thing
+        </h2>
+        <p class="" data-node-id="535:489301" id="n535-489301">
+          The legacy system had another structural problem. Its status field
+          tried to communicate too much. Lifecycle stages, overdue items,
+          workflow problems, and action requirements all appeared as versions of
+          “status.”
+        </p>
+        <details class="diagram-disclosure">
+          <summary>
+            <strong>View Diagram</strong>
+            <span class="diagram-disclosure-icon" aria-hidden="true"></span>
+          </summary>
+          <div
+            class="image-frame"
+            data-name="image 141"
+            data-node-id="617:510835"
+            id="n617-510835"
+            style="aspect-ratio: 4731/2964"
+          >
+            <img
+              alt="Workflow steps mapped to form states, showing that multiple steps can share the same state"
+              class="asset"
+              decoding="async"
+              loading="lazy"
+              src="images/pdf-legacy-status-analysis.png"
+              width="4731"
+              height="2964"
+            />
+          </div>
+        </details>
+        <div class="status-concepts" data-node-id="535:489303" id="n535-489303">
+          <p class="status-concepts-intro">
+            On closer review, those were actually two different concepts. So I
+            separated them.
           </p>
-<div class="row center final-outcome-demo" data-node-id="617:510837" id="n617-510837">
-<div class="image-frame" data-name="image 120" data-node-id="535:489317" id="n535-489317" style="aspect-ratio:1920/1080">
-<img alt="Final dashboard opening discussion analytics with gentle click feedback, then scrolling through the charts to the top of the table" class="asset" decoding="async" loading="lazy" src="media/final-zoom/final-landscape-reactive-scroll-short.gif" width="1920" height="1080" style="object-fit:contain"/>
-</div>
-</div>
-<div class="" data-node-id="535:489318" id="n535-489318">
-<p class="">The redesigned experience now:</p>
-<ul class="">
-<li class="">
-<span class="">Separates actionable workflow data from historical analytics</span>
-</li>
-<li class="">
-<span class="">Gives frontline managers clearer visibility into what needs attention</span>
-</li>
-<li class="">
-<span class="">Gives leaders stronger ways to identify patterns across teams</span>
-</li>
-<li class="">
-<span class="">Introduces a consistent lifecycle and action model</span>
-</li>
-<li class="">
-<span class="">Uses trends and outliers to turn raw counts into meaningful signals</span>
-</li>
-</ul>
-</div>
-<p class="" data-node-id="640:510853" id="n640-510853">
-            The status and category model can also be reused in other areas of the platform with similar action-versus-history patterns.
+          <div class="status-concept-grid">
+            <article class="status-concept status-concept-lifecycle">
+              <p class="status-concept-label">Status</p>
+              <h3>Where is this discussion in its lifecycle?</h3>
+              <div class="status-concept-detail">
+                <p class="status-detail-label">The lifecycle</p>
+                <ol class="lifecycle-flow" aria-label="Discussion lifecycle">
+                  <li>Draft</li>
+                  <li>Employee Approval</li>
+                  <li>Manager Approval</li>
+                  <li>In Monitoring</li>
+                </ol>
+              </div>
+            </article>
+            <article class="status-concept status-concept-attention">
+              <p class="status-concept-label">Action Warning</p>
+              <h3>Is something happening that requires attention?</h3>
+              <div class="status-concept-detail">
+                <p class="status-detail-label">Items requiring attention</p>
+                <ul class="attention-items">
+                  <li>Waiting on Me</li>
+                  <li>Monitoring Overdue</li>
+                  <li>Invalid workflow</li>
+                </ul>
+                <p class="status-concept-note">
+                  These items are surfaced separately rather than treated as
+                  lifecycle states.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <p class="" data-node-id="535:489305" id="n535-489305">
+          This approach reduces status complexity and shortens labels by
+          unifying them under clearer definitions while separately calling out
+          items that need immediate attention.
+        </p>
+        <p class="" data-node-id="640:510849" id="n640-510849">
+          The same logic carries into the data table, drawing attention to rows
+          with specific warnings or errors and giving users more confidence when
+          managing a large volume of forms.
+        </p>
+        <div
+          class="image-frame"
+          data-name="status-explain"
+          data-node-id="535:489306"
+          id="n535-489306"
+          style="aspect-ratio: 3600/2481"
+        >
+          <img
+            alt="Current discussion status redesigned into separate lifecycle states, actions, and in-table warning indicators"
+            class="asset"
+            decoding="async"
+            loading="lazy"
+            src="images/pdf-status-explain.png"
+            width="3600"
+            height="2481"
+            style="object-fit: contain"
+          />
+        </div>
+        <div class="status-demos" id="n535-489309">
+          <div data-node-id="535:489308" id="n535-489308">
+            <p class="">
+              Because approval order can vary depending on configuration, the
+              label alone still cannot communicate progress reliably. So I
+              paired each approval state with a step counter:
+            </p>
+            <p class="status-step-example">Manager Approval · Step 2 of 4</p>
+          </div>
+          <img
+            alt="Open and close James Sarah's approval workflow drawer"
+            src="media/status-workflow/half-speed-original-colors/status-workflow-drawer.gif"
+            width="1136"
+            height="1320"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </section>
+      <section class="case-section" data-node-id="535:489314" id="n535-489314">
+        <h2 class="section-title" data-node-id="535:489315" id="n535-489315">
+          Final Outcome
+        </h2>
+        <p class="" data-node-id="535:489316" id="n535-489316">
+          A dashboard organized around role, urgency, and meaning.
+        </p>
+        <div
+          class="row center final-outcome-demo"
+          data-node-id="617:510837"
+          id="n617-510837"
+        >
+          <div
+            class="image-frame"
+            data-name="image 120"
+            data-node-id="535:489317"
+            id="n535-489317"
+            style="aspect-ratio: 1920/1080"
+          >
+            <img
+              alt="Final dashboard opening discussion analytics with gentle click feedback, then scrolling through the charts to the top of the table"
+              class="asset"
+              decoding="async"
+              loading="lazy"
+              src="media/final-zoom/final-landscape-reactive-scroll-short.gif"
+              width="1920"
+              height="1080"
+              style="object-fit: contain"
+            />
+          </div>
+        </div>
+        <div class="" data-node-id="535:489318" id="n535-489318">
+          <p class="">The redesigned experience now:</p>
+          <ul class="">
+            <li class="">
+              <span class=""
+                >Separates actionable workflow data from historical
+                analytics</span
+              >
+            </li>
+            <li class="">
+              <span class=""
+                >Gives frontline managers clearer visibility into what needs
+                attention</span
+              >
+            </li>
+            <li class="">
+              <span class=""
+                >Gives leaders stronger ways to identify patterns across
+                teams</span
+              >
+            </li>
+            <li class="">
+              <span class=""
+                >Introduces a consistent lifecycle and action model</span
+              >
+            </li>
+            <li class="">
+              <span class=""
+                >Uses trends and outliers to turn raw counts into meaningful
+                signals</span
+              >
+            </li>
+          </ul>
+        </div>
+        <p class="" data-node-id="640:510853" id="n640-510853">
+          The status and category model can also be reused in other areas of the
+          platform with similar action-versus-history patterns.
+        </p>
+        <div class="" data-node-id="640:510851" id="n640-510851">
+          <p class="">Current Status</p>
+          <p class="">
+            The redesigned dashboard is now the top-priority initiative for the
+            next PDF module development cycle.
           </p>
-<div class="" data-node-id="640:510851" id="n640-510851">
-<p class="">Current Status</p>
-<p class="">The redesigned dashboard is now the top-priority initiative for the next PDF module development cycle.</p>
-</div>
-</section>
-<section class="case-section" data-node-id="535:489311" id="n535-489311">
-<h2 class="section-title" data-node-id="535:489312" id="n535-489312">
-            Validation
-          </h2>
-<div class="validation-copy" data-node-id="535:489313" id="n535-489313">
-<div class="validation-feedback">
-<p>The redesigned direction was reviewed with key product stakeholders and the executive leadership team, then tested again with senior managers who participated in the earlier research.</p>
-<p>Feedback was especially positive around:</p>
-<ul>
-<li>Data visualization, separation of action and history, and dashboard structure</li>
-<li>The review helped confirm that the redesign was moving in the right direction — both for the people using the dashboard and for the broader product system.</li>
-</ul>
-</div>
-<p class="bold">Gap and Opportunity</p>
-<p class="">Some research-backed opportunities fell outside the scope of the Phase Two MVP. Future iterations could explore more granular permissions, deeper drill-down capabilities, more robust widget redirection, greater customization, AI-powered reporting, and stronger connectivity across the system.</p>
-</div>
-</section>
-<section class="case-section" data-node-id="535:489319" id="n535-489319">
-<h2 class="section-title" data-node-id="535:489320" id="n535-489320">
-            Reflection
-          </h2>
-<div class="" data-node-id="535:489321" id="n535-489321">
-<p class="">This project taught me not to get too attached to a solution, even when it feels certain. The design process wasn’t linear—we moved between research, design, testing, and iteration, constantly returning to the root problem and asking: Are we still telling the right story?</p>
-<p class="paragraph-break">​</p>
-<p class="">My biggest insight was realizing that two types of data served different needs at different moments. It wasn’t enough for me as the designer to understand that distinction; the experience needed to make it obvious to users.</p>
-<p class="paragraph-break">​</p>
-<p class="">Once that clicked, decisions around information architecture, hierarchy, and content grouping became much clearer. It changed how I think about organizing complex information and reminded me that asking the right question is often more important than jumping to a solution.</p>
-<p class="paragraph-break">​</p>
-<p class="">Close collaboration with product partners reinforced how much value comes from combining deep product knowledge with design-led questions. By challenging assumptions together and working through multiple rounds of iteration, we turned shared expertise into a clearer product direction.</p>
-</div>
-</section>
-</main>
-<section class="related-projects" aria-labelledby="related-projects-heading">
-  <h2 id="related-projects-heading">More projects</h2>
-  <div class="related-projects-grid">
-    <a class="related-project-card" href="../dashboard-customization-user-testing/index.html">
-      <h3>Dashboard Customization<br>Testing Study</h3>
-      <img src="../dashboard-customization-user-testing/images/inline-drawer.png" alt="" width="1350" height="960" loading="lazy">
-    </a>
-    <a class="related-project-card" href="../paf-redesign/index.html">
-      <h3>Re-architecting the End-to-End<br>Personal Action Workflow</h3>
-      <img src="../paf-redesign/images/paf-hero.png" alt="" width="3082" height="2026" loading="lazy">
-    </a>
-  </div>
-</section>
-<div data-site-footer></div></body></html>
+        </div>
+      </section>
+      <section class="case-section" data-node-id="535:489311" id="n535-489311">
+        <h2 class="section-title" data-node-id="535:489312" id="n535-489312">
+          Validation
+        </h2>
+        <div class="validation-copy" data-node-id="535:489313" id="n535-489313">
+          <div class="validation-feedback">
+            <p>
+              The redesigned direction was reviewed with key product
+              stakeholders and the executive leadership team, then tested again
+              with senior managers who participated in the earlier research.
+            </p>
+            <p>Feedback was especially positive around:</p>
+            <ul>
+              <li>
+                Data visualization, separation of action and history, and
+                dashboard structure
+              </li>
+              <li>
+                The review helped confirm that the redesign was moving in the
+                right direction — both for the people using the dashboard and
+                for the broader product system.
+              </li>
+            </ul>
+          </div>
+          <p class="bold">Gap and Opportunity</p>
+          <p class="">
+            Some research-backed opportunities fell outside the scope of the
+            Phase Two MVP. Future iterations could explore more granular
+            permissions, deeper drill-down capabilities, more robust widget
+            redirection, greater customization, AI-powered reporting, and
+            stronger connectivity across the system.
+          </p>
+        </div>
+      </section>
+      <section class="case-section" data-node-id="535:489319" id="n535-489319">
+        <h2 class="section-title" data-node-id="535:489320" id="n535-489320">
+          Reflection
+        </h2>
+        <div class="" data-node-id="535:489321" id="n535-489321">
+          <p class="">
+            This project taught me not to get too attached to a solution, even
+            when it feels certain. The design process wasn’t linear—we moved
+            between research, design, testing, and iteration, constantly
+            returning to the root problem and asking: Are we still telling the
+            right story?
+          </p>
+          <p class="paragraph-break">​</p>
+          <p class="">
+            My biggest insight was realizing that two types of data served
+            different needs at different moments. It wasn’t enough for me as the
+            designer to understand that distinction; the experience needed to
+            make it obvious to users.
+          </p>
+          <p class="paragraph-break">​</p>
+          <p class="">
+            Once that clicked, decisions around information architecture,
+            hierarchy, and content grouping became much clearer. It changed how
+            I think about organizing complex information and reminded me that
+            asking the right question is often more important than jumping to a
+            solution.
+          </p>
+          <p class="paragraph-break">​</p>
+          <p class="">
+            Close collaboration with product partners reinforced how much value
+            comes from combining deep product knowledge with design-led
+            questions. By challenging assumptions together and working through
+            multiple rounds of iteration, we turned shared expertise into a
+            clearer product direction.
+          </p>
+        </div>
+      </section>
+    </main>
+    <section
+      class="related-projects"
+      aria-labelledby="related-projects-heading"
+    >
+      <h2 id="related-projects-heading">More projects</h2>
+      <div class="related-projects-grid">
+        <a
+          class="related-project-card"
+          href="../dashboard-customization-user-testing/index.html"
+        >
+          <h3>Dashboard Customization<br />Testing Study</h3>
+          <img
+            src="../dashboard-customization-user-testing/images/inline-drawer.png"
+            alt=""
+            width="1350"
+            height="960"
+            loading="lazy"
+          />
+        </a>
+        <a class="related-project-card" href="../paf-redesign/index.html">
+          <h3>Re-architecting the End-to-End<br />Personal Action Workflow</h3>
+          <img
+            src="../paf-redesign/images/paf-hero.png"
+            alt=""
+            width="3082"
+            height="2026"
+            loading="lazy"
+          />
+        </a>
+      </div>
+    </section>
+    <div data-site-footer></div>
+  </body>
+</html>

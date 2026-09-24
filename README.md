@@ -1,9 +1,13 @@
 # Portfolio Website 2026
 
-This repository contains one portfolio site:
+This repository contains Keyan Huang's portfolio homepage and three case studies.
+The application and GitHub Pages site share their components, styles, image
+delivery helpers, and interaction scripts.
 
-- `home-page/`: the main 2026 portfolio homepage
-- `home-page/public/performance-discussion-form/`: the Performance Discussion Form case study, served from the homepage origin
+Start in [home-page/](./home-page/). Its [editing guide](./home-page/README.md)
+explains the source layout, reusable components, original media, generated image
+variants, local previews, and deployment checks.
 
-Run and deploy the project from `home-page/`. See `home-page/README.md` for the
-editing map and project-organization conventions.
+Generated builds and image variants are not source files and are not committed.
+The original project screenshots, animations, and inactive design explorations
+are preserved.

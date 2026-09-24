@@ -90,7 +90,12 @@ export function mountContactMenu(container, site) {
   const scheduleClose = () => {
     clearTimeout(dismissTimer);
     dismissTimer = setTimeout(() => {
-      if (!trigger.matches(':hover') && !menu.matches(':hover') && !menu.contains(document.activeElement)) close();
+      if (
+        !trigger.matches(':hover') &&
+        !menu.matches(':hover') &&
+        !menu.contains(document.activeElement)
+      )
+        close();
     }, 180);
   };
   menu.addEventListener('toggle', () => {

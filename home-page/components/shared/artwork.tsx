@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import { ResponsiveImage } from './responsive-image';
+import { imageSizes } from '@/public/scripts/responsive-images.js';
 
 type ArtworkProps = {
   src: string;
@@ -7,13 +8,15 @@ type ArtworkProps = {
 
 export function Artwork({ src, className = '' }: ArtworkProps) {
   return (
-    <Image
+    <ResponsiveImage
       className={`art ${className}`}
       src={src}
       alt=""
       width={1000}
       height={1000}
-      unoptimized
+      sizes={className === 'logo' ? imageSizes.logo : imageSizes.binoculars}
+      loading="eager"
+      fetchPriority={className === 'binoculars' ? 'high' : undefined}
     />
   );
 }

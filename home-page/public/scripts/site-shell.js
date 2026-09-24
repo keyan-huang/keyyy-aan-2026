@@ -10,8 +10,10 @@
     );
   }
   const site = await response.json();
+  const { createResponsiveImage, imageSizes } = await import(
+    new URL('./responsive-images.js', script.src).href
+  );
   const root = document.body.dataset.siteRoot || '/';
-  const fromRoot = (path) => `${root}${path}`;
 
   if (document.querySelector('.case-study')) {
     const lightbox = document.createElement('dialog');
@@ -29,12 +31,13 @@
       </div>`;
 
     const lightboxImage = lightbox.querySelector('.case-study-lightbox-image');
-    const lightboxCaption = lightbox.querySelector('.case-study-lightbox-caption');
-    const closeLightbox = () => lightbox.close();
-    lightbox.querySelector('.case-study-lightbox-close').addEventListener(
-      'click',
-      closeLightbox,
+    const lightboxCaption = lightbox.querySelector(
+      '.case-study-lightbox-caption',
     );
+    const closeLightbox = () => lightbox.close();
+    lightbox
+      .querySelector('.case-study-lightbox-close')
+      .addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', (event) => {
       if (event.target === lightbox) closeLightbox();
     });
@@ -71,7 +74,7 @@
       trigger.type = 'button';
       trigger.setAttribute('aria-label', `View ${description} full screen`);
       trigger.addEventListener('click', () => {
-        lightboxImage.src = image.currentSrc || image.src;
+        lightboxImage.src = image.src;
         lightboxImage.alt = image.alt;
         lightboxCaption.textContent = image.alt;
         lightboxCaption.hidden = !image.alt;
@@ -95,7 +98,8 @@
     };
 
     backToTop.addEventListener('click', () => {
-      const behavior = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      const behavior = window.matchMedia('(prefers-reduced-motion: reduce)')
+        .matches
         ? 'auto'
         : 'smooth';
       window.scrollTo({ top: 0, behavior });
@@ -114,9 +118,12 @@
     const logoLink = document.createElement('a');
     logoLink.href = root;
     logoLink.setAttribute('aria-label', `${site.name} homepage`);
-    const logo = document.createElement('img');
+    const logo = createResponsiveImage(
+      `/${site.logo}`,
+      imageSizes.logo,
+      'eager',
+    );
     logo.className = 'logo';
-    logo.src = fromRoot(site.logo);
     logo.alt = '';
     logoLink.append(logo);
 
@@ -138,12 +145,6 @@
 
   const footerMount = document.querySelector('[data-site-footer]');
   if (footerMount) {
-    const art = site.footerArt
-      .map(
-        (src, index) =>
-          `<img class="footer-swap-image" style="--footer-art-index:${index}" src="${fromRoot(src)}" alt="">`,
-      )
-      .join('');
     const footer = document.createElement('footer');
     footer.className = 'site-footer home-footer';
     footer.id = 'connect';
@@ -159,9 +160,17 @@
             <a class="contact resume" href="${site.contact.resumeUrl}" target="_blank" rel="noopener noreferrer" aria-label="View resume (PDF, opens in a new tab)">Resume</a>
           </div>
         </div>
-        <div class="footer-art-stage" aria-hidden="true">${art}</div>
+        <div class="footer-art-stage" aria-hidden="true"></div>
       </div>
       <div class="footer-bottom"><p class="footer-copyright">© 2026 Keyan Huang. All rights reserved. Designed with love and passion by a curious mind.</p></div>`;
+    const stage = footer.querySelector('.footer-art-stage');
+    site.footerArt.forEach((src, index) => {
+      const image = createResponsiveImage(`/${src}`, imageSizes.footer);
+      image.className = 'footer-swap-image';
+      image.style.setProperty('--footer-art-index', index);
+      image.alt = '';
+      stage.append(image);
+    });
     footerMount.replaceWith(footer);
   }
 })().catch((error) => {

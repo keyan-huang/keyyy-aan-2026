@@ -39,24 +39,23 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Prepare image assets
+        run: pnpm images:prepare
+
       - name: Lint source
         run: pnpm lint
 
       - name: Build application
         run: pnpm build:local
 
-  build:
-    runs-on: ubuntu-latest
-    needs: quality
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
+      - name: Test image delivery
+        run: pnpm test
 
-      - name: Prepare static website
-        run: node home-page/scripts/prepare-static.mjs home-page/github-pages
+      - name: Check types
+        run: pnpm typecheck
 
       - name: Audit static website
-        run: node home-page/scripts/audit-static.mjs home-page/github-pages
+        run: pnpm audit:static
 
       - name: Upload website
         uses: actions/upload-pages-artifact@v3
@@ -68,7 +67,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    needs: build
+    needs: quality
     steps:
       - name: Deploy to GitHub Pages
         id: deployment

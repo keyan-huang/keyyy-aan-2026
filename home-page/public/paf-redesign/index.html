@@ -1,272 +1,739 @@
 <!doctype html>
 <html lang="en">
-<head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8SJG8KV4NR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag("js", new Date());
-  gtag("config", "G-8SJG8KV4NR");
-</script>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="robots" content="noindex,nofollow">
-  <title>Re-architecting the End-to-End Personal Action Workflow</title>
-  <meta name="description" content="Rebuilt the system behind hundreds of thousands of decisions that shape employees’ careers.">
-  <link rel="icon" href="../images/imgImage81.png">
-  <link rel="stylesheet" href="../styles/design-tokens.css">
-  <link rel="stylesheet" href="../styles/site-shell.css?v=lightbox-4">
-  <link rel="stylesheet" href="case-study.css?v=architecture-flow-1">
-  <link rel="stylesheet" href="architecture-flow.css?v=structure-layout-3">
-  <link rel="stylesheet" href="../styles/related-projects.css">
-  <script src="../scripts/site-shell.js?v=lightbox-3" defer></script>
-</head>
-<body data-site-root="../">
-  <a class="skip-link" href="#case-study">Skip to case study</a>
-  <div data-site-header></div>
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-8SJG8KV4NR"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-8SJG8KV4NR');
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Re-architecting the End-to-End Personal Action Workflow</title>
+    <meta
+      name="description"
+      content="Rebuilt the system behind hundreds of thousands of decisions that shape employees’ careers."
+    />
+    <link rel="icon" href="../images/imgImage81.png" />
+    <link rel="stylesheet" href="../styles/design-tokens.css" />
+    <link rel="stylesheet" href="../styles/site-shell.css?v=lightbox-4" />
+    <link rel="stylesheet" href="case-study.css?v=architecture-flow-1" />
+    <link rel="stylesheet" href="architecture-flow.css?v=structure-layout-3" />
+    <link rel="stylesheet" href="../styles/related-projects.css" />
+    <script src="../scripts/site-shell.js?v=lightbox-3" defer></script>
+  </head>
+  <body data-site-root="../">
+    <a class="skip-link" href="#case-study">Skip to case study</a>
+    <div data-site-header></div>
 
-  <main class="case-study" id="case-study">
-    <header class="hero">
-      <h1>Re-architecting the End-to-End<br>Personal Action Workflow</h1>
-      <p class="hero-summary">Rebuilt the system behind hundreds of thousands of decisions that shape employees’ careers.</p>
-      <figure class="case-media hero-media">
-        <img src="images/paf-hero.png" alt="Three screens showing the redesigned Personnel Action Form workflow">
-      </figure>
-      <div class="project-meta">
-        <p><strong>Duration</strong><br>Q3–Q4 2025</p>
-        <p><strong>Team</strong><br>Product Manager + Designer</p>
-        <p><strong>Role</strong><br>Lead Designer — owned the end-to-end design process</p>
-      </div>
-    </header>
-
-    <section class="case-section intro-block">
-      <h2>When a form changes someone’s career, there’s no room for uncertainty.</h2>
-      <p class="lead">Promotions. Transfers. Terminations. Behind every one of these decisions is a Personnel Action Form (PAF), a workflow where a single mistake can ripple across pay, access, and employee records. But the legacy experience made leaders second-guess themselves. Critical information was scattered, navigation was cumbersome, and too much of the experience became a cycle of asking, “Where do I click next?” and “Let me triple-check the number.” I led the redesign to turn this high-stakes, error-prone workflow into an experience leaders could trust, so they could spend less time fighting the system and more time making the decisions that matter.</p>
-    </section>
-
-    <section class="case-section">
-      <div class="section-heading"><span>00</span><h2>Project in a nutshell</h2></div>
-      <div class="nutshell-grid">
-        <p><strong>Impact</strong><br>350K+ managers</p>
-        <p><strong>Priority</strong><br>Top product-roadmap priority, affecting 27 RMs</p>
-        <p><strong>Goal</strong><br>Help managers complete and approve personnel actions with greater confidence and fewer opportunities for error.</p>
-        <p><strong>Scope</strong><br>End-to-end redesign of the manager-side Personnel Action Form, from creation through resolution.</p>
-      </div>
-      <div class="process-flow" aria-label="Project approach">
-        <span>System Analysis</span><b>→</b><span>Roadmap Alignment</span><b>→</b><span>User Interviews</span><b>→</b><span>Identify Key Challenges</span><b>→</b><span>Design</span><b>→</b><span>Validation</span><b>→</b><span>Design Delivery</span>
-      </div>
-      <p class="caption">Approach: I used user interviews, workflow analysis, affinity mapping, prototyping, and usability testing to challenge the initial brief, uncover deeper workflow problems, and shape a more intuitive end-to-end experience.</p>
-      <div class="challenge-summary">
-        <h3>Key Design Challenges</h3>
-        <article><b>01 — Bring order to complexity</b><p>Restructure dense, fragmented information into a clearer flow that surfaces the right information when users need it.</p></article>
-        <article><b>02 — Design for confidence</b><p>Reduce uncertainty around critical actions through clearer feedback, guidance, and interaction states.</p></article>
-      </div>
-    </section>
-
-    <section class="case-section">
-      <div class="section-heading"><span>01</span><h2>What was asked</h2></div>
-      <div class="brief-grid">
-        <div>
-          <p class="pull-quote">“Modernize the UI of the existing Personnel Action Form, from creation to resolution.”</p>
-          <p class="scope-note">The redesign did not cover the full module.</p>
+    <main class="case-study" id="case-study">
+      <header class="hero">
+        <h1>Re-architecting the End-to-End<br />Personal Action Workflow</h1>
+        <p class="hero-summary">
+          Rebuilt the system behind hundreds of thousands of decisions that
+          shape employees’ careers.
+        </p>
+        <figure class="case-media hero-media">
+          <img
+            src="images/paf-hero.png"
+            alt="Three screens showing the redesigned Personnel Action Form workflow"
+          />
+        </figure>
+        <div class="project-meta">
+          <p><strong>Duration</strong><br />Q3–Q4 2025</p>
+          <p><strong>Team</strong><br />Product Manager + Designer</p>
+          <p>
+            <strong>Role</strong><br />Lead Designer — owned the end-to-end
+            design process
+          </p>
         </div>
-        <img class="brief-image" src="images/paf-homepage.png?v=20260923" alt="Legacy Personnel Action Form homepage" width="1514" height="768">
-      </div>
-      <p>I could modernize the interface, but as the module’s lead designer, I knew a visual refresh alone would not resolve the deeper frustrations. Users needed more than updated aesthetics.</p>
-    </section>
+      </header>
 
-    <section class="case-section">
-      <div class="section-heading"><span>02</span><h2>Beyond the Brief</h2></div>
-      <p>To look beyond the brief, I secured buy-in from the product and design managers to interview users about the PAF module’s most critical flows.</p>
-      <p>We conducted five interviews with people across four key groups:</p>
-      <div class="persona-grid">
-        <article><h3>HR Managers</h3><p>Admins and power users who work with PAF frequently</p></article>
-        <article><h3>Department Managers</h3><p>The most common users of the workflow</p></article>
-        <article><h3>Client Setup Specialists</h3><p>User trainers with firsthand knowledge of where customers struggle</p></article>
-        <article><h3>Sales Representatives</h3><p>A customer-facing perspective on recurring pain points and product gaps</p></article>
-      </div>
-      <p>We combined these interviews with an evaluation of the existing experience from both design and product perspectives. Together, we examined the experience through three lenses: user, design, and business.</p>
-      <figure class="case-media">
-        <img src="images/paf-affinity-map.png" alt="Affinity map organizing Personnel Action Form interview findings" width="4096" height="2579">
-      </figure>
-      <h3 class="subhead">What We Heard</h3>
-      <div class="finding-grid">
-        <article><h3>Approval Flow &amp; Visibility</h3><ul><li>Unclear status and approval progress</li><li>Approvers had to leave the flow to make changes</li><li>Users didn’t always know what happened after submitting</li></ul></article>
-        <article><h3>Data Accuracy &amp; Validation</h3><ul><li>Users manually caught errors and inconsistencies</li><li>Important changes required constant double-checking</li><li>Limited validation before submission</li></ul></article>
-        <article><h3>Template &amp; Field Complexity</h3><ul><li>Too many templates and unclear naming</li><li>Irrelevant fields created unnecessary noise</li><li>Dense forms made it difficult to identify what mattered</li></ul></article>
-        <article><h3>Batch &amp; Bulk Actions</h3><ul><li>Large actions required repetitive manual work</li><li>Bulk workflows introduced additional risk and complexity</li></ul></article>
-        <article><h3>Navigation &amp; Submission</h3><ul><li>Users weren’t always sure where actions would lead</li><li>Fragmented navigation interrupted the workflow</li><li>Multiple paths created unnecessary confusion</li></ul></article>
-        <article><h3>System &amp; Workflow Gaps</h3><ul><li>Users relied on external tools to complete parts of the workflow</li><li>Automation and integrations didn’t always support the full process</li><li>Some workflows extended beyond what the existing PAF experience could handle</li></ul></article>
-      </div>
-      <h3 class="subhead">From 30+ Findings to Two Design Challenges</h3>
-      <p>The research surfaced friction across nearly every part of the PAF experience. But not every problem could—or should—be solved in a single redesign. When I mapped the findings against the project scope and areas where design could have the greatest immediate impact, two challenges emerged:</p>
-      <div class="two-columns challenge-cards">
-        <article><span>01</span><h3>Bring Order to Complexity</h3><p>Across templates, fields, navigation, and workflows, the same problem kept appearing: users struggled to identify what information mattered and where to find it. The opportunity was to restructure the experience and surface information where it was most valuable.</p></article>
-        <article><span>02</span><h3>Design for Confidence</h3><p>Across validation, submission, approval, and field interactions, another pattern emerged: users were repeatedly forced to double-check the system instead of being able to trust it. The opportunity was to provide clearer feedback, validation, and guidance around critical actions.</p></article>
-      </div>
-    </section>
+      <section class="case-section intro-block">
+        <h2>
+          When a form changes someone’s career, there’s no room for uncertainty.
+        </h2>
+        <p class="lead">
+          Promotions. Transfers. Terminations. Behind every one of these
+          decisions is a Personnel Action Form (PAF), a workflow where a single
+          mistake can ripple across pay, access, and employee records. But the
+          legacy experience made leaders second-guess themselves. Critical
+          information was scattered, navigation was cumbersome, and too much of
+          the experience became a cycle of asking, “Where do I click next?” and
+          “Let me triple-check the number.” I led the redesign to turn this
+          high-stakes, error-prone workflow into an experience leaders could
+          trust, so they could spend less time fighting the system and more time
+          making the decisions that matter.
+        </p>
+      </section>
 
-    <section class="case-section">
-      <div class="section-heading"><span>03</span><h2>Understanding the scope</h2></div>
-      <p>These two themes often appear in design case studies, but the scale of this module made each one especially tangible.</p>
-      <div class="scope-grid">
-        <span>8 field types with unique interactions across 50+ individual fields</span><span>27 pending and developing RMs impacted</span><span>2 core experiences with single and batch actions: Create and Approve</span><span>9 newly added features</span><span>3 different personas</span><span>10 types of warnings and errors</span><span>45 unique flows</span><span>5 dynamic permission and workflow changes</span>
-      </div>
-    </section>
+      <section class="case-section">
+        <div class="section-heading">
+          <span>00</span>
+          <h2>Project in a nutshell</h2>
+        </div>
+        <div class="nutshell-grid">
+          <p><strong>Impact</strong><br />350K+ managers</p>
+          <p>
+            <strong>Priority</strong><br />Top product-roadmap priority,
+            affecting 27 RMs
+          </p>
+          <p>
+            <strong>Goal</strong><br />Help managers complete and approve
+            personnel actions with greater confidence and fewer opportunities
+            for error.
+          </p>
+          <p>
+            <strong>Scope</strong><br />End-to-end redesign of the manager-side
+            Personnel Action Form, from creation through resolution.
+          </p>
+        </div>
+        <div class="process-flow" aria-label="Project approach">
+          <span>System Analysis</span><b>→</b><span>Roadmap Alignment</span
+          ><b>→</b><span>User Interviews</span><b>→</b
+          ><span>Identify Key Challenges</span><b>→</b><span>Design</span
+          ><b>→</b><span>Validation</span><b>→</b><span>Design Delivery</span>
+        </div>
+        <p class="caption">
+          Approach: I used user interviews, workflow analysis, affinity mapping,
+          prototyping, and usability testing to challenge the initial brief,
+          uncover deeper workflow problems, and shape a more intuitive
+          end-to-end experience.
+        </p>
+        <div class="challenge-summary">
+          <h3>Key Design Challenges</h3>
+          <article>
+            <b>01 — Bring order to complexity</b>
+            <p>
+              Restructure dense, fragmented information into a clearer flow that
+              surfaces the right information when users need it.
+            </p>
+          </article>
+          <article>
+            <b>02 — Design for confidence</b>
+            <p>
+              Reduce uncertainty around critical actions through clearer
+              feedback, guidance, and interaction states.
+            </p>
+          </article>
+        </div>
+      </section>
 
-    <section class="case-section challenge-section">
-      <p class="eyebrow">Challenge 1: Information Architecture</p>
-      <h2>Bring Order to Complexity</h2>
-      <p class="question">How might we organize PAF around the decisions managers need to make, so they can find the right information at the right moment without getting lost in the complexity of the form?</p>
-      <div class="architecture-block">
-        <h3>Essential Form Components</h3>
-        <div class="architecture-flow">
-          <ul class="flow-steps flow-six" aria-label="Essential form components">
-            <li class="flow-employee">Employee Selection</li>
-            <li class="flow-setup">Setup</li>
-            <li class="flow-fields">Fields</li>
-            <li class="flow-questions">Questions</li>
-            <li class="flow-actions">One-time Actions</li>
-            <li class="flow-documents">Docs and Comments</li>
-          </ul>
+      <section class="case-section">
+        <div class="section-heading">
+          <span>01</span>
+          <h2>What was asked</h2>
         </div>
-      </div>
-      <div class="architecture-block">
-        <h3>Stepper or One-Page?</h3>
-        <p>The current PAF flow had an awkward split: employee selection happened first, then users landed on one long creation page. The selection step worked, but it felt disconnected. Once inside the form, everything was packed into the same page with limited hierarchy.</p>
-        <article class="current-flow">
-          <p class="eyebrow">Current</p>
-          <h4>One long creation experience</h4>
-          <ol class="flow-steps flow-two" aria-label="Current PAF flow">
-            <li class="flow-employee">Select Employees</li>
-            <li class="flow-create">Create PAF</li>
-          </ol>
-          <p>Employee selection feels disconnected. Most work happens on one long page without a dedicated review step.</p>
-        </article>
-      </div>
-      <div class="architecture-block">
-        <h3>Why a stepper?</h3>
-        <div class="architecture-flow labeled-flow">
-          <b>Seven Steps</b>
-          <ol class="flow-steps flow-seven" aria-label="Seven-step exploration">
-            <li class="flow-employee">Employee Selection</li>
-            <li class="flow-setup">Setup</li>
-            <li class="flow-fields">Fields</li>
-            <li class="flow-questions">Questions</li>
-            <li class="flow-actions">One-time Actions</li>
-            <li class="flow-documents">Docs and Comments</li>
-            <li class="flow-review">Review &amp; Submit</li>
-          </ol>
+        <div class="brief-grid">
+          <div>
+            <p class="pull-quote">
+              “Modernize the UI of the existing Personnel Action Form, from
+              creation to resolution.”
+            </p>
+            <p class="scope-note">
+              The redesign did not cover the full module.
+            </p>
+          </div>
+          <img
+            class="brief-image"
+            src="images/paf-homepage.png?v=20260923"
+            alt="Legacy Personnel Action Form homepage"
+            width="1514"
+            height="768"
+          />
         </div>
-        <p>I wanted creation to feel like a complete process, with a dedicated review-and-submit step so users could finish with confidence. My first exploration gave each major content block its own step. But the form is generated from a selected template: some steps might contain only one field, while others might not be needed at all. Interviews also showed that users prefer to see all the fields together.</p>
-        <div class="architecture-flow labeled-flow">
-          <b>Four Steps</b>
-          <ol class="flow-steps flow-four" aria-label="Four-step exploration">
-            <li class="flow-employee">Employee Selection</li>
-            <li class="flow-setup">Setup</li>
-            <li class="flow-fields">Dynamic Content</li>
-            <li class="flow-review">Review &amp; Submit</li>
-          </ol>
-        </div>
-        <p>I then brought the content blocks together on one page, keeping PAF setup—type, template, reason, effective date, and workflow—in a separate step. On paper, that structure made sense. In practice, users relied on the generated fields to confirm they had selected the right template. Separating setup from its content would force them to move back and forth, adding uncertainty instead of reducing it.</p>
-      </div>
-      <div class="architecture-block">
-        <h3>Not Everything Needed to Change</h3>
-        <div class="architecture-flow labeled-flow">
-          <b>Three Steps</b>
-          <ol class="flow-steps flow-three" aria-label="Chosen three-step flow">
-            <li class="flow-employee">Employee Selection</li>
-            <li class="flow-create"><span>Create PAF<br>Setup + Dynamic Content</span></li>
-            <li class="flow-review">Review &amp; Submit</li>
-          </ol>
-        </div>
-        <p>Users were already accustomed to seeing fields update immediately after choosing a template, and that relationship helped them confirm they were setting up the right PAF. So setup and dynamic content stayed together. The chosen three-step flow preserves that familiar behavior while creating a clearer beginning, middle, and end.</p>
-      </div>
-      <div class="structure-layout">
-        <div class="structure-copy">
-          <h3>One page, with clearer structure</h3>
-          <p>Create PAF still contains most of the transaction, but it no longer reads as one continuous form. Related information is grouped into clear sections so users can scan the page and understand where different types of work belong.</p>
-        </div>
-        <div class="media-grid structure-grid">
-          <figure class="case-media"><img src="images/structure-01.png" alt="Redesigned PAF employee selection step"><figcaption>01 — Employee Selection</figcaption></figure>
-          <figure class="case-media"><img src="images/structure-02.png" alt="Redesigned PAF form with clearly grouped sections"><figcaption>02 — Create PAF</figcaption></figure>
-          <figure class="case-media"><img src="images/structure-03.png" alt="Redesigned PAF review and submit step"><figcaption>03 — Review &amp; Submit</figcaption></figure>
-        </div>
-      </div>
-      <h3 class="subhead">What if the page is still long?</h3>
-      <p>Some PAFs are naturally more complex. Instead of adding more steps, collapsible field groups let users control how much information is visible without breaking the connection between setup and the fields it generates.</p>
-      <figure class="case-media"><img src="media/expand-collapse.gif" alt="Animated form fields expanding and collapsing"></figure>
-      <blockquote><b>More steps weren’t the answer. Better structure was.</b><br>The goal wasn’t to break the form into as many steps as possible. It was to add structure without getting in the way of how users already work.</blockquote>
-    </section>
+        <p>
+          I could modernize the interface, but as the module’s lead designer, I
+          knew a visual refresh alone would not resolve the deeper frustrations.
+          Users needed more than updated aesthetics.
+        </p>
+      </section>
 
-    <section class="case-section challenge-section">
-      <p class="eyebrow">Challenge 2: Interaction and Feedback</p>
-      <h2>Make System Feedback Visible</h2>
-      <h3 class="subhead">Not All Warnings Work the Same Way</h3>
-      <p>In a high-stakes workflow, feedback needs to appear when and where users need it. In the legacy PAF, warnings lived at the top of a long page—easy to miss once users started working farther down the form.</p>
-      <h3 class="subhead">I don’t see the warning</h3>
-      <figure class="case-media"><img src="media/warning-old-scroll.gif" alt="Animated legacy form showing warnings disappearing as the user scrolls"></figure>
-      <div class="feedback-rule"><div><b>Inline feedback</b><p>Missing fields, invalid inputs<br>→ Fix it here</p></div><div><b>System warnings</b><p>Discrepancies, pending actions, downstream impact<br>→ Keep it visible</p></div></div>
-      <p class="question small-question">If it can be fixed immediately, keep it inline. If the impact reaches beyond the field, keep it persistently visible.</p>
-      <div class="media-grid highlight-grid">
-        <figure class="case-media"><img src="images/errors-highlight.png" alt="Inline error feedback highlighted in the redesigned PAF"></figure>
-        <figure class="case-media"><img src="images/warning-highlight.png" alt="Persistent warning panel highlighted in the redesigned PAF"></figure>
-      </div>
-      <h3 class="subhead">Feedback Beyond Errors</h3>
-      <div class="two-columns feedback-intro">
-        <p>Feedback isn’t only about errors. Users also need confidence that the system captured what they changed.</p>
-        <figure class="case-media indicators-overview"><img src="images/indicators.png" alt="Change indicator states for edited PAF fields"></figure>
-      </div>
-      <h3 class="subhead">Make Changes Easy to Scan</h3>
-      <p>Users often update only a few fields in a PAF. I introduced change indicators at the section level so they can quickly see what changed without reopening or rereading every field.</p>
-      <h4 class="media-label">Current PAF fields</h4>
-      <figure class="case-media"><img src="images/old-fields.png" alt="Current PAF fields before change indicators were introduced"></figure>
-      <h4 class="media-label">Redesigned collapsible fields with change indicators</h4>
-      <div class="media-grid indicator-grid">
-        <figure class="case-media"><img src="images/indicator-01.png" alt="Redesigned PAF with one section-level change indicator"><figcaption>One edited section</figcaption></figure>
-        <figure class="case-media"><img src="images/indicator-02.png" alt="Redesigned PAF with two section-level change indicators"><figcaption>Two edited sections</figcaption></figure>
-        <figure class="case-media"><img src="images/indicator-03.png" alt="Redesigned PAF with multiple section-level change indicators"><figcaption>Multiple edited sections</figcaption></figure>
-      </div>
-      <p class="pull-quote">The form becomes scannable by change, not just by content.</p>
-      <div class="feedback-model"><span>User action</span><b>↓</b><span>System response</span><div><p>Invalid input<br><b>Inline error</b><br>Fix now</p><p>System impact<br><b>Warning panel</b><br>Stay aware</p><p>Valid change<br><b>Edited status</b><br>Track change</p></div></div>
-      <blockquote><b>Don’t Make Users Hunt for Feedback</b><br>The system responds at the right level—inline when users can act immediately, persistent when the impact goes further, and visible whenever something changes.</blockquote>
-    </section>
+      <section class="case-section">
+        <div class="section-heading">
+          <span>02</span>
+          <h2>Beyond the Brief</h2>
+        </div>
+        <p>
+          To look beyond the brief, I secured buy-in from the product and design
+          managers to interview users about the PAF module’s most critical
+          flows.
+        </p>
+        <p>We conducted five interviews with people across four key groups:</p>
+        <div class="persona-grid">
+          <article>
+            <h3>HR Managers</h3>
+            <p>Admins and power users who work with PAF frequently</p>
+          </article>
+          <article>
+            <h3>Department Managers</h3>
+            <p>The most common users of the workflow</p>
+          </article>
+          <article>
+            <h3>Client Setup Specialists</h3>
+            <p>
+              User trainers with firsthand knowledge of where customers struggle
+            </p>
+          </article>
+          <article>
+            <h3>Sales Representatives</h3>
+            <p>
+              A customer-facing perspective on recurring pain points and product
+              gaps
+            </p>
+          </article>
+        </div>
+        <p>
+          We combined these interviews with an evaluation of the existing
+          experience from both design and product perspectives. Together, we
+          examined the experience through three lenses: user, design, and
+          business.
+        </p>
+        <figure class="case-media">
+          <img
+            src="images/paf-affinity-map.png"
+            alt="Affinity map organizing Personnel Action Form interview findings"
+            width="4096"
+            height="2579"
+          />
+        </figure>
+        <h3 class="subhead">What We Heard</h3>
+        <div class="finding-grid">
+          <article>
+            <h3>Approval Flow &amp; Visibility</h3>
+            <ul>
+              <li>Unclear status and approval progress</li>
+              <li>Approvers had to leave the flow to make changes</li>
+              <li>Users didn’t always know what happened after submitting</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Data Accuracy &amp; Validation</h3>
+            <ul>
+              <li>Users manually caught errors and inconsistencies</li>
+              <li>Important changes required constant double-checking</li>
+              <li>Limited validation before submission</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Template &amp; Field Complexity</h3>
+            <ul>
+              <li>Too many templates and unclear naming</li>
+              <li>Irrelevant fields created unnecessary noise</li>
+              <li>Dense forms made it difficult to identify what mattered</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Batch &amp; Bulk Actions</h3>
+            <ul>
+              <li>Large actions required repetitive manual work</li>
+              <li>Bulk workflows introduced additional risk and complexity</li>
+            </ul>
+          </article>
+          <article>
+            <h3>Navigation &amp; Submission</h3>
+            <ul>
+              <li>Users weren’t always sure where actions would lead</li>
+              <li>Fragmented navigation interrupted the workflow</li>
+              <li>Multiple paths created unnecessary confusion</li>
+            </ul>
+          </article>
+          <article>
+            <h3>System &amp; Workflow Gaps</h3>
+            <ul>
+              <li>
+                Users relied on external tools to complete parts of the workflow
+              </li>
+              <li>
+                Automation and integrations didn’t always support the full
+                process
+              </li>
+              <li>
+                Some workflows extended beyond what the existing PAF experience
+                could handle
+              </li>
+            </ul>
+          </article>
+        </div>
+        <h3 class="subhead">From 30+ Findings to Two Design Challenges</h3>
+        <p>
+          The research surfaced friction across nearly every part of the PAF
+          experience. But not every problem could—or should—be solved in a
+          single redesign. When I mapped the findings against the project scope
+          and areas where design could have the greatest immediate impact, two
+          challenges emerged:
+        </p>
+        <div class="two-columns challenge-cards">
+          <article>
+            <span>01</span>
+            <h3>Bring Order to Complexity</h3>
+            <p>
+              Across templates, fields, navigation, and workflows, the same
+              problem kept appearing: users struggled to identify what
+              information mattered and where to find it. The opportunity was to
+              restructure the experience and surface information where it was
+              most valuable.
+            </p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>Design for Confidence</h3>
+            <p>
+              Across validation, submission, approval, and field interactions,
+              another pattern emerged: users were repeatedly forced to
+              double-check the system instead of being able to trust it. The
+              opportunity was to provide clearer feedback, validation, and
+              guidance around critical actions.
+            </p>
+          </article>
+        </div>
+      </section>
 
-    <section class="case-section">
-      <div class="section-heading"><span>04</span><h2>A Familiar Experience, Rebuilt</h2></div>
-      <div class="end-to-end"><b>THE REDESIGNED EXPERIENCE, END TO END</b><span>01 SELECT<br><small>Clear beginning</small></span><span>02 CREATE<br><small>Structured workspace</small></span><span>03 RESPOND<br><small>Visible warnings and changes</small></span><span>04 REVIEW<br><small>Dedicated verification</small></span><span>05 SUBMIT<br><small>Clear handoff</small></span></div>
-      <div class="demo-grid">
-        <figure class="case-media"><img src="media/step-1-employee-selection.gif" alt="Selecting employees in the redesigned PAF"><figcaption>01 — Select employees</figcaption></figure>
-        <figure class="case-media"><img src="media/step-2-form-details.gif" alt="Completing details in the redesigned PAF"><figcaption>02 — Create the form</figcaption></figure>
-        <figure class="case-media"><img src="media/step-3-review-and-submit.gif" alt="Reviewing and submitting the redesigned PAF"><figcaption>03 — Review and submit</figcaption></figure>
+      <section class="case-section">
+        <div class="section-heading">
+          <span>03</span>
+          <h2>Understanding the scope</h2>
+        </div>
+        <p>
+          These two themes often appear in design case studies, but the scale of
+          this module made each one especially tangible.
+        </p>
+        <div class="scope-grid">
+          <span
+            >8 field types with unique interactions across 50+ individual
+            fields</span
+          ><span>27 pending and developing RMs impacted</span
+          ><span
+            >2 core experiences with single and batch actions: Create and
+            Approve</span
+          ><span>9 newly added features</span><span>3 different personas</span
+          ><span>10 types of warnings and errors</span
+          ><span>45 unique flows</span
+          ><span>5 dynamic permission and workflow changes</span>
+        </div>
+      </section>
+
+      <section class="case-section challenge-section">
+        <p class="eyebrow">Challenge 1: Information Architecture</p>
+        <h2>Bring Order to Complexity</h2>
+        <p class="question">
+          How might we organize PAF around the decisions managers need to make,
+          so they can find the right information at the right moment without
+          getting lost in the complexity of the form?
+        </p>
+        <div class="architecture-block">
+          <h3>Essential Form Components</h3>
+          <div class="architecture-flow">
+            <ul
+              class="flow-steps flow-six"
+              aria-label="Essential form components"
+            >
+              <li class="flow-employee">Employee Selection</li>
+              <li class="flow-setup">Setup</li>
+              <li class="flow-fields">Fields</li>
+              <li class="flow-questions">Questions</li>
+              <li class="flow-actions">One-time Actions</li>
+              <li class="flow-documents">Docs and Comments</li>
+            </ul>
+          </div>
+        </div>
+        <div class="architecture-block">
+          <h3>Stepper or One-Page?</h3>
+          <p>
+            The current PAF flow had an awkward split: employee selection
+            happened first, then users landed on one long creation page. The
+            selection step worked, but it felt disconnected. Once inside the
+            form, everything was packed into the same page with limited
+            hierarchy.
+          </p>
+          <article class="current-flow">
+            <p class="eyebrow">Current</p>
+            <h4>One long creation experience</h4>
+            <ol class="flow-steps flow-two" aria-label="Current PAF flow">
+              <li class="flow-employee">Select Employees</li>
+              <li class="flow-create">Create PAF</li>
+            </ol>
+            <p>
+              Employee selection feels disconnected. Most work happens on one
+              long page without a dedicated review step.
+            </p>
+          </article>
+        </div>
+        <div class="architecture-block">
+          <h3>Why a stepper?</h3>
+          <div class="architecture-flow labeled-flow">
+            <b>Seven Steps</b>
+            <ol
+              class="flow-steps flow-seven"
+              aria-label="Seven-step exploration"
+            >
+              <li class="flow-employee">Employee Selection</li>
+              <li class="flow-setup">Setup</li>
+              <li class="flow-fields">Fields</li>
+              <li class="flow-questions">Questions</li>
+              <li class="flow-actions">One-time Actions</li>
+              <li class="flow-documents">Docs and Comments</li>
+              <li class="flow-review">Review &amp; Submit</li>
+            </ol>
+          </div>
+          <p>
+            I wanted creation to feel like a complete process, with a dedicated
+            review-and-submit step so users could finish with confidence. My
+            first exploration gave each major content block its own step. But
+            the form is generated from a selected template: some steps might
+            contain only one field, while others might not be needed at all.
+            Interviews also showed that users prefer to see all the fields
+            together.
+          </p>
+          <div class="architecture-flow labeled-flow">
+            <b>Four Steps</b>
+            <ol class="flow-steps flow-four" aria-label="Four-step exploration">
+              <li class="flow-employee">Employee Selection</li>
+              <li class="flow-setup">Setup</li>
+              <li class="flow-fields">Dynamic Content</li>
+              <li class="flow-review">Review &amp; Submit</li>
+            </ol>
+          </div>
+          <p>
+            I then brought the content blocks together on one page, keeping PAF
+            setup—type, template, reason, effective date, and workflow—in a
+            separate step. On paper, that structure made sense. In practice,
+            users relied on the generated fields to confirm they had selected
+            the right template. Separating setup from its content would force
+            them to move back and forth, adding uncertainty instead of reducing
+            it.
+          </p>
+        </div>
+        <div class="architecture-block">
+          <h3>Not Everything Needed to Change</h3>
+          <div class="architecture-flow labeled-flow">
+            <b>Three Steps</b>
+            <ol
+              class="flow-steps flow-three"
+              aria-label="Chosen three-step flow"
+            >
+              <li class="flow-employee">Employee Selection</li>
+              <li class="flow-create">
+                <span>Create PAF<br />Setup + Dynamic Content</span>
+              </li>
+              <li class="flow-review">Review &amp; Submit</li>
+            </ol>
+          </div>
+          <p>
+            Users were already accustomed to seeing fields update immediately
+            after choosing a template, and that relationship helped them confirm
+            they were setting up the right PAF. So setup and dynamic content
+            stayed together. The chosen three-step flow preserves that familiar
+            behavior while creating a clearer beginning, middle, and end.
+          </p>
+        </div>
+        <div class="structure-layout">
+          <div class="structure-copy">
+            <h3>One page, with clearer structure</h3>
+            <p>
+              Create PAF still contains most of the transaction, but it no
+              longer reads as one continuous form. Related information is
+              grouped into clear sections so users can scan the page and
+              understand where different types of work belong.
+            </p>
+          </div>
+          <div class="media-grid structure-grid">
+            <figure class="case-media">
+              <img
+                src="images/structure-01.png"
+                alt="Redesigned PAF employee selection step"
+              />
+              <figcaption>01 — Employee Selection</figcaption>
+            </figure>
+            <figure class="case-media">
+              <img
+                src="images/structure-02.png"
+                alt="Redesigned PAF form with clearly grouped sections"
+              />
+              <figcaption>02 — Create PAF</figcaption>
+            </figure>
+            <figure class="case-media">
+              <img
+                src="images/structure-03.png"
+                alt="Redesigned PAF review and submit step"
+              />
+              <figcaption>03 — Review &amp; Submit</figcaption>
+            </figure>
+          </div>
+        </div>
+        <h3 class="subhead">What if the page is still long?</h3>
+        <p>
+          Some PAFs are naturally more complex. Instead of adding more steps,
+          collapsible field groups let users control how much information is
+          visible without breaking the connection between setup and the fields
+          it generates.
+        </p>
+        <figure class="case-media">
+          <img
+            src="media/expand-collapse.gif"
+            alt="Animated form fields expanding and collapsing"
+          />
+        </figure>
+        <blockquote>
+          <b>More steps weren’t the answer. Better structure was.</b><br />The
+          goal wasn’t to break the form into as many steps as possible. It was
+          to add structure without getting in the way of how users already work.
+        </blockquote>
+      </section>
+
+      <section class="case-section challenge-section">
+        <p class="eyebrow">Challenge 2: Interaction and Feedback</p>
+        <h2>Make System Feedback Visible</h2>
+        <h3 class="subhead">Not All Warnings Work the Same Way</h3>
+        <p>
+          In a high-stakes workflow, feedback needs to appear when and where
+          users need it. In the legacy PAF, warnings lived at the top of a long
+          page—easy to miss once users started working farther down the form.
+        </p>
+        <h3 class="subhead">I don’t see the warning</h3>
+        <figure class="case-media">
+          <img
+            src="media/warning-old-scroll.gif"
+            alt="Animated legacy form showing warnings disappearing as the user scrolls"
+          />
+        </figure>
+        <div class="feedback-rule">
+          <div>
+            <b>Inline feedback</b>
+            <p>Missing fields, invalid inputs<br />→ Fix it here</p>
+          </div>
+          <div>
+            <b>System warnings</b>
+            <p>
+              Discrepancies, pending actions, downstream impact<br />→ Keep it
+              visible
+            </p>
+          </div>
+        </div>
+        <p class="question small-question">
+          If it can be fixed immediately, keep it inline. If the impact reaches
+          beyond the field, keep it persistently visible.
+        </p>
+        <div class="media-grid highlight-grid">
+          <figure class="case-media">
+            <img
+              src="images/errors-highlight.png"
+              alt="Inline error feedback highlighted in the redesigned PAF"
+            />
+          </figure>
+          <figure class="case-media">
+            <img
+              src="images/warning-highlight.png"
+              alt="Persistent warning panel highlighted in the redesigned PAF"
+            />
+          </figure>
+        </div>
+        <h3 class="subhead">Feedback Beyond Errors</h3>
+        <div class="two-columns feedback-intro">
+          <p>
+            Feedback isn’t only about errors. Users also need confidence that
+            the system captured what they changed.
+          </p>
+          <figure class="case-media indicators-overview">
+            <img
+              src="images/indicators.png"
+              alt="Change indicator states for edited PAF fields"
+            />
+          </figure>
+        </div>
+        <h3 class="subhead">Make Changes Easy to Scan</h3>
+        <p>
+          Users often update only a few fields in a PAF. I introduced change
+          indicators at the section level so they can quickly see what changed
+          without reopening or rereading every field.
+        </p>
+        <h4 class="media-label">Current PAF fields</h4>
+        <figure class="case-media">
+          <img
+            src="images/old-fields.png"
+            alt="Current PAF fields before change indicators were introduced"
+          />
+        </figure>
+        <h4 class="media-label">
+          Redesigned collapsible fields with change indicators
+        </h4>
+        <div class="media-grid indicator-grid">
+          <figure class="case-media">
+            <img
+              src="images/indicator-01.png"
+              alt="Redesigned PAF with one section-level change indicator"
+            />
+            <figcaption>One edited section</figcaption>
+          </figure>
+          <figure class="case-media">
+            <img
+              src="images/indicator-02.png"
+              alt="Redesigned PAF with two section-level change indicators"
+            />
+            <figcaption>Two edited sections</figcaption>
+          </figure>
+          <figure class="case-media">
+            <img
+              src="images/indicator-03.png"
+              alt="Redesigned PAF with multiple section-level change indicators"
+            />
+            <figcaption>Multiple edited sections</figcaption>
+          </figure>
+        </div>
+        <p class="pull-quote">
+          The form becomes scannable by change, not just by content.
+        </p>
+        <div class="feedback-model">
+          <span>User action</span><b>↓</b><span>System response</span>
+          <div>
+            <p>Invalid input<br /><b>Inline error</b><br />Fix now</p>
+            <p>System impact<br /><b>Warning panel</b><br />Stay aware</p>
+            <p>Valid change<br /><b>Edited status</b><br />Track change</p>
+          </div>
+        </div>
+        <blockquote>
+          <b>Don’t Make Users Hunt for Feedback</b><br />The system responds at
+          the right level—inline when users can act immediately, persistent when
+          the impact goes further, and visible whenever something changes.
+        </blockquote>
+      </section>
+
+      <section class="case-section">
+        <div class="section-heading">
+          <span>04</span>
+          <h2>A Familiar Experience, Rebuilt</h2>
+        </div>
+        <div class="end-to-end">
+          <b>THE REDESIGNED EXPERIENCE, END TO END</b
+          ><span>01 SELECT<br /><small>Clear beginning</small></span
+          ><span>02 CREATE<br /><small>Structured workspace</small></span
+          ><span
+            >03 RESPOND<br /><small>Visible warnings and changes</small></span
+          ><span>04 REVIEW<br /><small>Dedicated verification</small></span
+          ><span>05 SUBMIT<br /><small>Clear handoff</small></span>
+        </div>
+        <div class="demo-grid">
+          <figure class="case-media">
+            <img
+              src="media/step-1-employee-selection.gif"
+              alt="Selecting employees in the redesigned PAF"
+            />
+            <figcaption>01 — Select employees</figcaption>
+          </figure>
+          <figure class="case-media">
+            <img
+              src="media/step-2-form-details.gif"
+              alt="Completing details in the redesigned PAF"
+            />
+            <figcaption>02 — Create the form</figcaption>
+          </figure>
+          <figure class="case-media">
+            <img
+              src="media/step-3-review-and-submit.gif"
+              alt="Reviewing and submitting the redesigned PAF"
+            />
+            <figcaption>03 — Review and submit</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="case-section reflection">
+        <div class="section-heading">
+          <span>06</span>
+          <h2>Reflection and next steps</h2>
+        </div>
+        <h3>Reflection — Familiar, but Better</h3>
+        <p>
+          This project taught me that redesigning a legacy product is
+          fundamentally different from creating something new. With dependencies
+          across more than 30 projects, every decision had consequences beyond a
+          single screen. Success required understanding the system deeply enough
+          to know what to preserve, what to challenge, and where change would
+          have the greatest impact.
+        </p>
+        <p>
+          The original brief focused on making the interface look better. I
+          pushed the team to look deeper: if we were already investing in
+          modernization, we should also address the usability problems
+          underneath it. That shift transformed the project from a visual
+          refresh into a meaningful experience redesign.
+        </p>
+        <h3>What I Learned</h3>
+        <div class="learning-grid">
+          <p>
+            <b>Think beyond the screen.</b><br />Every decision could affect
+            more than 30 connected projects.
+          </p>
+          <p>
+            <b>Manage complexity early.</b><br />Clear scope, dependencies, and
+            decision-making were essential.
+          </p>
+          <p>
+            <b>Design within constraints.</b><br />Preserve familiarity while
+            improving clarity and usability.
+          </p>
+          <p>
+            <b>Let go when necessary.</b><br />A mature solution isn’t always
+            the right one.
+          </p>
+          <p>
+            <b>Push back with purpose.</b><br />I challenged a visual-refresh
+            brief to address the deeper experience.
+          </p>
+        </div>
+        <p>
+          Leading the process end to end gave me ownership of every design
+          decision—from understanding a complex legacy system to shaping a
+          solution that could scale across it.
+        </p>
+        <p class="closing">
+          The goal wasn’t to change everything. It was to make the right
+          changes—and make each one count.
+        </p>
+      </section>
+    </main>
+    <section
+      class="related-projects"
+      aria-labelledby="related-projects-heading"
+    >
+      <h2 id="related-projects-heading">More projects</h2>
+      <div class="related-projects-grid">
+        <a
+          class="related-project-card"
+          href="../performance-discussion-form/index.html"
+        >
+          <h3>Designing a Dashboard<br />for Action and Analysis</h3>
+          <img
+            src="../performance-discussion-form/images/pdf-dashboard-hero.png"
+            alt=""
+            width="3088"
+            height="2848"
+            loading="lazy"
+          />
+        </a>
+        <a
+          class="related-project-card"
+          href="../dashboard-customization-user-testing/index.html"
+        >
+          <h3>Dashboard Customization<br />Testing Study</h3>
+          <img
+            src="../dashboard-customization-user-testing/images/inline-drawer.png"
+            alt=""
+            width="1350"
+            height="960"
+            loading="lazy"
+          />
+        </a>
       </div>
     </section>
-
-    <section class="case-section reflection">
-      <div class="section-heading"><span>06</span><h2>Reflection and next steps</h2></div>
-      <h3>Reflection — Familiar, but Better</h3>
-      <p>This project taught me that redesigning a legacy product is fundamentally different from creating something new. With dependencies across more than 30 projects, every decision had consequences beyond a single screen. Success required understanding the system deeply enough to know what to preserve, what to challenge, and where change would have the greatest impact.</p>
-      <p>The original brief focused on making the interface look better. I pushed the team to look deeper: if we were already investing in modernization, we should also address the usability problems underneath it. That shift transformed the project from a visual refresh into a meaningful experience redesign.</p>
-      <h3>What I Learned</h3>
-      <div class="learning-grid"><p><b>Think beyond the screen.</b><br>Every decision could affect more than 30 connected projects.</p><p><b>Manage complexity early.</b><br>Clear scope, dependencies, and decision-making were essential.</p><p><b>Design within constraints.</b><br>Preserve familiarity while improving clarity and usability.</p><p><b>Let go when necessary.</b><br>A mature solution isn’t always the right one.</p><p><b>Push back with purpose.</b><br>I challenged a visual-refresh brief to address the deeper experience.</p></div>
-      <p>Leading the process end to end gave me ownership of every design decision—from understanding a complex legacy system to shaping a solution that could scale across it.</p>
-      <p class="closing">The goal wasn’t to change everything. It was to make the right changes—and make each one count.</p>
-    </section>
-  </main>
-  <section class="related-projects" aria-labelledby="related-projects-heading">
-    <h2 id="related-projects-heading">More projects</h2>
-    <div class="related-projects-grid">
-      <a class="related-project-card" href="../performance-discussion-form/index.html">
-        <h3>Designing a Dashboard<br>for Action and Analysis</h3>
-        <img src="../performance-discussion-form/images/pdf-dashboard-hero.png" alt="" width="3088" height="2848" loading="lazy">
-      </a>
-      <a class="related-project-card" href="../dashboard-customization-user-testing/index.html">
-        <h3>Dashboard Customization<br>Testing Study</h3>
-        <img src="../dashboard-customization-user-testing/images/inline-drawer.png" alt="" width="1350" height="960" loading="lazy">
-      </a>
-    </div>
-  </section>
-  <div data-site-footer></div>
-</body>
+    <div data-site-footer></div>
+  </body>
 </html>

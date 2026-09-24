@@ -8,5 +8,10 @@ export function InteractiveArtRow({ kind }: { kind: 'navigation' | 'quotes' }) {
   useEffect(() => {
     if (container.current) return mountArtRow(container.current, kind);
   }, [kind]);
-  return <div ref={container} className={`art-row ${kind === 'navigation' ? 'first-row' : 'second-row'}`} />;
+  return (
+    <div
+      ref={container}
+      className={`art-row ${kind === 'navigation' ? 'first-row' : 'second-row'}`}
+    />
+  );
 }

@@ -16,7 +16,7 @@
   margin: 0 0 28px;
   color: var(--color-text-case-study);
   font: 500 clamp(26px, 3vw, 36px)/1.2 var(--font-display);
-  letter-spacing: -.025em;
+  letter-spacing: -0.025em;
 }
 
 .related-projects-grid {
@@ -37,7 +37,9 @@
   background: var(--color-background);
   color: var(--color-text-case-study);
   text-decoration: none;
-  transition: border-color 180ms ease, box-shadow 180ms ease;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .related-project-card h3 {

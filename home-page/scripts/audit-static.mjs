@@ -29,7 +29,9 @@ function resolveReference(source, reference) {
   try {
     decodedReference = decodeURIComponent(cleanReference);
   } catch {
-    errors.push(`${path.relative(root, source)} has an invalid URL: ${reference}`);
+    errors.push(
+      `${path.relative(root, source)} has an invalid URL: ${reference}`,
+    );
     return;
   }
 
@@ -46,27 +48,42 @@ async function verifyReference(source, reference) {
   if (!target) return;
 
   const relativeTarget = path.relative(root, target);
-  if (relativeTarget.startsWith(`..${path.sep}`) || path.isAbsolute(relativeTarget)) {
-    errors.push(`${path.relative(root, source)} points outside the site: ${reference}`);
+  if (
+    relativeTarget.startsWith(`..${path.sep}`) ||
+    path.isAbsolute(relativeTarget)
+  ) {
+    errors.push(
+      `${path.relative(root, source)} points outside the site: ${reference}`,
+    );
     return;
   }
 
   try {
     await stat(target);
   } catch {
-    errors.push(`${path.relative(root, source)} references missing ${relativeTarget}`);
+    errors.push(
+      `${path.relative(root, source)} references missing ${relativeTarget}`,
+    );
   }
 }
 
 function collectJsonReferences(value, references = []) {
   if (typeof value === 'string') {
-    if (/\.(?:avif|css|gif|html?|jpe?g|js|json|mp4|png|svg|webm|webp)(?:[?#].*)?$/i.test(value)) {
-      references.push(value.startsWith('.') || value.startsWith('/') ? value : `/${value}`);
+    if (
+      /\.(?:avif|css|gif|html?|jpe?g|js|json|mp4|png|svg|webm|webp)(?:[?#].*)?$/i.test(
+        value,
+      )
+    ) {
+      references.push(
+        value.startsWith('.') || value.startsWith('/') ? value : `/${value}`,
+      );
     }
   } else if (Array.isArray(value)) {
     value.forEach((item) => collectJsonReferences(item, references));
   } else if (value && typeof value === 'object') {
-    Object.values(value).forEach((item) => collectJsonReferences(item, references));
+    Object.values(value).forEach((item) =>
+      collectJsonReferences(item, references),
+    );
   }
   return references;
 }
@@ -85,13 +102,34 @@ for (const file of files) {
   const source = await readFile(file, 'utf8');
   const references = [];
   if (extension === '.html') {
-    references.push(...source.matchAll(/\b(?:href|src)=["']([^"']+)["']/gi).map((match) => match[1]));
-    references.push(...source.matchAll(/\bfrom\s+["']([^"']+)["']/g).map((match) => match[1]));
+    references.push(
+      ...source
+        .matchAll(/\b(?:href|src)=["']([^"']+)["']/gi)
+        .map((match) => match[1]),
+    );
+    for (const match of source.matchAll(/\bsrcset=["']([^"']+)["']/gi)) {
+      references.push(
+        ...match[1].split(',').map((item) => item.trim().split(/\s+/)[0]),
+      );
+    }
+    references.push(
+      ...source.matchAll(/\bfrom\s+["']([^"']+)["']/g).map((match) => match[1]),
+    );
   } else if (extension === '.css') {
-    references.push(...source.matchAll(/url\(\s*["']?([^"')]+)["']?\s*\)/gi).map((match) => match[1]));
+    references.push(
+      ...source
+        .matchAll(/url\(\s*["']?([^"')]+)["']?\s*\)/gi)
+        .map((match) => match[1]),
+    );
   } else if (extension === '.js') {
-    references.push(...source.matchAll(/\bfrom\s+["']([^"']+)["']/g).map((match) => match[1]));
-    references.push(...source.matchAll(/\bimport\(\s*["']([^"']+)["']\s*\)/g).map((match) => match[1]));
+    references.push(
+      ...source.matchAll(/\bfrom\s+["']([^"']+)["']/g).map((match) => match[1]),
+    );
+    references.push(
+      ...source
+        .matchAll(/\bimport\(\s*["']([^"']+)["']\s*\)/g)
+        .map((match) => match[1]),
+    );
   } else {
     try {
       references.push(...collectJsonReferences(JSON.parse(source)));
@@ -100,7 +138,9 @@ for (const file of files) {
     }
   }
 
-  await Promise.all(references.map((reference) => verifyReference(file, reference)));
+  await Promise.all(
+    references.map((reference) => verifyReference(file, reference)),
+  );
 }
 
 if (errors.length) {
@@ -108,5 +148,7 @@ if (errors.length) {
   errors.forEach((error) => console.error(`- ${error}`));
   process.exitCode = 1;
 } else {
-  console.log(`Static site audit passed: ${files.length} files and ${referenceCount} local references checked.`);
+  console.log(
+    `Static site audit passed: ${files.length} files and ${referenceCount} local references checked.`,
+  );
 }

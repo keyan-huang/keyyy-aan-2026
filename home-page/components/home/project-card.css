@@ -1,7 +1,10 @@
 .project {
   --project-card-inset: 46px;
   display: grid;
-  grid-template-columns: minmax(190px, 0.78fr) minmax(360px, 1.42fr) minmax(190px, 0.7fr);
+  grid-template-columns: minmax(190px, 0.78fr) minmax(360px, 1.42fr) minmax(
+      190px,
+      0.7fr
+    );
   grid-template-rows: auto 1fr;
   gap: 16px 40px;
   align-items: center;
@@ -119,7 +122,10 @@
 @media (min-width: 761px) and (max-width: 1199px) {
   .project {
     --project-card-inset: 28px;
-    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.45fr) minmax(180px, 0.72fr);
+    grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.45fr) minmax(
+        180px,
+        0.72fr
+      );
     column-gap: 24px;
   }
 }

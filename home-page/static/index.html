@@ -1,30 +1,53 @@
 <!doctype html>
 <html lang="en">
   <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8SJG8KV4NR"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag("js", new Date());
-  gtag("config", "G-8SJG8KV4NR");
-</script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-8SJG8KV4NR"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-8SJG8KV4NR');
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="A curious product designer turning complex problems into clear, human experiences." />
+    <meta
+      name="description"
+      content="A curious product designer turning complex problems into clear, human experiences."
+    />
     <meta name="robots" content="noindex, nofollow" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://keyanhuangdesign.com/" />
     <meta property="og:title" content="Keyan - A curious designer" />
-    <meta property="og:description" content="A curious product designer turning complex problems into clear, human experiences." />
-    <meta property="og:image" content="https://keyanhuangdesign.com/images/social-preview.png" />
+    <meta
+      property="og:description"
+      content="A curious product designer turning complex problems into clear, human experiences."
+    />
+    <meta
+      property="og:image"
+      content="https://keyanhuangdesign.com/images/social-preview.png"
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Keyan is a curious designer, surrounded by colorful illustrated objects." />
+    <meta
+      property="og:image:alt"
+      content="Keyan is a curious designer, surrounded by colorful illustrated objects."
+    />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Keyan - A curious designer" />
-    <meta name="twitter:description" content="A curious product designer turning complex problems into clear, human experiences." />
-    <meta name="twitter:image" content="https://keyanhuangdesign.com/images/social-preview.png" />
+    <meta
+      name="twitter:description"
+      content="A curious product designer turning complex problems into clear, human experiences."
+    />
+    <meta
+      name="twitter:image"
+      content="https://keyanhuangdesign.com/images/social-preview.png"
+    />
     <title>Keyan - A curious designer</title>
     <link rel="icon" href="/images/imgImage81.png" />
     <link rel="stylesheet" href="/styles/design-tokens.css" />
@@ -34,7 +57,10 @@
     <script src="/scripts/site-shell.js" defer></script>
     <script type="module">
       import { mountArtRow } from '/scripts/art-interactions.js';
-      for (const [selector, kind] of [['.first-row', 'navigation'], ['.second-row', 'quotes']]) {
+      for (const [selector, kind] of [
+        ['.first-row', 'navigation'],
+        ['.second-row', 'quotes'],
+      ]) {
         const container = document.querySelector(selector);
         container.replaceChildren();
         mountArtRow(container, kind);
@@ -44,7 +70,9 @@
   <body>
     <a class="skip-link" href="#work">Skip to selected projects</a>
     <header class="navigation">
-      <a href="#top" aria-label="Back to top"><img class="art logo" src="/images/imgImage81.png" alt="" /></a>
+      <a href="#top" aria-label="Back to top"
+        ><img class="art logo" src="/images/imgImage81.png" alt=""
+      /></a>
       <nav aria-label="Main navigation">
         <a href="#work">Work</a><a href="#me">About</a>
         <div class="contact-menu-mount"></div>
@@ -53,79 +81,387 @@
     <main id="top">
       <section class="intro" aria-label="Introduction">
         <div class="hero">
-          <div><h1><span class="hero-line">keyan turns<br /></span><span class="hero-line">big questions into<br /></span><span class="hero-line hero-line--idea">bright ideas<span class="idea-strokes idea-strokes--right" aria-hidden="true"><i></i><i></i><i></i></span></span></h1><p class="availability"><span class="availability-dot" aria-hidden="true"></span>Open to opportunities</p></div>
+          <div>
+            <h1>
+              <span class="hero-line"
+                ><span class="hero-emphasis">Keyan</span> designs for<br /></span
+              ><span class="hero-line"
+                ><span class="hero-emphasis">clarity</span> and
+                <span class="hero-emphasis">confidence</span><br /></span
+              ><span class="hero-line hero-line--idea"
+                >in <span class="hero-emphasis">complex</span> experiences<span
+                  class="idea-strokes idea-strokes--right"
+                  aria-hidden="true"
+                  ><i></i><i></i><i></i></span
+              ></span>
+            </h1>
+            <p class="availability">
+              <span class="availability-dot" aria-hidden="true"></span>Open to
+              opportunities
+            </p>
+          </div>
           <img class="art binoculars" src="/images/imgBinoculars1.png" alt="" />
         </div>
         <div class="art-row first-row">
-          <img class="art" src="/images/imgCursor1.png" alt="" /><img class="art" src="/images/imgBallon2.png" alt="" />
-          <img class="art" src="/images/imgSunflower1.png" alt="" /><img class="art" src="/images/imgGeoshape2.png" alt="" />
+          <img class="art" src="/images/imgCursor1.png" alt="" /><img
+            class="art"
+            src="/images/imgBallon2.png"
+            alt=""
+          />
+          <img class="art" src="/images/imgSunflower1.png" alt="" /><img
+            class="art"
+            src="/images/imgGeoshape2.png"
+            alt=""
+          />
         </div>
         <div class="art-row second-row">
-          <img class="art" src="/images/imgApron1.png" alt="" /><img class="art" src="/images/imgBike1.png" alt="" />
-          <img class="art" src="/images/imgWaterpot2.png" alt="" /><img class="art" src="/images/imgShovel1.png" alt="" />
+          <img class="art" src="/images/imgApron1.png" alt="" /><img
+            class="art"
+            src="/images/imgBike1.png"
+            alt=""
+          />
+          <img class="art" src="/images/imgWaterpot2.png" alt="" /><img
+            class="art"
+            src="/images/imgShovel1.png"
+            alt=""
+          />
         </div>
-        <p class="intro-copy">I’m a curious product designer who untangles messy, ambiguous problems to uncover what’s really happening beneath the surface. I connect the dots and turn complexity into intuitive, engaging experiences that feel deeply human.</p>
+        <p class="intro-copy">
+          I’m a curious product designer who untangles messy, ambiguous problems
+          to uncover what’s really happening beneath the surface. I connect the
+          dots and turn complexity into intuitive, engaging experiences that
+          feel deeply human.
+        </p>
       </section>
       <section id="work" class="projects section-wide">
         <h2>Selected Projects</h2>
         <div class="project-list">
           <article class="project">
-            <div class="project-description"><h3>Designing a Dashboard<br />for Action and Analysis</h3><p>Redesigned a legacy data table into a dashboard that connects actionable work with meaningful analytics.</p></div>
-            <div class="project-thumbnail project-thumbnail-performance-discussion-form"><img class="project-image" src="/performance-discussion-form/thumbnail.png" alt="Performance Discussion Form interface preview" /></div>
-            <a class="project-action" href="/performance-discussion-form/index.html"><span>View details</span><span aria-hidden="true">→</span></a>
+            <div class="project-description">
+              <h3>Designing a Dashboard<br />for Action and Analysis</h3>
+              <p>
+                Redesigned a legacy data table into a dashboard that connects
+                actionable work with meaningful analytics.
+              </p>
+            </div>
+            <div
+              class="project-thumbnail project-thumbnail-performance-discussion-form"
+            >
+              <img
+                class="project-image"
+                src="/performance-discussion-form/thumbnail.png"
+                alt="Performance Discussion Form interface preview"
+              />
+            </div>
+            <a
+              class="project-action"
+              href="/performance-discussion-form/index.html"
+              ><span>View details</span><span aria-hidden="true">→</span></a
+            >
           </article>
           <article class="project">
-            <div class="project-description"><h3>Dashboard Customization<br />Testing Study</h3><p>Compared two ways to customize a dashboard, with 15 participants helping shape the final direction.</p></div>
-            <div class="project-thumbnail project-thumbnail-dashboard-customization-user-testing"><img class="project-image" src="/dashboard-customization-user-testing/images/inline-drawer.png" alt="Dashboard Customization Testing Study interface preview" width="1000" height="750" loading="lazy" /></div>
-            <a class="project-action" href="/dashboard-customization-user-testing/index.html"><span>View details</span><span aria-hidden="true">→</span></a>
+            <div class="project-description">
+              <h3>Dashboard Customization<br />Testing Study</h3>
+              <p>
+                Compared two ways to customize a dashboard, with 15 participants
+                helping shape the final direction.
+              </p>
+            </div>
+            <div
+              class="project-thumbnail project-thumbnail-dashboard-customization-user-testing"
+            >
+              <img
+                class="project-image"
+                src="/dashboard-customization-user-testing/images/inline-drawer.png"
+                alt="Dashboard Customization Testing Study interface preview"
+                width="1000"
+                height="750"
+                loading="lazy"
+              />
+            </div>
+            <a
+              class="project-action"
+              href="/dashboard-customization-user-testing/index.html"
+              ><span>View details</span><span aria-hidden="true">→</span></a
+            >
           </article>
           <article class="project">
-            <div class="project-description"><h3>Re-architecting the End-to-End<br />Personal Action Workflow</h3><p>Rebuilt the system behind hundreds of thousands of decisions that shape employees’ careers.</p></div>
-            <div class="project-thumbnail project-thumbnail-paf-redesign"><img class="project-image" src="/paf-redesign/thumbnail.png" alt="PAF Redesign interface preview" /></div>
-            <a class="project-action" href="/paf-redesign/index.html"><span>View details</span><span aria-hidden="true">→</span></a>
+            <div class="project-description">
+              <h3>
+                Re-architecting the End-to-End<br />Personal Action Workflow
+              </h3>
+              <p>
+                Rebuilt the system behind hundreds of thousands of decisions
+                that shape employees’ careers.
+              </p>
+            </div>
+            <div class="project-thumbnail project-thumbnail-paf-redesign">
+              <img
+                class="project-image"
+                src="/paf-redesign/thumbnail.png"
+                alt="PAF Redesign interface preview"
+              />
+            </div>
+            <a class="project-action" href="/paf-redesign/index.html"
+              ><span>View details</span><span aria-hidden="true">→</span></a
+            >
           </article>
         </div>
       </section>
       <section id="fun" class="experiments section-wide" hidden>
         <h2>Design Experiments</h2>
-        <div class="experiment-grid" aria-label="Three upcoming design experiments">
-          <article class="experiment-card"><div class="experiment-thumbnail"><span>Coming soon</span></div></article>
-          <article class="experiment-card"><div class="experiment-thumbnail"><span>Coming soon</span></div></article>
-          <article class="experiment-card"><div class="experiment-thumbnail"><span>Coming soon</span></div></article>
+        <div
+          class="experiment-grid"
+          aria-label="Three upcoming design experiments"
+        >
+          <article class="experiment-card">
+            <div class="experiment-thumbnail"><span>Coming soon</span></div>
+          </article>
+          <article class="experiment-card">
+            <div class="experiment-thumbnail"><span>Coming soon</span></div>
+          </article>
+          <article class="experiment-card">
+            <div class="experiment-thumbnail"><span>Coming soon</span></div>
+          </article>
         </div>
       </section>
       <section id="me" class="about section-wide">
         <h2>About Keyan</h2>
         <div class="about-grid">
-          <div class="portrait-frame"><img src="/images/about-keyan-portrait.png" alt="Keyan standing on an autumn tree-lined street in a blue jacket" width="1086" height="1448" /></div>
-          <div class="about-details">
-            <div class="panel education"><h3>Education</h3><div class="education-item"><img src="/images/ut-austin.png" alt="" width="52" height="52" loading="lazy" /><div><h4>The University of Texas at Austin</h4><p>BFA in Design</p><p>GPA: 4.0</p></div></div></div>
-            <div class="panel skills"><h3>Skills</h3><ul class="skill-tags"><li>User Interviews</li><li>Competitive Research</li><li>User Testing</li><li>Problem Solving</li><li>Vibe Coding</li></ul></div>
-            <div class="panel tools"><h3>Tools</h3><div class="tool-icons">
-              <img src="/images/imgFigma1.png" alt="Figma" /><img src="/images/imgAdobe1.png" alt="Adobe" /><img src="/images/imgClaude1.png" alt="Claude" />
-              <img src="/images/imgCodex1.png" alt="Codex" /><img src="/images/imgJira1.png" alt="Jira" /><img src="/images/imgUsertesting1.png" alt="UserTesting" />
-            </div></div>
-            <div class="panel strengths"><h3>Strengths</h3><ul class="skill-tags strength-tags"><li>Deliberative</li><li>Restorative</li><li class="strength-tag--harmony">Harmony</li><li>Achiever</li><li>Discipline</li></ul><a class="strengths-link" href="https://www.gallup.com/cliftonstrengths/en/253715/34-cliftonstrengths-themes.aspx" target="_blank" rel="noreferrer">Explore CliftonStrengths</a></div>
+          <div class="portrait-frame">
+            <img
+              src="/images/about-keyan-portrait.png"
+              alt="Keyan standing on an autumn tree-lined street in a blue jacket"
+              width="1086"
+              height="1448"
+            />
           </div>
-          <div class="panel experience"><h3>Experience</h3><div class="experience-list">
-            <div class="experience-item"><img src="/images/imgPaycom1.png" alt="" /><div><h4>Paycom</h4><div class="experience-role"><h5>Product Designer</h5><div class="experience-date">2024–2026</div><p>Served as the sole designer across 20+ initiatives, managing three concurrent projects with five PMs and three engineering teams while mentoring two design interns through biweekly critiques and project guidance.</p><p>Owned the end-to-end redesign of the Personnel Action Form, a workflow used by 350K+ managers, cutting employee-transfer process time by 50% through a rearchitected approval flow.</p><p>Reframed the Performance Discussion Form around real-time performance insights, driving a 25% increase in adoption and surfacing 60% more priority actions and data trends.</p></div><div class="experience-role"><h5>Product Intern</h5><div class="experience-date">Summer 2023</div><p>Designed a CRM architecture and led 16 interviews to streamline sales workflows and inform data visualization recommendations.</p></div></div></div>
-            <div class="experience-item"><img src="/images/imgIbm1.png?v=e286bff" alt="" /><div><h4>IBM</h4><div class="experience-role"><h5>Student Designer</h5><div class="experience-date">Spring 2024</div><p>Designed solutions to urbanization challenges and interviewed local business owners to help preserve Austin’s culture.</p></div></div></div>
-            <div class="experience-item"><img src="/images/imgDfa1.svg?v=no-black-border" alt="" /><div><h4>Design for America UT</h4><div class="experience-role"><h5>Project Manager</h5><div class="experience-date">2022–2024</div><p>Led monthly workshops on design research methods and delivered projects addressing issues across university services.</p></div></div></div>
-            <div class="experience-item"><img src="/images/imgImage165.png" alt="" /><div><h4>AIGA Student Chapter</h4><div class="experience-role"><h5>Program Director</h5><div class="experience-date">2021–2022</div><p>Organized design workshops and coordinated 5 professional development events with industry leaders.</p></div></div></div>
-          </div></div>
+          <div class="about-details">
+            <div class="panel education">
+              <h3>Education</h3>
+              <div class="education-item">
+                <img
+                  src="/images/ut-austin.png"
+                  alt=""
+                  width="52"
+                  height="52"
+                  loading="lazy"
+                />
+                <div>
+                  <h4>The University of Texas at Austin</h4>
+                  <p>BFA in Design</p>
+                  <p>GPA: 4.0</p>
+                </div>
+              </div>
+            </div>
+            <div class="panel skills">
+              <h3>Skills</h3>
+              <ul class="skill-tags">
+                <li>User Interviews</li>
+                <li>Competitive Research</li>
+                <li>User Testing</li>
+                <li>Problem Solving</li>
+                <li>Vibe Coding</li>
+              </ul>
+            </div>
+            <div class="panel tools">
+              <h3>Tools</h3>
+              <div class="tool-icons">
+                <img src="/images/imgFigma1.png" alt="Figma" /><img
+                  src="/images/imgAdobe1.png"
+                  alt="Adobe"
+                /><img src="/images/imgClaude1.png" alt="Claude" />
+                <img src="/images/imgCodex1.png" alt="Codex" /><img
+                  src="/images/imgJira1.png"
+                  alt="Jira"
+                /><img src="/images/imgUsertesting1.png" alt="UserTesting" />
+              </div>
+            </div>
+            <div class="panel strengths">
+              <h3>Strengths</h3>
+              <ul class="skill-tags strength-tags">
+                <li>Deliberative</li>
+                <li>Restorative</li>
+                <li class="strength-tag--harmony">Harmony</li>
+                <li>Achiever</li>
+                <li>Discipline</li>
+              </ul>
+              <a
+                class="strengths-link"
+                href="https://www.gallup.com/cliftonstrengths/en/253715/34-cliftonstrengths-themes.aspx"
+                target="_blank"
+                rel="noreferrer"
+                >Explore CliftonStrengths</a
+              >
+            </div>
+          </div>
+          <div class="panel experience">
+            <h3>Experience</h3>
+            <div class="experience-list">
+              <div class="experience-item">
+                <img src="/images/imgPaycom1.png" alt="" />
+                <div>
+                  <h4>Paycom</h4>
+                  <div class="experience-role">
+                    <h5>Product Designer</h5>
+                    <div class="experience-date">2024–2026</div>
+                    <p>
+                      Served as the sole designer across 20+ initiatives,
+                      managing three concurrent projects with five PMs and three
+                      engineering teams while mentoring two design interns
+                      through biweekly critiques and project guidance.
+                    </p>
+                    <p>
+                      Owned the end-to-end redesign of the Personnel Action
+                      Form, a workflow used by 350K+ managers, cutting
+                      employee-transfer process time by 50% through a
+                      rearchitected approval flow.
+                    </p>
+                    <p>
+                      Reframed the Performance Discussion Form around real-time
+                      performance insights, driving a 25% increase in adoption
+                      and surfacing 60% more priority actions and data trends.
+                    </p>
+                  </div>
+                  <div class="experience-role">
+                    <h5>Product Intern</h5>
+                    <div class="experience-date">Summer 2023</div>
+                    <p>
+                      Designed a CRM architecture and led 16 interviews to
+                      streamline sales workflows and inform data visualization
+                      recommendations.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="experience-item">
+                <img src="/images/imgIbm1.png?v=e286bff" alt="" />
+                <div>
+                  <h4>IBM</h4>
+                  <div class="experience-role">
+                    <h5>Student Designer</h5>
+                    <div class="experience-date">Spring 2024</div>
+                    <p>
+                      Designed solutions to urbanization challenges and
+                      interviewed local business owners to help preserve
+                      Austin’s culture.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="experience-item">
+                <img src="/images/imgDfa1.svg?v=no-black-border" alt="" />
+                <div>
+                  <h4>Design for America UT</h4>
+                  <div class="experience-role">
+                    <h5>Project Manager</h5>
+                    <div class="experience-date">2022–2024</div>
+                    <p>
+                      Led monthly workshops on design research methods and
+                      delivered projects addressing issues across university
+                      services.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="experience-item">
+                <img src="/images/imgImage165.png" alt="" />
+                <div>
+                  <h4>AIGA Student Chapter</h4>
+                  <div class="experience-role">
+                    <h5>Program Director</h5>
+                    <div class="experience-date">2021–2022</div>
+                    <p>
+                      Organized design workshops and coordinated 5 professional
+                      development events with industry leaders.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
       <section class="hobby-scroll" aria-label="Life beyond the screen">
-        <section class="hobby-viewport" aria-label="A gallery of Keyan's life and creative interests" aria-keyshortcuts="ArrowLeft ArrowRight Home End" tabindex="0">
+        <section
+          class="hobby-viewport"
+          aria-label="A gallery of Keyan's life and creative interests"
+          aria-keyshortcuts="ArrowLeft ArrowRight Home End"
+          tabindex="0"
+        >
           <div class="hobbies">
-            <figure class="hobby-card photo-card landscape"><img src="/images/life-gallery/creative-wall.jpg?v=sep10" alt="Keyan's colorful art and inspiration wall above her desktop" width="1800" height="1350" loading="lazy" /></figure>
-            <figure class="hobby-card photo-card landscape"><img src="/images/life-gallery/homemade-sushi.jpg" alt="Homemade sushi and sashimi" width="1800" height="1350" loading="lazy" /></figure>
-            <figure class="hobby-card photo-card portrait"><img src="/images/life-gallery/keyan-design-studio.jpg" alt="Keyan at the Austin Design Studio" width="1350" height="1800" loading="lazy" /></figure>
-            <figure class="hobby-card photo-card landscape"><img src="/images/life-gallery/plastic-universe-team.jpg" alt="Keyan and collaborators with the Plastic Universe installation" width="1800" height="1200" loading="lazy" /></figure>
-            <figure class="hobby-card photo-card landscape"><img src="/images/life-gallery/wildflower-garden.jpg?v=sep10" alt="A garden filled with orange and purple wildflowers" width="1800" height="1350" loading="lazy" /></figure>
-            <figure class="hobby-card photo-card portrait"><img src="/images/life-gallery/paycom-team-event.png" alt="Keyan and colleagues at a Paycom team event" width="1500" height="2000" loading="lazy" /></figure>
-            <figure class="hobby-card photo-card landscape"><img src="/images/life-gallery/keyan-yellowstone.jpg" alt="Keyan visiting Yellowstone in a blue jacket" width="1800" height="1200" loading="lazy" /></figure>
-            <figure class="hobby-card photo-card landscape"><img src="/images/life-gallery/keyan-glacier.jpg" alt="Keyan visiting a glacier in a yellow jacket" width="1800" height="1350" loading="lazy" /></figure>
+            <figure class="hobby-card photo-card landscape">
+              <img
+                src="/images/life-gallery/creative-wall.jpg?v=sep10"
+                alt="Keyan's colorful art and inspiration wall above her desktop"
+                width="1800"
+                height="1350"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="hobby-card photo-card landscape">
+              <img
+                src="/images/life-gallery/homemade-sushi.jpg"
+                alt="Homemade sushi and sashimi"
+                width="1800"
+                height="1350"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="hobby-card photo-card portrait">
+              <img
+                src="/images/life-gallery/keyan-design-studio.jpg"
+                alt="Keyan at the Austin Design Studio"
+                width="1350"
+                height="1800"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="hobby-card photo-card landscape">
+              <img
+                src="/images/life-gallery/plastic-universe-team.jpg"
+                alt="Keyan and collaborators with the Plastic Universe installation"
+                width="1800"
+                height="1200"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="hobby-card photo-card landscape">
+              <img
+                src="/images/life-gallery/wildflower-garden.jpg?v=sep10"
+                alt="A garden filled with orange and purple wildflowers"
+                width="1800"
+                height="1350"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="hobby-card photo-card portrait">
+              <img
+                src="/images/life-gallery/paycom-team-event.png"
+                alt="Keyan and colleagues at a Paycom team event"
+                width="1500"
+                height="2000"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="hobby-card photo-card landscape">
+              <img
+                src="/images/life-gallery/keyan-yellowstone.jpg"
+                alt="Keyan visiting Yellowstone in a blue jacket"
+                width="1800"
+                height="1200"
+                loading="lazy"
+              />
+            </figure>
+            <figure class="hobby-card photo-card landscape">
+              <img
+                src="/images/life-gallery/keyan-glacier.jpg"
+                alt="Keyan visiting a glacier in a yellow jacket"
+                width="1800"
+                height="1350"
+                loading="lazy"
+              />
+            </figure>
           </div>
         </section>
       </section>
@@ -135,7 +471,9 @@
       import { mountContactMenu } from '/scripts/contact-menu.js';
       import { mountHobbyScroll } from '/scripts/hobby-scroll.js';
       import { mountGalleryTilt } from '/scripts/gallery-tilt.js';
-      const site = await fetch('/content/site.json').then((response) => response.json());
+      const site = await fetch('/content/site.json').then((response) =>
+        response.json(),
+      );
       mountContactMenu(document.querySelector('.contact-menu-mount'), site);
       mountHobbyScroll(document.querySelector('.hobby-scroll'));
       mountGalleryTilt(document.querySelector('.hobbies'));

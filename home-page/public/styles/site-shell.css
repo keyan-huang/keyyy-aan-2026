@@ -113,7 +113,7 @@ button:focus-visible {
   place-items: center;
   border: 0;
   border-radius: 100% 0 14px;
-  background: #4F77FA;
+  background: #4f77fa;
   box-shadow: 0 10px 28px rgb(79 119 250 / 28%);
   color: #fff;
   cursor: pointer;
@@ -330,8 +330,15 @@ body.has-open-lightbox {
 }
 
 @keyframes footer-status-pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.35; transform: scale(0.78); }
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.78);
+  }
 }
 
 .contact-links {
@@ -355,7 +362,9 @@ body.has-open-lightbox {
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .contact[href]:hover {
@@ -477,7 +486,6 @@ body.has-open-lightbox {
   .footer-art-stage {
     width: min(100%, 400px);
   }
-
 }
 
 @media (max-width: 700px) {

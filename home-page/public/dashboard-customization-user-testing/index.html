@@ -1,266 +1,770 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="robots" content="noindex,nofollow">
-  <title>Dashboard Customization Testing Study | Keyan Huang</title>
-  <meta name="description" content="Two weeks, two dashboard customization patterns, and 15 participants. A usability study comparing an inline drawer with a modal.">
-  <link rel="icon" href="../images/imgImage81.png">
-  <link rel="stylesheet" href="../styles/design-tokens.css">
-  <link rel="stylesheet" href="../styles/site-shell.css">
-  <link rel="stylesheet" href="case-study.css">
-  <link rel="stylesheet" href="../styles/related-projects.css">
-  <script src="../scripts/site-shell.js" defer></script>
-</head>
-<body data-site-root="../">
-  <a class="skip-link" href="#case-study">Skip to case study</a>
-  <div data-site-header></div>
-  <main class="case-study" id="case-study">
-    <header class="hero">
-      <p class="eyebrow">Usability research</p>
-      <h1>Dashboard Customization Testing Study</h1>
-      <p class="hero-summary">Two ways to customize a dashboard. Which one feels easier to use?</p>
-      <figure class="case-media hero-media">
-        <img src="images/inline-drawer.png" alt="Inline drawer prototype with widget choices beside the editable dashboard" width="1350" height="960" fetchpriority="high">
-      </figure>
-      <dl class="project-meta">
-        <div><dt>Timeline</dt><dd>Two weeks of intensive testing</dd></div>
-        <div><dt>Team</dt><dd>Two designers, partnering with the Product Research team</dd></div>
-        <div><dt>Methods</dt><dd>Moderated and unmoderated testing</dd></div>
-      </dl>
-    </header>
-
-    <section class="case-section" aria-labelledby="approaches">
-      <p class="eyebrow">01 / Before testing</p>
-      <h2 id="approaches">Same goal. Two approaches.</h2>
-      <p class="section-intro">We wanted to understand how people prefer to add, arrange, and resize dashboard widgets: alongside their dashboard, or in a separate modal.</p>
-      <div class="comparison-grid">
-        <article>
-          <h3>Inline drawer</h3>
-          <p>Keep the dashboard in view and place widgets directly where they belong.</p>
-          <figure class="case-media"><img src="images/inline-drawer.png" alt="Inline drawer prototype with widget choices beside the editable dashboard" width="1350" height="960" loading="lazy"></figure>
-        </article>
-        <article>
-          <h3>Modal</h3>
-          <p>Choose widgets in a focused overlay, then return to the dashboard to arrange them.</p>
-          <figure class="case-media"><img src="images/modal.png" alt="Modal prototype with a centered widget gallery over the dashboard" width="1350" height="960" loading="lazy"></figure>
-        </article>
-      </div>
-      <div class="rationale">
-        <h3>What we wanted to learn</h3>
-        <p>The drawer could make placement and feedback more immediate, but it also compresses the dashboard. The modal offers a familiar, focused selection step, but separates adding widgets from arranging them. Testing would help us understand that trade-off.</p>
-      </div>
-      <h3 class="subhead">Modal use case examples</h3>
-      <figure class="case-media board">
-        <img src="images/modal-use-cases-preview.png" alt="Reference board of modal use cases reviewed before testing" width="2400" height="728" loading="lazy">
-      </figure>
-      <a class="image-link" href="images/modal-use-cases.png" target="_blank" rel="noreferrer">Open reference board at full size</a>
-    </section>
-
-    <section class="case-section" aria-labelledby="testing">
-      <p class="eyebrow">02 / Testing</p>
-      <h2 id="testing">Fifteen participants. Real tasks.</h2>
-      <p class="section-intro">Over two weeks, we tested both approaches with five internal participants in moderated sessions and ten external participants in unmoderated sessions.</p>
-      <ol class="task-list">
-        <li><span class="step">01</span><div><h3>Add and resize</h3><p>Add the Clock In and Clock Out widget and set it to medium.</p></div></li>
-        <li><span class="step">02</span><div><h3>Arrange and save</h3><p>Add Performance Trend, move it to the requested position, and save.</p></div></li>
-        <li><span class="step">03</span><div><h3>Reflect and compare</h3><p>Rate ease and confidence, discuss friction, and choose a preferred approach.</p></div></li>
-      </ol>
-      <details class="research-detail">
-        <summary>Read the unmoderated test script</summary>
-        <div class="detail-content">
-          <p class="caption">UserTesting.com tasks and prompts, formatted for reading. Private prototype access details and editing notes are omitted.</p>
-          <h3>Before starting</h3>
-          <p>Try the dashboard customization prototype and think aloud as you work. If you encounter a prototype issue, focus your feedback on the intended interaction.</p>
-          <h3>Inline drawer</h3>
-          <ol class="script-list">
-            <li>Customize your dashboard by adding the Clock In and Clock Out widget. Set the widget to medium size. Share your thoughts aloud as you go.</li>
-            <li>How easy was it to complete this task? Rate it on a five-point scale, from very difficult to very easy.</li>
-            <li>Add the Performance Trend widget, move it to the top-right area of the dashboard, and save your changes.</li>
-            <li>What are the pros and cons of this approach?</li>
-            <li>How confident are you that you completed the task? Give a rating and explain your answer.</li>
-          </ol>
-          <h3>Modal</h3>
-          <ol class="script-list">
-            <li>Customize your dashboard by adding the Clock In and Clock Out widget. Set the widget to medium size. Share your thoughts aloud as you go.</li>
-            <li>How easy was it to complete this task? Rate it on a five-point scale, from very difficult to very easy.</li>
-            <li>Add the Performance Trend widget, move it to the left area of the dashboard, and save your changes.</li>
-            <li>What are the pros and cons of this approach?</li>
-            <li>How confident are you that you completed the task? Give a rating and explain your answer.</li>
-          </ol>
-          <h3>Compare both approaches</h3>
-          <ul class="script-list">
-            <li>Which approach was easier to use, and why?</li>
-            <li>Was anything frustrating in either approach?</li>
-            <li>Which approach do you prefer? What characteristics led to your choice?</li>
-          </ul>
-        </div>
-      </details>
-      <div class="evidence-grid">
-        <figure class="case-media"><img src="images/testing-evidence-1.png" alt="Recorded usability testing session showing the dashboard prototype and participant feedback" width="2566" height="1324" loading="lazy"></figure>
-        <figure class="case-media"><img src="images/testing-evidence-2.png" alt="A second usability testing session showing widget customization" width="2562" height="1342" loading="lazy"></figure>
-      </div>
-      <div class="notes-grid">
-        <div>
-          <h3>Internal user testing notes</h3>
-          <figure class="case-media board"><img src="images/internal-notes-preview.png" alt="Internal testing notes organized by participant, with observations and feedback" width="2400" height="1223" loading="lazy"></figure>
-          <a class="image-link" href="images/internal-notes.png" target="_blank" rel="noreferrer">Open internal notes at full size</a>
-        </div>
-        <div>
-          <h3>External user testing notes</h3>
-          <figure class="case-media board"><img src="images/external-notes-preview.png" alt="External testing notes organized by participant, with observations and feedback" width="2400" height="534" loading="lazy"></figure>
-          <a class="image-link" href="images/external-notes.png" target="_blank" rel="noreferrer">Open external notes at full size</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="case-section" aria-labelledby="findings">
-      <p class="eyebrow">03 / What we learned</p>
-      <h2 id="findings">Keep the dashboard in view.</h2>
-      <div class="finding-summary">
-        <div class="preference">
-          <p class="preference-number">12<span>/15</span></p>
-          <p>participants preferred the inline drawer</p>
-          <div class="preference-bar" role="img" aria-label="80 percent preferred the inline drawer; 20 percent preferred the modal"><span></span></div>
-          <p class="caption">Inline drawer 80% / Modal 20%</p>
-        </div>
-        <div>
-          <p>Participants valued seeing changes in context and placing widgets where they wanted. The modal felt familiar, but interrupted the flow with extra steps and a blocked dashboard.</p>
-          <p>The drawer was not friction-free: drag-and-drop needed clearer guidance and an alternative way to add widgets.</p>
-          <p class="caption">Reported average ease and confidence: drawer 4.76/5; modal 4.6/5. These are participant ratings, not measured task-time improvements.</p>
-        </div>
-      </div>
-      <details class="research-detail" id="full-report" open>
-        <summary>Read the complete testing report</summary>
-        <div class="detail-content report">
-          <h3>Inline Drawer and Modal Pattern - User Testing Summary</h3>
-          <h4>Overview</h4>
-          <p><strong>Purpose:</strong> To evaluate and compare the Inline Drawer and Modal patterns for dashboard customization.</p>
-          <p><strong>Participants and test method:</strong> 15 participants total. Five internal participants participated in moderated testing; ten external participants participated in unmoderated testing.</p>
-          <p><strong>Timeline:</strong> Two weeks.</p>
-          <h4>Overall preference</h4>
-          <ul>
-            <li><strong>Inline Drawer:</strong> 12/15 participants (80%).</li>
-            <li><strong>Modal:</strong> 3/15 participants (20%).</li>
-          </ul>
-          <p><strong>Average rating (ease and confidence):</strong> Inline Drawer 4.76/5; Modal 4.6/5.</p>
-          <h4>Executive summary</h4>
-          <p>Across 15 participants, the Inline Drawer pattern consistently outperformed the Modal in usability, efficiency, confidence, and overall preference. Approximately 80% of users favored the Drawer and only 20% preferred the Modal. Although some users noted a brief learning curve with drag-and-drop and occasional prototype lag, they still found the Drawer faster, more intuitive, and easier to control once they understood how it worked. Participants especially valued being able to see the full dashboard while customizing, place widgets exactly where they want (when initially added), drag and resize in real time, and view all widget options without leaving the page. Many described the Drawer experience as "smooth," "quick," "natural," and "modern," appreciating that they could stay in one space and maintain context throughout the process. In contrast, while the Modal was familiar and initially straightforward, it was ultimately disliked for blocking the page, adding extra clicks, slowing down the flow, and pulling the user's attention away from the dashboard.</p>
-          <p class="source-note">Interpretation note: the summary above preserves the source report. References to speed and efficiency describe participant feedback; the supplied report does not include task-time measurements or statistical testing.</p>
-          <h4>Key pros</h4>
-          <div class="table-scroll" role="region" aria-label="Inline drawer benefits" tabindex="0">
-            <table>
-              <caption>Inline drawer</caption>
-              <thead><tr><th scope="col">Theme</th><th scope="col">Details</th><th scope="col">Frequency</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Visibility</th><td>Users can see all things at once, with a side-by-side experience, and can see the whole dashboard when editing.</td><td>67% (10/15)</td></tr>
-                <tr><th scope="row">Control</th><td>Users can place widgets directly to the intended location, move things around freely, and feel more in control.</td><td>60% (9/15)</td></tr>
-                <tr><th scope="row">Efficiency</th><td>The process is efficient due to fewer steps and clicks.</td><td>33% (5/15)</td></tr>
-                <tr><th scope="row">Timely feedback</th><td>Users can see immediate feedback on the dashboard.</td><td>13% (3/15)<a href="#report-discrepancy" aria-label="See source discrepancy note">*</a></td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="source-note" id="report-discrepancy">* Source discrepancy: the report lists 13% (3/15); the raw tally shows 2/15, which equals about 13%. Three out of fifteen would be 20%. The original report value is retained here pending reconciliation.</p>
-          <div class="table-scroll" role="region" aria-label="Modal benefits" tabindex="0">
-            <table>
-              <caption>Modal</caption>
-              <thead><tr><th scope="col">Theme</th><th scope="col">Details</th><th scope="col">Frequency</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Multiple widget addition</th><td>Users can add multiple widgets at once or quickly.</td><td>47% (7/15)</td></tr>
-                <tr><th scope="row">Straightforward process</th><td>The process is more straightforward, with a clear step-by-step process.</td><td>47% (7/15)</td></tr>
-                <tr><th scope="row">Widget options visibility</th><td>Users can see more available widget options at once.</td><td>26% (4/15)</td></tr>
-                <tr><th scope="row">Easy interaction</th><td>Clicking is easier.</td><td>13% (2/15)</td></tr>
-                <tr><th scope="row">Confidence</th><td>Steps and confirmation bring confidence to users.</td><td>13% (2/15)</td></tr>
-                <tr><th scope="row">Focus on a single task</th><td>Users can focus on a single task.</td><td>7% (1/15)</td></tr>
-                <tr><th scope="row">Dashboard layout</th><td>Users can see the entire dashboard layout, with the same screen and widget size when exiting the edit state.</td><td>7% (1/15)</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <p class="caption">Percentages above are reproduced as reported, including 26% for 4/15 (approximately 27% when rounded).</p>
-          <h4>Key cons</h4>
-          <div class="table-scroll" role="region" aria-label="Inline drawer drawbacks and recommendations" tabindex="0">
-            <table>
-              <caption>Inline drawer</caption>
-              <thead><tr><th scope="col">Theme</th><th scope="col">Details</th><th scope="col">Frequency</th><th scope="col">Recommendation</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Difficulty with drag-and-drop</th><td>The interaction feels hard to control, and some users are not familiar with the pattern.</td><td>40% (6/15)</td><td>Include an "Add" button on each widget as an alternative to drag-and-drop.</td></tr>
-                <tr><th scope="row">Dashboard squeezing</th><td>The drawer squeezes the dashboard and reshapes the widgets, making them different from the completed version.</td><td>13% (2/15)</td><td>Not specified.</td></tr>
-                <tr><th scope="row">Unclear interaction</th><td>Users find it hard to understand that widgets need to be dragged.</td><td>7% (1/15)</td><td>Add clear instructions, like help text, to explain that users can drag and drop widgets to the main page.</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="table-scroll" role="region" aria-label="Modal drawbacks and recommendations" tabindex="0">
-            <table>
-              <caption>Modal</caption>
-              <thead><tr><th scope="col">Theme</th><th scope="col">Details</th><th scope="col">Frequency</th><th scope="col">Recommendation</th></tr></thead>
-              <tbody>
-                <tr><th scope="row">Too many steps and clicks</th><td>The process has too many steps and clicks.</td><td>60% (9/15)</td><td>Not specified.</td></tr>
-                <tr><th scope="row">Segmented process</th><td>The process feels segmented, and users cannot customize widgets at the same time.</td><td>33% (5/15)</td><td>Not specified.</td></tr>
-                <tr><th scope="row">Blocked view</th><td>The modal blocks the view of the dashboard, making it hard to have an overview.</td><td>33% (5/15)</td><td>Not specified.</td></tr>
-                <tr><th scope="row">Time-consuming</th><td>Locating the "Add Widget" button in the edit state consumes time.</td><td>27% (4/15)</td><td>Make the modal open directly when the user first starts customizing the dashboard.</td></tr>
-                <tr><th scope="row">Limited placement</th><td>Widgets can only be added to the bottom of the page.</td><td>13% (2/15)</td><td>Not specified.</td></tr>
-              </tbody>
-            </table>
-          </div>
-          <h4>Final recommendations for the preferred drawer pattern</h4>
-          <p>Based on the user testing results, the following recommendations focus on improving the inline drawer pattern, which was preferred by the majority of participants.</p>
-          <h5>Add a button on the widget for the drawer pattern</h5>
-          <p>Adding a clear Add button on each widget allows users to add widgets directly without relying solely on drag-and-drop, while keeping the experience within the same working area. This supports users who prefer more explicit actions while still preserving the flexibility of drag-and-drop for experienced users.</p>
-          <h5>Make drag-and-drop interaction more obvious</h5>
-          <ul>
-            <li>Add lightweight guidance, such as help text or visual cues, to clearly indicate that widgets can be dragged from the drawer and placed onto the main page.</li>
-            <li>Improve the drag-and-drop behavior to follow familiar interaction patterns commonly seen in modal tools: clear drag handles, a whole widget to grab, visual feedback during hover and drag, and predictable drop targets. Make the interaction easier to learn and more intuitive.</li>
-          </ul>
-        </div>
-      </details>
-      <details class="research-detail">
-        <summary>Raw data and participant-level details</summary>
-        <div class="detail-content">
-          <figure class="case-media board"><img src="images/raw-data-details-preview.png" alt="Participant-level tally of inline drawer and modal pros, cons, and requested improvements, using anonymous participant IDs" width="2400" height="1749" loading="lazy"></figure>
-          <a class="image-link" href="images/raw-data-details.png" target="_blank" rel="noreferrer">Open raw data at full size</a>
-        </div>
-      </details>
-    </section>
-
-    <section class="case-section" aria-labelledby="outcome">
-      <p class="eyebrow">04 / Outcome</p>
-      <h2 id="outcome">Keep the drawer. Make adding easier.</h2>
-      <p class="section-intro">The research informed the final solution. We recommended keeping the inline drawer, adding an explicit Add button, and making drag-and-drop easier to discover.</p>
-      <div class="outcome-grid">
-        <figure class="case-media"><img src="images/outcome-interaction.png" alt="Final dashboard editing design with a drag handle, dragged widget, and a clearly labeled Drop Here target" width="1470" height="1474" loading="lazy"></figure>
-        <div>
-          <h3>A clearer place to drop</h3>
-          <p>Visible drag handles and a defined drop target make the interaction easier to understand.</p>
-          <p class="caption">The recommendation was adopted in the final solution. No post-launch performance measurements are included in this study.</p>
-        </div>
-      </div>
-      <h3 class="subhead">A sneak peek: dashboard before and after</h3>
-      <div class="dashboard-comparison">
-        <figure>
-          <div class="case-media"><img src="images/outcome-before.png" alt="Earlier dashboard design across mobile and desktop" width="1540" height="760" loading="lazy"></div>
-          <figcaption>Before</figcaption>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Dashboard Customization Testing Study | Keyan Huang</title>
+    <meta
+      name="description"
+      content="Two weeks, two dashboard customization patterns, and 15 participants. A usability study comparing an inline drawer with a modal."
+    />
+    <link rel="icon" href="../images/imgImage81.png" />
+    <link rel="stylesheet" href="../styles/design-tokens.css" />
+    <link rel="stylesheet" href="../styles/site-shell.css" />
+    <link rel="stylesheet" href="case-study.css" />
+    <link rel="stylesheet" href="../styles/related-projects.css" />
+    <script src="../scripts/site-shell.js" defer></script>
+  </head>
+  <body data-site-root="../">
+    <a class="skip-link" href="#case-study">Skip to case study</a>
+    <div data-site-header></div>
+    <main class="case-study" id="case-study">
+      <header class="hero">
+        <p class="eyebrow">Usability research</p>
+        <h1>Dashboard Customization Testing Study</h1>
+        <p class="hero-summary">
+          Two ways to customize a dashboard. Which one feels easier to use?
+        </p>
+        <figure class="case-media hero-media">
+          <img
+            src="images/inline-drawer.png"
+            alt="Inline drawer prototype with widget choices beside the editable dashboard"
+            width="1350"
+            height="960"
+            fetchpriority="high"
+          />
         </figure>
-        <figure>
-          <div class="case-media"><img src="images/outcome-after.png" alt="Updated dashboard design across mobile and desktop" width="1540" height="1038" loading="lazy"></div>
-          <figcaption>After</figcaption>
+        <dl class="project-meta">
+          <div>
+            <dt>Timeline</dt>
+            <dd>Two weeks of intensive testing</dd>
+          </div>
+          <div>
+            <dt>Team</dt>
+            <dd>Two designers, partnering with the Product Research team</dd>
+          </div>
+          <div>
+            <dt>Methods</dt>
+            <dd>Moderated and unmoderated testing</dd>
+          </div>
+        </dl>
+      </header>
+
+      <section class="case-section" aria-labelledby="approaches">
+        <p class="eyebrow">01 / Before testing</p>
+        <h2 id="approaches">Same goal. Two approaches.</h2>
+        <p class="section-intro">
+          We wanted to understand how people prefer to add, arrange, and resize
+          dashboard widgets: alongside their dashboard, or in a separate modal.
+        </p>
+        <div class="comparison-grid">
+          <article>
+            <h3>Inline drawer</h3>
+            <p>
+              Keep the dashboard in view and place widgets directly where they
+              belong.
+            </p>
+            <figure class="case-media">
+              <img
+                src="images/inline-drawer.png"
+                alt="Inline drawer prototype with widget choices beside the editable dashboard"
+                width="1350"
+                height="960"
+                loading="lazy"
+              />
+            </figure>
+          </article>
+          <article>
+            <h3>Modal</h3>
+            <p>
+              Choose widgets in a focused overlay, then return to the dashboard
+              to arrange them.
+            </p>
+            <figure class="case-media">
+              <img
+                src="images/modal.png"
+                alt="Modal prototype with a centered widget gallery over the dashboard"
+                width="1350"
+                height="960"
+                loading="lazy"
+              />
+            </figure>
+          </article>
+        </div>
+        <div class="rationale">
+          <h3>What we wanted to learn</h3>
+          <p>
+            The drawer could make placement and feedback more immediate, but it
+            also compresses the dashboard. The modal offers a familiar, focused
+            selection step, but separates adding widgets from arranging them.
+            Testing would help us understand that trade-off.
+          </p>
+        </div>
+        <h3 class="subhead">Modal use case examples</h3>
+        <figure class="case-media board">
+          <img
+            src="images/modal-use-cases-preview.png"
+            alt="Reference board of modal use cases reviewed before testing"
+            width="2400"
+            height="728"
+            loading="lazy"
+          />
         </figure>
+        <a
+          class="image-link"
+          href="images/modal-use-cases.png"
+          target="_blank"
+          rel="noreferrer"
+          >Open reference board at full size</a
+        >
+      </section>
+
+      <section class="case-section" aria-labelledby="testing">
+        <p class="eyebrow">02 / Testing</p>
+        <h2 id="testing">Fifteen participants. Real tasks.</h2>
+        <p class="section-intro">
+          Over two weeks, we tested both approaches with five internal
+          participants in moderated sessions and ten external participants in
+          unmoderated sessions.
+        </p>
+        <ol class="task-list">
+          <li>
+            <span class="step">01</span>
+            <div>
+              <h3>Add and resize</h3>
+              <p>Add the Clock In and Clock Out widget and set it to medium.</p>
+            </div>
+          </li>
+          <li>
+            <span class="step">02</span>
+            <div>
+              <h3>Arrange and save</h3>
+              <p>
+                Add Performance Trend, move it to the requested position, and
+                save.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="step">03</span>
+            <div>
+              <h3>Reflect and compare</h3>
+              <p>
+                Rate ease and confidence, discuss friction, and choose a
+                preferred approach.
+              </p>
+            </div>
+          </li>
+        </ol>
+        <details class="research-detail">
+          <summary>Read the unmoderated test script</summary>
+          <div class="detail-content">
+            <p class="caption">
+              UserTesting.com tasks and prompts, formatted for reading. Private
+              prototype access details and editing notes are omitted.
+            </p>
+            <h3>Before starting</h3>
+            <p>
+              Try the dashboard customization prototype and think aloud as you
+              work. If you encounter a prototype issue, focus your feedback on
+              the intended interaction.
+            </p>
+            <h3>Inline drawer</h3>
+            <ol class="script-list">
+              <li>
+                Customize your dashboard by adding the Clock In and Clock Out
+                widget. Set the widget to medium size. Share your thoughts aloud
+                as you go.
+              </li>
+              <li>
+                How easy was it to complete this task? Rate it on a five-point
+                scale, from very difficult to very easy.
+              </li>
+              <li>
+                Add the Performance Trend widget, move it to the top-right area
+                of the dashboard, and save your changes.
+              </li>
+              <li>What are the pros and cons of this approach?</li>
+              <li>
+                How confident are you that you completed the task? Give a rating
+                and explain your answer.
+              </li>
+            </ol>
+            <h3>Modal</h3>
+            <ol class="script-list">
+              <li>
+                Customize your dashboard by adding the Clock In and Clock Out
+                widget. Set the widget to medium size. Share your thoughts aloud
+                as you go.
+              </li>
+              <li>
+                How easy was it to complete this task? Rate it on a five-point
+                scale, from very difficult to very easy.
+              </li>
+              <li>
+                Add the Performance Trend widget, move it to the left area of
+                the dashboard, and save your changes.
+              </li>
+              <li>What are the pros and cons of this approach?</li>
+              <li>
+                How confident are you that you completed the task? Give a rating
+                and explain your answer.
+              </li>
+            </ol>
+            <h3>Compare both approaches</h3>
+            <ul class="script-list">
+              <li>Which approach was easier to use, and why?</li>
+              <li>Was anything frustrating in either approach?</li>
+              <li>
+                Which approach do you prefer? What characteristics led to your
+                choice?
+              </li>
+            </ul>
+          </div>
+        </details>
+        <div class="evidence-grid">
+          <figure class="case-media">
+            <img
+              src="images/testing-evidence-1.png"
+              alt="Recorded usability testing session showing the dashboard prototype and participant feedback"
+              width="2566"
+              height="1324"
+              loading="lazy"
+            />
+          </figure>
+          <figure class="case-media">
+            <img
+              src="images/testing-evidence-2.png"
+              alt="A second usability testing session showing widget customization"
+              width="2562"
+              height="1342"
+              loading="lazy"
+            />
+          </figure>
+        </div>
+        <div class="notes-grid">
+          <div>
+            <h3>Internal user testing notes</h3>
+            <figure class="case-media board">
+              <img
+                src="images/internal-notes-preview.png"
+                alt="Internal testing notes organized by participant, with observations and feedback"
+                width="2400"
+                height="1223"
+                loading="lazy"
+              />
+            </figure>
+            <a
+              class="image-link"
+              href="images/internal-notes.png"
+              target="_blank"
+              rel="noreferrer"
+              >Open internal notes at full size</a
+            >
+          </div>
+          <div>
+            <h3>External user testing notes</h3>
+            <figure class="case-media board">
+              <img
+                src="images/external-notes-preview.png"
+                alt="External testing notes organized by participant, with observations and feedback"
+                width="2400"
+                height="534"
+                loading="lazy"
+              />
+            </figure>
+            <a
+              class="image-link"
+              href="images/external-notes.png"
+              target="_blank"
+              rel="noreferrer"
+              >Open external notes at full size</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" aria-labelledby="findings">
+        <p class="eyebrow">03 / What we learned</p>
+        <h2 id="findings">Keep the dashboard in view.</h2>
+        <div class="finding-summary">
+          <div class="preference">
+            <p class="preference-number">12<span>/15</span></p>
+            <p>participants preferred the inline drawer</p>
+            <div
+              class="preference-bar"
+              role="img"
+              aria-label="80 percent preferred the inline drawer; 20 percent preferred the modal"
+            >
+              <span></span>
+            </div>
+            <p class="caption">Inline drawer 80% / Modal 20%</p>
+          </div>
+          <div>
+            <p>
+              Participants valued seeing changes in context and placing widgets
+              where they wanted. The modal felt familiar, but interrupted the
+              flow with extra steps and a blocked dashboard.
+            </p>
+            <p>
+              The drawer was not friction-free: drag-and-drop needed clearer
+              guidance and an alternative way to add widgets.
+            </p>
+            <p class="caption">
+              Reported average ease and confidence: drawer 4.76/5; modal 4.6/5.
+              These are participant ratings, not measured task-time
+              improvements.
+            </p>
+          </div>
+        </div>
+        <details class="research-detail" id="full-report" open>
+          <summary>Read the complete testing report</summary>
+          <div class="detail-content report">
+            <h3>Inline Drawer and Modal Pattern - User Testing Summary</h3>
+            <h4>Overview</h4>
+            <p>
+              <strong>Purpose:</strong> To evaluate and compare the Inline
+              Drawer and Modal patterns for dashboard customization.
+            </p>
+            <p>
+              <strong>Participants and test method:</strong> 15 participants
+              total. Five internal participants participated in moderated
+              testing; ten external participants participated in unmoderated
+              testing.
+            </p>
+            <p><strong>Timeline:</strong> Two weeks.</p>
+            <h4>Overall preference</h4>
+            <ul>
+              <li><strong>Inline Drawer:</strong> 12/15 participants (80%).</li>
+              <li><strong>Modal:</strong> 3/15 participants (20%).</li>
+            </ul>
+            <p>
+              <strong>Average rating (ease and confidence):</strong> Inline
+              Drawer 4.76/5; Modal 4.6/5.
+            </p>
+            <h4>Executive summary</h4>
+            <p>
+              Across 15 participants, the Inline Drawer pattern consistently
+              outperformed the Modal in usability, efficiency, confidence, and
+              overall preference. Approximately 80% of users favored the Drawer
+              and only 20% preferred the Modal. Although some users noted a
+              brief learning curve with drag-and-drop and occasional prototype
+              lag, they still found the Drawer faster, more intuitive, and
+              easier to control once they understood how it worked. Participants
+              especially valued being able to see the full dashboard while
+              customizing, place widgets exactly where they want (when initially
+              added), drag and resize in real time, and view all widget options
+              without leaving the page. Many described the Drawer experience as
+              "smooth," "quick," "natural," and "modern," appreciating that they
+              could stay in one space and maintain context throughout the
+              process. In contrast, while the Modal was familiar and initially
+              straightforward, it was ultimately disliked for blocking the page,
+              adding extra clicks, slowing down the flow, and pulling the user's
+              attention away from the dashboard.
+            </p>
+            <p class="source-note">
+              Interpretation note: the summary above preserves the source
+              report. References to speed and efficiency describe participant
+              feedback; the supplied report does not include task-time
+              measurements or statistical testing.
+            </p>
+            <h4>Key pros</h4>
+            <div
+              class="table-scroll"
+              role="region"
+              aria-label="Inline drawer benefits"
+              tabindex="0"
+            >
+              <table>
+                <caption>
+                  Inline drawer
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Theme</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Frequency</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Visibility</th>
+                    <td>
+                      Users can see all things at once, with a side-by-side
+                      experience, and can see the whole dashboard when editing.
+                    </td>
+                    <td>67% (10/15)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Control</th>
+                    <td>
+                      Users can place widgets directly to the intended location,
+                      move things around freely, and feel more in control.
+                    </td>
+                    <td>60% (9/15)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Efficiency</th>
+                    <td>
+                      The process is efficient due to fewer steps and clicks.
+                    </td>
+                    <td>33% (5/15)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Timely feedback</th>
+                    <td>Users can see immediate feedback on the dashboard.</td>
+                    <td>
+                      13% (3/15)<a
+                        href="#report-discrepancy"
+                        aria-label="See source discrepancy note"
+                        >*</a
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="source-note" id="report-discrepancy">
+              * Source discrepancy: the report lists 13% (3/15); the raw tally
+              shows 2/15, which equals about 13%. Three out of fifteen would be
+              20%. The original report value is retained here pending
+              reconciliation.
+            </p>
+            <div
+              class="table-scroll"
+              role="region"
+              aria-label="Modal benefits"
+              tabindex="0"
+            >
+              <table>
+                <caption>
+                  Modal
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Theme</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Frequency</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Multiple widget addition</th>
+                    <td>Users can add multiple widgets at once or quickly.</td>
+                    <td>47% (7/15)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Straightforward process</th>
+                    <td>
+                      The process is more straightforward, with a clear
+                      step-by-step process.
+                    </td>
+                    <td>47% (7/15)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Widget options visibility</th>
+                    <td>
+                      Users can see more available widget options at once.
+                    </td>
+                    <td>26% (4/15)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Easy interaction</th>
+                    <td>Clicking is easier.</td>
+                    <td>13% (2/15)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Confidence</th>
+                    <td>Steps and confirmation bring confidence to users.</td>
+                    <td>13% (2/15)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Focus on a single task</th>
+                    <td>Users can focus on a single task.</td>
+                    <td>7% (1/15)</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Dashboard layout</th>
+                    <td>
+                      Users can see the entire dashboard layout, with the same
+                      screen and widget size when exiting the edit state.
+                    </td>
+                    <td>7% (1/15)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="caption">
+              Percentages above are reproduced as reported, including 26% for
+              4/15 (approximately 27% when rounded).
+            </p>
+            <h4>Key cons</h4>
+            <div
+              class="table-scroll"
+              role="region"
+              aria-label="Inline drawer drawbacks and recommendations"
+              tabindex="0"
+            >
+              <table>
+                <caption>
+                  Inline drawer
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Theme</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Frequency</th>
+                    <th scope="col">Recommendation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Difficulty with drag-and-drop</th>
+                    <td>
+                      The interaction feels hard to control, and some users are
+                      not familiar with the pattern.
+                    </td>
+                    <td>40% (6/15)</td>
+                    <td>
+                      Include an "Add" button on each widget as an alternative
+                      to drag-and-drop.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Dashboard squeezing</th>
+                    <td>
+                      The drawer squeezes the dashboard and reshapes the
+                      widgets, making them different from the completed version.
+                    </td>
+                    <td>13% (2/15)</td>
+                    <td>Not specified.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Unclear interaction</th>
+                    <td>
+                      Users find it hard to understand that widgets need to be
+                      dragged.
+                    </td>
+                    <td>7% (1/15)</td>
+                    <td>
+                      Add clear instructions, like help text, to explain that
+                      users can drag and drop widgets to the main page.
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div
+              class="table-scroll"
+              role="region"
+              aria-label="Modal drawbacks and recommendations"
+              tabindex="0"
+            >
+              <table>
+                <caption>
+                  Modal
+                </caption>
+                <thead>
+                  <tr>
+                    <th scope="col">Theme</th>
+                    <th scope="col">Details</th>
+                    <th scope="col">Frequency</th>
+                    <th scope="col">Recommendation</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">Too many steps and clicks</th>
+                    <td>The process has too many steps and clicks.</td>
+                    <td>60% (9/15)</td>
+                    <td>Not specified.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Segmented process</th>
+                    <td>
+                      The process feels segmented, and users cannot customize
+                      widgets at the same time.
+                    </td>
+                    <td>33% (5/15)</td>
+                    <td>Not specified.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Blocked view</th>
+                    <td>
+                      The modal blocks the view of the dashboard, making it hard
+                      to have an overview.
+                    </td>
+                    <td>33% (5/15)</td>
+                    <td>Not specified.</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Time-consuming</th>
+                    <td>
+                      Locating the "Add Widget" button in the edit state
+                      consumes time.
+                    </td>
+                    <td>27% (4/15)</td>
+                    <td>
+                      Make the modal open directly when the user first starts
+                      customizing the dashboard.
+                    </td>
+                  </tr>
+                  <tr>
+                    <th scope="row">Limited placement</th>
+                    <td>
+                      Widgets can only be added to the bottom of the page.
+                    </td>
+                    <td>13% (2/15)</td>
+                    <td>Not specified.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <h4>Final recommendations for the preferred drawer pattern</h4>
+            <p>
+              Based on the user testing results, the following recommendations
+              focus on improving the inline drawer pattern, which was preferred
+              by the majority of participants.
+            </p>
+            <h5>Add a button on the widget for the drawer pattern</h5>
+            <p>
+              Adding a clear Add button on each widget allows users to add
+              widgets directly without relying solely on drag-and-drop, while
+              keeping the experience within the same working area. This supports
+              users who prefer more explicit actions while still preserving the
+              flexibility of drag-and-drop for experienced users.
+            </p>
+            <h5>Make drag-and-drop interaction more obvious</h5>
+            <ul>
+              <li>
+                Add lightweight guidance, such as help text or visual cues, to
+                clearly indicate that widgets can be dragged from the drawer and
+                placed onto the main page.
+              </li>
+              <li>
+                Improve the drag-and-drop behavior to follow familiar
+                interaction patterns commonly seen in modal tools: clear drag
+                handles, a whole widget to grab, visual feedback during hover
+                and drag, and predictable drop targets. Make the interaction
+                easier to learn and more intuitive.
+              </li>
+            </ul>
+          </div>
+        </details>
+        <details class="research-detail">
+          <summary>Raw data and participant-level details</summary>
+          <div class="detail-content">
+            <figure class="case-media board">
+              <img
+                src="images/raw-data-details-preview.png"
+                alt="Participant-level tally of inline drawer and modal pros, cons, and requested improvements, using anonymous participant IDs"
+                width="2400"
+                height="1749"
+                loading="lazy"
+              />
+            </figure>
+            <a
+              class="image-link"
+              href="images/raw-data-details.png"
+              target="_blank"
+              rel="noreferrer"
+              >Open raw data at full size</a
+            >
+          </div>
+        </details>
+      </section>
+
+      <section class="case-section" aria-labelledby="outcome">
+        <p class="eyebrow">04 / Outcome</p>
+        <h2 id="outcome">Keep the drawer. Make adding easier.</h2>
+        <p class="section-intro">
+          The research informed the final solution. We recommended keeping the
+          inline drawer, adding an explicit Add button, and making drag-and-drop
+          easier to discover.
+        </p>
+        <div class="outcome-grid">
+          <figure class="case-media">
+            <img
+              src="images/outcome-interaction.png"
+              alt="Final dashboard editing design with a drag handle, dragged widget, and a clearly labeled Drop Here target"
+              width="1470"
+              height="1474"
+              loading="lazy"
+            />
+          </figure>
+          <div>
+            <h3>A clearer place to drop</h3>
+            <p>
+              Visible drag handles and a defined drop target make the
+              interaction easier to understand.
+            </p>
+            <p class="caption">
+              The recommendation was adopted in the final solution. No
+              post-launch performance measurements are included in this study.
+            </p>
+          </div>
+        </div>
+        <h3 class="subhead">A sneak peek: dashboard before and after</h3>
+        <div class="dashboard-comparison">
+          <figure>
+            <div class="case-media">
+              <img
+                src="images/outcome-before.png"
+                alt="Earlier dashboard design across mobile and desktop"
+                width="1540"
+                height="760"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>Before</figcaption>
+          </figure>
+          <figure>
+            <div class="case-media">
+              <img
+                src="images/outcome-after.png"
+                alt="Updated dashboard design across mobile and desktop"
+                width="1540"
+                height="1038"
+                loading="lazy"
+              />
+            </div>
+            <figcaption>After</figcaption>
+          </figure>
+        </div>
+      </section>
+    </main>
+    <section
+      class="related-projects"
+      aria-labelledby="related-projects-heading"
+    >
+      <h2 id="related-projects-heading">More projects</h2>
+      <div class="related-projects-grid">
+        <a
+          class="related-project-card"
+          href="../performance-discussion-form/index.html"
+        >
+          <h3>Designing a Dashboard<br />for Action and Analysis</h3>
+          <img
+            src="../performance-discussion-form/images/pdf-dashboard-hero.png"
+            alt=""
+            width="3088"
+            height="2848"
+            loading="lazy"
+          />
+        </a>
+        <a class="related-project-card" href="../paf-redesign/index.html">
+          <h3>Re-architecting the End-to-End<br />Personal Action Workflow</h3>
+          <img
+            src="../paf-redesign/images/paf-hero.png"
+            alt=""
+            width="3082"
+            height="2026"
+            loading="lazy"
+          />
+        </a>
       </div>
     </section>
-  </main>
-  <section class="related-projects" aria-labelledby="related-projects-heading">
-    <h2 id="related-projects-heading">More projects</h2>
-    <div class="related-projects-grid">
-      <a class="related-project-card" href="../performance-discussion-form/index.html">
-        <h3>Designing a Dashboard<br>for Action and Analysis</h3>
-        <img src="../performance-discussion-form/images/pdf-dashboard-hero.png" alt="" width="3088" height="2848" loading="lazy">
-      </a>
-      <a class="related-project-card" href="../paf-redesign/index.html">
-        <h3>Re-architecting the End-to-End<br>Personal Action Workflow</h3>
-        <img src="../paf-redesign/images/paf-hero.png" alt="" width="3082" height="2026" loading="lazy">
-      </a>
-    </div>
-  </section>
-  <div data-site-footer></div>
-</body>
+    <div data-site-footer></div>
+  </body>
 </html>

@@ -1,4 +1,5 @@
-import Image from 'next/image';
+import { ResponsiveImage } from './responsive-image';
+import { imageSizes } from '@/public/scripts/responsive-images.js';
 import type { CSSProperties } from 'react';
 import site from '@/public/content/site.json';
 
@@ -38,13 +39,13 @@ export function SiteFooter() {
         </div>
         <div className="footer-art-stage" aria-hidden="true">
           {site.footerArt.map((src, index) => (
-            <Image
+            <ResponsiveImage
               className="footer-swap-image"
               src={`/${src}`}
               alt=""
               width={1000}
               height={1000}
-              unoptimized
+              sizes={imageSizes.footer}
               key={src}
               style={{ '--footer-art-index': index } as CSSProperties}
             />
@@ -53,8 +54,8 @@ export function SiteFooter() {
       </div>
       <div className="footer-bottom">
         <p className="footer-copyright">
-          © 2026 Keyan Huang. All rights reserved. Designed with love and passion
-          by a curious mind.
+          © 2026 Keyan Huang. All rights reserved. Designed with love and
+          passion by a curious mind.
         </p>
       </div>
     </footer>

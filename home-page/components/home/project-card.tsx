@@ -1,7 +1,8 @@
 import './project-card.css';
 
 import { ArrowRight } from 'lucide-react';
-import Image from 'next/image';
+import { ResponsiveImage } from '@/components/shared/responsive-image';
+import { imageSizes } from '@/public/scripts/responsive-images.js';
 import type { ProjectSummary } from '@/content/projects/types';
 
 function ProjectAction({
@@ -41,19 +42,21 @@ export function ProjectCard({ project }: { project: ProjectSummary }) {
               <br />
               {project.titleLines[1]}
             </>
-          ) : project.title}
+          ) : (
+            project.title
+          )}
         </h3>
         <p>{project.description}</p>
       </div>
       <div className={`project-thumbnail project-thumbnail-${project.slug}`}>
-        <Image
+        <ResponsiveImage
           className="project-image"
           src={project.thumbnail}
           alt={`${project.title} interface preview`}
           width={1000}
           height={750}
           loading="lazy"
-          unoptimized
+          sizes={imageSizes.project}
         />
       </div>
       <ProjectAction href={project.href} status={project.status} />
