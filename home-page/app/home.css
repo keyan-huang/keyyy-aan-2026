@@ -41,7 +41,7 @@ p {
   text-align: right;
 }
 .hero h1 {
-  --hero-emphasis-size: 48px;
+  --hero-emphasis-size: 64px;
   font-family: var(--font-body);
   font-size: 30px;
   font-weight: 400;
@@ -654,7 +654,7 @@ h2 {
     aspect-ratio: 1;
   }
   .hero h1 {
-    --hero-emphasis-size: clamp(32px, 3.8vw, 48px);
+    --hero-emphasis-size: clamp(40px, 4.45vw, 64px);
   }
   .availability {
     font-size: 28px;
@@ -684,8 +684,8 @@ h2 {
     gap: 8px;
   }
   .hero h1 {
-    --hero-emphasis-size: clamp(23px, 5.6vw, 40px);
-    font-size: calc(var(--hero-emphasis-size) - 2px);
+    --hero-emphasis-size: clamp(25px, 5.6vw, 40px);
+    font-size: calc(clamp(23px, 5.6vw, 40px) - 2px);
     letter-spacing: -0.8px;
   }
   .availability {

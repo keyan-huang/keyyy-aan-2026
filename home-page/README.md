@@ -39,8 +39,10 @@ with a break before "Personal Action Workflow" in cards and its case-study headi
 The React homepage lives in `app/page.tsx`; GitHub Pages publishes
 `static/index.html`. Keep their markup and content synchronized. Both use the
 same homepage, component, and shared-shell styles.
-The introduction's `headingEmphasis` selects words rendered in the display font;
-the rest of the headline uses smaller DM Sans. Mirror the emphasis spans in the static homepage.
+The introduction's `headingEmphasis` selects words rendered in the original
+hero-title style: Bricolage Grotesque Semibold, 64px on large screens and responsive
+on smaller screens. The rest of the headline uses smaller DM Sans with independent
+sizing. Mirror the emphasis spans in the static homepage.
 
 Design Experiments is temporarily hidden in both `app/page.tsx` and
 `static/index.html`; its content and styles are retained. To restore it, remove
