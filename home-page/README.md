@@ -41,8 +41,10 @@ The React homepage lives in `app/page.tsx`; GitHub Pages publishes
 same homepage, component, and shared-shell styles.
 The introduction's `headingEmphasis` selects words rendered in the original
 hero-title style: Bricolage Grotesque Semibold, 64px on large screens and responsive
-on smaller screens. The rest of the headline uses smaller DM Sans with independent
-sizing. Mirror the emphasis spans in the static homepage.
+on smaller screens. The rest of the headline uses DM Sans Light at 32px on large
+screens, 28px on tablets, and 18px on mobile. The availability line uses DM Sans
+Regular at 30px, with its own fluid mobile sizing. Mirror the emphasis spans in
+the static homepage.
 
 Design Experiments is temporarily hidden in both `app/page.tsx` and
 `static/index.html`; its content and styles are retained. To restore it, remove

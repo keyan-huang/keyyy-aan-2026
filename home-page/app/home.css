@@ -43,8 +43,8 @@ p {
 .hero h1 {
   --hero-emphasis-size: 64px;
   font-family: var(--font-body);
-  font-size: 30px;
-  font-weight: 400;
+  font-size: 32px;
+  font-weight: 300;
   line-height: 1.1;
   letter-spacing: -1.5px;
 }
@@ -98,8 +98,8 @@ p {
   align-items: center;
   justify-content: flex-end;
   gap: 12px;
-  font-size: 32px;
-  font-weight: 300;
+  font-size: 30px;
+  font-weight: 400;
   color: #7aa150;
   margin-top: 24px;
   line-height: 1.1;
@@ -655,8 +655,6 @@ h2 {
   }
   .hero h1 {
     --hero-emphasis-size: clamp(40px, 4.45vw, 64px);
-  }
-  .availability {
     font-size: 28px;
   }
   .art-row {
@@ -685,11 +683,11 @@ h2 {
   }
   .hero h1 {
     --hero-emphasis-size: clamp(25px, 5.6vw, 40px);
-    font-size: calc(clamp(23px, 5.6vw, 40px) - 2px);
+    font-size: 18px;
     letter-spacing: -0.8px;
   }
   .availability {
-    font-size: 18px;
+    font-size: calc(clamp(23px, 5.6vw, 40px) - 2px);
     margin-top: 16px;
   }
   .first-row {
