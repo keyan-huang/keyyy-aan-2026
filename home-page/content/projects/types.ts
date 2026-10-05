@@ -4,6 +4,7 @@ export type ProjectSummary = {
   titleLines?: readonly [string, string];
   description: string;
   thumbnail: string;
+  thumbnailAlt?: string;
   status: 'draft' | 'published';
   href?: string;
 };

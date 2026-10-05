@@ -29,6 +29,7 @@ function imageSize(node, pathname) {
   if (hasClass(node, 'logo')) return imageSizes.logo;
   if (hasClass(node, 'binoculars')) return imageSizes.binoculars;
   if (within(node, 'art-row')) return imageSizes.illustration;
+  if (within(node, 'project--compact')) return imageSizes.additionalProject;
   if (within(node, 'project-thumbnail')) return imageSizes.project;
   if (within(node, 'portrait-frame')) return imageSizes.portrait;
   if (within(node, 'tool-icons')) return '76px';

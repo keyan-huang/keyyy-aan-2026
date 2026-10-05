@@ -46,6 +46,24 @@ await test('below-fold media is lazy and existing display dimensions are preserv
   assert.equal(image.sizes, imageSizes.project);
 });
 
+await test('additional project images use compact sizing and preserve full-resolution candidates', () => {
+  const [image] = images(
+    '<article class="project project--compact"><div class="project-thumbnail"><img src="/dashboard-customization-user-testing/images/inline-drawer.png" alt="Dashboard study"></div></article>',
+    '/index.html',
+  );
+  assert.equal(image.sizes, imageSizes.additionalProject);
+  assert.equal(image.width, '1350');
+  assert.equal(image.height, '960');
+  assert.equal(image.loading, 'lazy');
+  assert.equal(
+    image.srcset,
+    getImageAttributes(
+      '/dashboard-customization-user-testing/images/inline-drawer.png',
+      imageSizes.additionalProject,
+    ).srcSet,
+  );
+});
+
 await test('animations retain their original URL and do not receive still-image candidates', () => {
   const [animation] = images('<img src="media/step-1-employee-selection.gif">');
   assert.equal(animation.src, 'media/step-1-employee-selection.gif');

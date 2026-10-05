@@ -11,8 +11,8 @@ const rows = {
     },
     {
       image: 'imgBallon2.png',
-      label: 'Explore my experiments',
-      text: 'See what I love to explore.',
+      label: 'Explore additional projects',
+      text: 'See more of my projects.',
       href: '#fun',
       color: 'blue',
     },

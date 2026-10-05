@@ -9,7 +9,7 @@ import { Artwork } from '@/components/shared/artwork';
 import { SiteFooter } from '@/components/shared/site-footer';
 import { SiteHeader } from '@/components/shared/site-header';
 import { homeContent } from '@/content/home';
-import { projects } from '@/content/projects';
+import { additionalProjects, featuredProjects } from '@/content/projects';
 
 export default function Home() {
   return (
@@ -73,39 +73,16 @@ export default function Home() {
         <section id="work" className="projects section-wide">
           <h2>Selected Projects</h2>
           <div className="project-list">
-            {projects.map((project) => (
+            {featuredProjects.map((project) => (
               <ProjectCard project={project} key={project.slug} />
             ))}
           </div>
         </section>
-        <section id="fun" className="experiments section-wide">
-          <h2>Fun experiments</h2>
-          <div className="experiment-grid">
-            {homeContent.experiments.map((experiment) => (
-              <article
-                key={experiment.title}
-                className="project experiment-card"
-              >
-                <div className="project-description">
-                  <h3>{experiment.title}</h3>
-                  <p>{experiment.summary}</p>
-                  <a className="project-action" href={experiment.href}>
-                    <span>Explore</span>
-                    <span aria-hidden="true">→</span>
-                  </a>
-                </div>
-                <div className="project-thumbnail experiment-thumbnail">
-                  <ResponsiveImage
-                    className="project-image"
-                    src={experiment.thumbnail}
-                    alt={experiment.thumbnailAlt}
-                    width={1512}
-                    height={982}
-                    loading="lazy"
-                    sizes={imageSizes.project}
-                  />
-                </div>
-              </article>
+        <section id="fun" className="additional-projects section-wide">
+          <h2>Additional project</h2>
+          <div className="project-list">
+            {additionalProjects.map((project) => (
+              <ProjectCard project={project} compact key={project.slug} />
             ))}
           </div>
         </section>

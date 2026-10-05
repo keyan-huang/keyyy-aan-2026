@@ -26,10 +26,13 @@ separate owners.
 
 Each new project should receive one metadata file in `content/projects/` and a
 self-contained folder in `public/<project-slug>/`. Add the metadata export to
-`content/projects/index.ts`; the homepage project list will render it.
+`featuredProjects` or `additionalProjects` in `content/projects/index.ts`;
+the corresponding homepage list will render it.
 All homepage project cards place the title, introduction, and action in a left
-text column beside the thumbnail on the right. Both columns stretch to equal
-heights, with the action aligned to the bottom-left of the text column.
+text column beside the thumbnail on the right. The text and action form a compact
+group centered vertically beside the image. Featured cards use a 340px-high
+thumbnail area on desktop, with 40px card padding. The title-to-description gap is 16px, and Explore sits 24px
+below the description rather than being pushed to the bottom of the image.
 Explore buttons fit their content without a minimum width, use an 8px label-to-arrow
 gap and equal horizontal padding, and retain a minimum 44px touch target.
 At 760px and below, the text and action stack above the image. The shared layout
@@ -72,22 +75,31 @@ the tooltip copy and quote attributions. Tooltips use a white interior, black
 text, and a colored outline and pointer. `app/home.css` gives them 28px vertical
 padding and 24px between a quote and its attribution.
 
-Fun experiments appears between Selected Projects and About Keyan in both
-`app/page.tsx` and `static/index.html`. Its metadata lives in
-`content/home.ts`; keep the static card synchronized. The Experiments navigation
-entry and balloon link point to `#fun`.
+Selected Projects features the Performance Discussion Form and PAF redesign.
+The smaller "Additional project" section appears before About Keyan and contains
+Dashboard Customization Testing Study and EggV, in that order. Keep both lists
+synchronized in `app/page.tsx` and `static/index.html`; their metadata lives in
+`content/projects/`. The Additional navigation entry and balloon still point
+to `#fun` so previously shared anchors continue to work.
+
+Additional cards use `ProjectCard` with `compact` enabled: 24px padding,
+24px titles, 16px summaries, and 180px-high thumbnail areas with images capped
+at 280px wide. The section heading is 32px on desktop and 24px on mobile,
+smaller than Selected Projects. On mobile, compact titles reduce to 22px and
+thumbnail areas to 140px high. Keep `imageSizes.additionalProject` synchronized
+with the compact image sizing; full-resolution originals remain unchanged.
 
 The EggV experiment lives in `public/eggv/index.html` with its own
 `case-study.css` and the shared site shell. Its copy preserves the Figma summary
-with light grammar edits. The homepage experiment reuses the Selected Projects
-card layout, outline, typography, and blue pill action. Its centered thumbnail
+with light grammar edits. Its homepage card uses the shared compact card layout,
+outline, and blue pill action. Its centered thumbnail
 is the original transparent 1512 x 982 PNG exported from the
 [EggV Figma cover](https://www.figma.com/design/sGwKpM4WzoCiPoDukfOqS0/EggV?node-id=3815-175),
-stored in `public/eggv/thumbnail.png`. The thumbnail uses its original aspect
-ratio, stretches with the neighboring text column, and fits without cropping. Both
+stored in `public/eggv/thumbnail.png`. It fits the compact thumbnail area
+without cropping or distorting the artwork. Both
 homepages use the shared responsive-image pipeline. All homepage card actions
-are labeled "Explore"; the experiment action is smaller while retaining a
-44px touch target.
+are labeled "Explore" and use identical typography, padding, and minimum 44px
+touch targets. All React cards use `ProjectCard` and its shared action.
 The detail page uses `public/eggv/images/` for the event photos, product screens,
 and Toyota award/headquarters photos. The Figma export names map to:
 

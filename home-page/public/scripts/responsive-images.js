@@ -15,7 +15,8 @@ export const imageSizes = {
     '(max-width: 700px) 160px, (max-width: 1199px) min(310.2px, calc(30vw - 24px)), 344px',
   footer: '(max-width: 700px) 310px, 460px',
   project:
-    '(max-width: 700px) calc(100vw - 98px), (max-width: 760px) calc(100vw - 130px), (max-width: 1199px) calc(55.556vw - 90px), min(642px, calc(55.556vw - 158.889px))',
+    '(max-width: 700px) calc(100vw - 98px), (max-width: 760px) calc(100vw - 130px), (max-width: 1199px) calc(55.556vw - 90px), min(649px, calc(55.556vw - 152.222px))',
+  additionalProject: '(max-width: 700px) min(280px, calc(100vw - 98px)), 280px',
   portrait: '(max-width: 760px) calc(100vw - 48px), 420px',
   gallery: '(max-width: 700px) 85vw, 520px',
   related: '(max-width: 720px) calc(100vw - 48px), 544px',

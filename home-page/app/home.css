@@ -282,25 +282,15 @@ h2 {
   width: calc(100% - 152px);
   margin: 144px auto 0;
 }
-.experiment-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 36px;
-  margin-top: 56px;
+.additional-projects {
+  margin-top: 80px;
 }
-.project.experiment-card {
-  min-height: 340px;
+.additional-projects > h2 {
+  margin-bottom: 28px;
+  font-size: 32px;
 }
-.experiment-card .experiment-thumbnail {
-  aspect-ratio: 1512 / 982;
-  padding: 0;
-  border: 0;
-  border-radius: 0;
-  background: transparent;
-}
-.experiment-card .project-action {
-  padding: 10px 16px;
-  font-size: 14px;
+.additional-projects .project-list {
+  gap: 24px;
 }
 .about {
   max-width: 1221px;
@@ -716,8 +706,12 @@ h2 {
     grid-template-columns: 1fr 1fr;
     gap: 14px;
   }
-  .experiment-grid {
-    margin-top: 32px;
+  .additional-projects {
+    margin-top: 56px;
+  }
+  .additional-projects > h2 {
+    margin-bottom: 24px;
+    font-size: 24px;
   }
   .about > h2 {
     margin-bottom: 40px;

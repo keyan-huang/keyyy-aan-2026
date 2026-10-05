@@ -62,7 +62,7 @@ await test('landing-page hero preserves its three lines and existing emphasis', 
   assert.equal(byClass(hero, 'binoculars').length, 1);
 });
 
-await test('Fun experiments is visible between selected work and about, with a working EggV link', () => {
+await test('Additional project replaces experiments and groups the Dashboard study with EggV', () => {
   const sections = findAll(homepage, (node) => node.tagName === 'section');
   const index = sections.findIndex((node) => attr(node, 'id') === 'fun');
   assert.ok(index > 0);
@@ -70,22 +70,44 @@ await test('Fun experiments is visible between selected work and about, with a w
   assert.equal(attr(sections[index - 1], 'id'), 'work');
   assert.equal(attr(sections[index + 1], 'id'), 'me');
   assert.equal(attr(fun, 'hidden'), undefined);
-  assert.match(text(fun), /Fun experiments/);
-  assert.equal(byClass(fun, 'experiment-card').length, 1);
+  assert.equal(attr(fun, 'class'), 'additional-projects section-wide');
+  assert.equal(
+    text(findAll(fun, (node) => node.tagName === 'h2')[0]),
+    'Additional project',
+  );
+  assert.equal(byClass(fun, 'project--compact').length, 2);
   const links = findAll(fun, (node) => node.tagName === 'a');
-  assert.equal(links.length, 1);
-  assert.equal(attr(links[0], 'href'), '/eggv/index.html');
+  assert.deepEqual(
+    links.map((link) => attr(link, 'href')),
+    ['/dashboard-customization-user-testing/index.html', '/eggv/index.html'],
+  );
+  const featured = byClass(sections[index - 1], 'project');
+  assert.equal(featured.length, 2);
+  assert.deepEqual(
+    featured.map((card) => attr(byClass(card, 'project-action')[0], 'href')),
+    ['/performance-discussion-form/index.html', '/paf-redesign/index.html'],
+  );
+  assert.equal(byClass(sections[index - 1], 'project--compact').length, 0);
+  assert.doesNotMatch(text(homepage), /Fun experiments|Design Experiments/);
   assert.doesNotMatch(text(fun), /Second place/);
   assert.equal(byClass(fun, 'experiment-meta').length, 0);
   assert.doesNotMatch(text(fun), /24-hour hackathon/);
 });
 
-await test('shared and static homepage navigation expose experiments', () => {
-  assert.ok(site.navigation.some((item) => item.section === 'fun'));
-  const [navigation] = findAll(homepage, (node) => node.tagName === 'nav');
-  assert.ok(
-    findAll(navigation, (node) => attr(node, 'href') === '#fun').length,
+await test('shared and static navigation expose additional projects using the existing anchor', () => {
+  assert.deepEqual(
+    site.navigation.find((item) => item.section === 'fun'),
+    {
+      label: 'Additional',
+      section: 'fun',
+    },
   );
+  const [navigation] = findAll(homepage, (node) => node.tagName === 'nav');
+  const [additionalLink] = findAll(
+    navigation,
+    (node) => attr(node, 'href') === '#fun',
+  );
+  assert.equal(text(additionalLink), 'Additional');
 });
 
 await test('all homepage project actions sit with the introduction before the thumbnail', () => {
@@ -93,8 +115,8 @@ await test('all homepage project actions sit with the introduction before the th
   assert.equal(cards.length, 4);
   const destinations = [
     '/performance-discussion-form/index.html',
-    '/dashboard-customization-user-testing/index.html',
     '/paf-redesign/index.html',
+    '/dashboard-customization-user-testing/index.html',
     '/eggv/index.html',
   ];
   cards.forEach((card, index) => {
@@ -152,8 +174,11 @@ await test('PAF titles keep End-to-End together across homepage and case studies
   }
 });
 
-await test('experiment card uses the selected-project layout and requested title and action', () => {
-  const [card] = byClass(homepage, 'experiment-card');
+await test('EggV uses the compact shared layout and requested title and action', () => {
+  const card = byClass(homepage, 'project--compact').find(
+    (node) =>
+      attr(byClass(node, 'project-action')[0], 'href') === '/eggv/index.html',
+  );
   assert.ok(attr(card, 'class').split(' ').includes('project'));
   const [description] = byClass(card, 'project-description');
   const [summary] = findAll(description, (node) => node.tagName === 'p');
@@ -173,7 +198,7 @@ await test('experiment card uses the selected-project layout and requested title
   );
   const [thumbnail] = byClass(card, 'project-thumbnail');
   assert.ok(
-    attr(thumbnail, 'class').split(' ').includes('experiment-thumbnail'),
+    attr(thumbnail, 'class').split(' ').includes('project-thumbnail-eggv'),
   );
   const images = findAll(thumbnail, (node) => node.tagName === 'img');
   assert.equal(images.length, 1);

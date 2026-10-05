@@ -31,9 +31,15 @@ function ProjectAction({
   );
 }
 
-export function ProjectCard({ project }: { project: ProjectSummary }) {
+export function ProjectCard({
+  project,
+  compact = false,
+}: {
+  project: ProjectSummary;
+  compact?: boolean;
+}) {
   return (
-    <article className="project">
+    <article className={`project${compact ? ' project--compact' : ''}`}>
       <div className="project-description">
         <h3>
           {project.titleLines ? (
@@ -53,11 +59,9 @@ export function ProjectCard({ project }: { project: ProjectSummary }) {
         <ResponsiveImage
           className="project-image"
           src={project.thumbnail}
-          alt={`${project.title} interface preview`}
-          width={1000}
-          height={750}
+          alt={project.thumbnailAlt ?? `${project.title} interface preview`}
           loading="lazy"
-          sizes={imageSizes.project}
+          sizes={compact ? imageSizes.additionalProject : imageSizes.project}
         />
       </div>
     </article>

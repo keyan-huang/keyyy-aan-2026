@@ -20,17 +20,6 @@ export const homeContent = {
     summary:
       'I’m a curious product designer who untangles messy, ambiguous problems to uncover what’s really happening beneath the surface. I connect the dots and turn complexity into intuitive, engaging experiences that feel deeply human.',
   },
-  experiments: [
-    {
-      title: 'Hackathon Toyota Challenge Winner - EggV',
-      href: '/eggv/index.html',
-      thumbnail: '/eggv/thumbnail.png',
-      thumbnailAlt:
-        'EggV artwork with a green dinosaur, leaf, Toyota logo, and colorful circles',
-      summary:
-        'Designed and delivered within 24 hours to empower EV owners with energy insights and gamified motivation.',
-    },
-  ],
   about: {
     portrait: '/images/about-keyan-portrait.png',
     portraitAlt:
