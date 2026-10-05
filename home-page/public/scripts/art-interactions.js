@@ -35,28 +35,28 @@ const rows = {
       image: 'imgApron1.png',
       label: 'Teamwork quote',
       text: 'Keyan is such a team player. We could not have completed this project without her dedication and effort.',
-      source: 'Previous teammate',
+      source: 'Previous teammate - Paycom',
       color: 'orange',
     },
     {
       image: 'imgBike1.png',
       label: 'Systems thinking quote',
       text: 'I trusted Keyan with our most complex systems projects. Her systematic thinking gave me confidence that she would see them through.',
-      source: 'Team manager',
+      source: 'Team manager - Paycom',
       color: 'green',
     },
     {
       image: 'imgWaterpot2.png',
       label: 'Creativity quote',
       text: 'Keyan brings such a fun, creative spirit. I am always impressed by what she makes with her hands: a talented artist and designer.',
-      source: 'College professor',
+      source: 'College professor - University of Texas at Austin',
       color: 'pink',
     },
     {
       image: 'imgShovel1.png',
       label: 'Research quote',
       text: 'Keyan asks the right questions at the right moments. Her research helped us move this project forward and bring it to completion.',
-      source: 'Product manager',
+      source: 'Client',
       color: 'purple',
     },
   ],
@@ -114,7 +114,7 @@ export function mountArtRow(container, kind) {
     bubble.replaceChildren(text);
     if (entry.source) {
       const source = document.createElement('small');
-      source.textContent = `${entry.source} / Draft placeholder quote`;
+      source.textContent = entry.source;
       bubble.append(source);
     }
     bubble.hidden = false;

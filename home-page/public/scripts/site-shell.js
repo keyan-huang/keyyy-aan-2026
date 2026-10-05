@@ -56,7 +56,7 @@
       const isHeroImage =
         image.closest('.hero') ||
         imageFrame?.parentElement?.matches('.case-study');
-      if (isHeroImage) return;
+      if (isHeroImage || image.closest('a')) return;
 
       let host = image.closest('.image-frame, .case-media');
       if (!host) {

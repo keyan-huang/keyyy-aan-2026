@@ -11,7 +11,7 @@ function ProjectAction({
 }: Pick<ProjectSummary, 'href' | 'status'>) {
   const content = (
     <>
-      <span>View details</span>
+      <span>Explore</span>
       <ArrowRight aria-hidden="true" size={22} strokeWidth={2} />
     </>
   );
@@ -47,6 +47,7 @@ export function ProjectCard({ project }: { project: ProjectSummary }) {
           )}
         </h3>
         <p>{project.description}</p>
+        <ProjectAction href={project.href} status={project.status} />
       </div>
       <div className={`project-thumbnail project-thumbnail-${project.slug}`}>
         <ResponsiveImage
@@ -59,7 +60,6 @@ export function ProjectCard({ project }: { project: ProjectSummary }) {
           sizes={imageSizes.project}
         />
       </div>
-      <ProjectAction href={project.href} status={project.status} />
     </article>
   );
 }

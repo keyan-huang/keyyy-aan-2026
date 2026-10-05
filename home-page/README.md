@@ -27,30 +27,104 @@ separate owners.
 Each new project should receive one metadata file in `content/projects/` and a
 self-contained folder in `public/<project-slug>/`. Add the metadata export to
 `content/projects/index.ts`; the homepage project list will render it.
-All project cards use a full-width title above their content and a bottom-right
-action with equal edge insets. Their shared layout lives in
-`components/home/project-card.css`; titles wrap naturally on small screens.
+All homepage project cards place the title, introduction, and action in a left
+text column beside the thumbnail on the right. Both columns stretch to equal
+heights, with the action aligned to the bottom-left of the text column.
+Explore buttons fit their content without a minimum width, use an 8px label-to-arrow
+gap and equal horizontal padding, and retain a minimum 44px touch target.
+At 760px and below, the text and action stack above the image. The shared layout
+lives in `components/home/project-card.css`; images fit without cropping and
+titles wrap naturally on small screens. The Dashboard study retains its 90%
+image-width inset. Keep `imageSizes.project` in `public/scripts/responsive-images.js`
+in sync with these column widths.
 Optional `titleLines` sets an intentional two-line homepage title without changing
 image sizing. Mirror these line breaks in `static/index.html` and the case studies'
 "More projects" cards.
 The PAF project is titled "Re-architecting the End-to-End Personal Action Workflow",
 with a break before "Personal Action Workflow" in cards and its case-study heading.
+Keep "End-to-End" together using non-breaking hyphens (`\u2011` in TypeScript,
+`&#8209;` in HTML) in the homepage, case-study heading, and related-project cards.
+The whole phrase can move to the next line, but never breaks at either hyphen.
 
 The React homepage lives in `app/page.tsx`; GitHub Pages publishes
 `static/index.html`. Keep their markup and content synchronized. Both use the
 same homepage, component, and shared-shell styles.
-The introduction's `headingEmphasis` selects words rendered in the original
-hero-title style: Bricolage Grotesque Semibold, 64px on large screens and responsive
-on smaller screens. The rest of the headline uses DM Sans Light at 32px on large
-screens, 28px on tablets, and 18px on mobile. The availability line uses DM Sans
-Regular at 30px, with its own fluid mobile sizing. Mirror the emphasis spans in
-the static homepage.
+The introduction's `headingEmphasis` selects words in Bricolage Grotesque
+Semibold; supporting words use DM Sans Light and the availability line uses
+DM Sans Regular. Shared `.hero` sizing variables in `app/home.css` define three
+responsive ranges:
 
-Design Experiments is temporarily hidden in both `app/page.tsx` and
-`static/index.html`; its content and styles are retained. To restore it, remove
-`hidden` from both `#fun` sections and restore the Experiments navigation entry
-in `public/content/site.json` and the static homepage header. The balloon stays
-decorative while its destination is hidden and becomes a link again when restored.
+| Viewport                  | Emphasized words | Supporting words | Availability   |
+| ------------------------- | ---------------- | ---------------- | -------------- |
+| Desktop: 1200px and above | 64px             | 32px             | 30px           |
+| Tablet: 701–1199px        | 40–48px, fluid   | 22–24px, fluid   | 24px           |
+| Mobile: 700px and below   | 28–36px, fluid   | 18–20px, fluid   | 18–20px, fluid |
+
+Desktop and tablet keep the illustration beside the right-aligned title.
+Mobile centers the full-width title and places the 160px illustration below it,
+preserving the three authored headline lines even at 320px. The introduction
+uses the same 40px tablet and 24px mobile gutters as the wider sections. Mirror
+the emphasis spans in the static homepage, and keep `imageSizes.binoculars` in
+`public/scripts/responsive-images.js` synchronized with the illustration layout.
+
+Both interactive art rows share `public/scripts/art-interactions.js`, which owns
+the tooltip copy and quote attributions. Tooltips use a white interior, black
+text, and a colored outline and pointer. `app/home.css` gives them 28px vertical
+padding and 24px between a quote and its attribution.
+
+Fun experiments appears between Selected Projects and About Keyan in both
+`app/page.tsx` and `static/index.html`. Its metadata lives in
+`content/home.ts`; keep the static card synchronized. The Experiments navigation
+entry and balloon link point to `#fun`.
+
+The EggV experiment lives in `public/eggv/index.html` with its own
+`case-study.css` and the shared site shell. Its copy preserves the Figma summary
+with light grammar edits. The homepage experiment reuses the Selected Projects
+card layout, outline, typography, and blue pill action. Its centered thumbnail
+is the original transparent 1512 x 982 PNG exported from the
+[EggV Figma cover](https://www.figma.com/design/sGwKpM4WzoCiPoDukfOqS0/EggV?node-id=3815-175),
+stored in `public/eggv/thumbnail.png`. The thumbnail uses its original aspect
+ratio, stretches with the neighboring text column, and fits without cropping. Both
+homepages use the shared responsive-image pipeline. All homepage card actions
+are labeled "Explore"; the experiment action is smaller while retaining a
+44px touch target.
+The detail page uses `public/eggv/images/` for the event photos, product screens,
+and Toyota award/headquarters photos. The Figma export names map to:
+
+| Figma layer      | Website image                  |
+| ---------------- | ------------------------------ |
+| `IMG_6789 1`     | `hackathon-event.png`          |
+| `image 1`        | `hackathon-team.png`           |
+| `Map`            | `charging-map.png`             |
+| `maintnance`     | `maintenance.png`              |
+| `technical page` | `technical-details.png`        |
+| `Advise`         | `vehicle-advice.png`           |
+| `IMG_6809 1`     | `toyota-challenge-award.png`   |
+| `image 3`        | `toyota-headquarters-team.png` |
+| `IMG_1031 1`     | `toyota-hackathon.png`         |
+
+Inspiration and What it does sit side by side, followed by the demo, compact
+annotated product screens, and the Toyota invitation story. Photos and product
+screens use the shared full-screen image viewer.
+The closing, full-width university news card uses the supplied UT Dallas logo
+in `public/eggv/images/ut-dallas-logo.png` and the source article's exact title,
+without a publication date. It stays one compact horizontal row on desktop and
+phones. Linked images are excluded
+from the image viewer so clicking the logo opens the article, not a lightbox.
+
+The GIF follows Figma's `demo` flow: `eggv 7` (3808:234), `eggv 5` (3808:59),
+then `eggv 6` (3808:142). Native frame exports live in
+`design-options/assets/eggv-demo/`; the animation contains no cursor or click
+indicators. With FFmpeg available on `PATH`, run
+`node scripts/build-eggv-demo.mjs` to regenerate `public/eggv/media/eggv-demo.gif`,
+its matching H.264 MP4, and the still poster. Each screen holds for 1.5 seconds,
+with short crossfades and a white fade in/out. The page plays the MP4 so that
+Pause/Resume freezes the current frame and continues at the same timestamp.
+`public/eggv/demo.js` connects both the animation surface and the right-hand
+button to playback; reduced-motion users start paused. Native video controls
+remain available without JavaScript. Clicking other project images still opens
+the full-screen image viewer; clicking the demo now toggles playback instead.
+Run `pnpm images:prepare` after changing any media.
 
 The static Performance Discussion Form case study loads the same site settings
 and shell styles as the React homepage through `public/scripts/site-shell.js`.

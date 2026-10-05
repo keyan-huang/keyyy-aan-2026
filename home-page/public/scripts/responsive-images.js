@@ -11,10 +11,11 @@ const images = manifest;
 export const imageSizes = {
   logo: '44px',
   illustration: '(max-width: 700px) 22vw, 250px',
-  binoculars: '(max-width: 700px) 180px, 344px',
+  binoculars:
+    '(max-width: 700px) 160px, (max-width: 1199px) min(310.2px, calc(30vw - 24px)), 344px',
   footer: '(max-width: 700px) 310px, 460px',
   project:
-    '(max-width: 760px) calc(100vw - 98px), (max-width: 1199px) 42vw, 550px',
+    '(max-width: 700px) calc(100vw - 98px), (max-width: 760px) calc(100vw - 130px), (max-width: 1199px) calc(55.556vw - 90px), min(642px, calc(55.556vw - 158.889px))',
   portrait: '(max-width: 760px) calc(100vw - 48px), 420px',
   gallery: '(max-width: 700px) 85vw, 520px',
   related: '(max-width: 720px) calc(100vw - 48px), 544px',

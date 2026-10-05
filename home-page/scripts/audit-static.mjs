@@ -104,7 +104,7 @@ for (const file of files) {
   if (extension === '.html') {
     references.push(
       ...source
-        .matchAll(/\b(?:href|src)=["']([^"']+)["']/gi)
+        .matchAll(/\b(?:href|src|poster)=["']([^"']+)["']/gi)
         .map((match) => match[1]),
     );
     for (const match of source.matchAll(/\bsrcset=["']([^"']+)["']/gi)) {

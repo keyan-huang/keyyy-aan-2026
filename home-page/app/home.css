@@ -2,10 +2,6 @@ html {
   scroll-behavior: auto;
 }
 
-.experiments[hidden] {
-  display: none;
-}
-
 body {
   overflow-x: clip;
 }
@@ -28,22 +24,27 @@ p {
   transform: scaleX(-1);
 }
 .intro {
+  width: calc(100% - 80px);
   max-width: 1034px;
   margin: 113px auto 0;
 }
 .hero {
+  --hero-emphasis-size: 64px;
+  --hero-supporting-size: 32px;
+  --hero-availability-size: 30px;
   display: grid;
-  grid-template-columns: minmax(0, 685px) 344px;
+  grid-template-columns: minmax(0, 1fr) 344px;
   gap: 48px;
   align-items: center;
 }
 .hero > div {
+  min-width: 0;
+  width: 100%;
   text-align: right;
 }
 .hero h1 {
-  --hero-emphasis-size: 64px;
   font-family: var(--font-body);
-  font-size: 32px;
+  font-size: var(--hero-supporting-size);
   font-weight: 300;
   line-height: 1.1;
   letter-spacing: -1.5px;
@@ -98,7 +99,7 @@ p {
   align-items: center;
   justify-content: flex-end;
   gap: 12px;
-  font-size: 30px;
+  font-size: var(--hero-availability-size);
   font-weight: 400;
   color: #7aa150;
   margin-top: 24px;
@@ -177,11 +178,11 @@ p {
   z-index: 55;
   width: max-content;
   max-width: min(340px, calc(100vw - 32px));
-  padding: 16px 22px;
-  border: 3px solid color-mix(in srgb, var(--bubble-color), #000 20%);
+  padding: 28px 24px;
+  border: 3px solid var(--bubble-color);
   border-radius: var(--radius-interactive);
-  background: var(--bubble-color);
-  color: #fff;
+  background: #fff;
+  color: #000;
   font-family: var(--font-body);
   font-size: 18px;
   line-height: 1.45;
@@ -194,9 +195,9 @@ p {
   left: var(--pointer-left, 24px);
   width: 17px;
   height: 17px;
-  background: var(--bubble-color);
-  border-right: 3px solid color-mix(in srgb, var(--bubble-color), #000 20%);
-  border-bottom: 3px solid color-mix(in srgb, var(--bubble-color), #000 20%);
+  background: #fff;
+  border-right: 3px solid var(--bubble-color);
+  border-bottom: 3px solid var(--bubble-color);
   bottom: -12px;
   transform: rotate(45deg);
 }
@@ -210,7 +211,7 @@ p {
 }
 .art-bubble small {
   display: block;
-  margin-top: 12px;
+  margin-top: 24px;
   font-size: 13px;
   line-height: 1.4;
 }
@@ -231,12 +232,6 @@ p {
     transition: none;
   }
   .art-trigger.art-active .art {
-    transform: none;
-  }
-  .experiment-thumbnail {
-    transition: none;
-  }
-  .experiment-card:hover .experiment-thumbnail {
     transform: none;
   }
   .availability-dot {
@@ -289,32 +284,23 @@ h2 {
 }
 .experiment-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 48px 36px;
+  grid-template-columns: 1fr;
+  gap: 36px;
   margin-top: 56px;
 }
-.experiment-thumbnail {
-  display: grid;
-  aspect-ratio: 4 / 3;
-  overflow: hidden;
-  place-items: center;
-  border: 1px solid rgb(17 24 39 / 18%);
-  border-radius: var(--radius-interactive);
-  background: linear-gradient(135deg, #d9e7df 0%, #dfe4ee 48%, #eee3e8 100%);
-  box-shadow: var(--shadow-interactive);
+.project.experiment-card {
+  min-height: 340px;
 }
-.experiment-card:nth-child(2) .experiment-thumbnail {
-  background: linear-gradient(135deg, #e8e0d3 0%, #dce8eb 50%, #dddce8 100%);
+.experiment-card .experiment-thumbnail {
+  aspect-ratio: 1512 / 982;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
 }
-.experiment-card:nth-child(3) .experiment-thumbnail {
-  background: linear-gradient(135deg, #dce7ed 0%, #e9e1dc 52%, #dce6d8 100%);
-}
-.experiment-thumbnail span {
-  color: #41474d;
-  font-family: var(--font-detail);
-  font-size: 15px;
-  font-weight: 600;
-  line-height: 1.4;
+.experiment-card .project-action {
+  padding: 10px 16px;
+  font-size: 14px;
 }
 .about {
   max-width: 1221px;
@@ -635,16 +621,11 @@ h2 {
   --footer-spacing: max(0px, calc(100svh - 770px));
   --footer-spacing-mobile: max(0px, calc(100svh - 580px));
 }
-@media (min-width: 1600px) {
-  .hero {
-    grid-template-columns: 685px 344px;
-  }
-}
 @media (max-width: 1199px) {
-  .intro {
-    width: calc(100% - 100px);
-  }
   .hero {
+    --hero-emphasis-size: clamp(40px, 4.5vw, 48px);
+    --hero-supporting-size: clamp(22px, 2.5vw, 24px);
+    --hero-availability-size: 24px;
     grid-template-columns: minmax(0, 1fr) 30%;
     gap: 32px;
   }
@@ -652,10 +633,6 @@ h2 {
     width: 100%;
     height: auto;
     aspect-ratio: 1;
-  }
-  .hero h1 {
-    --hero-emphasis-size: clamp(40px, 4.45vw, 64px);
-    font-size: 28px;
   }
   .art-row {
     gap: 30px;
@@ -678,16 +655,25 @@ h2 {
     margin-top: 65px;
   }
   .hero {
-    grid-template-columns: minmax(0, 1fr) 27%;
-    gap: 8px;
+    --hero-emphasis-size: clamp(28px, 8vw, 36px);
+    --hero-supporting-size: clamp(18px, 4.6vw, 20px);
+    --hero-availability-size: var(--hero-supporting-size);
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 24px;
+  }
+  .hero > div {
+    text-align: center;
   }
   .hero h1 {
-    --hero-emphasis-size: clamp(25px, 5.6vw, 40px);
-    font-size: 18px;
-    letter-spacing: -0.8px;
+    letter-spacing: -0.5px;
+  }
+  .binoculars {
+    width: 160px;
+    height: 160px;
   }
   .availability {
-    font-size: calc(clamp(23px, 5.6vw, 40px) - 2px);
+    justify-content: center;
     margin-top: 16px;
   }
   .first-row {
@@ -731,9 +717,7 @@ h2 {
     gap: 14px;
   }
   .experiment-grid {
-    margin-top: 48px;
-    grid-template-columns: 1fr;
-    gap: 36px 18px;
+    margin-top: 32px;
   }
   .about > h2 {
     margin-bottom: 40px;

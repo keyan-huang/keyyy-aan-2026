@@ -78,16 +78,32 @@ export default function Home() {
             ))}
           </div>
         </section>
-        <section id="fun" className="experiments section-wide" hidden>
-          <h2>Design Experiments</h2>
-          <div
-            className="experiment-grid"
-            aria-label="Three upcoming design experiments"
-          >
+        <section id="fun" className="experiments section-wide">
+          <h2>Fun experiments</h2>
+          <div className="experiment-grid">
             {homeContent.experiments.map((experiment) => (
-              <article key={experiment.title} className="experiment-card">
-                <div className="experiment-thumbnail">
-                  <span>Coming soon</span>
+              <article
+                key={experiment.title}
+                className="project experiment-card"
+              >
+                <div className="project-description">
+                  <h3>{experiment.title}</h3>
+                  <p>{experiment.summary}</p>
+                  <a className="project-action" href={experiment.href}>
+                    <span>Explore</span>
+                    <span aria-hidden="true">→</span>
+                  </a>
+                </div>
+                <div className="project-thumbnail experiment-thumbnail">
+                  <ResponsiveImage
+                    className="project-image"
+                    src={experiment.thumbnail}
+                    alt={experiment.thumbnailAlt}
+                    width={1512}
+                    height={982}
+                    loading="lazy"
+                    sizes={imageSizes.project}
+                  />
                 </div>
               </article>
             ))}

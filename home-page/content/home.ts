@@ -22,13 +22,13 @@ export const homeContent = {
   },
   experiments: [
     {
-      title: 'Prompt Garden',
-    },
-    {
-      title: 'Moodboard Copilot',
-    },
-    {
-      title: 'Research Agent',
+      title: 'Hackathon Toyota Challenge Winner - EggV',
+      href: '/eggv/index.html',
+      thumbnail: '/eggv/thumbnail.png',
+      thumbnailAlt:
+        'EggV artwork with a green dinosaur, leaf, Toyota logo, and colorful circles',
+      summary:
+        'Designed and delivered within 24 hours to empower EV owners with energy insights and gamified motivation.',
     },
   ],
   about: {
