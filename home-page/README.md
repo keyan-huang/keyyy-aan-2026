@@ -79,8 +79,9 @@ Selected Projects features the Performance Discussion Form and PAF redesign.
 The smaller "Additional project" section appears before About Keyan and contains
 Dashboard Customization Testing Study and EggV, in that order. Keep both lists
 synchronized in `app/page.tsx` and `static/index.html`; their metadata lives in
-`content/projects/`. The Additional navigation entry and balloon still point
-to `#fun` so previously shared anchors continue to work.
+`content/projects/`. The top navigation contains Work, About, and Contact.
+The balloon still points to `#fun`, preserving access to the additional projects
+and previously shared anchors.
 
 Additional cards use `ProjectCard` with `compact` enabled: 24px padding,
 24px titles, 16px summaries, and 180px-high thumbnail areas with images capped

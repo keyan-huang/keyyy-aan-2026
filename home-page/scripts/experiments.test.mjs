@@ -94,20 +94,20 @@ await test('Additional project replaces experiments and groups the Dashboard stu
   assert.doesNotMatch(text(fun), /24-hour hackathon/);
 });
 
-await test('shared and static navigation expose additional projects using the existing anchor', () => {
-  assert.deepEqual(
-    site.navigation.find((item) => item.section === 'fun'),
-    {
-      label: 'Additional',
-      section: 'fun',
-    },
-  );
+await test('shared and static navigation omit Additional without removing the project section', () => {
+  assert.deepEqual(site.navigation, [
+    { label: 'Work', section: 'work' },
+    { label: 'About', section: 'me' },
+  ]);
   const [navigation] = findAll(homepage, (node) => node.tagName === 'nav');
-  const [additionalLink] = findAll(
-    navigation,
-    (node) => attr(node, 'href') === '#fun',
+  assert.deepEqual(
+    findAll(navigation, (node) => node.tagName === 'a').map(text),
+    ['Work', 'About'],
   );
-  assert.equal(text(additionalLink), 'Additional');
+  assert.equal(
+    findAll(homepage, (node) => attr(node, 'id') === 'fun').length,
+    1,
+  );
 });
 
 await test('all homepage project actions sit with the introduction before the thumbnail', () => {

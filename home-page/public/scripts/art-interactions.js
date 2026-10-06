@@ -56,7 +56,7 @@ const rows = {
       image: 'imgShovel1.png',
       label: 'Research quote',
       text: 'Keyan asks the right questions at the right moments. Her research helped us move this project forward and bring it to completion.',
-      source: 'Client',
+      source: 'Independent project client',
       color: 'purple',
     },
   ],
