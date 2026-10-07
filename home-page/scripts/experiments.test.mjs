@@ -40,17 +40,21 @@ function byClass(node, name) {
 }
 
 await test('landing-page hero preserves its three lines and existing emphasis', () => {
-  const [hero] = byClass(homepage, 'hero');
+  const [hero] = byClass(homepage, 'hero-story');
   const headings = findAll(hero, (node) => node.tagName === 'h1');
   assert.equal(headings.length, 1);
   assert.deepEqual(
     byClass(headings[0], 'hero-line').map((line) =>
       text(line).replace(/\s+/g, ' ').trim(),
     ),
-    ['Keyan designs for', 'clarity and confidence', 'in complex experiences'],
+    [
+      'Keyan Huang designs for',
+      'clarity and confidence',
+      'in complex experiences',
+    ],
   );
   assert.deepEqual(byClass(headings[0], 'hero-emphasis').map(text), [
-    'Keyan',
+    'Keyan Huang',
     'clarity',
     'confidence',
     'complex',
@@ -59,10 +63,11 @@ await test('landing-page hero preserves its three lines and existing emphasis', 
     text(byClass(hero, 'availability')[0]).replace(/\s+/g, ' ').trim(),
     'Open to opportunities',
   );
-  assert.equal(byClass(hero, 'binoculars').length, 1);
+  assert.equal(byClass(hero, 'hero-story-art').length, 12);
+  assert.equal(byClass(hero, 'hero-story-summary').length, 1);
 });
 
-await test('Fun projects groups the Dashboard study, EggV, and Plastic Universe', () => {
+await test('Additional Projects groups the Dashboard study, EggV, and Plastic Universe', () => {
   const sections = findAll(homepage, (node) => node.tagName === 'section');
   const index = sections.findIndex((node) => attr(node, 'id') === 'fun');
   assert.ok(index > 0);
@@ -73,7 +78,7 @@ await test('Fun projects groups the Dashboard study, EggV, and Plastic Universe'
   assert.equal(attr(fun, 'class'), 'additional-projects section-wide');
   assert.equal(
     text(findAll(fun, (node) => node.tagName === 'h2')[0]),
-    'Fun projects',
+    'Additional Projects',
   );
   assert.equal(byClass(fun, 'project--compact').length, 3);
   const links = findAll(fun, (node) => node.tagName === 'a');
