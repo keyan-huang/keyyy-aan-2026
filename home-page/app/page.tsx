@@ -3,9 +3,8 @@ import './home.css';
 import { ResponsiveImage } from '@/components/shared/responsive-image';
 import { imageSizes } from '@/public/scripts/responsive-images.js';
 import { ProjectCard } from '@/components/home/project-card';
-import { InteractiveArtRow } from '@/components/home/interactive-art-row';
 import { HobbyGallery } from '@/components/home/hobby-gallery';
-import { Artwork } from '@/components/shared/artwork';
+import { ScrollHero } from '@/components/home/scroll-hero';
 import { SiteFooter } from '@/components/shared/site-footer';
 import { SiteHeader } from '@/components/shared/site-header';
 import { homeContent } from '@/content/home';
@@ -16,60 +15,7 @@ export default function Home() {
     <>
       <SiteHeader />
       <main id="top">
-        <section className="intro" aria-label="Introduction">
-          <div className="hero">
-            <div>
-              <h1>
-                {homeContent.introduction.heading
-                  .split('\n')
-                  .map((line, index, lines) => (
-                    <span
-                      className={
-                        index === lines.length - 1
-                          ? 'hero-line hero-line--idea'
-                          : 'hero-line'
-                      }
-                      key={line}
-                    >
-                      {line.split(/(\s+)/).map((part, partIndex) =>
-                        homeContent.introduction.headingEmphasis.some(
-                          (word) => word === part,
-                        ) ? (
-                          <span className="hero-emphasis" key={partIndex}>
-                            {part}
-                          </span>
-                        ) : (
-                          part
-                        ),
-                      )}
-                      {index === lines.length - 1 && (
-                        <span
-                          className="idea-strokes idea-strokes--right"
-                          aria-hidden="true"
-                        >
-                          <i />
-                          <i />
-                          <i />
-                        </span>
-                      )}
-                      {index < lines.length - 1 && <br />}
-                    </span>
-                  ))}
-              </h1>
-              <p className="availability">
-                <span className="availability-dot" aria-hidden="true" />
-                {homeContent.introduction.availability}
-              </p>
-            </div>
-            <Artwork
-              src={homeContent.introduction.illustration}
-              className="binoculars"
-            />
-          </div>
-          <InteractiveArtRow kind="navigation" />
-          <InteractiveArtRow kind="quotes" />
-          <p className="intro-copy">{homeContent.introduction.summary}</p>
-        </section>
+        <ScrollHero />
         <section id="work" className="projects section-wide">
           <h2>Selected Projects</h2>
           <div className="project-list">
@@ -79,7 +25,7 @@ export default function Home() {
           </div>
         </section>
         <section id="fun" className="additional-projects section-wide">
-          <h2>Fun projects</h2>
+          <h2>Additional Projects</h2>
           <div className="project-list">
             {additionalProjects.map((project) => (
               <ProjectCard project={project} compact key={project.slug} />

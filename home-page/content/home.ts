@@ -1,24 +1,11 @@
 export const homeContent = {
   introduction: {
     heading:
-      'Keyan designs for\nclarity and confidence\nin complex experiences',
-    headingEmphasis: ['Keyan', 'clarity', 'confidence', 'complex'],
+      'Keyan Huang designs for\nclarity and confidence\nin complex experiences',
+    headingEmphasis: ['Keyan Huang', 'clarity', 'confidence', 'complex'],
     availability: 'Open to opportunities',
-    illustration: '/images/imgBinoculars1.png',
-    firstArtRow: [
-      '/images/imgCursor1.png',
-      '/images/imgBallon2.png',
-      '/images/imgSunflower1.png',
-      '/images/imgGeoshape2.png',
-    ],
-    secondArtRow: [
-      '/images/imgApron1.png',
-      '/images/imgBike1.png',
-      '/images/imgWaterpot2.png',
-      '/images/imgShovel1.png',
-    ],
     summary:
-      'I’m a curious product designer who untangles messy, ambiguous problems to uncover what’s really happening beneath the surface. I connect the dots and turn complexity into intuitive, engaging experiences that feel deeply human.',
+      'I’m a curious product designer who untangles messy, ambiguous problems to uncover what’s really happening beneath the surface. I connect the dots and turn complexity into intuitive, engaging experiences that feel deeply\u00a0human.',
   },
   about: {
     portrait: '/images/about-keyan-portrait.png',

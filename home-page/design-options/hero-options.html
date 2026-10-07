@@ -1,0 +1,2779 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Hero layout options | Keyan Huang</title>
+    <link rel="icon" href="/images/imgImage81.png" />
+    <link rel="stylesheet" href="/styles/design-tokens.css" />
+    <link rel="stylesheet" href="/styles/site-shell.css" />
+    <link rel="stylesheet" href="/home.css" />
+    <style>
+      body {
+        background: #eef0f4;
+      }
+
+      .preview-intro,
+      .preview-main {
+        width: min(1400px, calc(100% - 48px));
+        margin-inline: auto;
+      }
+
+      .preview-intro {
+        padding: 40px 0 24px;
+      }
+
+      .preview-eyebrow {
+        margin-bottom: 10px;
+        color: var(--color-text-muted);
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+      }
+
+      .preview-intro h1 {
+        font: 500 36px/1.15 var(--font-display);
+        letter-spacing: -1px;
+      }
+
+      .preview-intro > p:last-child {
+        max-width: 720px;
+        margin-top: 12px;
+        color: var(--color-text-muted);
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .preview-toolbar {
+        position: sticky;
+        top: 0;
+        z-index: 70;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px 24px;
+        padding: 14px max(24px, calc((100vw - 1400px) / 2));
+        border-block: 1px solid #dce0e7;
+        background: rgb(238 240 244 / 97%);
+      }
+
+      .preview-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .preview-controls button {
+        min-height: 42px;
+        padding: 9px 14px;
+        border: 1px solid #d4d9e2;
+        border-radius: 8px;
+        background: #fff;
+        color: var(--color-text);
+        font: 500 14px/1.4 var(--font-body);
+        cursor: pointer;
+      }
+
+      .preview-controls button[aria-pressed='true'] {
+        border-color: var(--color-text);
+        background: var(--color-text);
+        color: #fff;
+      }
+
+      .preview-controls button:disabled {
+        cursor: wait;
+        opacity: 0.5;
+      }
+
+      .preview-status {
+        padding-block: 18px 0;
+        color: var(--color-text-muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .preview-status[data-error] {
+        color: #b42318;
+      }
+
+      .option {
+        margin-block: 34px 56px;
+        scroll-margin-top: 100px;
+      }
+
+      .option[hidden] {
+        display: none;
+      }
+
+      .option[data-retired] {
+        display: none;
+      }
+
+      .option-description {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 16px;
+      }
+
+      .option-description h2 {
+        font: 500 25px/1.2 var(--font-display);
+        letter-spacing: -0.5px;
+      }
+
+      .option-description p {
+        max-width: 590px;
+        margin-top: 8px;
+        color: var(--color-text-muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .recommendation {
+        flex-shrink: 0;
+        padding: 7px 12px;
+        border: 1px solid #cfdcc4;
+        border-radius: 999px;
+        background: #f5f8f1;
+        color: #456130;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .new-direction {
+        border-color: #c9d8ee;
+        background: #f1f6fd;
+        color: var(--color-primary);
+      }
+
+      .concept-canvas {
+        container-type: inline-size;
+        width: 100%;
+        overflow: clip;
+        border: 1px solid #dce0e7;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 10px 30px rgb(17 24 39 / 4%);
+      }
+
+      .preview-main[data-device='mobile'] .concept-canvas {
+        width: min(390px, 100%);
+        margin-inline: auto;
+      }
+
+      .concept-canvas .navigation {
+        position: static;
+        width: calc(100% - 80px);
+        max-width: 1120px;
+        min-height: 64px;
+        margin: 20px auto 0;
+        padding-left: 24px;
+      }
+
+      .concept-canvas .navigation nav {
+        font-size: 15px;
+        line-height: 24px;
+      }
+
+      .concept-canvas .navigation nav > a,
+      .concept-canvas .nav-contact {
+        padding: 18px 22px;
+      }
+
+      .concept-body {
+        width: calc(100% - 80px);
+        max-width: 1120px;
+        margin: 64px auto 0;
+      }
+
+      .concept-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.65fr) minmax(0, 0.85fr);
+        align-items: center;
+        gap: 48px;
+      }
+
+      .concept-copy {
+        min-width: 0;
+        max-width: 660px;
+      }
+
+      .status-line {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        margin-bottom: 20px;
+        color: var(--color-accent-green);
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.5;
+      }
+
+      .status-line::before {
+        content: '';
+        width: 7px;
+        height: 7px;
+        flex-shrink: 0;
+        border-radius: 50%;
+        background: currentColor;
+      }
+
+      .concept-title {
+        margin: 0;
+        font: 400 clamp(44px, 4.6cqw, 60px) / 1.08 var(--font-display);
+        letter-spacing: -0.035em;
+      }
+
+      .headline-line {
+        display: block;
+      }
+
+      .concept-title strong {
+        font-weight: 600;
+      }
+
+      .concept-summary {
+        max-width: 570px;
+        margin-top: 24px;
+        color: var(--color-text-muted);
+        font: 400 19px/1.65 var(--font-body);
+        text-wrap: pretty;
+      }
+
+      .main-art {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .editorial-art {
+        width: 100%;
+        max-width: 320px;
+        justify-self: center;
+      }
+
+      .mini-nav {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 16px;
+        width: min(440px, 100%);
+        margin-top: 36px;
+      }
+
+      .mini-nav-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 7px;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: var(--color-text-muted);
+        font: 500 11px/1.4 var(--font-body);
+        cursor: pointer;
+      }
+
+      .mini-nav-item img {
+        display: block;
+        width: 68px;
+        height: 68px;
+        object-fit: contain;
+      }
+
+      .art-link {
+        display: block;
+        border-radius: 12px;
+      }
+
+      .art-link img,
+      .mini-nav-item img {
+        transition: transform 180ms ease;
+      }
+
+      .art-link:hover img,
+      .mini-nav-item:hover img {
+        transform: translateY(-4px) rotate(-3deg);
+      }
+
+      .centered .concept-body {
+        margin-top: 56px;
+        text-align: center;
+      }
+
+      .centered .concept-copy {
+        max-width: 820px;
+        margin-inline: auto;
+      }
+
+      .centered .concept-title {
+        font-size: clamp(44px, 4.9cqw, 64px);
+      }
+
+      .centered .concept-summary {
+        max-width: 640px;
+        margin-inline: auto;
+        font-size: 18px;
+      }
+
+      .illustration-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 36px;
+        margin-top: 32px;
+      }
+
+      .illustration-row .art-link {
+        width: 112px;
+      }
+
+      .illustration-row > [data-art='binoculars'] {
+        width: 168px;
+      }
+
+      .illustration-row .art-link img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .scene .concept-layout {
+        grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+        gap: 40px;
+      }
+
+      .scene .concept-title {
+        font-size: clamp(42px, 4.3cqw, 56px);
+      }
+
+      .scene .concept-summary {
+        max-width: 540px;
+      }
+
+      .art-scene {
+        position: relative;
+        width: 100%;
+        max-width: 460px;
+        height: 380px;
+        justify-self: center;
+      }
+
+      .scene-binoculars {
+        position: absolute;
+        left: 50%;
+        top: 50px;
+        width: 280px;
+        transform: translateX(-50%);
+      }
+
+      .scene-balloon {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 112px;
+        transform: rotate(9deg);
+      }
+
+      .scene-sunflower {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 126px;
+        transform: rotate(-9deg);
+      }
+
+      .framed .concept-body,
+      .shelf .concept-body {
+        margin-top: 56px;
+      }
+
+      .framed .concept-copy,
+      .shelf .concept-copy,
+      .halo .concept-copy {
+        max-width: 780px;
+        margin-inline: auto;
+        text-align: center;
+      }
+
+      .framed .concept-summary,
+      .shelf .concept-summary,
+      .halo .concept-summary {
+        max-width: 640px;
+        margin-inline: auto;
+        font-size: 18px;
+      }
+
+      .framed-layout {
+        display: grid;
+        grid-template-columns: 120px minmax(0, 1fr) 120px;
+        align-items: center;
+        gap: 32px;
+      }
+
+      .frame-rail {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+      }
+
+      .frame-rail > div {
+        height: 112px;
+      }
+
+      .frame-rail .main-art,
+      .shelf-item .main-art,
+      .halo-art .main-art {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .shelf .concept-copy {
+        max-width: 820px;
+      }
+
+      .shelf .concept-title {
+        font-size: clamp(44px, 4.9cqw, 64px);
+      }
+
+      .art-shelf {
+        display: grid;
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        align-items: end;
+        gap: 12px;
+        margin-top: 44px;
+      }
+
+      .shelf-item {
+        min-width: 0;
+        height: 140px;
+      }
+
+      .shelf-item:nth-child(2n) {
+        transform: translateY(-12px);
+      }
+
+      .shelf-item:nth-child(3n) {
+        transform: rotate(-5deg);
+      }
+
+      .halo .concept-body {
+        margin-top: 32px;
+      }
+
+      .halo-stage {
+        position: relative;
+        display: grid;
+        align-items: center;
+        min-height: 560px;
+        padding: 72px 190px 70px;
+      }
+
+      .halo-art {
+        position: absolute;
+      }
+
+      .halo-cursor {
+        top: 20px;
+        left: 34px;
+        width: 100px;
+        height: 100px;
+        transform: rotate(-9deg);
+      }
+
+      .halo-sunflower {
+        top: 195px;
+        left: 0;
+        width: 110px;
+        height: 110px;
+        transform: rotate(-9deg);
+      }
+
+      .halo-apron {
+        bottom: 140px;
+        left: 28px;
+        width: 80px;
+        height: 80px;
+        transform: rotate(-3deg);
+      }
+
+      .halo-waterpot {
+        bottom: 25px;
+        left: 75px;
+        width: 95px;
+        height: 95px;
+        transform: rotate(4deg);
+      }
+
+      .halo-balloon {
+        top: 0;
+        right: 28px;
+        width: 95px;
+        height: 130px;
+        transform: rotate(10deg);
+      }
+
+      .halo-brushes {
+        top: 145px;
+        right: 70px;
+        width: 75px;
+        height: 75px;
+        transform: rotate(-12deg);
+      }
+
+      .halo-binoculars {
+        top: 255px;
+        right: 8px;
+        width: 145px;
+        height: 145px;
+        transform: rotate(5deg);
+      }
+
+      .halo-geoshape {
+        bottom: 5px;
+        right: 108px;
+        width: 90px;
+        height: 90px;
+        transform: rotate(-10deg);
+      }
+
+      .free-stage {
+        position: relative;
+        min-height: 620px;
+      }
+
+      .free-stage .concept-copy {
+        position: relative;
+        z-index: 2;
+        max-width: none;
+      }
+
+      .free-stage .float-art {
+        position: absolute;
+        z-index: 1;
+      }
+
+      .free-stage .float-art .main-art {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .wide-drift .concept-body,
+      .offset-orbit .concept-body,
+      .type-ribbon .concept-body,
+      .split-signal .concept-body,
+      .studio-scatter .concept-body {
+        margin-top: 28px;
+      }
+
+      .wide-drift-stage {
+        padding: 118px 88px 70px;
+      }
+
+      .wide-drift .concept-copy {
+        text-align: center;
+      }
+
+      .wide-drift .concept-title {
+        font-size: clamp(40px, 4.1cqw, 54px);
+        font-weight: 300;
+        line-height: 1.06;
+        letter-spacing: -0.045em;
+        transform: scaleX(1.04);
+      }
+
+      .wide-drift .headline-line,
+      .offset-orbit .headline-line,
+      .type-ribbon .headline-line,
+      .studio-scatter .headline-line {
+        display: inline;
+      }
+
+      .wide-drift .concept-title strong,
+      .offset-orbit .concept-title strong,
+      .type-ribbon .concept-title strong,
+      .studio-scatter .concept-title strong {
+        font-weight: 500;
+      }
+
+      .wide-drift .concept-summary {
+        width: min(680px, 78%);
+        max-width: none;
+        margin: 26px 0 0 auto;
+        font-size: 14px;
+        line-height: 1.55;
+        text-align: left;
+      }
+
+      .drift-apron {
+        top: 8px;
+        left: 2%;
+        width: 92px;
+        height: 112px;
+        transform: rotate(-4deg);
+      }
+
+      .drift-brushes {
+        top: 22px;
+        left: 24%;
+        width: 72px;
+        height: 94px;
+        transform: rotate(7deg);
+      }
+
+      .drift-bike {
+        top: 36px;
+        right: 22%;
+        width: 132px;
+        height: 92px;
+        transform: rotate(-3deg);
+      }
+
+      .drift-binoculars {
+        top: 25px;
+        right: 2%;
+        width: 84px;
+        height: 84px;
+        transform: rotate(5deg);
+      }
+
+      .drift-geoshape {
+        top: 245px;
+        left: -6px;
+        width: 88px;
+        height: 88px;
+        transform: rotate(-8deg);
+      }
+
+      .drift-sunflower {
+        top: 198px;
+        right: 0;
+        width: 104px;
+        height: 104px;
+        transform: rotate(8deg);
+      }
+
+      .drift-shovel {
+        bottom: 22px;
+        left: 4%;
+        width: 90px;
+        height: 90px;
+      }
+
+      .drift-spoon {
+        bottom: 46px;
+        left: 24%;
+        width: 80px;
+        height: 80px;
+        transform: rotate(-7deg);
+      }
+
+      .drift-cursor {
+        right: 22%;
+        bottom: 32px;
+        width: 92px;
+        height: 92px;
+        transform: rotate(6deg);
+      }
+
+      .drift-sewing {
+        right: 1%;
+        bottom: 20px;
+        width: 112px;
+        height: 96px;
+        transform: rotate(-3deg);
+      }
+
+      .offset-orbit-stage {
+        min-height: 650px;
+        padding: 90px 40px 60px;
+      }
+
+      .offset-orbit .concept-copy {
+        width: 78%;
+        margin-left: 8%;
+      }
+
+      .offset-orbit .status-line {
+        margin-left: 42%;
+      }
+
+      .offset-orbit .concept-title {
+        font-size: clamp(46px, 5.4cqw, 70px);
+        font-weight: 300;
+        line-height: 0.98;
+        letter-spacing: -0.055em;
+      }
+
+      .offset-orbit .concept-summary {
+        width: 44%;
+        margin: 30px 4% 0 auto;
+        font-size: 13px;
+        line-height: 1.55;
+      }
+
+      .orbit-apron {
+        top: 4px;
+        left: 0;
+        width: 104px;
+        height: 124px;
+        transform: rotate(-4deg);
+      }
+
+      .orbit-balloon {
+        top: 16px;
+        left: 19%;
+        width: 74px;
+        height: 104px;
+        transform: rotate(8deg);
+      }
+
+      .orbit-bike {
+        top: 6px;
+        right: 24%;
+        width: 130px;
+        height: 104px;
+      }
+
+      .orbit-binoculars {
+        top: 48px;
+        right: 1%;
+        width: 86px;
+        height: 86px;
+        transform: rotate(6deg);
+      }
+
+      .orbit-brushes {
+        bottom: 38px;
+        left: 2%;
+        width: 84px;
+        height: 112px;
+        transform: rotate(-5deg);
+      }
+
+      .orbit-cursor {
+        bottom: 16px;
+        left: 22%;
+        width: 112px;
+        height: 112px;
+        transform: rotate(4deg);
+      }
+
+      .orbit-pot {
+        right: 29%;
+        bottom: 32px;
+        width: 114px;
+        height: 90px;
+        transform: rotate(-3deg);
+      }
+
+      .orbit-sewing {
+        right: 10%;
+        bottom: 4px;
+        width: 110px;
+        height: 106px;
+      }
+
+      .orbit-geoshape {
+        right: -2px;
+        bottom: 105px;
+        width: 92px;
+        height: 92px;
+        transform: rotate(9deg);
+      }
+
+      .type-ribbon-stage {
+        min-height: 610px;
+        padding: 160px 30px 80px;
+      }
+
+      .type-ribbon .concept-copy {
+        text-align: center;
+      }
+
+      .type-ribbon .status-line {
+        margin-bottom: 14px;
+      }
+
+      .type-ribbon .concept-title {
+        font-size: clamp(35px, 3.8cqw, 49px);
+        font-weight: 300;
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+        transform: scaleX(1.08);
+      }
+
+      .type-ribbon .concept-summary {
+        max-width: 820px;
+        margin: 22px auto 0;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .ribbon-apron {
+        top: 18px;
+        left: 3%;
+        width: 92px;
+        height: 112px;
+        transform: rotate(-5deg);
+      }
+
+      .ribbon-balloon {
+        top: 4px;
+        left: 25%;
+        width: 70px;
+        height: 100px;
+        transform: rotate(7deg);
+      }
+
+      .ribbon-bike {
+        top: 32px;
+        left: 44%;
+        width: 126px;
+        height: 90px;
+      }
+
+      .ribbon-binoculars {
+        top: 10px;
+        right: 24%;
+        width: 82px;
+        height: 82px;
+      }
+
+      .ribbon-sunflower {
+        top: 36px;
+        right: 2%;
+        width: 94px;
+        height: 94px;
+        transform: rotate(6deg);
+      }
+
+      .ribbon-geoshape {
+        bottom: 18px;
+        left: 1%;
+        width: 88px;
+        height: 88px;
+        transform: rotate(-5deg);
+      }
+
+      .ribbon-shovel {
+        bottom: 28px;
+        left: 20%;
+        width: 88px;
+        height: 88px;
+      }
+
+      .ribbon-waterpot {
+        bottom: 2px;
+        left: 42%;
+        width: 108px;
+        height: 108px;
+        transform: rotate(4deg);
+      }
+
+      .ribbon-brushes {
+        right: 23%;
+        bottom: 28px;
+        width: 76px;
+        height: 104px;
+        transform: rotate(-7deg);
+      }
+
+      .ribbon-sewing {
+        right: 0;
+        bottom: 8px;
+        width: 108px;
+        height: 100px;
+      }
+
+      .split-signal-stage {
+        min-height: 650px;
+        padding: 88px 105px 70px;
+      }
+
+      .split-signal .concept-title {
+        display: grid;
+        font-weight: 300;
+        line-height: 0.98;
+        letter-spacing: -0.05em;
+      }
+
+      .split-signal .concept-title strong {
+        font-weight: 500;
+      }
+
+      .split-signal .headline-line:nth-child(1) {
+        width: 68%;
+        font-size: 0.72em;
+        text-align: left;
+      }
+
+      .split-signal .headline-line:nth-child(2) {
+        justify-self: end;
+        width: 82%;
+        font-size: 1.08em;
+        text-align: right;
+      }
+
+      .split-signal .headline-line:nth-child(3) {
+        width: 76%;
+        margin-top: 8px;
+        margin-left: 11%;
+        font-size: 0.88em;
+        text-align: center;
+      }
+
+      .split-signal .concept-summary {
+        width: 46%;
+        margin: 38px 0 0 auto;
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .signal-cursor {
+        top: 12px;
+        left: 1%;
+        width: 92px;
+        height: 92px;
+        transform: rotate(-7deg);
+      }
+
+      .signal-apron {
+        top: 12px;
+        right: 1%;
+        width: 88px;
+        height: 108px;
+        transform: rotate(4deg);
+      }
+
+      .signal-balloon {
+        top: 218px;
+        left: 1%;
+        width: 74px;
+        height: 100px;
+        transform: rotate(6deg);
+      }
+
+      .signal-binoculars {
+        top: 235px;
+        right: 0;
+        width: 102px;
+        height: 102px;
+        transform: rotate(-4deg);
+      }
+
+      .signal-sunflower {
+        bottom: 8px;
+        left: 8%;
+        width: 106px;
+        height: 106px;
+        transform: rotate(-5deg);
+      }
+
+      .signal-bike {
+        right: 10%;
+        bottom: 0;
+        width: 132px;
+        height: 96px;
+        transform: rotate(4deg);
+      }
+
+      .studio-scatter-stage {
+        min-height: 670px;
+        padding: 175px 160px 110px;
+      }
+
+      .studio-scatter .concept-copy {
+        text-align: center;
+      }
+
+      .studio-scatter .status-line {
+        display: none;
+      }
+
+      .studio-scatter .concept-title {
+        font-size: clamp(28px, 2.8cqw, 38px);
+        font-weight: 350;
+        line-height: 1.08;
+        letter-spacing: -0.035em;
+        transform: scaleX(1.06);
+      }
+
+      .studio-scatter .concept-summary {
+        max-width: 720px;
+        margin: 20px auto 0;
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .scatter-apron {
+        top: 10px;
+        left: 2%;
+        width: 94px;
+        height: 118px;
+        transform: rotate(-5deg);
+      }
+
+      .scatter-balloon {
+        top: 8px;
+        left: 23%;
+        width: 68px;
+        height: 100px;
+        transform: rotate(6deg);
+      }
+
+      .scatter-bike {
+        top: 34px;
+        left: 43%;
+        width: 124px;
+        height: 90px;
+        transform: rotate(-3deg);
+      }
+
+      .scatter-binoculars {
+        top: 15px;
+        right: 25%;
+        width: 80px;
+        height: 80px;
+      }
+
+      .scatter-sunflower {
+        top: 64px;
+        right: 1%;
+        width: 98px;
+        height: 98px;
+        transform: rotate(7deg);
+      }
+
+      .scatter-geoshape {
+        top: 230px;
+        left: -5px;
+        width: 84px;
+        height: 84px;
+        transform: rotate(-6deg);
+      }
+
+      .scatter-sewing {
+        top: 258px;
+        right: 0;
+        width: 108px;
+        height: 98px;
+        transform: rotate(4deg);
+      }
+
+      .scatter-shovel {
+        bottom: 26px;
+        left: 2%;
+        width: 86px;
+        height: 86px;
+      }
+
+      .scatter-spoon {
+        bottom: 54px;
+        left: 21%;
+        width: 78px;
+        height: 78px;
+        transform: rotate(-8deg);
+      }
+
+      .scatter-brushes {
+        bottom: 22px;
+        left: 42%;
+        width: 76px;
+        height: 108px;
+        transform: rotate(5deg);
+      }
+
+      .scatter-pot {
+        right: 31%;
+        bottom: 42px;
+        width: 100px;
+        height: 82px;
+        transform: rotate(-3deg);
+      }
+
+      .scatter-waterpot {
+        right: 14%;
+        bottom: 4px;
+        width: 104px;
+        height: 104px;
+        transform: rotate(5deg);
+      }
+
+      .scatter-cursor {
+        right: 0;
+        bottom: 42px;
+        width: 86px;
+        height: 86px;
+        transform: rotate(-7deg);
+      }
+
+      .clean-split .concept-body,
+      .centered-gallery .concept-body {
+        margin-top: 56px;
+      }
+
+      .clean-split-layout {
+        display: grid;
+        grid-template-columns: minmax(0, 1.4fr) minmax(320px, 0.8fr);
+        align-items: center;
+        gap: 64px;
+      }
+
+      .clean-split .concept-copy {
+        max-width: 680px;
+      }
+
+      .clean-split .concept-title,
+      .centered-gallery .concept-title,
+      .quiet-bookends .concept-title {
+        font-size: clamp(44px, 4.9cqw, 64px);
+      }
+
+      .clean-split .concept-summary,
+      .centered-gallery .concept-summary,
+      .quiet-bookends .concept-summary {
+        font-size: 18px;
+      }
+
+      .clean-art-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 28px 20px;
+      }
+
+      .clean-art {
+        height: 112px;
+      }
+
+      .clean-art .main-art,
+      .gallery-art .main-art,
+      .bookend-art .main-art {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+
+      .centered-gallery .concept-copy,
+      .quiet-bookends .concept-copy {
+        max-width: 800px;
+        margin-inline: auto;
+        text-align: center;
+      }
+
+      .centered-gallery .concept-summary,
+      .quiet-bookends .concept-summary {
+        max-width: 640px;
+        margin-inline: auto;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        align-items: center;
+        gap: 24px;
+        width: min(940px, 100%);
+        margin: 48px auto 0;
+      }
+
+      .gallery-art {
+        height: 118px;
+      }
+
+      .quiet-bookends .concept-body {
+        margin-top: 36px;
+      }
+
+      .bookend-row {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        align-items: center;
+        gap: 44px;
+        width: min(780px, 100%);
+        margin-inline: auto;
+      }
+
+      .bookend-row + .concept-copy {
+        margin-top: 38px;
+      }
+
+      .quiet-bookends .concept-copy + .bookend-row {
+        margin-top: 38px;
+      }
+
+      .bookend-art {
+        height: 94px;
+      }
+
+      .scroll-story-track {
+        position: relative;
+        height: 1420px;
+        margin-top: 24px;
+      }
+
+      .scroll-story-sticky {
+        position: sticky;
+        top: 76px;
+        width: calc(100% - 80px);
+        max-width: 1120px;
+        height: min(720px, calc(100vh - 100px));
+        min-height: 620px;
+        margin-inline: auto;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .story-copy {
+        position: absolute;
+        z-index: 2;
+        top: 170px;
+        left: 50%;
+        width: min(760px, calc(100% - 300px));
+        max-width: none;
+        text-align: center;
+        transform: translateX(-50%);
+      }
+
+      .story-copy .concept-title {
+        font-size: clamp(40px, 4.2cqw, 54px);
+      }
+
+      .story-copy .concept-summary {
+        max-width: 640px;
+        margin-inline: auto;
+        font-size: 18px;
+        opacity: 0;
+      }
+
+      .story-art {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+
+      .story-art .main-art {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        visibility: hidden;
+      }
+
+      .art-scene .art-link img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .next-section {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 48px;
+        padding: 28px 0 36px;
+        border-top: 1px solid var(--color-border);
+        text-align: left;
+      }
+
+      .next-section h4 {
+        margin: 0;
+        font: 500 28px/1.2 var(--font-display);
+        letter-spacing: -0.5px;
+      }
+
+      .next-section span {
+        color: var(--color-text-muted);
+        font-size: 12px;
+      }
+
+      .shared-placement {
+        margin-bottom: 48px;
+        padding: 28px;
+        border: 1px solid #dce0e7;
+        border-radius: 16px;
+        background: #fff;
+      }
+
+      .shared-placement h2 {
+        font: 500 24px/1.3 var(--font-display);
+        letter-spacing: -0.5px;
+      }
+
+      .shared-placement p {
+        max-width: 720px;
+        margin-top: 10px;
+        color: var(--color-text-muted);
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      .shared-placement .art-row {
+        max-width: 600px;
+        height: 112px;
+        margin-top: 24px;
+        gap: 24px;
+      }
+
+      .shared-placement .art {
+        max-height: 112px;
+      }
+
+      @container (max-width: 900px) {
+        .concept-body {
+          width: calc(100% - 48px);
+          margin-top: 48px;
+        }
+
+        .concept-layout,
+        .scene .concept-layout {
+          gap: 28px;
+        }
+
+        .concept-summary {
+          font-size: 18px;
+        }
+
+        .editorial .concept-title,
+        .scene .concept-title,
+        .framed .concept-title,
+        .halo .concept-title {
+          font-size: clamp(32px, 4.5cqw, 44px);
+        }
+
+        .framed-layout {
+          grid-template-columns: 88px minmax(0, 1fr) 88px;
+          gap: 20px;
+        }
+
+        .frame-rail > div {
+          height: 88px;
+        }
+
+        .art-shelf {
+          gap: 8px;
+        }
+
+        .shelf-item {
+          height: 100px;
+        }
+
+        .halo-stage {
+          min-height: 500px;
+          padding: 56px 110px 70px;
+        }
+
+        .halo-cursor {
+          left: 12px;
+          width: 88px;
+          height: 88px;
+        }
+
+        .halo-sunflower {
+          width: 86px;
+          height: 86px;
+        }
+
+        .halo-apron {
+          left: 24px;
+          width: 68px;
+          height: 68px;
+        }
+
+        .halo-waterpot {
+          left: 20px;
+          width: 78px;
+          height: 78px;
+        }
+
+        .halo-balloon {
+          right: 8px;
+          width: 76px;
+          height: 104px;
+        }
+
+        .halo-brushes {
+          right: 15px;
+          width: 60px;
+          height: 60px;
+        }
+
+        .halo-binoculars {
+          right: 0;
+          width: 100px;
+          height: 100px;
+        }
+
+        .halo-geoshape {
+          right: 20px;
+          width: 72px;
+          height: 72px;
+        }
+
+        .art-scene {
+          height: 320px;
+        }
+
+        .scene-binoculars {
+          width: 230px;
+          top: 45px;
+        }
+
+        .scene-balloon,
+        .scene-sunflower {
+          width: 92px;
+        }
+      }
+
+      @container (max-width: 700px) {
+        .concept-canvas .navigation {
+          width: calc(100% - 24px);
+          min-height: 56px;
+          margin-top: 12px;
+          padding-left: 12px;
+        }
+
+        .concept-canvas .navigation .logo {
+          width: 32px;
+          height: 32px;
+        }
+
+        .concept-canvas .navigation nav {
+          font-size: 13px;
+          line-height: 20px;
+        }
+
+        .concept-canvas .navigation nav > a,
+        .concept-canvas .nav-contact {
+          padding: 16px 10px;
+        }
+
+        .concept-layout,
+        .scene .concept-layout {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 24px;
+        }
+
+        .editorial .concept-title,
+        .centered .concept-title,
+        .scene .concept-title,
+        .framed .concept-title,
+        .shelf .concept-title,
+        .halo .concept-title {
+          font-size: clamp(24px, 8cqw, 36px);
+        }
+
+        .concept-body,
+        .centered .concept-body,
+        .framed .concept-body,
+        .shelf .concept-body,
+        .halo .concept-body {
+          margin-top: 40px;
+        }
+
+        .concept-summary,
+        .centered .concept-summary,
+        .framed .concept-summary,
+        .shelf .concept-summary,
+        .halo .concept-summary {
+          margin-top: 20px;
+          font-size: 17px;
+          line-height: 1.65;
+        }
+
+        .status-line {
+          margin-bottom: 16px;
+          font-size: 13px;
+        }
+
+        .editorial-art {
+          max-width: 180px;
+        }
+
+        .mini-nav {
+          gap: 10px;
+          margin-top: 24px;
+        }
+
+        .mini-nav-item img {
+          width: 56px;
+          height: 56px;
+        }
+
+        .illustration-row {
+          gap: 12px;
+          margin-top: 28px;
+        }
+
+        .illustration-row .art-link {
+          width: 24%;
+          max-width: 96px;
+        }
+
+        .illustration-row > [data-art='binoculars'] {
+          width: 34%;
+          max-width: 136px;
+        }
+
+        .art-scene {
+          max-width: 280px;
+          height: 250px;
+        }
+
+        .scene-binoculars {
+          width: 210px;
+          top: 15px;
+        }
+
+        .scene-balloon {
+          width: 80px;
+        }
+
+        .scene-sunflower {
+          width: 86px;
+        }
+
+        .framed-layout {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 16px;
+        }
+
+        .framed-layout .concept-copy {
+          grid-row: 1;
+          margin-bottom: 12px;
+        }
+
+        .frame-rail {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 16px;
+          width: min(340px, 100%);
+          margin-inline: auto;
+        }
+
+        .frame-rail > div {
+          height: 96px;
+        }
+
+        .art-shelf {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 12px;
+          margin-top: 36px;
+        }
+
+        .shelf-item {
+          height: 88px;
+        }
+
+        .shelf-item:nth-child(2n) {
+          transform: translateY(-6px);
+        }
+
+        .halo-stage {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 16px 8px;
+          min-height: 0;
+          padding: 0;
+        }
+
+        .halo-stage .concept-copy {
+          grid-column: 1 / -1;
+          margin-bottom: 12px;
+        }
+
+        .halo-stage .halo-art {
+          position: static;
+          width: 100%;
+          height: 84px;
+          transform: none;
+        }
+
+        .free-stage {
+          display: grid;
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          gap: 18px 8px;
+          min-height: 0;
+          padding: 0;
+        }
+
+        .free-stage .concept-copy {
+          grid-column: 1 / -1;
+          width: auto;
+          margin: 0 0 12px;
+          padding: 0;
+          text-align: center;
+          transform: none;
+        }
+
+        .free-stage .status-line {
+          display: inline-flex;
+          margin: 0 0 16px;
+        }
+
+        .free-stage .concept-title {
+          display: block;
+          width: auto;
+          font-size: clamp(24px, 8cqw, 34px);
+          font-weight: 300;
+          line-height: 1.08;
+          text-align: center;
+          transform: none;
+        }
+
+        .free-stage .headline-line,
+        .free-stage .headline-line:nth-child(1),
+        .free-stage .headline-line:nth-child(2),
+        .free-stage .headline-line:nth-child(3) {
+          display: inline;
+          width: auto;
+          margin: 0;
+          font-size: inherit;
+          text-align: center;
+        }
+
+        .free-stage .concept-summary,
+        .offset-orbit .concept-summary,
+        .split-signal .concept-summary {
+          width: auto;
+          max-width: none;
+          margin: 20px 0 0;
+          font-size: 15px;
+          line-height: 1.55;
+          text-align: center;
+        }
+
+        .free-stage .float-art {
+          position: static;
+          width: 100%;
+          height: 78px;
+          transform: none;
+        }
+
+        .clean-split-layout {
+          grid-template-columns: minmax(0, 1fr);
+          gap: 36px;
+        }
+
+        .clean-split .concept-title,
+        .centered-gallery .concept-title,
+        .quiet-bookends .concept-title {
+          font-size: clamp(24px, 8cqw, 36px);
+        }
+
+        .clean-split .concept-copy,
+        .centered-gallery .concept-copy,
+        .quiet-bookends .concept-copy {
+          text-align: center;
+        }
+
+        .clean-split .concept-summary {
+          margin-inline: auto;
+        }
+
+        .clean-art-grid,
+        .gallery-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 18px 12px;
+          margin-top: 0;
+        }
+
+        .gallery-grid {
+          margin-top: 36px;
+        }
+
+        .clean-art,
+        .gallery-art {
+          height: 84px;
+        }
+
+        .bookend-row {
+          gap: 10px;
+        }
+
+        .bookend-art {
+          height: 72px;
+        }
+
+        .scroll-story-track {
+          height: 1280px;
+          margin-top: 12px;
+        }
+
+        .scroll-story-sticky {
+          top: 12px;
+          width: calc(100% - 24px);
+          height: 720px;
+          min-height: 720px;
+        }
+
+        .story-copy {
+          top: 150px;
+          width: calc(100% - 144px);
+        }
+
+        .story-copy .concept-title {
+          font-size: clamp(24px, 8cqw, 36px);
+        }
+
+        .story-copy .concept-summary {
+          margin-top: 20px;
+          font-size: 15px;
+          line-height: 1.55;
+        }
+
+        .next-section {
+          margin-top: 36px;
+          padding-top: 24px;
+        }
+
+        .next-section h4 {
+          font-size: 24px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .preview-intro,
+        .preview-main {
+          width: calc(100% - 24px);
+        }
+
+        .preview-intro {
+          padding-top: 28px;
+        }
+
+        .preview-intro h1 {
+          font-size: 30px;
+        }
+
+        .preview-toolbar {
+          position: static;
+          padding-inline: 12px;
+        }
+
+        .option-description {
+          align-items: start;
+          flex-direction: column;
+        }
+
+        .shared-placement {
+          padding: 20px;
+        }
+
+        .shared-placement .art-row {
+          height: 80px;
+          gap: 12px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .art-link img,
+        .mini-nav-item img {
+          transition: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#options">Skip to hero options</a>
+    <header class="preview-intro">
+      <p class="preview-eyebrow">LOCAL DESIGN STUDY / NOTHING PUBLISHED</p>
+      <h1>Six directions for your hero</h1>
+      <p>
+        Five static layouts plus one interactive scroll story that moves a
+        loose artwork grid into an organic two-sided halo. The live homepage is
+        unchanged.
+      </p>
+    </header>
+    <div class="preview-toolbar">
+      <div
+        class="preview-controls"
+        role="group"
+        aria-label="Choose a hero layout"
+      >
+        <button type="button" data-view="all" aria-pressed="true" disabled>
+          Compare all
+        </button>
+        <button type="button" data-view="shelf" aria-pressed="false" disabled>
+          5. Colorful shelf
+        </button>
+        <button type="button" data-view="halo" aria-pressed="false" disabled>
+          6. Playful halo
+        </button>
+        <button
+          type="button"
+          data-view="wide-drift"
+          aria-pressed="false"
+          disabled
+        >
+          7. Clean split
+        </button>
+        <button
+          type="button"
+          data-view="offset-orbit"
+          aria-pressed="false"
+          disabled
+        >
+          8. Centered gallery
+        </button>
+        <button
+          type="button"
+          data-view="type-ribbon"
+          aria-pressed="false"
+          disabled
+        >
+          9. Quiet bookends
+        </button>
+        <button
+          type="button"
+          data-view="scroll-story"
+          aria-pressed="false"
+          disabled
+        >
+          10. Scroll to reveal
+        </button>
+      </div>
+      <div
+        class="preview-controls"
+        role="group"
+        aria-label="Preview screen size"
+      >
+        <button
+          type="button"
+          data-device="desktop"
+          aria-pressed="true"
+          disabled
+        >
+          Desktop
+        </button>
+        <button
+          type="button"
+          data-device="mobile"
+          aria-pressed="false"
+          disabled
+        >
+          Mobile
+        </button>
+      </div>
+    </div>
+    <main class="preview-main" id="options" data-device="desktop">
+      <p class="preview-status" role="status">
+        Loading your current homepage content...
+      </p>
+      <section
+        class="option"
+        id="option-editorial"
+        data-option="editorial"
+        data-retired
+        aria-labelledby="editorial-label"
+      >
+        <div class="option-description">
+          <div>
+            <h2 id="editorial-label">01 / Editorial split</h2>
+            <p>
+              A clear reading group, one main illustration, and a compact
+              navigation-art strip.
+            </p>
+          </div>
+        </div>
+        <div class="concept-canvas editorial">
+          <div data-preview-header></div>
+          <div class="concept-body">
+            <div class="concept-layout">
+              <div class="concept-copy" data-copy></div>
+              <div class="editorial-art" data-art="binoculars"></div>
+            </div>
+            <nav class="mini-nav" aria-label="Illustrated shortcuts"></nav>
+            <div class="next-section">
+              <h4>Selected Projects</h4>
+              <span>Project cards begin here</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="option"
+        id="option-centered"
+        data-option="centered"
+        data-retired
+        aria-labelledby="centered-label"
+      >
+        <div class="option-description">
+          <div>
+            <h2 id="centered-label">02 / Centered introduction</h2>
+            <p>
+              A warm, symmetrical introduction with one tidy row of
+              illustrations below the text.
+            </p>
+          </div>
+          <span class="recommendation">You liked this</span>
+        </div>
+        <div class="concept-canvas centered">
+          <div data-preview-header></div>
+          <div class="concept-body">
+            <div class="concept-copy" data-copy></div>
+            <div class="illustration-row">
+              <a
+                class="art-link"
+                href="/#me"
+                aria-label="About Keyan"
+                data-art="sunflower"
+              ></a>
+              <div data-art="binoculars"></div>
+              <a
+                class="art-link"
+                href="/#fun"
+                aria-label="Explore additional projects"
+                data-art="balloon"
+              ></a>
+            </div>
+            <div class="next-section">
+              <h4>Selected Projects</h4>
+              <span>Project cards begin here</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="option"
+        id="option-scene"
+        data-option="scene"
+        data-retired
+        aria-labelledby="scene-label"
+      >
+        <div class="option-description">
+          <div>
+            <h2 id="scene-label">03 / Illustrated scene</h2>
+            <p>
+              A focused text column and a small, playful composition contained
+              beside it.
+            </p>
+          </div>
+          <span class="recommendation">You liked this</span>
+        </div>
+        <div class="concept-canvas scene">
+          <div data-preview-header></div>
+          <div class="concept-body">
+            <div class="concept-layout">
+              <div class="concept-copy" data-copy></div>
+              <div class="art-scene">
+                <div class="scene-binoculars" data-art="binoculars"></div>
+                <a
+                  class="art-link scene-balloon"
+                  href="/#fun"
+                  aria-label="Explore additional projects"
+                  data-art="balloon"
+                ></a>
+                <a
+                  class="art-link scene-sunflower"
+                  href="/#me"
+                  aria-label="About Keyan"
+                  data-art="sunflower"
+                ></a>
+              </div>
+            </div>
+            <div class="next-section">
+              <h4>Selected Projects</h4>
+              <span>Project cards begin here</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="option"
+        id="option-framed"
+        data-option="framed"
+        data-retired
+        aria-labelledby="framed-label"
+      >
+        <div class="option-description">
+          <div>
+            <h2 id="framed-label">04 / Illustrated frame</h2>
+            <p>
+              Centered text framed by six colorful objects. More personality,
+              with a calm and symmetrical reading area.
+            </p>
+          </div>
+          <span class="recommendation new-direction">New direction</span>
+        </div>
+        <div class="concept-canvas framed">
+          <div data-preview-header></div>
+          <div class="concept-body">
+            <div class="framed-layout">
+              <div class="frame-rail">
+                <div data-art="cursor"></div>
+                <div data-art="sunflower"></div>
+                <div data-art="waterpot"></div>
+              </div>
+              <div class="concept-copy" data-copy></div>
+              <div class="frame-rail">
+                <div data-art="balloon"></div>
+                <div data-art="binoculars"></div>
+                <div data-art="bike"></div>
+              </div>
+            </div>
+            <div class="next-section">
+              <h4>Selected Projects</h4>
+              <span>Project cards begin here</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="option"
+        id="option-shelf"
+        data-option="shelf"
+        aria-labelledby="shelf-label"
+      >
+        <div class="option-description">
+          <div>
+            <h2 id="shelf-label">05 / Colorful shelf</h2>
+            <p>
+              Your message stays center stage, with eight illustrations forming
+              a colorful collection underneath.
+            </p>
+          </div>
+          <span class="recommendation">Kept direction</span>
+        </div>
+        <div class="concept-canvas shelf">
+          <div data-preview-header></div>
+          <div class="concept-body">
+            <div class="concept-copy" data-copy></div>
+            <div class="art-shelf">
+              <div class="shelf-item" data-art="cursor"></div>
+              <div class="shelf-item" data-art="balloon"></div>
+              <div class="shelf-item" data-art="sunflower"></div>
+              <div class="shelf-item" data-art="binoculars"></div>
+              <div class="shelf-item" data-art="waterpot"></div>
+              <div class="shelf-item" data-art="bike"></div>
+              <div class="shelf-item" data-art="brushes"></div>
+              <div class="shelf-item" data-art="sewing"></div>
+            </div>
+            <div class="next-section">
+              <h4>Selected Projects</h4>
+              <span>Project cards begin here</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="option"
+        id="option-halo"
+        data-option="halo"
+        aria-labelledby="halo-label"
+      >
+        <div class="option-description">
+          <div>
+            <h2 id="halo-label">06 / Playful halo</h2>
+            <p>
+              Eight objects orbit a clear central message. A freer, more
+              expressive composition without illustrations interrupting the
+              text.
+            </p>
+          </div>
+          <span class="recommendation">Kept direction</span>
+        </div>
+        <div class="concept-canvas halo">
+          <div data-preview-header></div>
+          <div class="concept-body">
+            <div class="halo-stage">
+              <div class="concept-copy" data-copy></div>
+              <div class="halo-art halo-cursor" data-art="cursor"></div>
+              <div class="halo-art halo-sunflower" data-art="sunflower"></div>
+              <div class="halo-art halo-apron" data-art="apron"></div>
+              <div class="halo-art halo-waterpot" data-art="waterpot"></div>
+              <div class="halo-art halo-balloon" data-art="balloon"></div>
+              <div class="halo-art halo-brushes" data-art="brushes"></div>
+              <div class="halo-art halo-binoculars" data-art="binoculars"></div>
+              <div class="halo-art halo-geoshape" data-art="geoshape"></div>
+            </div>
+            <div class="next-section">
+              <h4>Selected Projects</h4>
+              <span>Project cards begin here</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="option"
+        id="option-wide-drift"
+        data-option="wide-drift"
+        aria-labelledby="wide-drift-label"
+      >
+        <div class="option-description">
+          <div>
+            <h2 id="wide-drift-label">07 / Clean split</h2>
+            <p>
+              The original text hierarchy on the left, balanced by a precise
+              two-row artwork grid on the right.
+            </p>
+          </div>
+          <span class="recommendation new-direction">New exploration</span>
+        </div>
+        <div class="concept-canvas clean-split">
+          <div data-preview-header></div>
+          <div class="concept-body">
+            <div class="clean-split-layout">
+              <div class="concept-copy" data-copy></div>
+              <div class="clean-art-grid">
+                <div class="clean-art" data-art="apron"></div>
+                <div class="clean-art" data-art="balloon"></div>
+                <div class="clean-art" data-art="bike"></div>
+                <div class="clean-art" data-art="sunflower"></div>
+                <div class="clean-art" data-art="binoculars"></div>
+                <div class="clean-art" data-art="sewing"></div>
+              </div>
+            </div>
+            <div class="next-section">
+              <h4>Selected Projects</h4>
+              <span>Project cards begin here</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="option"
+        id="option-offset-orbit"
+        data-option="offset-orbit"
+        aria-labelledby="offset-orbit-label"
+      >
+        <div class="option-description">
+          <div>
+            <h2 id="offset-orbit-label">08 / Centered gallery</h2>
+            <p>
+              A centered introduction at the original scale, followed by a
+              single tidy gallery of six illustrations.
+            </p>
+          </div>
+          <span class="recommendation new-direction">New exploration</span>
+        </div>
+        <div class="concept-canvas centered-gallery">
+          <div data-preview-header></div>
+          <div class="concept-body">
+            <div class="concept-copy" data-copy></div>
+            <div class="gallery-grid">
+              <div class="gallery-art" data-art="cursor"></div>
+              <div class="gallery-art" data-art="brushes"></div>
+              <div class="gallery-art" data-art="sunflower"></div>
+              <div class="gallery-art" data-art="binoculars"></div>
+              <div class="gallery-art" data-art="waterpot"></div>
+              <div class="gallery-art" data-art="bike"></div>
+            </div>
+            <div class="next-section">
+              <h4>Selected Projects</h4>
+              <span>Project cards begin here</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="option"
+        id="option-type-ribbon"
+        data-option="type-ribbon"
+        aria-labelledby="type-ribbon-label"
+      >
+        <div class="option-description">
+          <div>
+            <h2 id="type-ribbon-label">09 / Quiet bookends</h2>
+            <p>
+              Two orderly artwork rows frame the original centered headline
+              without changing its type scale or line structure.
+            </p>
+          </div>
+          <span class="recommendation new-direction">New exploration</span>
+        </div>
+        <div class="concept-canvas quiet-bookends">
+          <div data-preview-header></div>
+          <div class="concept-body">
+            <div class="bookend-row">
+              <div class="bookend-art" data-art="apron"></div>
+              <div class="bookend-art" data-art="balloon"></div>
+              <div class="bookend-art" data-art="bike"></div>
+              <div class="bookend-art" data-art="binoculars"></div>
+            </div>
+            <div class="concept-copy" data-copy></div>
+            <div class="bookend-row">
+              <div class="bookend-art" data-art="cursor"></div>
+              <div class="bookend-art" data-art="sunflower"></div>
+              <div class="bookend-art" data-art="brushes"></div>
+              <div class="bookend-art" data-art="sewing"></div>
+            </div>
+            <div class="next-section">
+              <h4>Selected Projects</h4>
+              <span>Project cards begin here</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="option"
+        id="option-split-signal"
+        data-option="split-signal"
+        data-retired
+        aria-labelledby="split-signal-label"
+      >
+        <div class="option-description">
+          <div>
+            <h2 id="split-signal-label">10 / Split signal</h2>
+            <p>
+              Each headline thought occupies a different width and alignment,
+              so the typography itself becomes the composition.
+            </p>
+          </div>
+          <span class="recommendation new-direction">New exploration</span>
+        </div>
+        <div class="concept-canvas split-signal">
+          <div data-preview-header></div>
+          <div class="concept-body">
+            <div class="free-stage split-signal-stage">
+              <div class="concept-copy" data-copy></div>
+              <div class="float-art signal-cursor" data-art="cursor"></div>
+              <div class="float-art signal-apron" data-art="apron"></div>
+              <div class="float-art signal-balloon" data-art="balloon"></div>
+              <div
+                class="float-art signal-binoculars"
+                data-art="binoculars"
+              ></div>
+              <div
+                class="float-art signal-sunflower"
+                data-art="sunflower"
+              ></div>
+              <div class="float-art signal-bike" data-art="bike"></div>
+            </div>
+            <div class="next-section">
+              <h4>Selected Projects</h4>
+              <span>Project cards begin here</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="option"
+        id="option-studio-scatter"
+        data-option="studio-scatter"
+        data-retired
+        aria-labelledby="studio-scatter-label"
+      >
+        <div class="option-description">
+          <div>
+            <h2 id="studio-scatter-label">11 / Studio scatter</h2>
+            <p>
+              Closest to your reference: compact typography in a broad field
+              with a denser, intentionally random collection of objects.
+            </p>
+          </div>
+          <span class="recommendation new-direction">New exploration</span>
+        </div>
+        <div class="concept-canvas studio-scatter">
+          <div data-preview-header></div>
+          <div class="concept-body">
+            <div class="free-stage studio-scatter-stage">
+              <div class="concept-copy" data-copy data-copy-mode="wide"></div>
+              <div class="float-art scatter-apron" data-art="apron"></div>
+              <div class="float-art scatter-balloon" data-art="balloon"></div>
+              <div class="float-art scatter-bike" data-art="bike"></div>
+              <div
+                class="float-art scatter-binoculars"
+                data-art="binoculars"
+              ></div>
+              <div
+                class="float-art scatter-sunflower"
+                data-art="sunflower"
+              ></div>
+              <div
+                class="float-art scatter-geoshape"
+                data-art="geoshape"
+              ></div>
+              <div class="float-art scatter-sewing" data-art="sewing"></div>
+              <div class="float-art scatter-shovel" data-art="shovel"></div>
+              <div class="float-art scatter-spoon" data-art="spoon"></div>
+              <div class="float-art scatter-brushes" data-art="brushes"></div>
+              <div class="float-art scatter-pot" data-art="pot"></div>
+              <div
+                class="float-art scatter-waterpot"
+                data-art="waterpot"
+              ></div>
+              <div class="float-art scatter-cursor" data-art="cursor"></div>
+            </div>
+            <div class="next-section">
+              <h4>Selected Projects</h4>
+              <span>Project cards begin here</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="option"
+        id="option-scroll-story"
+        data-option="scroll-story"
+        aria-labelledby="scroll-story-label"
+      >
+        <div class="option-description">
+          <div>
+            <h2 id="scroll-story-label">10 / Scroll to reveal</h2>
+            <p>
+              Large illustrations begin in a loose underlying grid around the
+              headline, then move into an organic two-sided halo as the summary
+              appears. Availability and the headline remain throughout.
+            </p>
+          </div>
+          <span class="recommendation new-direction">Interactive direction</span>
+        </div>
+        <div class="concept-canvas scroll-story">
+          <div data-preview-header></div>
+          <div class="scroll-story-track" data-story-track>
+            <div class="scroll-story-sticky" data-story-stage>
+              <div class="concept-copy story-copy" data-copy></div>
+              <div
+                class="story-art"
+                data-art="cursor"
+                data-x="0.92"
+                data-y="0.76"
+                data-size="130"
+                data-rotate="-8"
+              ></div>
+              <div
+                class="story-art"
+                data-art="apron"
+                data-x="0.08"
+                data-y="0.04"
+                data-size="152"
+                data-rotate="-3"
+              ></div>
+              <div
+                class="story-art"
+                data-art="brushes"
+                data-x="0.29"
+                data-y="0.01"
+                data-size="130"
+                data-rotate="5"
+              ></div>
+              <div
+                class="story-art"
+                data-art="binoculars"
+                data-x="0.71"
+                data-y="0.02"
+                data-size="124"
+                data-rotate="-4"
+              ></div>
+              <div
+                class="story-art"
+                data-art="bike"
+                data-x="0.5"
+                data-y="0.05"
+                data-size="155"
+                data-rotate="4"
+              ></div>
+              <div
+                class="story-art"
+                data-art="pot"
+                data-x="0.5"
+                data-y="0.78"
+                data-size="134"
+                data-rotate="-4"
+              ></div>
+              <div
+                class="story-art"
+                data-art="sunflower"
+                data-x="0.92"
+                data-y="0.42"
+                data-size="150"
+                data-rotate="0"
+              ></div>
+              <div
+                class="story-art"
+                data-art="geoshape"
+                data-x="0.08"
+                data-y="0.43"
+                data-size="142"
+                data-rotate="-8"
+              ></div>
+              <div
+                class="story-art"
+                data-art="waterpot"
+                data-x="0.71"
+                data-y="0.73"
+                data-size="138"
+                data-rotate="4"
+              ></div>
+              <div
+                class="story-art"
+                data-art="sewing"
+                data-x="0.92"
+                data-y="0.06"
+                data-size="145"
+                data-rotate="-2"
+              ></div>
+              <div
+                class="story-art"
+                data-art="shovel"
+                data-x="0.08"
+                data-y="0.76"
+                data-size="120"
+                data-rotate="-2"
+              ></div>
+              <div
+                class="story-art"
+                data-art="spoon"
+                data-x="0.29"
+                data-y="0.72"
+                data-size="124"
+                data-rotate="2"
+              ></div>
+            </div>
+          </div>
+          <div class="concept-body">
+            <div class="next-section">
+              <h4>Selected Projects</h4>
+              <span>Organic halo leads into project cards</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="shared-placement" aria-labelledby="quotes-placement">
+        <h2 id="quotes-placement">
+          Keep the personality, just give it its own space
+        </h2>
+        <p>
+          The dedicated testimonial controls can live nearer About in every
+          direction. The new concepts also reuse some of this artwork
+          decoratively. The existing hover, click, and keyboard quote
+          interactions still work here.
+        </p>
+        <div class="art-row" data-preview-quotes></div>
+      </section>
+    </main>
+    <script type="module">
+      import { createResponsiveImage } from '/scripts/responsive-images.js';
+      import { mountContactMenu } from '/scripts/contact-menu.js';
+      import { mountArtRow } from '/scripts/art-interactions.js';
+
+      const status = document.querySelector('.preview-status');
+      const preview = document.querySelector('.preview-main');
+      let selectedView = 'all';
+      let selectedDevice = 'desktop';
+      let refreshScrollStory = () => {};
+
+      function reportView() {
+        const names = {
+          all: 'All six concepts',
+          shelf: 'Colorful shelf',
+          halo: 'Playful halo',
+          'wide-drift': 'Clean split',
+          'offset-orbit': 'Centered gallery',
+          'type-ribbon': 'Quiet bookends',
+          'scroll-story': 'Scroll to reveal',
+        };
+        status.textContent = `${names[selectedView]} / ${selectedDevice === 'mobile' ? '390px mobile canvas' : 'Desktop canvas'} / Same original copy in every option`;
+      }
+
+      function closeMenus() {
+        document
+          .querySelectorAll('.contact-menu:popover-open')
+          .forEach((menu) => menu.hidePopover());
+      }
+
+      function mountScrollStory() {
+        const track = document.querySelector('[data-story-track]');
+        const stage = document.querySelector('[data-story-stage]');
+        if (!track || !stage) return;
+        const copy = stage.querySelector('.story-copy');
+        const summary = stage.querySelector('.concept-summary');
+        const items = [...stage.querySelectorAll('.story-art')];
+        for (const item of items) {
+          const image = item.querySelector('img');
+          item.style.backgroundImage = `url("${image.currentSrc || image.src}")`;
+        }
+        const reducedMotion = matchMedia(
+          '(prefers-reduced-motion: reduce)',
+        ).matches;
+        const organicTargets = [
+          { center: 0.07, y: 0.06, size: 104, rotate: -4 },
+          { center: 0.93, y: 0.03, size: 104, rotate: 5 },
+          { center: 0.09, y: 0.22, size: 90, rotate: 3 },
+          { center: 0.91, y: 0.19, size: 90, rotate: -4 },
+          { center: 0.06, y: 0.39, size: 110, rotate: -3 },
+          { center: 0.94, y: 0.35, size: 110, rotate: 4 },
+          { center: 0.085, y: 0.55, size: 100, rotate: 5 },
+          { center: 0.915, y: 0.51, size: 100, rotate: -5 },
+          { center: 0.065, y: 0.71, size: 106, rotate: -4 },
+          { center: 0.935, y: 0.67, size: 106, rotate: 3 },
+          { center: 0.095, y: 0.86, size: 88, rotate: 4 },
+          { center: 0.905, y: 0.83, size: 88, rotate: -3 },
+        ];
+        const clamp = (value, minimum = 0, maximum = 1) =>
+          Math.min(maximum, Math.max(minimum, value));
+        const mix = (start, end, progress) =>
+          start + (end - start) * progress;
+
+        const render = () => {
+          if (stage.offsetParent === null) return;
+          const width = stage.clientWidth;
+          const height = stage.clientHeight;
+          const trackRect = track.getBoundingClientRect();
+          const stickyTop = Number.parseFloat(getComputedStyle(stage).top) || 0;
+          const travel = Math.max(track.offsetHeight - height, 1);
+          const rawProgress = clamp((stickyTop - trackRect.top) / travel);
+          const smoothProgress =
+            rawProgress * rawProgress * (3 - 2 * rawProgress);
+          const progress = reducedMotion
+            ? Number(rawProgress >= 0.5)
+            : smoothProgress;
+          const mobile = width < 700;
+          const summaryProgress = clamp((progress - 0.38) / 0.42);
+
+          summary.style.opacity = String(summaryProgress);
+          copy.style.top = `${mobile ? 150 : 170}px`;
+          copy.style.transform = 'translateX(-50%)';
+          stage.dataset.state =
+            progress > 0.8
+              ? 'revealed'
+              : progress > 0.1
+                ? 'revealing'
+                : 'scattered';
+
+          items.forEach((item, index) => {
+            const sourceSize =
+              Number.parseFloat(item.dataset.size) * (mobile ? 0.52 : 1);
+            const sourceX = clamp(
+              Number.parseFloat(item.dataset.x) * width - sourceSize / 2,
+              0,
+              width - sourceSize,
+            );
+            const sourceY =
+              Number.parseFloat(item.dataset.y) * (height - sourceSize);
+            const target = organicTargets[index];
+            const finalSize = target.size * (mobile ? 0.55 : 1);
+            const targetX = mobile
+              ? index % 2
+                ? width - finalSize - 4
+                : 4
+              : target.center * width - finalSize / 2;
+            const targetY = target.y * (height - finalSize);
+            const size = mix(sourceSize, finalSize, progress);
+            const x = mix(sourceX, targetX, progress);
+            const y = mix(sourceY, targetY, progress);
+            const rotation = mix(
+              Number.parseFloat(item.dataset.rotate),
+              target.rotate,
+              progress,
+            );
+            item.style.width = `${size}px`;
+            item.style.height = `${size}px`;
+            item.style.left = `${x}px`;
+            item.style.top = `${y}px`;
+            item.style.opacity = '1';
+            item.style.transform = `rotate(${rotation}deg)`;
+          });
+        };
+
+        refreshScrollStory = render;
+        addEventListener('scroll', refreshScrollStory, { passive: true });
+        addEventListener('resize', refreshScrollStory);
+        refreshScrollStory();
+      }
+
+      async function loadPreview() {
+        const [homeResponse, siteResponse] = await Promise.all([
+          fetch('/index.html', { cache: 'no-cache' }),
+          fetch('/content/site.json', { cache: 'no-cache' }),
+        ]);
+        if (!homeResponse.ok || !siteResponse.ok) {
+          throw new Error(
+            `Homepage/config request failed: ${homeResponse.status}/${siteResponse.status}`,
+          );
+        }
+        const home = new DOMParser().parseFromString(
+          await homeResponse.text(),
+          'text/html',
+        );
+        const site = await siteResponse.json();
+        const cleanText = (element) =>
+          element?.textContent.replace(/\s+/g, ' ').trim();
+        const lines = [...home.querySelectorAll('.hero-line')].map(cleanText);
+        const summary = cleanText(home.querySelector('.intro-copy'));
+        const availability = cleanText(home.querySelector('.availability'));
+        const header = home.querySelector('.navigation');
+        const binoculars = home
+          .querySelector('.hero .binoculars')
+          ?.getAttribute('src');
+        const emphasized = new Set(
+          [...home.querySelectorAll('.hero-emphasis')].map(cleanText),
+        );
+        const emphasisPattern = new RegExp(
+          `(${[...emphasized]
+            .map((phrase) => phrase.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'))
+            .join('|')})`,
+        );
+        if (
+          lines.length !== 3 ||
+          !summary ||
+          !availability ||
+          !header ||
+          !binoculars
+        ) {
+          throw new Error(
+            'The current homepage introduction could not be read.',
+          );
+        }
+
+        for (const copy of document.querySelectorAll('[data-copy]')) {
+          const statusLine = document.createElement('p');
+          statusLine.className = 'status-line';
+          statusLine.textContent = availability;
+          const heading = document.createElement('h3');
+          heading.className = 'concept-title';
+          const copyLines =
+            copy.dataset.copyMode === 'wide' ? [lines.join(' ')] : lines;
+          for (const line of copyLines) {
+            const row = document.createElement('span');
+            row.className = 'headline-line';
+            for (const phrase of line.split(emphasisPattern)) {
+              if (emphasized.has(phrase)) {
+                const strong = document.createElement('strong');
+                strong.textContent = phrase;
+                row.append(strong);
+              } else row.append(document.createTextNode(phrase));
+            }
+            heading.append(row);
+          }
+          const description = document.createElement('p');
+          description.className = 'concept-summary';
+          description.textContent = summary;
+          copy.append(statusLine, heading, description);
+        }
+
+        for (const mount of document.querySelectorAll(
+          '[data-preview-header]',
+        )) {
+          const clone = header.cloneNode(true);
+          clone.querySelector('.contact-menu-mount')?.remove();
+          clone.querySelectorAll('a[href^="#"]').forEach((link) => {
+            link.href = `/${link.getAttribute('href')}`;
+          });
+          mountContactMenu(clone.querySelector('nav'), site);
+          mount.replaceWith(clone);
+        }
+
+        const artwork = {
+          binoculars,
+          sunflower: '/images/imgSunflower1.png',
+          balloon: '/images/imgBallon2.png',
+          cursor: '/images/imgCursor1.png',
+          waterpot: '/images/imgWaterpot2.png',
+          bike: '/images/imgBike1.png',
+          brushes: '/images/imgBrushes2.png',
+          sewing: '/images/imgSewingmachine1.png',
+          apron: '/images/imgApron1.png',
+          geoshape: '/images/imgGeoshape2.png',
+          pot: '/images/imgPot2.png',
+          shovel: '/images/imgShovel1.png',
+          spoon: '/images/imgSpoon1.png',
+        };
+        for (const mount of document.querySelectorAll('[data-art]')) {
+          const src = artwork[mount.dataset.art];
+          if (!src) throw new Error('Unrecognized preview artwork.');
+          const image = createResponsiveImage(src, '320px', 'eager');
+          image.className = 'main-art';
+          image.alt = '';
+          mount.append(image);
+        }
+
+        const shortcuts = [
+          { label: 'Work', href: '/#work', image: 'imgCursor1.png' },
+          {
+            label: 'Additional projects',
+            href: '/#fun',
+            image: 'imgBallon2.png',
+          },
+          { label: 'About', href: '/#me', image: 'imgSunflower1.png' },
+          { label: 'Contact', image: 'imgGeoshape2.png' },
+        ];
+        const miniNav = document.querySelector('.mini-nav');
+        for (const shortcut of shortcuts) {
+          const item = document.createElement(shortcut.href ? 'a' : 'button');
+          item.className = 'mini-nav-item';
+          if (shortcut.href) item.href = shortcut.href;
+          else {
+            item.type = 'button';
+            item.setAttribute('aria-label', 'Open contact options');
+            item.addEventListener('click', () => {
+              document.querySelector('.editorial .nav-contact').click();
+            });
+          }
+          const image = createResponsiveImage(
+            `/images/${shortcut.image}`,
+            '68px',
+            'eager',
+          );
+          image.alt = '';
+          const label = document.createElement('span');
+          label.textContent = shortcut.label;
+          item.append(image, label);
+          miniNav.append(item);
+        }
+
+        mountArtRow(document.querySelector('[data-preview-quotes]'), 'quotes');
+        mountScrollStory();
+
+        document.querySelectorAll('button[data-view]').forEach((button) => {
+          button.disabled = false;
+          button.addEventListener('click', () => {
+            closeMenus();
+            selectedView = button.dataset.view;
+            document.querySelectorAll('.option').forEach((option) => {
+              option.hidden =
+                selectedView !== 'all' &&
+                option.dataset.option !== selectedView;
+            });
+            document
+              .querySelectorAll('button[data-view]')
+              .forEach((control) => {
+                control.setAttribute(
+                  'aria-pressed',
+                  String(control === button),
+                );
+              });
+            reportView();
+              refreshScrollStory();
+          });
+        });
+        document.querySelectorAll('button[data-device]').forEach((button) => {
+          button.disabled = false;
+          button.addEventListener('click', () => {
+            closeMenus();
+            selectedDevice = button.dataset.device;
+            preview.dataset.device = selectedDevice;
+            document
+              .querySelectorAll('button[data-device]')
+              .forEach((control) => {
+                control.setAttribute(
+                  'aria-pressed',
+                  String(control === button),
+                );
+              });
+            reportView();
+              refreshScrollStory();
+          });
+        });
+        reportView();
+      }
+
+      loadPreview().catch((error) => {
+        status.dataset.error = '';
+        status.textContent =
+          'The previews could not load. Make sure the local static site has been prepared, then reload this page.';
+        console.error('Unable to load hero design previews.', error);
+      });
+    </script>
+  </body>
+</html>

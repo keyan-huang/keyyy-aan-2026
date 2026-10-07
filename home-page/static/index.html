@@ -52,20 +52,9 @@
     <link rel="icon" href="/images/imgImage81.png" />
     <link rel="stylesheet" href="/styles/design-tokens.css" />
     <link rel="stylesheet" href="/styles/site-shell.css" />
-    <link rel="stylesheet" href="/home.css?v=experience-spacing-restored" />
+    <link rel="stylesheet" href="/home.css?v=scroll-hero-v4" />
     <link rel="stylesheet" href="/project-card.css" />
     <script src="/scripts/site-shell.js" defer></script>
-    <script type="module">
-      import { mountArtRow } from '/scripts/art-interactions.js';
-      for (const [selector, kind] of [
-        ['.first-row', 'navigation'],
-        ['.second-row', 'quotes'],
-      ]) {
-        const container = document.querySelector(selector);
-        container.replaceChildren();
-        mountArtRow(container, kind);
-      }
-    </script>
   </head>
   <body>
     <a class="skip-link" href="#work">Skip to selected projects</a>
@@ -79,59 +68,194 @@
       </nav>
     </header>
     <main id="top">
-      <section class="intro" aria-label="Introduction">
-        <div class="hero">
-          <div>
-            <h1>
-              <span class="hero-line"
-                ><span class="hero-emphasis">Keyan</span> designs for<br /></span
-              ><span class="hero-line"
-                ><span class="hero-emphasis">clarity</span> and
-                <span class="hero-emphasis">confidence</span><br /></span
-              ><span class="hero-line hero-line--idea"
-                >in <span class="hero-emphasis">complex</span> experiences<span
-                  class="idea-strokes idea-strokes--right"
-                  aria-hidden="true"
-                  ><i></i><i></i><i></i></span
-              ></span>
-            </h1>
-            <p class="availability">
-              <span class="availability-dot" aria-hidden="true"></span>Open to
-              opportunities
-            </p>
+      <section class="intro hero-story" aria-label="Introduction">
+        <div class="hero-story-track">
+          <div class="hero-story-sticky">
+            <div class="hero-story-copy">
+              <div class="hero-story-heading">
+                <p class="availability">
+                  <span class="availability-dot" aria-hidden="true"></span>Open
+                  to opportunities
+                </p>
+                <h1>
+                  <span class="hero-line">
+                    <strong class="hero-emphasis">Keyan Huang</strong> designs
+                    for
+                  </span>
+                  <span class="hero-line">
+                    <strong class="hero-emphasis">clarity</strong> and
+                    <strong class="hero-emphasis">confidence</strong>
+                  </span>
+                  <span class="hero-line">
+                    in <strong class="hero-emphasis">complex</strong> experiences
+                  </span>
+                </h1>
+              </div>
+              <p class="hero-story-summary">
+                I’m a curious product designer who untangles messy, ambiguous
+                problems to uncover what’s really happening beneath the surface.
+                I connect the dots and turn complexity into intuitive, engaging
+                experiences that feel deeply&nbsp;human.
+              </p>
+            </div>
+            <div
+              class="hero-story-art"
+              data-x="0.92"
+              data-y="0.88"
+              data-size="130"
+              data-rotate="-8"
+            >
+              <img
+                class="hero-story-image"
+                src="/images/imgCursor1.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="hero-story-art"
+              data-x="0.08"
+              data-y="0.1"
+              data-size="152"
+              data-rotate="-3"
+            >
+              <img
+                class="hero-story-image"
+                src="/images/imgApron1.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="hero-story-art"
+              data-x="0.29"
+              data-y="0.04"
+              data-size="130"
+              data-rotate="5"
+            >
+              <img
+                class="hero-story-image"
+                src="/images/imgBrushes2.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="hero-story-art"
+              data-x="0.71"
+              data-y="0.04"
+              data-size="124"
+              data-rotate="-4"
+            >
+              <img
+                class="hero-story-image"
+                src="/images/imgBinoculars1.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="hero-story-art"
+              data-x="0.5"
+              data-y="0"
+              data-size="155"
+              data-rotate="4"
+            >
+              <img
+                class="hero-story-image"
+                src="/images/imgBike1.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="hero-story-art"
+              data-x="0.5"
+              data-y="0.98"
+              data-size="134"
+              data-rotate="-4"
+            >
+              <img
+                class="hero-story-image"
+                src="/images/imgPot2.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="hero-story-art"
+              data-x="0.92"
+              data-y="0.5"
+              data-size="150"
+              data-rotate="0"
+            >
+              <img
+                class="hero-story-image"
+                src="/images/imgSunflower1.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="hero-story-art"
+              data-x="0.08"
+              data-y="0.5"
+              data-size="142"
+              data-rotate="-8"
+            >
+              <img
+                class="hero-story-image"
+                src="/images/imgGeoshape2.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="hero-story-art"
+              data-x="0.71"
+              data-y="0.9"
+              data-size="138"
+              data-rotate="4"
+            >
+              <img
+                class="hero-story-image"
+                src="/images/imgWaterpot2.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="hero-story-art"
+              data-x="0.92"
+              data-y="0.1"
+              data-size="145"
+              data-rotate="-2"
+            >
+              <img
+                class="hero-story-image"
+                src="/images/imgSewingmachine1.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="hero-story-art"
+              data-x="0.08"
+              data-y="0.88"
+              data-size="120"
+              data-rotate="-2"
+            >
+              <img
+                class="hero-story-image"
+                src="/images/imgShovel1.png"
+                alt=""
+              />
+            </div>
+            <div
+              class="hero-story-art"
+              data-x="0.29"
+              data-y="0.9"
+              data-size="124"
+              data-rotate="2"
+            >
+              <img
+                class="hero-story-image"
+                src="/images/imgSpoon1.png"
+                alt=""
+              />
+            </div>
           </div>
-          <img class="art binoculars" src="/images/imgBinoculars1.png" alt="" />
         </div>
-        <div class="art-row first-row">
-          <img class="art" src="/images/imgCursor1.png" alt="" /><img
-            class="art"
-            src="/images/imgBallon2.png"
-            alt=""
-          />
-          <img class="art" src="/images/imgSunflower1.png" alt="" /><img
-            class="art"
-            src="/images/imgGeoshape2.png"
-            alt=""
-          />
-        </div>
-        <div class="art-row second-row">
-          <img class="art" src="/images/imgApron1.png" alt="" /><img
-            class="art"
-            src="/images/imgBike1.png"
-            alt=""
-          />
-          <img class="art" src="/images/imgWaterpot2.png" alt="" /><img
-            class="art"
-            src="/images/imgShovel1.png"
-            alt=""
-          />
-        </div>
-        <p class="intro-copy">
-          I’m a curious product designer who untangles messy, ambiguous problems
-          to uncover what’s really happening beneath the surface. I connect the
-          dots and turn complexity into intuitive, engaging experiences that
-          feel deeply human.
-        </p>
       </section>
       <section id="work" class="projects section-wide">
         <h2>Selected Projects</h2>
@@ -184,7 +308,7 @@
         </div>
       </section>
       <section id="fun" class="additional-projects section-wide">
-        <h2>Fun projects</h2>
+        <h2>Additional Projects</h2>
         <div class="project-list">
           <article class="project project--compact">
             <div class="project-description">
@@ -505,10 +629,12 @@
       import { mountContactMenu } from '/scripts/contact-menu.js';
       import { mountHobbyScroll } from '/scripts/hobby-scroll.js';
       import { mountGalleryTilt } from '/scripts/gallery-tilt.js';
+      import { mountHeroScrollStory } from '/scripts/hero-scroll-story.js?v=scroll-hero-v5';
       const site = await fetch('/content/site.json').then((response) =>
         response.json(),
       );
       mountContactMenu(document.querySelector('.contact-menu-mount'), site);
+      mountHeroScrollStory(document.querySelector('.hero-story'));
       mountHobbyScroll(document.querySelector('.hobby-scroll'));
       mountGalleryTilt(document.querySelector('.hobbies'));
     </script>

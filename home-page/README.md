@@ -52,36 +52,30 @@ The whole phrase can move to the next line, but never breaks at either hyphen.
 The React homepage lives in `app/page.tsx`; GitHub Pages publishes
 `static/index.html`. Keep their markup and content synchronized. Both use the
 same homepage, component, and shared-shell styles.
-The introduction's `headingEmphasis` selects words in Bricolage Grotesque
-Semibold; supporting words use DM Sans Light and the availability line uses
-DM Sans Regular. Shared `.hero` sizing variables in `app/home.css` define three
-responsive ranges:
-
-| Viewport                  | Emphasized words | Supporting words | Availability   |
-| ------------------------- | ---------------- | ---------------- | -------------- |
-| Desktop: 1200px and above | 64px             | 32px             | 30px           |
-| Tablet: 701–1199px        | 40–48px, fluid   | 22–24px, fluid   | 24px           |
-| Mobile: 700px and below   | 28–36px, fluid   | 18–20px, fluid   | 18–20px, fluid |
-
-Desktop and tablet keep the illustration beside the right-aligned title.
-Mobile centers the full-width title and places the 160px illustration below it,
-preserving the three authored headline lines even at 320px. The introduction
-uses the same 40px tablet and 24px mobile gutters as the wider sections. Mirror
-the emphasis spans in the static homepage, and keep `imageSizes.binoculars` in
-`public/scripts/responsive-images.js` synchronized with the illustration layout.
-
-Both interactive art rows share `public/scripts/art-interactions.js`, which owns
-the tooltip copy and quote attributions. Tooltips use a white interior, black
-text, and a colored outline and pointer. `app/home.css` gives them 28px vertical
-padding and 24px between a quote and its attribution.
+The introduction uses `components/home/scroll-hero.tsx` in React and matching
+markup in the static homepage. `public/scripts/hero-scroll-story.js` owns the
+shared scroll behavior. The opening state centers the three authored headline
+lines and availability text inside a mirrored 5–2–5 grid of twelve illustrations.
+The summary is present but hidden. The copy area stays centered at 50% of the
+sticky frame in both states. Scrolling keeps that center fixed,
+crossfades the headline and availability out, brings the illustrations into an
+evenly spaced organic halo, and reveals only the centered 24px summary.
+`text-wrap: pretty` plus a nonbreaking "deeply human" prevents a one-word final
+line. Reduced-motion users switch between the two states at the midpoint.
+Desktop artwork begins at 120–155px; the final mirrored pairs use matching
+88–110px sizes. The opening rows and revealed halo follow shallow mirrored arcs
+rather than straight lines. Each illustration uses a slightly different,
+slow 5–7 second floating cycle; reduced-motion mode disables that movement.
+Mobile scales the same composition without allowing artwork to overlap the
+summary column. Keep the artwork data and order synchronized between the React
+component and `static/index.html`.
 
 Selected Projects features the Performance Discussion Form and PAF redesign.
-The smaller "Fun projects" section appears before About Keyan and contains
+The smaller "Additional Projects" section appears before About Keyan and contains
 Dashboard Customization Testing Study, EggV, and Plastic Universe, in that order. Keep both lists
 synchronized in `app/page.tsx` and `static/index.html`; their metadata lives in
 `content/projects/`. The top navigation contains Work, About, and Contact.
-The balloon still points to `#fun`, preserving access to the fun projects
-and previously shared anchors.
+The section retains `#fun`, preserving previously shared anchors.
 
 Additional cards use `ProjectCard` with `compact` enabled: 24px padding,
 24px titles, 16px summaries, and 180px-high thumbnail areas with images capped
@@ -286,6 +280,32 @@ styled by `public/styles/contact-menu.css`. The React `ContactMenu` component
 and the static shell both mount this same implementation using `site.json`.
 It uses the native Popover API (Safari 17+, Chrome 114+, Firefox 125+) for
 top-layer rendering, click toggling, and outside-click dismissal.
+
+### Hero layout comparison
+
+`design-options/hero-options.html` is a local-only design study showing six hero
+directions with compare-all and desktop/mobile controls. It keeps the colorful
+shelf and playful halo, explores three clean static compositions, and includes
+an interactive scroll story. That story begins with the availability line and
+headline surrounded by twelve large illustrations on a loose underlying grid;
+scrolling moves the artwork above the text into an evenly spaced, staggered
+two-sided halo and reveals the summary without moving the headline vertically.
+Mirrored center points balance each left/right pair against the centered hero
+and page edges; the halo stays outside the summary column. The study reads the
+current homepage copy, uses the original artwork and font tokens, and preserves
+the shared Contact menu and testimonial interactions. It does not change the
+homepage or enter the normal GitHub Pages build.
+
+To preview it using the generated static site:
+
+```bash
+pnpm prepare:static
+cp design-options/hero-options.html github-pages/hero-options.html
+python3 -m http.server 4173 --bind 127.0.0.1 --directory github-pages
+```
+
+Open `http://127.0.0.1:4173/hero-options.html`. Preparing the static site again
+removes the preview copy; the source study stays in `design-options/`.
 
 ## Production build
 
