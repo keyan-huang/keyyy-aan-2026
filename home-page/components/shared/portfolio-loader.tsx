@@ -4,17 +4,16 @@ import { useEffect, useRef } from 'react';
 import { mountPortfolioLoader } from '@/public/scripts/portfolio-loader.js';
 
 export function PortfolioLoader() {
-  const loader = useRef<HTMLDivElement>(null);
+  const loader = useRef<HTMLOutputElement>(null);
 
   useEffect(() => {
     if (loader.current) return mountPortfolioLoader(loader.current);
   }, []);
 
   return (
-    <div
+    <output
       ref={loader}
       className="portfolio-loader"
-      role="status"
       aria-label="Loading portfolio"
     >
       <div className="portfolio-loader-content">
@@ -26,17 +25,15 @@ export function PortfolioLoader() {
           width="96"
           height="96"
         />
-        <div
+        <progress
           className="portfolio-loader-meter"
-          role="progressbar"
           aria-label="Portfolio loading progress"
-          aria-valuemin="0"
-          aria-valuemax="100"
-          aria-valuenow="0"
+          max="100"
+          value="0"
         >
-          <span className="portfolio-loader-fill" />
-        </div>
+          0%
+        </progress>
       </div>
-    </div>
+    </output>
   );
 }

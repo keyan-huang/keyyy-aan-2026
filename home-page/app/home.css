@@ -45,20 +45,23 @@ html.portfolio-loading body {
   animation: portfolio-loader-spin 4s linear infinite;
 }
 .portfolio-loader-meter {
+  appearance: none;
   width: 100%;
   height: 8px;
   overflow: hidden;
+  border: 0;
   border-radius: 999px;
   background: #dfe7f1;
   box-shadow: inset 0 1px 2px rgb(17 24 39 / 10%);
 }
-.portfolio-loader-fill {
-  display: block;
-  width: 0;
-  height: 100%;
+.portfolio-loader-meter::-webkit-progress-bar {
+  border-radius: inherit;
+  background: #dfe7f1;
+}
+.portfolio-loader-meter::-webkit-progress-value,
+.portfolio-loader-meter::-moz-progress-bar {
   border-radius: inherit;
   background: var(--color-primary);
-  transition: width 180ms ease;
 }
 @keyframes portfolio-loader-spin {
   to {
@@ -208,8 +211,7 @@ p {
   --bubble-color: #7737ca;
 }
 @media (prefers-reduced-motion: reduce) {
-  .js .portfolio-loader:not([hidden]),
-  .portfolio-loader-fill {
+  .js .portfolio-loader:not([hidden]) {
     transition: none;
   }
   .portfolio-loader-logo {

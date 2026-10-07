@@ -60,16 +60,12 @@
     <link rel="icon" href="/images/imgImage81.png" />
     <link rel="stylesheet" href="/styles/design-tokens.css" />
     <link rel="stylesheet" href="/styles/site-shell.css" />
-    <link rel="stylesheet" href="/home.css?v=portfolio-loader-v4" />
+    <link rel="stylesheet" href="/home.css?v=portfolio-loader-v5" />
     <link rel="stylesheet" href="/project-card.css" />
     <script src="/scripts/site-shell.js" defer></script>
   </head>
   <body>
-    <div
-      class="portfolio-loader"
-      role="status"
-      aria-label="Loading portfolio"
-    >
+    <output class="portfolio-loader" aria-label="Loading portfolio">
       <div class="portfolio-loader-content">
         <img
           class="portfolio-loader-logo"
@@ -78,18 +74,16 @@
           width="96"
           height="96"
         />
-        <div
+        <progress
           class="portfolio-loader-meter"
-          role="progressbar"
           aria-label="Portfolio loading progress"
-          aria-valuemin="0"
-          aria-valuemax="100"
-          aria-valuenow="0"
+          max="100"
+          value="0"
         >
-          <span class="portfolio-loader-fill"></span>
-        </div>
+          0%
+        </progress>
       </div>
-    </div>
+    </output>
     <a class="skip-link" href="#work">Skip to selected projects</a>
     <header class="navigation">
       <a href="#top" aria-label="Back to top"
@@ -663,7 +657,7 @@
       import { mountHobbyScroll } from '/scripts/hobby-scroll.js';
       import { mountGalleryTilt } from '/scripts/gallery-tilt.js';
       import { mountHeroScrollStory } from '/scripts/hero-scroll-story.js?v=scroll-hero-v7';
-      import { mountPortfolioLoader } from '/scripts/portfolio-loader.js?v=portfolio-loader-v2';
+      import { mountPortfolioLoader } from '/scripts/portfolio-loader.js?v=portfolio-loader-v3';
       mountPortfolioLoader(document.querySelector('.portfolio-loader'));
       const site = await fetch('/content/site.json').then((response) =>
         response.json(),

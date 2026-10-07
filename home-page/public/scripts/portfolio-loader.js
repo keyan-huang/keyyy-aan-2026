@@ -1,6 +1,5 @@
 export function mountPortfolioLoader(loader) {
   const meter = loader.querySelector('.portfolio-loader-meter');
-  const fill = loader.querySelector('.portfolio-loader-fill');
   const criticalImages = [
     ...document.querySelectorAll(
       '.portfolio-loader-logo, .navigation .logo, .hero-story .hero-story-image',
@@ -22,8 +21,8 @@ export function mountPortfolioLoader(loader) {
   const update = () => {
     if (!active) return;
     const value = Math.round((settled / resources) * 100);
-    meter.setAttribute('aria-valuenow', String(value));
-    fill.style.width = `${value}%`;
+    meter.value = value;
+    meter.textContent = `${value}%`;
   };
 
   const dismiss = () => {
@@ -87,7 +86,7 @@ export function mountPortfolioLoader(loader) {
     );
   });
 
-  document.fonts.ready.then(markSettled);
+  void document.fonts.ready.then(markSettled);
   const timeout = setTimeout(() => {
     if (!active || settled >= resources) return;
     console.error(
