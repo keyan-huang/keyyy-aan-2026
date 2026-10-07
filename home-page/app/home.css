@@ -255,7 +255,7 @@ p {
 }
 .hero-story-track {
   position: relative;
-  height: max(1260px, 155svh);
+  height: max(2200px, 240svh);
 }
 .hero-story-sticky {
   position: sticky;
@@ -800,7 +800,7 @@ h2 {
     margin-top: 12px;
   }
   .hero-story-track {
-    height: 1280px;
+    height: max(1800px, 220svh);
   }
   .hero-story-sticky {
     top: 88px;

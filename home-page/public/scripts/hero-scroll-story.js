@@ -49,10 +49,13 @@ export function mountHeroScrollStory(section) {
     const rawProgress = clamp(
       (stickyTop - track.getBoundingClientRect().top) / travel,
     );
+    const transitionProgress = clamp(rawProgress / 0.65);
     const smoothProgress =
-      rawProgress * rawProgress * (3 - 2 * rawProgress);
+      transitionProgress *
+      transitionProgress *
+      (3 - 2 * transitionProgress);
     const progress = reducedMotion.matches
-      ? Number(rawProgress >= 0.5)
+      ? Number(transitionProgress >= 0.5)
       : smoothProgress;
     const mobile = width < 700;
     const summaryProgress = clamp((progress - 0.38) / 0.42);

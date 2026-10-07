@@ -69,6 +69,9 @@ slow 5–7 second floating cycle; reduced-motion mode disables that movement.
 Mobile scales the same composition without allowing artwork to overlap the
 summary column. Keep the artwork data and order synchronized between the React
 component and `static/index.html`.
+The sticky track uses 2200px/240svh on desktop and 1800px/220svh on mobile.
+The animation completes across the first 65% of that distance, leaving the final
+35% as a pinned reading interval before Selected Projects.
 
 Selected Projects features the Performance Discussion Form and PAF redesign.
 The smaller "Additional Projects" section appears before About Keyan and contains
