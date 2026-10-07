@@ -1,6 +1,9 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      document.documentElement.classList.add('js', 'portfolio-loading');
+    </script>
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -16,6 +19,11 @@
     </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="preload"
+      href="/images/portfolio-loader-logo.png"
+      as="image"
+    />
     <meta
       name="description"
       content="A curious product designer turning complex problems into clear, human experiences."
@@ -52,11 +60,36 @@
     <link rel="icon" href="/images/imgImage81.png" />
     <link rel="stylesheet" href="/styles/design-tokens.css" />
     <link rel="stylesheet" href="/styles/site-shell.css" />
-    <link rel="stylesheet" href="/home.css?v=scroll-hero-v6" />
+    <link rel="stylesheet" href="/home.css?v=portfolio-loader-v4" />
     <link rel="stylesheet" href="/project-card.css" />
     <script src="/scripts/site-shell.js" defer></script>
   </head>
   <body>
+    <div
+      class="portfolio-loader"
+      role="status"
+      aria-label="Loading portfolio"
+    >
+      <div class="portfolio-loader-content">
+        <img
+          class="portfolio-loader-logo"
+          src="/images/portfolio-loader-logo.png"
+          alt=""
+          width="96"
+          height="96"
+        />
+        <div
+          class="portfolio-loader-meter"
+          role="progressbar"
+          aria-label="Portfolio loading progress"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          aria-valuenow="0"
+        >
+          <span class="portfolio-loader-fill"></span>
+        </div>
+      </div>
+    </div>
     <a class="skip-link" href="#work">Skip to selected projects</a>
     <header class="navigation">
       <a href="#top" aria-label="Back to top"
@@ -630,6 +663,8 @@
       import { mountHobbyScroll } from '/scripts/hobby-scroll.js';
       import { mountGalleryTilt } from '/scripts/gallery-tilt.js';
       import { mountHeroScrollStory } from '/scripts/hero-scroll-story.js?v=scroll-hero-v7';
+      import { mountPortfolioLoader } from '/scripts/portfolio-loader.js?v=portfolio-loader-v2';
+      mountPortfolioLoader(document.querySelector('.portfolio-loader'));
       const site = await fetch('/content/site.json').then((response) =>
         response.json(),
       );

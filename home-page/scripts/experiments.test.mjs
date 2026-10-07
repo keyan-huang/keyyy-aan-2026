@@ -65,6 +65,8 @@ await test('landing-page hero preserves its three lines and existing emphasis', 
   );
   assert.equal(byClass(hero, 'hero-story-art').length, 12);
   assert.equal(byClass(hero, 'hero-story-summary').length, 1);
+  assert.equal(byClass(homepage, 'portfolio-loader').length, 1);
+  assert.equal(byClass(homepage, 'portfolio-loader-meter').length, 1);
 });
 
 await test('Additional Projects groups the Dashboard study, EggV, and Plastic Universe', () => {

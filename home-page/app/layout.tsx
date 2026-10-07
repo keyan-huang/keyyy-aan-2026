@@ -13,6 +13,19 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <link
+          rel="preload"
+          href="/images/portfolio-loader-logo.png"
+          as="image"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "document.documentElement.classList.add('js','portfolio-loading');",
+          }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );

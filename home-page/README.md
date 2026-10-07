@@ -73,6 +73,14 @@ The sticky track uses 2200px/240svh on desktop and 1800px/220svh on mobile.
 The animation completes across the first 65% of that distance, leaving the final
 35% as a pinned reading interval before Selected Projects.
 
+The homepage loading overlay is rendered by
+`components/shared/portfolio-loader.tsx` and matching static markup.
+`public/scripts/portfolio-loader.js` tracks the navigation logo, all twelve
+critical hero illustrations, and font readiness, updating the progress bar
+before fading the overlay out. JavaScript adds the activation class before body
+paint; without JavaScript, the loader remains hidden. Reduced-motion mode stops
+the sunflower spin and removes loader transitions.
+
 Selected Projects features the Performance Discussion Form and PAF redesign.
 The smaller "Additional Projects" section appears before About Keyan and contains
 Dashboard Customization Testing Study, EggV, and Plastic Universe, in that order. Keep both lists

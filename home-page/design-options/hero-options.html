@@ -2600,12 +2600,10 @@
         const cleanText = (element) =>
           element?.textContent.replace(/\s+/g, ' ').trim();
         const lines = [...home.querySelectorAll('.hero-line')].map(cleanText);
-        const summary = cleanText(home.querySelector('.intro-copy'));
+        const summary = cleanText(home.querySelector('.hero-story-summary'));
         const availability = cleanText(home.querySelector('.availability'));
         const header = home.querySelector('.navigation');
-        const binoculars = home
-          .querySelector('.hero .binoculars')
-          ?.getAttribute('src');
+        const binoculars = '/images/imgBinoculars1.png';
         const emphasized = new Set(
           [...home.querySelectorAll('.hero-emphasis')].map(cleanText),
         );

@@ -7,12 +7,14 @@ import { HobbyGallery } from '@/components/home/hobby-gallery';
 import { ScrollHero } from '@/components/home/scroll-hero';
 import { SiteFooter } from '@/components/shared/site-footer';
 import { SiteHeader } from '@/components/shared/site-header';
+import { PortfolioLoader } from '@/components/shared/portfolio-loader';
 import { homeContent } from '@/content/home';
 import { additionalProjects, featuredProjects } from '@/content/projects';
 
 export default function Home() {
   return (
     <>
+      <PortfolioLoader />
       <SiteHeader />
       <main id="top">
         <ScrollHero />
