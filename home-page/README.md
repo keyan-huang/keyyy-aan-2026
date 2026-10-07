@@ -76,11 +76,11 @@ text, and a colored outline and pointer. `app/home.css` gives them 28px vertical
 padding and 24px between a quote and its attribution.
 
 Selected Projects features the Performance Discussion Form and PAF redesign.
-The smaller "Additional project" section appears before About Keyan and contains
-Dashboard Customization Testing Study and EggV, in that order. Keep both lists
+The smaller "Fun projects" section appears before About Keyan and contains
+Dashboard Customization Testing Study, EggV, and Plastic Universe, in that order. Keep both lists
 synchronized in `app/page.tsx` and `static/index.html`; their metadata lives in
 `content/projects/`. The top navigation contains Work, About, and Contact.
-The balloon still points to `#fun`, preserving access to the additional projects
+The balloon still points to `#fun`, preserving access to the fun projects
 and previously shared anchors.
 
 Additional cards use `ProjectCard` with `compact` enabled: 24px padding,
@@ -89,6 +89,68 @@ at 280px wide. The section heading is 32px on desktop and 24px on mobile,
 smaller than Selected Projects. On mobile, compact titles reduce to 22px and
 thumbnail areas to 140px high. Keep `imageSizes.additionalProject` synchronized
 with the compact image sizing; full-resolution originals remain unchanged.
+
+### Plastic Universe
+
+The image-led case study lives in `public/plastic-universe/`; homepage metadata
+lives in `content/projects/plastic-universe.ts`. It uses simple text blocks and
+image galleries, progressing from secondary research, the Noah Travis persona,
+and original branding boards to pencil sketches and character iterations,
+finished Plastic Pals posters, infographic development, exhibition concepts, and
+the opening night. The shared site shell provides image zoom and navigation.
+
+The content and media come from the
+[Figma website section](https://www.figma.com/design/xnLIdFys8xcgk0G1zxYoKH/Portfolio-Design-File?node-id=1693-412).
+Images were extracted byte-for-byte from the original raster data embedded in
+Figma's SVG export, not captured as canvas screenshots or enlarged exports.
+The complete source export remains outside the repository; only the 33 displayed
+images belong in `public/plastic-universe/images/`. Keep their native dimensions
+and transparency. The source credits Helen Prum for exhibition photography;
+photo-credit text and the closing credit paragraph are omitted from the page.
+The introductory Team field remains.
+The homepage card uses `public/plastic-universe/thumbnail.png`, the original
+1734 x 675 PNG export of the
+[Figma thumbnail frame](https://www.figma.com/design/xnLIdFys8xcgk0G1zxYoKH/Portfolio-Design-File?node-id=1692-3784).
+Its seven characters and white background are shown without cropping. This wide
+lineup is exempt from the compact cards' 280px image cap, so it can fill more of
+the existing thumbnail area without making the card taller. The case-study hero
+remains the exhibition photograph.
+
+Source image indexes in the export (IDs end in `_72_3586`):
+
+- Branding typography, character palette, and supporting palette: 0, 1, 2.
+
+- Character sketches and iterations: 5, 6, 14, 3, 4.
+- Early digital cast, in displayed order: 12, 13, 8, 7, 9, 11, 10.
+- Finished character posters: 15, 17, 16, 18.
+- Infographic process and final artwork: 19, 22, 24.
+- Exhibition hero, concepts, wall, panels, and globe: 27, 25, 26, 29, 40, 37, 41, 47.
+- Girl touching the globe and opening night: 50, 51, 52.
+
+From "From the page into the room" onward, orientation-matched gallery rows use
+proportional column widths to align the full photographs without cropping or
+fixed-height letterboxing. Concepts and wide installation shots are paired;
+portrait details and the girl touching the globe share a row, followed by the
+opening-night pair. These rows stack on mobile. Update the row ratios if those
+source photographs change.
+
+Research and persona text follow the Figma narrative: secondary research,
+complexity/contamination/consumer habits, and the eight-year-old Noah Travis
+persona. These are design inputs, not claims of interviews or usability testing.
+The persona and its design implications live in a native, initially collapsed
+`details` card titled "Persona - Noah"; its summary retains the `#persona` anchor
+and supports keyboard interaction without additional JavaScript. The white card
+has a rounded `#3915A2` outline, dark summary text, and a matching accent marker.
+The header stays unfilled on hover, and expanded content stays white without a divider.
+The branding section displays the original Paralucent/Azo Sans specimen and
+palette exports; the portfolio's own typography remains unchanged. Palette
+images have a dark neutral backdrop to retain their white labels.
+
+Run `pnpm images:prepare` after changing media. The page intentionally preserves
+the original exhibition graphics; the accompanying note distinguishes the design
+work from location-specific recycling guidance.
+
+### EggV
 
 The EggV experiment lives in `public/eggv/index.html` with its own
 `case-study.css` and the shared site shell. Its copy preserves the Figma summary

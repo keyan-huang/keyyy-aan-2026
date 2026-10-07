@@ -138,6 +138,10 @@
   max-width: 280px;
 }
 
+.project--compact .project-thumbnail-plastic-universe .project-image {
+  max-width: none;
+}
+
 @media (min-width: 761px) and (max-width: 1199px) {
   .project {
     --project-card-inset: 28px;

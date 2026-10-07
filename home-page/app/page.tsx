@@ -79,7 +79,7 @@ export default function Home() {
           </div>
         </section>
         <section id="fun" className="additional-projects section-wide">
-          <h2>Additional project</h2>
+          <h2>Fun projects</h2>
           <div className="project-list">
             {additionalProjects.map((project) => (
               <ProjectCard project={project} compact key={project.slug} />

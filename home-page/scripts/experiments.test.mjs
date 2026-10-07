@@ -62,7 +62,7 @@ await test('landing-page hero preserves its three lines and existing emphasis', 
   assert.equal(byClass(hero, 'binoculars').length, 1);
 });
 
-await test('Additional project replaces experiments and groups the Dashboard study with EggV', () => {
+await test('Fun projects groups the Dashboard study, EggV, and Plastic Universe', () => {
   const sections = findAll(homepage, (node) => node.tagName === 'section');
   const index = sections.findIndex((node) => attr(node, 'id') === 'fun');
   assert.ok(index > 0);
@@ -73,13 +73,17 @@ await test('Additional project replaces experiments and groups the Dashboard stu
   assert.equal(attr(fun, 'class'), 'additional-projects section-wide');
   assert.equal(
     text(findAll(fun, (node) => node.tagName === 'h2')[0]),
-    'Additional project',
+    'Fun projects',
   );
-  assert.equal(byClass(fun, 'project--compact').length, 2);
+  assert.equal(byClass(fun, 'project--compact').length, 3);
   const links = findAll(fun, (node) => node.tagName === 'a');
   assert.deepEqual(
     links.map((link) => attr(link, 'href')),
-    ['/dashboard-customization-user-testing/index.html', '/eggv/index.html'],
+    [
+      '/dashboard-customization-user-testing/index.html',
+      '/eggv/index.html',
+      '/plastic-universe/index.html',
+    ],
   );
   const featured = byClass(sections[index - 1], 'project');
   assert.equal(featured.length, 2);
@@ -112,12 +116,13 @@ await test('shared and static navigation omit Additional without removing the pr
 
 await test('all homepage project actions sit with the introduction before the thumbnail', () => {
   const cards = byClass(homepage, 'project');
-  assert.equal(cards.length, 4);
+  assert.equal(cards.length, 5);
   const destinations = [
     '/performance-discussion-form/index.html',
     '/paf-redesign/index.html',
     '/dashboard-customization-user-testing/index.html',
     '/eggv/index.html',
+    '/plastic-universe/index.html',
   ];
   cards.forEach((card, index) => {
     const children = card.childNodes.filter((node) => node.tagName);
