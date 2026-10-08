@@ -224,9 +224,10 @@ await test('EggV uses the compact shared layout and requested title and action',
   const [action] = byClass(card, 'project-action');
   assert.equal(action.tagName, 'a');
   assert.equal(attr(action, 'href'), '/eggv/index.html');
+  assert.equal(text(action).replace(/\s+/g, ' ').trim(), 'Explore');
   assert.equal(
-    text(action.childNodes.find((node) => node.tagName === 'span')),
-    'Explore',
+    findAll(action, (node) => node.tagName === 'span').length,
+    0,
   );
 });
 
