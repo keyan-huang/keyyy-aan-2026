@@ -22,17 +22,45 @@ export function mountHeroScrollStory(section) {
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
   const controller = new AbortController();
   const listenerOptions = { signal: controller.signal };
+  let revealQueue = Promise.resolve();
+
+  const queueReveal = (item) => {
+    revealQueue = revealQueue.then(
+      () =>
+        new Promise((resolve) => {
+          if (!controller.signal.aborted)
+            item.classList.add('hero-story-art--ready');
+          setTimeout(resolve, 70);
+        }),
+    );
+  };
 
   items.forEach((item, index) => {
     const image = item.querySelector('img');
-    const setBackground = () => {
+    const reveal = () => {
       item.style.backgroundImage = `url("${image.currentSrc || image.src}")`;
+      queueReveal(item);
     };
     item.style.setProperty('--hero-float-x', index % 2 ? '-2px' : '2px');
-    item.style.animationDelay = `${-index * 0.37}s`;
-    item.style.animationDuration = `${5.2 + (index % 4) * 0.55}s`;
-    setBackground();
-    image.addEventListener('load', setBackground, listenerOptions);
+    item.style.setProperty('--hero-float-delay', `${-index * 0.37}s`);
+    item.style.setProperty(
+      '--hero-float-duration',
+      `${5.2 + (index % 4) * 0.55}s`,
+    );
+    if (image.complete && image.naturalWidth) reveal();
+    else {
+      image.addEventListener('load', reveal, listenerOptions);
+      image.addEventListener(
+        'error',
+        () => {
+          console.error(
+            'Hero artwork failed to load.',
+            image.currentSrc || image.src,
+          );
+        },
+        listenerOptions,
+      );
+    }
   });
 
   const clamp = (value, minimum = 0, maximum = 1) =>
@@ -102,7 +130,6 @@ export function mountHeroScrollStory(section) {
       item.style.height = `${size}px`;
       item.style.left = `${x}px`;
       item.style.top = `${y}px`;
-      item.style.opacity = '1';
       item.style.rotate = `${rotation}deg`;
     });
   };

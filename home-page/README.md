@@ -65,8 +65,9 @@ crossfades the headline and availability out, brings the illustrations into an
 evenly spaced organic halo, and reveals only the centered 24px summary.
 `text-wrap: pretty` plus a nonbreaking "deeply human" prevents a one-word final
 line. Reduced-motion users switch between the two states at the midpoint.
-The hero availability line is 16px on desktop, 15px on mobile, and sits 6px
-above its normal flow position.
+The hero availability line is 18px on desktop, 17px on mobile, and sits 6px
+above its normal flow position. Its 11px status dot reuses the footer's lighter
+green center, darker outer ring, and 1.6-second pulse.
 Desktop artwork begins at 120–155px; the final mirrored pairs use matching
 88–110px sizes. The opening rows and revealed halo follow shallow mirrored arcs
 rather than straight lines. Each illustration uses a slightly different,
@@ -78,22 +79,10 @@ The sticky track uses 2200px/240svh on desktop and 1800px/220svh on mobile.
 The animation completes across the first 65% of that distance, leaving the final
 35% as a pinned reading interval before Selected Projects.
 
-The homepage loading overlay is rendered by
-`components/shared/portfolio-loader.tsx` and matching static markup.
-`public/scripts/portfolio-loader.js` tracks the navigation logo, all twelve
-critical hero illustrations, and font readiness, updating the progress bar
-before fading the overlay out. JavaScript adds the activation class before body
-paint; without JavaScript, the loader remains hidden. Reduced-motion mode stops
-the loader art swap and removes loader transitions. Five dedicated 400px
-thumbnails display at 180px for 2× high-density rendering, reusing the footer's
-rotating artwork language without loading the multi-megabyte originals.
-Displayed progress starts at 0% and advances against both elapsed time and
-settled resources, enforcing a 2.6-second minimum before the explicit blue bar
-reaches 100%.
-The root layout and static homepage inline the loader's critical white
-background and centering styles before external CSS, preventing a dark first
-paint while `home.css` downloads. Completion uses a 700ms eased opacity fade
-before the overlay becomes hidden.
+The homepage does not block on a loading overlay. As each hero illustration
+finishes loading, `public/scripts/hero-scroll-story.js` adds it to a short reveal
+queue. Artwork pops in one item at a time with 70ms spacing, then continues its
+subtle floating loop. Reduced-motion mode shows each ready image without the pop.
 
 Selected Projects features the Performance Discussion Form and PAF redesign.
 The smaller "Additional Projects" section appears before About Keyan and contains
