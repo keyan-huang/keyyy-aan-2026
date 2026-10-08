@@ -111,10 +111,6 @@ export const homeContent = {
       label: "Keyan's colorful art and inspiration wall",
     },
     {
-      src: '/images/life-gallery/homemade-sushi.jpg',
-      label: 'Homemade sushi and sashimi',
-    },
-    {
       src: '/images/life-gallery/keyan-design-studio.jpg',
       label: 'Keyan at the Austin Design Studio',
     },

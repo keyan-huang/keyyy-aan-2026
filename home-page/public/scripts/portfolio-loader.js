@@ -1,58 +1,54 @@
 export function mountPortfolioLoader(loader) {
   const meter = loader.querySelector('.portfolio-loader-meter');
+  const fill = loader.querySelector('.portfolio-loader-fill');
   const criticalImages = [
     ...document.querySelectorAll(
-      '.portfolio-loader-logo, .navigation .logo, .hero-story .hero-story-image',
+      '.portfolio-loader-swap-image, .navigation .logo, .hero-story .hero-story-image',
     ),
   ];
   const controller = new AbortController();
   const options = { signal: controller.signal };
   const startedAt = performance.now();
-  const minimumDuration = 500;
+  const minimumDuration = 2600;
   const resources = criticalImages.length + 1;
   let active = true;
   let settled = 0;
   let dismissed = false;
-  let dismissTimer;
   let hideTimer;
+  let progressTimer;
 
   document.documentElement.classList.add('portfolio-loading');
 
-  const update = () => {
-    if (!active) return;
-    const value = Math.round((settled / resources) * 100);
+  const update = (value) => {
     meter.value = value;
-    meter.textContent = `${value}%`;
+    fill.style.width = `${value}%`;
+    const rounded = Math.floor(value);
+    meter.textContent = `${rounded}%`;
   };
 
   const dismiss = () => {
     if (!active || dismissed || settled < resources) return;
     dismissed = true;
-    const delay = Math.max(0, minimumDuration - (performance.now() - startedAt));
-    dismissTimer = setTimeout(() => {
-      if (!active) return;
-      loader.classList.add('portfolio-loader--complete');
-      loader.style.opacity = '0';
-      loader.style.visibility = 'hidden';
-      document.documentElement.classList.remove('portfolio-loading');
-      const finish = () => {
-        clearTimeout(hideTimer);
-        loader.hidden = true;
-      };
-      loader.addEventListener('transitionend', finish, {
-        ...options,
-        once: true,
-      });
-      hideTimer = setTimeout(finish, 400);
-      if (matchMedia('(prefers-reduced-motion: reduce)').matches) finish();
-    }, delay);
+    clearInterval(progressTimer);
+    loader.classList.add('portfolio-loader--complete');
+    loader.style.opacity = '0';
+    loader.style.visibility = 'hidden';
+    document.documentElement.classList.remove('portfolio-loading');
+    const finish = () => {
+      clearTimeout(hideTimer);
+      loader.hidden = true;
+    };
+    loader.addEventListener('transitionend', finish, {
+      ...options,
+      once: true,
+    });
+    hideTimer = setTimeout(finish, 800);
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) finish();
   };
 
   const markSettled = () => {
     if (!active) return;
     settled += 1;
-    update();
-    dismiss();
   };
 
   criticalImages.forEach((image) => {
@@ -87,6 +83,23 @@ export function mountPortfolioLoader(loader) {
   });
 
   void document.fonts.ready.then(markSettled);
+
+  const animateProgress = () => {
+    if (!active) return;
+    const now = performance.now();
+    const timeProgress = Math.min(
+      100,
+      ((now - startedAt) / minimumDuration) * 100,
+    );
+    const resourceProgress = (settled / resources) * 100;
+    const displayedProgress = Math.min(timeProgress, resourceProgress);
+    update(displayedProgress);
+    if (timeProgress >= 100 && settled >= resources) {
+      update(100);
+      dismiss();
+    }
+  };
+
   const timeout = setTimeout(() => {
     if (!active || settled >= resources) return;
     console.error(
@@ -94,17 +107,17 @@ export function mountPortfolioLoader(loader) {
       resources - settled,
     );
     settled = resources;
-    update();
-    dismiss();
   }, 15000);
-  update();
+  update(0);
+  progressTimer = setInterval(animateProgress, 50);
+  animateProgress();
 
   return () => {
     active = false;
     controller.abort();
     clearTimeout(timeout);
-    clearTimeout(dismissTimer);
     clearTimeout(hideTimer);
+    clearInterval(progressTimer);
     document.documentElement.classList.remove('portfolio-loading');
   };
 }

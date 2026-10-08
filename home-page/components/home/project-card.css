@@ -9,6 +9,15 @@
   background: var(--color-background);
   border: 1px solid #aeb4bd;
   border-radius: 24px;
+  transition:
+    box-shadow 350ms ease,
+    transform 350ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.project:hover,
+.project:focus-within {
+  box-shadow: 0 20px 44px rgb(17 24 39 / 10%);
+  transform: translateY(-6px);
 }
 
 .project-description {
@@ -47,6 +56,12 @@
   background: transparent;
   box-shadow: none;
   object-fit: contain;
+  transition: transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.project:hover .project-image,
+.project:focus-within .project-image {
+  transform: scale(1.015);
 }
 
 .project-thumbnail-dashboard-customization-user-testing .project-image {
@@ -80,29 +95,51 @@
   min-height: 44px;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 0;
   margin: 0;
-  padding: 10px 18px;
+  padding: 10px 14px;
   border: 0;
   border-radius: 999px;
   background: var(--color-primary);
   color: var(--color-background);
   cursor: pointer;
-  font: 500 18px/1.2 var(--font-display);
+  font: 500 14px/1.2 var(--font-display);
   letter-spacing: 0;
+  text-decoration: none;
   white-space: nowrap;
   transition:
     background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    color 180ms ease,
     transform 180ms ease;
 }
 
 .project-action:hover {
   background: var(--color-primary-hover);
-  transform: translateY(-2px);
+  color: var(--color-background);
+  transform: translateY(-1px);
 }
 
 .project-action:active {
   transform: translateY(0);
+}
+
+.project:hover .project-action,
+.project:focus-within .project-action {
+  animation: project-action-charge 1.4s ease-in-out infinite;
+}
+
+@keyframes project-action-charge {
+  0%,
+  100% {
+    background: var(--color-primary);
+    box-shadow: 0 0 0 0 rgb(12 108 209 / 0%);
+  }
+  50% {
+    background: var(--color-primary-hover);
+    box-shadow: 0 0 0 4px rgb(12 108 209 / 8%);
+  }
 }
 
 .project-action:disabled {
@@ -184,7 +221,25 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .project,
+  .project .project-image {
+    transition: none;
+  }
+
+  .project:hover,
+  .project:focus-within,
+  .project:hover .project-image,
+  .project:focus-within .project-image {
+    transform: none;
+  }
+
   .project-action {
     transition: none;
+  }
+
+  .project:hover .project-action,
+  .project:focus-within .project-action {
+    animation: none;
+    background: var(--color-primary-hover);
   }
 }

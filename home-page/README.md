@@ -33,8 +33,11 @@ text column beside the thumbnail on the right. The text and action form a compac
 group centered vertically beside the image. Featured cards use a 340px-high
 thumbnail area on desktop, with 40px card padding. The title-to-description gap is 16px, and Explore sits 24px
 below the description rather than being pushed to the bottom of the image.
-Explore buttons fit their content without a minimum width, use an 8px label-to-arrow
-gap and equal horizontal padding, and retain a minimum 44px touch target.
+Explore buttons fit their text without a minimum width or arrow icon, use compact
+14px horizontal padding, and retain a minimum 44px touch target. Their default
+style is the filled primary-blue pill. Hovering anywhere on a card adds a
+six-pixel soft lift and makes its Explore button pulse between the primary and
+hover blues; the neutral card border does not change color.
 At 760px and below, the text and action stack above the image. The shared layout
 lives in `components/home/project-card.css`; images fit without cropping and
 titles wrap naturally on small screens. The Dashboard study retains its 90%
@@ -62,6 +65,8 @@ crossfades the headline and availability out, brings the illustrations into an
 evenly spaced organic halo, and reveals only the centered 24px summary.
 `text-wrap: pretty` plus a nonbreaking "deeply human" prevents a one-word final
 line. Reduced-motion users switch between the two states at the midpoint.
+The hero availability line is 16px on desktop, 15px on mobile, and sits 6px
+above its normal flow position.
 Desktop artwork begins at 120–155px; the final mirrored pairs use matching
 88–110px sizes. The opening rows and revealed halo follow shallow mirrored arcs
 rather than straight lines. Each illustration uses a slightly different,
@@ -79,7 +84,16 @@ The homepage loading overlay is rendered by
 critical hero illustrations, and font readiness, updating the progress bar
 before fading the overlay out. JavaScript adds the activation class before body
 paint; without JavaScript, the loader remains hidden. Reduced-motion mode stops
-the sunflower spin and removes loader transitions.
+the loader art swap and removes loader transitions. Five dedicated 400px
+thumbnails display at 180px for 2× high-density rendering, reusing the footer's
+rotating artwork language without loading the multi-megabyte originals.
+Displayed progress starts at 0% and advances against both elapsed time and
+settled resources, enforcing a 2.6-second minimum before the explicit blue bar
+reaches 100%.
+The root layout and static homepage inline the loader's critical white
+background and centering styles before external CSS, preventing a dark first
+paint while `home.css` downloads. Completion uses a 700ms eased opacity fade
+before the overlay becomes hidden.
 
 Selected Projects features the Performance Discussion Form and PAF redesign.
 The smaller "Additional Projects" section appears before About Keyan and contains
@@ -317,6 +331,14 @@ python3 -m http.server 4173 --bind 127.0.0.1 --directory github-pages
 
 Open `http://127.0.0.1:4173/hero-options.html`. Preparing the static site again
 removes the preview copy; the source study stays in `design-options/`.
+
+### Project-card hover comparison
+
+`design-options/project-card-hover-options.html` compares three local-only
+whole-card hover directions using production project markup: soft lift, edge
+charge, and light sweep. Copy it into `github-pages/` after preparing the static
+site, then open `/project-card-hover-options.html`. Soft lift is the selected
+production direction; the page preserves the other two explorations.
 
 ## Production build
 

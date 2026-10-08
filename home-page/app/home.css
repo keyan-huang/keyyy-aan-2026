@@ -19,8 +19,8 @@ body {
   opacity: 1;
   visibility: visible;
   transition:
-    opacity 320ms ease,
-    visibility 320ms ease;
+    opacity 700ms cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0s linear 700ms;
 }
 html.portfolio-loading,
 html.portfolio-loading body {
@@ -37,35 +37,75 @@ html.portfolio-loading body {
   gap: 28px;
   width: min(280px, calc(100vw - 48px));
 }
-.portfolio-loader-logo {
-  display: block;
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  animation: portfolio-loader-spin 4s linear infinite;
+.portfolio-loader-art-stage {
+  position: relative;
+  width: 180px;
+  height: 180px;
 }
-.portfolio-loader-meter {
-  appearance: none;
+.portfolio-loader-swap-image {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  filter: drop-shadow(0 12px 18px rgb(17 24 39 / 14%));
+  animation: portfolio-loader-art-swap 5s infinite both;
+  animation-delay: calc(
+    var(--portfolio-loader-art-index) * 1s - 0.2s
+  );
+}
+.portfolio-loader-bar {
   width: 100%;
   height: 8px;
   overflow: hidden;
-  border: 0;
   border-radius: 999px;
   background: #dfe7f1;
   box-shadow: inset 0 1px 2px rgb(17 24 39 / 10%);
 }
-.portfolio-loader-meter::-webkit-progress-bar {
+.portfolio-loader-fill {
+  display: block;
+  width: 0;
+  height: 100%;
   border-radius: inherit;
-  background: #dfe7f1;
+  background: #0c6cd1;
 }
-.portfolio-loader-meter::-webkit-progress-value,
-.portfolio-loader-meter::-moz-progress-bar {
-  border-radius: inherit;
-  background: var(--color-primary);
+.portfolio-loader-meter {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
-@keyframes portfolio-loader-spin {
-  to {
-    transform: rotate(1turn);
+@keyframes portfolio-loader-art-swap {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) rotate(-7deg) scale(0.88);
+  }
+  4% {
+    opacity: 1;
+    transform: translateY(0) rotate(2deg) scale(1.04);
+  }
+  8% {
+    opacity: 1;
+    transform: translateY(0) rotate(-1deg) scale(1);
+  }
+  18% {
+    opacity: 1;
+    transform: translateY(0) rotate(0) scale(1);
+  }
+  22% {
+    opacity: 0;
+    transform: translateY(-16px) rotate(6deg) scale(0.94);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-16px) rotate(6deg) scale(0.94);
   }
 }
 
@@ -214,8 +254,13 @@ p {
   .js .portfolio-loader:not([hidden]) {
     transition: none;
   }
-  .portfolio-loader-logo {
+  .portfolio-loader-swap-image {
     animation: none;
+    opacity: 0;
+  }
+  .portfolio-loader-swap-image:first-child {
+    opacity: 1;
+    transform: none;
   }
   .art-trigger .art {
     transition: none;
@@ -273,13 +318,14 @@ p {
   justify-content: center;
   gap: 9px;
   margin: 0 0 20px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 500;
   line-height: 1.5;
+  transform: translateY(-6px);
 }
 .hero-story .availability-dot {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
   box-shadow: none;
 }
 .hero-story h1 {
@@ -752,7 +798,7 @@ h2 {
   }
   .hero-story .availability {
     margin-bottom: 16px;
-    font-size: 13px;
+    font-size: 15px;
   }
   .hero-story h1 {
     font-size: clamp(24px, 8vw, 36px);

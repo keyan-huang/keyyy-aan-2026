@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Project card hover options | Keyan Huang</title>
+    <link rel="icon" href="/images/imgImage81.png" />
+    <link rel="stylesheet" href="/styles/design-tokens.css" />
+    <link rel="stylesheet" href="/home.css" />
+    <link rel="stylesheet" href="/project-card.css" />
+    <style>
+      body {
+        background: #eef0f4;
+      }
+
+      .hover-preview-header,
+      .hover-options {
+        width: min(1289px, calc(100% - 48px));
+        margin-inline: auto;
+      }
+
+      .hover-preview-header {
+        padding: 48px 0 18px;
+      }
+
+      .hover-preview-eyebrow {
+        color: var(--color-text-muted);
+        font-size: 13px;
+        font-weight: 500;
+        letter-spacing: 0.04em;
+      }
+
+      .hover-preview-header h1 {
+        margin-top: 10px;
+        font: 500 38px/1.15 var(--font-display);
+        letter-spacing: -1px;
+      }
+
+      .hover-preview-header > p:last-child {
+        max-width: 720px;
+        margin-top: 14px;
+        color: var(--color-text-muted);
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .hover-options {
+        padding-bottom: 80px;
+      }
+
+      .hover-option {
+        margin-top: 42px;
+      }
+
+      .hover-option-heading {
+        display: flex;
+        align-items: end;
+        justify-content: space-between;
+        gap: 20px;
+        margin-bottom: 16px;
+      }
+
+      .hover-option-heading h2 {
+        font: 500 25px/1.2 var(--font-display);
+        letter-spacing: -0.5px;
+      }
+
+      .hover-option-heading p {
+        max-width: 650px;
+        margin-top: 8px;
+        color: var(--color-text-muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .hover-option-tag {
+        flex-shrink: 0;
+        padding: 7px 12px;
+        border: 1px solid #c9d8ee;
+        border-radius: 999px;
+        background: #f1f6fd;
+        color: var(--color-primary);
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .hover-demo {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgb(17 24 39 / 3%);
+      }
+
+      .hover-demo .project-description,
+      .hover-demo .project-thumbnail {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hover-demo .project-image {
+        transition: transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .hover-soft-lift {
+        transition:
+          box-shadow 350ms ease,
+          transform 350ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .hover-soft-lift:hover,
+      .hover-soft-lift:focus-within {
+        box-shadow: 0 20px 44px rgb(17 24 39 / 10%);
+        transform: translateY(-6px);
+      }
+
+      .hover-soft-lift:hover .project-image,
+      .hover-soft-lift:focus-within .project-image {
+        transform: scale(1.015);
+      }
+
+      .hover-edge-charge {
+        transition:
+          border-color 350ms ease,
+          box-shadow 350ms ease;
+      }
+
+      .hover-edge-charge::after {
+        content: '';
+        position: absolute;
+        z-index: 2;
+        right: var(--project-card-inset);
+        bottom: 0;
+        left: var(--project-card-inset);
+        height: 3px;
+        border-radius: 999px 999px 0 0;
+        background: linear-gradient(
+          90deg,
+          var(--color-primary),
+          #55a6f2,
+          var(--color-primary)
+        );
+        box-shadow: 0 -4px 14px rgb(12 108 209 / 20%);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .hover-edge-charge:hover,
+      .hover-edge-charge:focus-within {
+        border-color: rgb(12 108 209 / 50%);
+        box-shadow: 0 14px 36px rgb(12 108 209 / 8%);
+        transform: none;
+      }
+
+      .hover-edge-charge:hover::after,
+      .hover-edge-charge:focus-within::after {
+        transform: scaleX(1);
+      }
+
+      .hover-edge-charge:hover .project-image,
+      .hover-edge-charge:focus-within .project-image {
+        transform: translateY(-3px);
+      }
+
+      .hover-edge-charge:hover .project-action,
+      .hover-edge-charge:focus-within .project-action {
+        animation: none;
+      }
+
+      .hover-light-sweep::before {
+        content: '';
+        position: absolute;
+        z-index: 0;
+        inset: 0;
+        background: linear-gradient(
+          112deg,
+          transparent 30%,
+          rgb(12 108 209 / 4%) 42%,
+          rgb(12 108 209 / 13%) 50%,
+          rgb(12 108 209 / 4%) 58%,
+          transparent 70%
+        );
+        transform: translateX(-115%);
+        transition: transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      .hover-light-sweep {
+        transition:
+          border-color 400ms ease,
+          box-shadow 400ms ease;
+      }
+
+      .hover-light-sweep:hover,
+      .hover-light-sweep:focus-within {
+        border-color: rgb(12 108 209 / 38%);
+        box-shadow: 0 16px 36px rgb(17 24 39 / 7%);
+        transform: none;
+      }
+
+      .hover-light-sweep:hover::before,
+      .hover-light-sweep:focus-within::before {
+        transform: translateX(115%);
+      }
+
+      .hover-light-sweep:hover .project-image,
+      .hover-light-sweep:focus-within .project-image {
+        transform: scale(1.01);
+      }
+
+      .hover-light-sweep:hover .project-action,
+      .hover-light-sweep:focus-within .project-action {
+        animation: none;
+      }
+
+      @media (max-width: 700px) {
+        .hover-preview-header,
+        .hover-options {
+          width: calc(100% - 24px);
+        }
+
+        .hover-preview-header {
+          padding-top: 32px;
+        }
+
+        .hover-preview-header h1 {
+          font-size: 30px;
+        }
+
+        .hover-option-heading {
+          align-items: start;
+          flex-direction: column;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .hover-demo,
+        .hover-demo::before,
+        .hover-demo::after,
+        .hover-demo .project-image {
+          transition: none;
+        }
+
+        .hover-demo:hover,
+        .hover-demo:focus-within,
+        .hover-demo:hover .project-image,
+        .hover-demo:focus-within .project-image {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="hover-preview-header">
+      <p class="hover-preview-eyebrow">LOCAL DESIGN STUDY / HOVER EACH CARD</p>
+      <h1>Three subtle project-card hover directions</h1>
+      <p>
+        Every option responds when the pointer enters anywhere inside the card.
+        The real Explore action below uses the compact filled-blue style without
+        an arrow.
+      </p>
+    </header>
+    <main class="hover-options">
+      <section class="hover-option" aria-labelledby="soft-lift-label">
+        <div class="hover-option-heading">
+          <div>
+            <h2 id="soft-lift-label">01 / Soft lift</h2>
+            <p>
+              The card rises six pixels with a broader shadow and a very small
+              image scale. Its neutral border stays unchanged while Explore
+              pulses to suggest the next step.
+            </p>
+          </div>
+          <span class="hover-option-tag">Selected direction</span>
+        </div>
+        <article class="project hover-demo hover-soft-lift">
+          <div class="project-description">
+            <h3>Designing a Dashboard<br />for Action and Analysis</h3>
+            <p>
+              Redesigned a legacy data table into a dashboard that connects
+              actionable work with meaningful analytics.
+            </p>
+            <a
+              class="project-action"
+              href="/performance-discussion-form/index.html"
+            >
+              <span>Explore</span>
+            </a>
+          </div>
+          <div
+            class="project-thumbnail project-thumbnail-performance-discussion-form"
+          >
+            <img
+              class="project-image"
+              src="/performance-discussion-form/thumbnail.png"
+              alt="Performance Discussion Form interface preview"
+            />
+          </div>
+        </article>
+      </section>
+
+      <section class="hover-option" aria-labelledby="edge-charge-label">
+        <div class="hover-option-heading">
+          <div>
+            <h2 id="edge-charge-label">02 / Edge charge</h2>
+            <p>
+              A blue energy line fills across the card edge while the image
+              lifts three pixels. More distinctive without moving the card.
+            </p>
+          </div>
+          <span class="hover-option-tag">Charging</span>
+        </div>
+        <article class="project hover-demo hover-edge-charge">
+          <div class="project-description">
+            <h3>Designing a Dashboard<br />for Action and Analysis</h3>
+            <p>
+              Redesigned a legacy data table into a dashboard that connects
+              actionable work with meaningful analytics.
+            </p>
+            <a
+              class="project-action"
+              href="/performance-discussion-form/index.html"
+            >
+              <span>Explore</span>
+            </a>
+          </div>
+          <div
+            class="project-thumbnail project-thumbnail-performance-discussion-form"
+          >
+            <img
+              class="project-image"
+              src="/performance-discussion-form/thumbnail.png"
+              alt="Performance Discussion Form interface preview"
+            />
+          </div>
+        </article>
+      </section>
+
+      <section class="hover-option" aria-labelledby="light-sweep-label">
+        <div class="hover-option-heading">
+          <div>
+            <h2 id="light-sweep-label">03 / Light sweep</h2>
+            <p>
+              A restrained blue highlight travels across the card while the
+              thumbnail scales one percent. The most visual, but still quiet.
+            </p>
+          </div>
+          <span class="hover-option-tag">Energy</span>
+        </div>
+        <article class="project hover-demo hover-light-sweep">
+          <div class="project-description">
+            <h3>Designing a Dashboard<br />for Action and Analysis</h3>
+            <p>
+              Redesigned a legacy data table into a dashboard that connects
+              actionable work with meaningful analytics.
+            </p>
+            <a
+              class="project-action"
+              href="/performance-discussion-form/index.html"
+            >
+              <span>Explore</span>
+            </a>
+          </div>
+          <div
+            class="project-thumbnail project-thumbnail-performance-discussion-form"
+          >
+            <img
+              class="project-image"
+              src="/performance-discussion-form/thumbnail.png"
+              alt="Performance Discussion Form interface preview"
+            />
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

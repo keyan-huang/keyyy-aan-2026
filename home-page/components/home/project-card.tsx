@@ -1,6 +1,5 @@
 import './project-card.css';
 
-import { ArrowRight } from 'lucide-react';
 import { ResponsiveImage } from '@/components/shared/responsive-image';
 import { imageSizes } from '@/public/scripts/responsive-images.js';
 import type { ProjectSummary } from '@/content/projects/types';
@@ -9,12 +8,7 @@ function ProjectAction({
   href,
   status,
 }: Pick<ProjectSummary, 'href' | 'status'>) {
-  const content = (
-    <>
-      <span>Explore</span>
-      <ArrowRight aria-hidden="true" size={22} strokeWidth={2} />
-    </>
-  );
+  const content = <span>Explore</span>;
 
   return href ? (
     <a className="project-action" href={href}>

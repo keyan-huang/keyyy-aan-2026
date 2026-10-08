@@ -147,9 +147,10 @@ await test('all homepage project actions sit with the introduction before the th
     );
     const [action] = byClass(description, 'project-action');
     assert.equal(attr(action, 'href'), destinations[index]);
+    assert.equal(text(action).replace(/\s+/g, ' ').trim(), 'Explore');
     assert.equal(
-      text(action.childNodes.find((node) => node.tagName === 'span')),
-      'Explore',
+      findAll(action, (node) => node.tagName === 'span').length,
+      0,
     );
     assert.equal(byClass(card, 'project-action').length, 1);
   });
