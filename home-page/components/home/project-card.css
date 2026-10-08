@@ -1,5 +1,5 @@
 .project {
-  --project-card-inset: 40px;
+  --project-card-inset: 28px;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
   gap: 40px;
@@ -151,7 +151,7 @@
 }
 
 .project.project--compact {
-  --project-card-inset: 24px;
+  --project-card-inset: 28px;
   min-height: 0;
   gap: 24px 32px;
 }
@@ -188,7 +188,7 @@
 
 @media (max-width: 760px) {
   .project {
-    --project-card-inset: 24px;
+    --project-card-inset: 28px;
     grid-template-columns: minmax(0, 1fr);
     gap: 28px;
     min-height: 0;

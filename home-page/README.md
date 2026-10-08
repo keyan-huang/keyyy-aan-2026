@@ -31,7 +31,8 @@ the corresponding homepage list will render it.
 All homepage project cards place the title, introduction, and action in a left
 text column beside the thumbnail on the right. The text and action form a compact
 group centered vertically beside the image. Featured cards use a 340px-high
-thumbnail area on desktop, with 40px card padding. The title-to-description gap is 16px, and Explore sits 24px
+thumbnail area on desktop. Every featured and compact project card uses 28px
+padding at desktop, tablet, and mobile sizes. The title-to-description gap is 16px, and Explore sits 24px
 below the description rather than being pushed to the bottom of the image.
 Explore buttons fit their text without a minimum width or arrow icon, use compact
 14px horizontal padding, and retain a minimum 44px touch target. Their default
@@ -91,7 +92,7 @@ synchronized in `app/page.tsx` and `static/index.html`; their metadata lives in
 `content/projects/`. The top navigation contains Work, About, and Contact.
 The section retains `#fun`, preserving previously shared anchors.
 
-Additional cards use `ProjectCard` with `compact` enabled: 24px padding,
+Additional cards use `ProjectCard` with `compact` enabled: 28px padding,
 24px titles, 16px summaries, and 180px-high thumbnail areas with images capped
 at 280px wide. The section heading is 32px on desktop and 24px on mobile,
 smaller than Selected Projects. On mobile, compact titles reduce to 22px and
