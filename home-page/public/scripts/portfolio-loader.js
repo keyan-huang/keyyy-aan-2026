@@ -15,7 +15,6 @@ export function mountPortfolioLoader(loader) {
   let settled = 0;
   let dismissed = false;
   let hideTimer;
-  let progressTimer;
 
   document.documentElement.classList.add('portfolio-loading');
 
@@ -109,7 +108,7 @@ export function mountPortfolioLoader(loader) {
     settled = resources;
   }, 15000);
   update(0);
-  progressTimer = setInterval(animateProgress, 50);
+  const progressTimer = setInterval(animateProgress, 50);
   animateProgress();
 
   return () => {
