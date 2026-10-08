@@ -233,8 +233,8 @@ p {
 .hero-story-summary {
   max-width: 760px;
   margin: 0 auto;
-  color: var(--color-text-muted);
-  font-size: 24px;
+  color: var(--color-text);
+  font-size: 26px;
   line-height: 1.55;
   opacity: 0;
   text-wrap: pretty;
@@ -715,7 +715,7 @@ h2 {
     letter-spacing: -0.025em;
   }
   .hero-story-summary {
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.55;
   }
   .hero-story + .projects {

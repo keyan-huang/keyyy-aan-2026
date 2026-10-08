@@ -1,6 +1,13 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <script>
+      if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+      scrollTo(0, 0);
+      addEventListener('pageshow', () =>
+        requestAnimationFrame(() => scrollTo(0, 0)),
+      );
+    </script>
     <!-- Google tag (gtag.js) -->
     <script
       async
@@ -52,10 +59,10 @@
     <link rel="icon" href="/images/imgImage81.png" />
     <link rel="stylesheet" href="/styles/design-tokens.css" />
     <link rel="stylesheet" href="/styles/site-shell.css" />
-    <link rel="stylesheet" href="/home.css?v=availability-dot-v1" />
+    <link rel="stylesheet" href="/home.css?v=summary-v1" />
     <link
       rel="stylesheet"
-      href="/project-card.css?v=uniform-padding-v1"
+      href="/project-card.css?v=clickable-card-v1"
     />
     <script src="/scripts/site-shell.js" defer></script>
   </head>
@@ -264,18 +271,18 @@
         <h2>Selected Projects</h2>
         <div class="project-list">
           <article class="project">
+            <a
+              class="project-card-link"
+              href="/performance-discussion-form/index.html"
+              aria-label="Explore Designing a Dashboard for Action and Analysis"
+            ></a>
             <div class="project-description">
               <h3>Designing a Dashboard<br />for Action and Analysis</h3>
               <p>
                 Redesigned a legacy data table into a dashboard that connects
                 actionable work with meaningful analytics.
               </p>
-              <a
-                class="project-action"
-                href="/performance-discussion-form/index.html"
-              >
-                Explore
-              </a>
+              <span class="project-action" aria-hidden="true">Explore</span>
             </div>
             <div
               class="project-thumbnail project-thumbnail-performance-discussion-form"
@@ -288,6 +295,11 @@
             </div>
           </article>
           <article class="project">
+            <a
+              class="project-card-link"
+              href="/paf-redesign/index.html"
+              aria-label="Explore Re-architecting the End-to-End Personal Action Workflow"
+            ></a>
             <div class="project-description">
               <h3>
                 Re-architecting the End&#8209;to&#8209;End<br />Personal Action
@@ -297,9 +309,7 @@
                 Rebuilt the system behind hundreds of thousands of decisions
                 that shape employees’ careers.
               </p>
-              <a class="project-action" href="/paf-redesign/index.html">
-                Explore
-              </a>
+              <span class="project-action" aria-hidden="true">Explore</span>
             </div>
             <div class="project-thumbnail project-thumbnail-paf-redesign">
               <img
@@ -315,18 +325,18 @@
         <h2>Additional Projects</h2>
         <div class="project-list">
           <article class="project project--compact">
+            <a
+              class="project-card-link"
+              href="/dashboard-customization-user-testing/index.html"
+              aria-label="Explore Dashboard Customization Testing Study"
+            ></a>
             <div class="project-description">
               <h3>Dashboard Customization<br />Testing Study</h3>
               <p>
                 Compared two ways to customize a dashboard, with 15 participants
                 helping shape the final direction.
               </p>
-              <a
-                class="project-action"
-                href="/dashboard-customization-user-testing/index.html"
-              >
-                Explore
-              </a>
+              <span class="project-action" aria-hidden="true">Explore</span>
             </div>
             <div
               class="project-thumbnail project-thumbnail-dashboard-customization-user-testing"
@@ -342,13 +352,18 @@
             </div>
           </article>
           <article class="project project--compact">
+            <a
+              class="project-card-link"
+              href="/eggv/index.html"
+              aria-label="Explore Hackathon Toyota Challenge Winner - EggV"
+            ></a>
             <div class="project-description">
               <h3>Hackathon Toyota Challenge Winner - EggV</h3>
               <p>
                 Designed and delivered within 24 hours to empower EV owners with
                 energy insights and gamified motivation.
               </p>
-              <a class="project-action" href="/eggv/index.html">Explore</a>
+              <span class="project-action" aria-hidden="true">Explore</span>
             </div>
             <div class="project-thumbnail project-thumbnail-eggv">
               <img
@@ -362,6 +377,11 @@
             </div>
           </article>
           <article class="project project--compact">
+            <a
+              class="project-card-link"
+              href="/plastic-universe/index.html"
+              aria-label="Explore Plastic Universe"
+            ></a>
             <div class="project-description">
               <h3>Plastic Universe</h3>
               <p>
@@ -369,9 +389,7 @@
                 playful characters, illustrated stories, and an interactive
                 exhibition.
               </p>
-              <a class="project-action" href="/plastic-universe/index.html">
-                Explore
-              </a>
+              <span class="project-action" aria-hidden="true">Explore</span>
             </div>
             <div class="project-thumbnail project-thumbnail-plastic-universe">
               <img

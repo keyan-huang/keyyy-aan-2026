@@ -132,8 +132,10 @@ await test('all homepage project actions sit with the introduction before the th
   ];
   cards.forEach((card, index) => {
     const children = card.childNodes.filter((node) => node.tagName);
-    assert.equal(children.length, 2);
-    const [description, thumbnail] = children;
+    assert.equal(children.length, 3);
+    const [cardLink, description, thumbnail] = children;
+    assert.equal(attr(cardLink, 'class'), 'project-card-link');
+    assert.equal(attr(cardLink, 'href'), destinations[index]);
     assert.equal(attr(description, 'class'), 'project-description');
     assert.ok(
       attr(thumbnail, 'class').split(' ').includes('project-thumbnail'),
@@ -142,16 +144,13 @@ await test('all homepage project actions sit with the introduction before the th
       description.childNodes
         .filter((node) => node.tagName)
         .map((node) => node.tagName),
-      ['h3', 'p', 'a'],
+      ['h3', 'p', 'span'],
     );
     const [action] = byClass(description, 'project-action');
-    assert.equal(attr(action, 'href'), destinations[index]);
+    assert.equal(action.tagName, 'span');
     assert.equal(text(action).replace(/\s+/g, ' ').trim(), 'Explore');
-    assert.equal(
-      findAll(action, (node) => node.tagName === 'span').length,
-      0,
-    );
     assert.equal(byClass(card, 'project-action').length, 1);
+    assert.equal(byClass(card, 'project-card-link').length, 1);
   });
 });
 
@@ -189,7 +188,8 @@ await test('PAF titles keep End-to-End together across homepage and case studies
 await test('EggV uses the compact shared layout and requested title and action', () => {
   const card = byClass(homepage, 'project--compact').find(
     (node) =>
-      attr(byClass(node, 'project-action')[0], 'href') === '/eggv/index.html',
+      attr(byClass(node, 'project-card-link')[0], 'href') ===
+      '/eggv/index.html',
   );
   assert.ok(attr(card, 'class').split(' ').includes('project'));
   const [description] = byClass(card, 'project-description');
@@ -219,15 +219,12 @@ await test('EggV uses the compact shared layout and requested title and action',
   assert.equal(attr(images[0], 'height'), '982');
   assert.equal(attr(images[0], 'loading'), 'lazy');
   assert.match(attr(images[0], 'alt'), /EggV artwork with a green dinosaur/);
-  assert.doesNotMatch(text(thumbnail), /placeholder/i);
+  assert.doesNotMatch(text(thumbnail), /placeholder/i  );
   const [action] = byClass(card, 'project-action');
-  assert.equal(action.tagName, 'a');
-  assert.equal(attr(action, 'href'), '/eggv/index.html');
+  assert.equal(action.tagName, 'span');
   assert.equal(text(action).replace(/\s+/g, ' ').trim(), 'Explore');
-  assert.equal(
-    findAll(action, (node) => node.tagName === 'span').length,
-    0,
-  );
+  const [cardLink] = byClass(card, 'project-card-link');
+  assert.equal(attr(cardLink, 'href'), '/eggv/index.html');
 });
 
 await test('EggV thumbnail retains the native Figma export dimensions', async () => {

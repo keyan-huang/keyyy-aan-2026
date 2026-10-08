@@ -38,7 +38,10 @@ Explore buttons fit their text without a minimum width or arrow icon, use compac
 14px horizontal padding, and retain a minimum 44px touch target. Their default
 style is the filled primary-blue pill. Hovering anywhere on a card adds a
 six-pixel soft lift and makes its Explore button pulse between the primary and
-hover blues; the neutral card border does not change color.
+hover blues; the neutral card border does not change color. The existing Explore
+destination is exposed through one full-card anchor, so the title, body,
+whitespace, thumbnail, and visible Explore label all open the same project while
+preserving one keyboard-focus target.
 At 760px and below, the text and action stack above the image. The shared layout
 lives in `components/home/project-card.css`; images fit without cropping and
 titles wrap naturally on small screens. The Dashboard study retains its 90%
@@ -63,7 +66,8 @@ lines and availability text inside a mirrored 5–2–5 grid of twelve illustrat
 The summary is present but hidden. The copy area stays centered at 50% of the
 sticky frame in both states. Scrolling keeps that center fixed,
 crossfades the headline and availability out, brings the illustrations into an
-evenly spaced organic halo, and reveals only the centered 24px summary.
+evenly spaced organic halo, and reveals only the centered 26px summary in the
+same `--color-text` used by the hero title. Mobile uses 20px.
 `text-wrap: pretty` plus a nonbreaking "deeply human" prevents a one-word final
 line. Reduced-motion users switch between the two states at the midpoint.
 The hero availability line is 18px on desktop, 17px on mobile, and sits 6px
@@ -76,6 +80,9 @@ slow 5–7 second floating cycle; reduced-motion mode disables that movement.
 Mobile scales the same composition without allowing artwork to overlap the
 summary column. Keep the artwork data and order synchronized between the React
 component and `static/index.html`.
+Both entry points set `history.scrollRestoration` to `manual` before paint and
+reset to `scrollY = 0` on `pageshow`, so refreshes and browser-restored visits
+always begin at the hero.
 The sticky track uses 2200px/240svh on desktop and 1800px/220svh on mobile.
 The animation completes across the first 65% of that distance, leaving the final
 35% as a pinned reading interval before Selected Projects.

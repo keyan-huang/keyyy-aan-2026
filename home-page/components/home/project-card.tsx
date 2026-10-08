@@ -11,9 +11,9 @@ function ProjectAction({
   const content = <span>Explore</span>;
 
   return href ? (
-    <a className="project-action" href={href}>
+    <span className="project-action" aria-hidden="true">
       {content}
-    </a>
+    </span>
   ) : (
     <button
       className="project-action"
@@ -34,6 +34,13 @@ export function ProjectCard({
 }) {
   return (
     <article className={`project${compact ? ' project--compact' : ''}`}>
+      {project.href && (
+        <a
+          className="project-card-link"
+          href={project.href}
+          aria-label={`Explore ${project.title}`}
+        />
+      )}
       <div className="project-description">
         <h3>
           {project.titleLines ? (

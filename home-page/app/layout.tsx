@@ -13,6 +13,14 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "if('scrollRestoration' in history)history.scrollRestoration='manual';scrollTo(0,0);addEventListener('pageshow',()=>requestAnimationFrame(()=>scrollTo(0,0)));",
+          }}
+        />
+      </head>
       <body>{children}</body>
     </html>
   );
