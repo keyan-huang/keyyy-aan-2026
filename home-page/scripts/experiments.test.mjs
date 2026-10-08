@@ -94,7 +94,7 @@ await test('Additional Projects groups the Dashboard study, EggV, and Plastic Un
   const featured = byClass(sections[index - 1], 'project');
   assert.equal(featured.length, 2);
   assert.deepEqual(
-    featured.map((card) => attr(byClass(card, 'project-action')[0], 'href')),
+    featured.map((card) => attr(byClass(card, 'project-card-link')[0], 'href')),
     ['/performance-discussion-form/index.html', '/paf-redesign/index.html'],
   );
   assert.equal(byClass(sections[index - 1], 'project--compact').length, 0);
