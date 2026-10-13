@@ -134,46 +134,112 @@ export function mountHeroScrollStory(section) {
     });
   };
 
-  // Settle only within the two hero states. Keep the existing scroll-driven
-  // artwork interpolation, and allow normal scrolling into the projects below.
+  // Settle only within the two hero states. The last direction wins so the
+  // artwork continues with the user's momentum instead of falling back to the
+  // nearest state. A short custom animation avoids the pause and long easing
+  // tail of the browser's generic smooth-scroll behavior.
   let settleTimer;
   let snapping = false;
-  let snapReleaseTimer;
-  const settleHero = () => {
-    if (snapping || controller.signal.aborted) return;
+  let snapFrame;
+  let lastScrollY = window.scrollY;
+  let lastDirection = 0;
+
+  const getHeroBounds = () => {
     const stickyTop = Number.parseFloat(getComputedStyle(stage).top) || 0;
     const travel = Math.max(track.offsetHeight - stage.clientHeight, 1);
-    const start = window.scrollY + track.getBoundingClientRect().top - stickyTop;
-    const finish = start + travel * 0.65;
+    const start =
+      window.scrollY + track.getBoundingClientRect().top - stickyTop;
+    return { start, finish: start + travel * 0.65 };
+  };
+
+  const cancelSnap = () => {
+    if (snapFrame) cancelAnimationFrame(snapFrame);
+    snapFrame = undefined;
+    snapping = false;
+  };
+
+  const animateSnap = (destination) => {
+    const origin = window.scrollY;
+    const distance = destination - origin;
+    if (Math.abs(distance) < 2 || reducedMotion.matches) {
+      window.scrollTo(0, Math.max(0, destination));
+      return;
+    }
+
+    snapping = true;
+    const startedAt = performance.now();
+    const duration = clamp(145 + Math.abs(distance) * 0.16, 170, 285);
+
+    const step = (now) => {
+      if (!snapping || controller.signal.aborted) return;
+      const elapsed = clamp((now - startedAt) / duration);
+      const eased = 1 - (1 - elapsed) ** 3;
+      window.scrollTo(0, origin + distance * eased);
+      if (elapsed < 1) {
+        snapFrame = requestAnimationFrame(step);
+      } else {
+        snapFrame = undefined;
+        snapping = false;
+      }
+    };
+
+    snapFrame = requestAnimationFrame(step);
+  };
+
+  const settleHero = () => {
+    if (snapping || controller.signal.aborted) return;
+    const { start, finish } = getHeroBounds();
     const current = window.scrollY;
     // Do not pull the user back into the hero after they've scrolled past it.
     if (current < start - 8 || current > finish + 60) return;
-    const destination = current < (start + finish) / 2 ? start : finish;
-    if (Math.abs(current - destination) < 3) return;
-    snapping = true;
-    window.scrollTo({
-      top: Math.max(0, destination),
-      behavior: reducedMotion.matches ? 'instant' : 'smooth',
-    });
-    clearTimeout(snapReleaseTimer);
-    snapReleaseTimer = setTimeout(() => {
-      snapping = false;
-    }, reducedMotion.matches ? 50 : 750);
+    const destination =
+      lastDirection > 0
+        ? finish
+        : lastDirection < 0
+          ? start
+          : current < (start + finish) / 2
+            ? start
+            : finish;
+    animateSnap(destination);
   };
   const scheduleSettle = () => {
     if (snapping) return;
     clearTimeout(settleTimer);
-    settleTimer = setTimeout(settleHero, 170);
+    // One missed animation frame is enough to treat the gesture as released.
+    // This keeps the snap visually attached to the user's existing momentum.
+    settleTimer = setTimeout(settleHero, 18);
+  };
+  const handleScroll = () => {
+    const current = window.scrollY;
+    const delta = current - lastScrollY;
+    if (!snapping && Math.abs(delta) > 0.5) {
+      lastDirection = Math.sign(delta);
+    }
+    lastScrollY = current;
+    render();
+    scheduleSettle();
+  };
+  const handleWheel = (event) => {
+    if (snapping) cancelSnap();
+    if (Math.abs(event.deltaY) > 0.5) lastDirection = Math.sign(event.deltaY);
+  };
+  const handleTouchStart = () => {
+    if (snapping) cancelSnap();
   };
 
   const observer = new ResizeObserver(render);
   observer.observe(stage);
   observer.observe(track);
-  addEventListener('scroll', render, {
+  addEventListener('scroll', handleScroll, {
     ...listenerOptions,
     passive: true,
   });
-  addEventListener('scroll', scheduleSettle, {
+  addEventListener('scrollend', settleHero, listenerOptions);
+  addEventListener('wheel', handleWheel, {
+    ...listenerOptions,
+    passive: true,
+  });
+  addEventListener('touchstart', handleTouchStart, {
     ...listenerOptions,
     passive: true,
   });
@@ -183,7 +249,7 @@ export function mountHeroScrollStory(section) {
   return () => {
     controller.abort();
     clearTimeout(settleTimer);
-    clearTimeout(snapReleaseTimer);
+    cancelSnap();
     observer.disconnect();
   };
 }
