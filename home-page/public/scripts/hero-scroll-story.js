@@ -134,10 +134,46 @@ export function mountHeroScrollStory(section) {
     });
   };
 
+  // Settle only within the two hero states. Keep the existing scroll-driven
+  // artwork interpolation, and allow normal scrolling into the projects below.
+  let settleTimer;
+  let snapping = false;
+  let snapReleaseTimer;
+  const settleHero = () => {
+    if (snapping || controller.signal.aborted) return;
+    const stickyTop = Number.parseFloat(getComputedStyle(stage).top) || 0;
+    const travel = Math.max(track.offsetHeight - stage.clientHeight, 1);
+    const start = window.scrollY + track.getBoundingClientRect().top - stickyTop;
+    const finish = start + travel * 0.65;
+    const current = window.scrollY;
+    // Do not pull the user back into the hero after they've scrolled past it.
+    if (current < start - 8 || current > finish + 60) return;
+    const destination = current < (start + finish) / 2 ? start : finish;
+    if (Math.abs(current - destination) < 3) return;
+    snapping = true;
+    window.scrollTo({
+      top: Math.max(0, destination),
+      behavior: reducedMotion.matches ? 'instant' : 'smooth',
+    });
+    clearTimeout(snapReleaseTimer);
+    snapReleaseTimer = setTimeout(() => {
+      snapping = false;
+    }, reducedMotion.matches ? 50 : 750);
+  };
+  const scheduleSettle = () => {
+    if (snapping) return;
+    clearTimeout(settleTimer);
+    settleTimer = setTimeout(settleHero, 170);
+  };
+
   const observer = new ResizeObserver(render);
   observer.observe(stage);
   observer.observe(track);
   addEventListener('scroll', render, {
+    ...listenerOptions,
+    passive: true,
+  });
+  addEventListener('scroll', scheduleSettle, {
     ...listenerOptions,
     passive: true,
   });
@@ -146,6 +182,8 @@ export function mountHeroScrollStory(section) {
 
   return () => {
     controller.abort();
+    clearTimeout(settleTimer);
+    clearTimeout(snapReleaseTimer);
     observer.disconnect();
   };
 }
